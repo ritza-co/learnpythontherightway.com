@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>book</title>
+    <meta name="description" content="learn python the right way">
+
+    <style type="text/css">
+        figure {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 90%;
+            text-align: center;
+            font-size: 80%;
+        }
+
+        img {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+	</style>
+<style type="text/css">
+	:root{--background-body:#fff;--background:#efefef;--background-alt:#f7f7f7;--selection:#9e9e9e;--text-main:#363636;--text-bright:#000;--text-muted:#70777f;--links:#0076d1;--focus:rgba(0,150,191,0.67);--border:#dbdbdb;--code:#000;--animation-duration:0.1s;--button-hover:#ddd;--scrollbar-thumb:#d5d5d5;--scrollbar-thumb-hover:#c4c4c4;--form-placeholder:#949494;--form-text:#000;--variable:#39a33c;--highlight:#ff0;--select-arrow:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23161f27'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E")}@media (prefers-color-scheme:dark){:root{--background-body:#202b38;--background:#161f27;--background-alt:#1a242f;--selection:#1c76c5;--text-main:#dbdbdb;--text-bright:#fff;--text-muted:#a9b1ba;--links:#41adff;--focus:rgba(0,150,191,0.67);--border:#526980;--code:#ffbe85;--animation-duration:0.1s;--button-hover:#324759;--scrollbar-thumb:var(--button-hover);--scrollbar-thumb-hover:#141414;--form-placeholder:#a9a9a9;--form-text:#fff;--variable:#d941e2;--highlight:#efdb43;--select-arrow:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23efefef'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E")}}html{scrollbar-color:#d5d5d5 #fff;scrollbar-color:var(--scrollbar-thumb) var(--background-body);scrollbar-width:thin}@media (prefers-color-scheme:dark){html{scrollbar-color:#324759 #202b38;scrollbar-color:var(--scrollbar-thumb) var(--background-body)}}body{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Segoe UI Emoji,Apple Color Emoji,Noto Color Emoji,sans-serif;line-height:1.4;max-width:800px;margin:20px auto;padding:0 10px;word-wrap:break-word;color:#363636;color:var(--text-main);background:#fff;background:var(--background-body);text-rendering:optimizeLegibility}@media (prefers-color-scheme:dark){body{background:#202b38;background:var(--background-body);color:#dbdbdb;color:var(--text-main)}}button{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}@media (prefers-color-scheme:dark){button{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}}input{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}@media (prefers-color-scheme:dark){input{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}}textarea{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}@media (prefers-color-scheme:dark){textarea{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}}h1{font-size:2.2em;margin-top:0}h1,h2,h3,h4,h5,h6{margin-bottom:12px;margin-top:24px}h1{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h1{color:#fff;color:var(--text-bright)}}h2{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h2{color:#fff;color:var(--text-bright)}}h3{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h3{color:#fff;color:var(--text-bright)}}h4{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h4{color:#fff;color:var(--text-bright)}}h5{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h5{color:#fff;color:var(--text-bright)}}h6{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h6{color:#fff;color:var(--text-bright)}}strong{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){strong{color:#fff;color:var(--text-bright)}}b,h1,h2,h3,h4,h5,h6,strong,th{font-weight:600}q:after,q:before{content:none}blockquote{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus);margin:1.5em 0;padding:.5em 1em;font-style:italic}@media (prefers-color-scheme:dark){blockquote{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus)}}q{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus);margin:1.5em 0;padding:.5em 1em;font-style:italic}@media (prefers-color-scheme:dark){q{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus)}}blockquote>footer{font-style:normal;border:0}address,blockquote cite{font-style:normal}a[href^=mailto\:]:before{content:"📧 "}a[href^=tel\:]:before{content:"📞 "}a[href^=sms\:]:before{content:"💬 "}mark{background-color:#ff0;background-color:var(--highlight);border-radius:2px;padding:0 2px;color:#000}@media (prefers-color-scheme:dark){mark{background-color:#efdb43;background-color:var(--highlight)}}button,input[type=button],input[type=checkbox],input[type=radio],input[type=range],input[type=submit],select{cursor:pointer}input:not([type=checkbox]):not([type=radio]),select{display:block}input{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){input{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}button{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){button{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}textarea{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){textarea{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}select{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){select{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}input[type=checkbox],input[type=radio]{height:1em;width:1em}input[type=radio]{border-radius:100%}input{vertical-align:top}label{vertical-align:middle;margin-bottom:4px;display:inline-block}button,input:not([type=checkbox]):not([type=radio]),input[type=range],select,textarea{-webkit-appearance:none}textarea{display:block;margin-right:0;box-sizing:border-box;resize:vertical}textarea:not([cols]){width:100%}textarea:not([rows]){min-height:40px;height:140px}select{background:#efefef url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23161f27'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E") calc(100% - 12px) 50%/12px no-repeat;background:var(--background) var(--select-arrow) calc(100% - 12px) 50%/12px no-repeat;padding-right:35px}@media (prefers-color-scheme:dark){select{background:#161f27 url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23efefef'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E") calc(100% - 12px) 50%/12px no-repeat;background:var(--background) var(--select-arrow) calc(100% - 12px) 50%/12px no-repeat}}select::-ms-expand{display:none}select[multiple]{padding-right:10px;background-image:none;overflow-y:auto}button,input[type=button],input[type=submit]{padding-right:30px;padding-left:30px}button:hover{background:#ddd;background:var(--button-hover)}@media (prefers-color-scheme:dark){button:hover{background:#324759;background:var(--button-hover)}}input[type=submit]:hover{background:#ddd;background:var(--button-hover)}@media (prefers-color-scheme:dark){input[type=submit]:hover{background:#324759;background:var(--button-hover)}}input[type=button]:hover{background:#ddd;background:var(--button-hover)}@media (prefers-color-scheme:dark){input[type=button]:hover{background:#324759;background:var(--button-hover)}}input:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){input:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}select:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){select:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}button:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){button:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}textarea:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){textarea:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}button:active,input[type=button]:active,input[type=checkbox]:active,input[type=radio]:active,input[type=range]:active,input[type=submit]:active{transform:translateY(2px)}button:disabled,input:disabled,select:disabled,textarea:disabled{cursor:not-allowed;opacity:.5}::-moz-placeholder{color:#949494;color:var(--form-placeholder)}:-ms-input-placeholder{color:#949494;color:var(--form-placeholder)}::-ms-input-placeholder{color:#949494;color:var(--form-placeholder)}::placeholder{color:#949494;color:var(--form-placeholder)}@media (prefers-color-scheme:dark){::-moz-placeholder{color:#a9a9a9;color:var(--form-placeholder)}:-ms-input-placeholder{color:#a9a9a9;color:var(--form-placeholder)}::-ms-input-placeholder{color:#a9a9a9;color:var(--form-placeholder)}::placeholder{color:#a9a9a9;color:var(--form-placeholder)}}fieldset{border:1px solid rgba(0,150,191,.67);border:1px solid var(--focus);border-radius:6px;margin:0 0 12px;padding:10px}@media (prefers-color-scheme:dark){fieldset{border:1px solid rgba(0,150,191,.67);border:1px solid var(--focus)}}legend{font-size:.9em;font-weight:600}input[type=range]{margin:10px 0;padding:10px 0;background:transparent}input[type=range]:focus{outline:none}input[type=range]::-webkit-slider-runnable-track{width:100%;height:9.5px;-webkit-transition:.2s;transition:.2s;background:#efefef;background:var(--background);border-radius:3px}@media (prefers-color-scheme:dark){input[type=range]::-webkit-slider-runnable-track{background:#161f27;background:var(--background)}}input[type=range]::-webkit-slider-thumb{box-shadow:0 1px 1px #000,0 0 1px #0d0d0d;height:20px;width:20px;border-radius:50%;background:#dbdbdb;background:var(--border);-webkit-appearance:none;margin-top:-7px}@media (prefers-color-scheme:dark){input[type=range]::-webkit-slider-thumb{background:#526980;background:var(--border)}}input[type=range]:focus::-webkit-slider-runnable-track{background:#efefef;background:var(--background)}@media (prefers-color-scheme:dark){input[type=range]:focus::-webkit-slider-runnable-track{background:#161f27;background:var(--background)}}input[type=range]::-moz-range-track{width:100%;height:9.5px;-moz-transition:.2s;transition:.2s;background:#efefef;background:var(--background);border-radius:3px}@media (prefers-color-scheme:dark){input[type=range]::-moz-range-track{background:#161f27;background:var(--background)}}input[type=range]::-moz-range-thumb{box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d;height:20px;width:20px;border-radius:50%;background:#dbdbdb;background:var(--border)}@media (prefers-color-scheme:dark){input[type=range]::-moz-range-thumb{background:#526980;background:var(--border)}}input[type=range]::-ms-track{width:100%;height:9.5px;background:transparent;border-color:transparent;border-width:16px 0;color:transparent}input[type=range]::-ms-fill-lower{background:#efefef;background:var(--background);border:.2px solid #010101;border-radius:3px;box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d}@media (prefers-color-scheme:dark){input[type=range]::-ms-fill-lower{background:#161f27;background:var(--background)}}input[type=range]::-ms-fill-upper{background:#efefef;background:var(--background);border:.2px solid #010101;border-radius:3px;box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d}@media (prefers-color-scheme:dark){input[type=range]::-ms-fill-upper{background:#161f27;background:var(--background)}}input[type=range]::-ms-thumb{box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d;border:1px solid #000;height:20px;width:20px;border-radius:50%;background:#dbdbdb;background:var(--border)}@media (prefers-color-scheme:dark){input[type=range]::-ms-thumb{background:#526980;background:var(--border)}}input[type=range]:focus::-ms-fill-lower{background:#efefef;background:var(--background)}@media (prefers-color-scheme:dark){input[type=range]:focus::-ms-fill-lower{background:#161f27;background:var(--background)}}input[type=range]:focus::-ms-fill-upper{background:#efefef;background:var(--background)}@media (prefers-color-scheme:dark){input[type=range]:focus::-ms-fill-upper{background:#161f27;background:var(--background)}}a{text-decoration:none;color:#0076d1;color:var(--links)}@media (prefers-color-scheme:dark){a{color:#41adff;color:var(--links)}}a:hover{text-decoration:underline}code{background:#efefef;background:var(--background);color:#000;color:var(--code);padding:2.5px 5px;border-radius:6px;font-size:1em}@media (prefers-color-scheme:dark){code{color:#ffbe85;color:var(--code);background:#161f27;background:var(--background)}}samp{background:#efefef;background:var(--background);color:#000;color:var(--code);padding:2.5px 5px;border-radius:6px;font-size:1em}@media (prefers-color-scheme:dark){samp{color:#ffbe85;color:var(--code);background:#161f27;background:var(--background)}}time{background:#efefef;background:var(--background);color:#000;color:var(--code);padding:2.5px 5px;border-radius:6px;font-size:1em}@media (prefers-color-scheme:dark){time{color:#ffbe85;color:var(--code);background:#161f27;background:var(--background)}}pre>code{padding:10px;display:block;overflow-x:auto}var{color:#39a33c;color:var(--variable);font-style:normal;font-family:monospace}@media (prefers-color-scheme:dark){var{color:#d941e2;color:var(--variable)}}kbd{background:#efefef;background:var(--background);border:1px solid #dbdbdb;border:1px solid var(--border);border-radius:2px;color:#363636;color:var(--text-main);padding:2px 4px}@media (prefers-color-scheme:dark){kbd{color:#dbdbdb;color:var(--text-main);border:1px solid #526980;border:1px solid var(--border);background:#161f27;background:var(--background)}}img,video{max-width:100%;height:auto}hr{border:none;border-top:1px solid #dbdbdb;border-top:1px solid var(--border)}@media (prefers-color-scheme:dark){hr{border-top:1px solid #526980;border-top:1px solid var(--border)}}table{border-collapse:collapse;margin-bottom:10px;width:100%;table-layout:fixed}table caption,td,th{text-align:left}td,th{padding:6px;vertical-align:top;word-wrap:break-word}thead{border-bottom:1px solid #dbdbdb;border-bottom:1px solid var(--border)}@media (prefers-color-scheme:dark){thead{border-bottom:1px solid #526980;border-bottom:1px solid var(--border)}}tfoot{border-top:1px solid #dbdbdb;border-top:1px solid var(--border)}@media (prefers-color-scheme:dark){tfoot{border-top:1px solid #526980;border-top:1px solid var(--border)}}tbody tr:nth-child(2n){background-color:#f7f7f7;background-color:var(--background-alt)}@media (prefers-color-scheme:dark){tbody tr:nth-child(2n){background-color:#1a242f;background-color:var(--background-alt)}}::-webkit-scrollbar{height:10px;width:10px}::-webkit-scrollbar-track{background:#efefef;background:var(--background);border-radius:6px}@media (prefers-color-scheme:dark){::-webkit-scrollbar-track{background:#161f27;background:var(--background)}}::-webkit-scrollbar-thumb{background:#d5d5d5;background:var(--scrollbar-thumb);border-radius:6px}@media (prefers-color-scheme:dark){::-webkit-scrollbar-thumb{background:#324759;background:var(--scrollbar-thumb)}}::-webkit-scrollbar-thumb:hover{background:#c4c4c4;background:var(--scrollbar-thumb-hover)}@media (prefers-color-scheme:dark){::-webkit-scrollbar-thumb:hover{background:#141414;background:var(--scrollbar-thumb-hover)}}::-moz-selection{background-color:#9e9e9e;background-color:var(--selection);color:#000;color:var(--text-bright)}::selection{background-color:#9e9e9e;background-color:var(--selection);color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){::-moz-selection{color:#fff;color:var(--text-bright)}::selection{color:#fff;color:var(--text-bright)}}@media (prefers-color-scheme:dark){::-moz-selection{background-color:#1c76c5;background-color:var(--selection)}::selection{background-color:#1c76c5;background-color:var(--selection)}}details{display:flex;flex-direction:column;align-items:flex-start;background-color:#f7f7f7;background-color:var(--background-alt);padding:10px 10px 0;margin:1em 0;border-radius:6px;overflow:hidden}@media (prefers-color-scheme:dark){details{background-color:#1a242f;background-color:var(--background-alt)}}details[open]{padding:10px}details>:last-child{margin-bottom:0}details[open] summary{margin-bottom:10px}summary{display:list-item;background-color:#efefef;background-color:var(--background);padding:10px;margin:-10px -10px 0;cursor:pointer;outline:none}@media (prefers-color-scheme:dark){summary{background-color:#161f27;background-color:var(--background)}}summary:focus,summary:hover{text-decoration:underline}details>:not(summary){margin-top:0}summary::-webkit-details-marker{color:#363636;color:var(--text-main)}@media (prefers-color-scheme:dark){summary::-webkit-details-marker{color:#dbdbdb;color:var(--text-main)}}footer{border-top:1px solid #dbdbdb;border-top:1px solid var(--border);padding-top:10px;color:#70777f;color:var(--text-muted)}@media (prefers-color-scheme:dark){footer{color:#a9b1ba;color:var(--text-muted);border-top:1px solid #526980;border-top:1px solid var(--border)}}body>footer{margin-top:40px}@media print{body,button,code,details,input,pre,summary,textarea{background-color:#fff}button,input,textarea{border:1px solid #000}body,button,code,footer,h1,h2,h3,h4,h5,h6,input,pre,strong,summary,textarea{color:#000}summary::marker{color:#000}summary::-webkit-details-marker{color:#000}tbody tr:nth-child(2n){background-color:#f2f2f2}a{color:#00f;text-decoration:underline}}
+/*# sourceMappingURL=water.min.css.map */
+	</style>
+
+    <style type="text/css">
+    code[class*="language-"],pre[class*="language-"]{border-radius: 7px;color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*="language-"]::-moz-selection,pre[class*="language-"] ::-moz-selection,code[class*="language-"]::-moz-selection,code[class*="language-"] ::-moz-selection{text-shadow:none;background:#b3d4fc}pre[class*="language-"]::selection,pre[class*="language-"] ::selection,code[class*="language-"]::selection,code[class*="language-"] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*="language-"],pre[class*="language-"]{text-shadow:none}}pre[class*="language-"]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*="language-"],pre[class*="language-"]{background:#f5f2f0}:not(pre)>code[class*="language-"]{padding:.1em;border-radius:.3em;white-space:normal}.token.comment,.token.prolog,.token.doctype,.token.cdata{color:slategray}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.property,.token.tag,.token.boolean,.token.number,.token.constant,.token.symbol,.token.deleted{color:#905}.token.selector,.token.attr-name,.token.string,.token.char,.token.builtin,.token.inserted{color:#690}.token.operator,.token.entity,.token.url,.language-css .token.string,.style .token.string{color:#9a6e3a}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.function,.token.class-name{color:#DD4A68}.token.regex,.token.important,.token.variable{color:#e90}.token.important,.token.bold{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}pre[class*="language-"].line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}pre[class*="language-"].line-numbers>code{position:relative;white-space:inherit}.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:0;font-size:100%;left:-3.8em;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.line-numbers-rows>span{display:block;counter-increment:linenumber}.line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}span.inline-color-wrapper{background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyIDIiPjxwYXRoIGZpbGw9ImdyYXkiIGQ9Ik0wIDBoMnYySDB6Ii8+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0wIDBoMXYxSDB6TTEgMWgxdjFIMXoiLz48L3N2Zz4=);background-position:center;background-size:110%;display:inline-block;height:1.333ch;width:1.333ch;margin:0 .333ch;box-sizing:border-box;border:1px solid #fff;outline:1px solid rgba(0,0,0,.5);overflow:hidden}span.inline-color{display:block;height:120%;width:120%}
+    </style>
+    <style type="text/css">
+    @import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap);:root{--background-body:#fff;--background:#eee;--background-alt:#1a242f;--selection:#9abfdf;--text-main:#1a242f;--text-bright:#1e426f;--text-muted:#a9b1ba;--links:#2496ee;--focus:rgba(0,150,191,.67);--border:#526980;--code:#d20577;--animation-duration:0.1s;--button-hover:#324759;--scrollbar-thumb:var(--button-hover);--scrollbar-thumb-hover:#141414;--form-placeholder:#a9a9a9;--form-text:#fff;--variable:#d941e2;--highlight:#efdb43;--select-arrow:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23efefef'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E")}body{font-family:"IBM Plex Sans",sans-serif;font-size:16px;line-height: 1.6;}
+    </style>
+ 
+
+</head>
+
+<body>
+    <header><h1></h1>
+
+        <nav>
+        </nav>
+
+    </header><h1>Chapter 14: List Algorithms</h1>
+<p>This chapter is a bit different from what we’ve done so far: rather than introduce more new Python syntax and features, we’re going to focus on the program development process, and some algorithms that work with lists.</p>
+<p>As in all parts of this book, our expectation is that you, the reader, will copy our code into your Python environment, play and experiment, and work along with us.</p>
+<p>Part of this chapter works with the book <code>Alice in Wonderland</code> and a <code>vocabulary file</code>. Your browser should be able to download and save these files from these links.</p>
+<pre><code class="language-python">.. index:: Test-driven development, scaffolding</code></pre>
+<h2>14.1. Test-driven development</h2>
+<p>Early in our Fruitful functions chapter we introduced the idea of <em>incremental development</em>, where we added small fragments of code to slowly build up the whole, so that we could easily find problems early. Later in that same chapter we introduced unit testing and gave code for our testing framework so that we could capture, in code, appropriate tests for the functions we were writing.</p>
+<p><strong>Test-driven development (TDD)</strong> is a software development practice which takes these practices one step further. The key idea is that automated tests should be written <em>first</em>. This technique is called <em>test-driven</em> because — if we are to believe the extremists — non-testing code should only be written when there is a failing test to make pass.</p>
+<p>We can still retain our mode of working in small incremental steps, but now we’ll define and express those steps in terms of a sequence of increasingly sophisticated unit tests that demand more from our code at each stage.</p>
+<p>We’ll turn our attention to some standard algorithms that process lists now, but as we proceed through this chapter we’ll attempt to do so in the spirit envisaged by TDD.</p>
+<pre><code>.. index:: single: search: linear search</code></pre>
+<h2>14.2. The linear search algorithm</h2>
+<p>We’d like to know the index where a specific item occurs within in a list of items. Specifically, we’ll return the index of the item if it is found, or we’ll return -1 if the item doesn’t occur in the list. Let us start with some tests:</p>
+<pre><code class="language-python">friends = [&quot;Joe&quot;, &quot;Zoe&quot;, &quot;Brad&quot;, &quot;Angelina&quot;, &quot;Zuki&quot;, &quot;Thandi&quot;, &quot;Paris&quot;]
+test(search_linear(friends, &quot;Zoe&quot;) == 1)
+test(search_linear(friends, &quot;Joe&quot;) == 0)
+test(search_linear(friends, &quot;Paris&quot;) == 6)
+test(search_linear(friends, &quot;Bill&quot;) == -1)</code></pre>
+<p>Motivated by the fact that our tests don’t even run, let alone pass, we now write the function:</p>
+<pre><code class="language-python">def search_linear(xs, target):
+    &quot;&quot;&quot; Find and return the index of target in sequence xs &quot;&quot;&quot;
+    for (i, v) in enumerate(xs):
+       if v == target:
+           return i
+    return -1</code></pre>
+<p>There are a some points to learn here: We’ve seen a similar algorithm in section 8.10 when we searched for a character in a string. There we used a <code>while</code> loop, here we’ve used a <code>for</code> loop, coupled with <code>enumerate</code> to extract the <code>(i, v)</code> pair on each iteration. There are other variants — for example, we could have used <code>range</code> and made the loop run only over the indexes, or we could have used the idiom of returning <code>None</code> when the item was not found in the list. But the essential similarity in all these variations is that we test every item in the list in turn, from first to last, using the pattern of the short-circuit <em>eureka traversal</em> that we introduced earlier —that we return from the function as soon as we find the target that we’re looking for.</p>
+<p>Searching all items of a sequence from first to last is called a <strong>linear search</strong>. Each time we check whether <code>v == target</code> we’ll call it a <strong>probe</strong>. We like to count probes as a measure of how efficient our algorithm is, and this will be a good enough indication of how long our algorithm will take to execute.</p>
+<p>Linear searching is characterized by the fact that the number of probes needed to find some target depends directly on the length of the list. So if the list becomes ten times bigger, we can expect to wait ten times longer when searching for things. Notice too, that if we’re searching for a target that is not present in the list, we’ll have to go all the way to the end before we can return the negative value. So this case needs N probes, where N is the length of the list. However, if we’re searching for a target that does exist in the list, we could be lucky and find it immediately in position 0, or we might have to look further, perhaps even all the way to the last item. On average, when the target is present, we’re going to need to go about halfway through the list, or N/2 probes.</p>
+<p>We say that this search has <strong>linear performance</strong> (linear meaning straight line) because, if we were to measure the average search times for different sizes of lists (N), and then plot a graph of time-to-search against N, we’d get a more-or-less straight line graph.</p>
+<p>Analysis like this is pretty meaningless for small lists — the computer is quick enough not to bother if the list only has a handful of items. So generally, we’re interested in the <strong>scalability</strong> of our algorithms — how do they perform if we throw bigger problems at them. Would this search be a sensible one to use if we had a million or ten million items (perhaps the catalog of books in your local library) in our list? What happens for really large datasets, e.g. how does Google search so brilliantly well?</p>
+<h2>14.3. A more realistic problem</h2>
+<p>As children learn to read, there are expectations that their vocabulary will grow. So a child of age 14 is expected to know more words than a child of age 8. When prescribing reading books for a grade, an important question might be <em>“which words in this book are not in the expected vocabulary at this level?”</em></p>
+<p>Let us assume we can read a vocabulary of words into our program, and read the text of a book, and split it into words. Let us write some tests for what we need to do next. Test data can usually be very small, even if we intend to finally use our program for larger cases:</p>
+<pre><code class="language-python">vocab = [&quot;apple&quot;, &quot;boy&quot;, &quot;dog&quot;, &quot;down&quot;, 
+                          &quot;fell&quot;, &quot;girl&quot;, &quot;grass&quot;, &quot;the&quot;, &quot;tree&quot;]
+book_words = &quot;the apple fell from the tree to the grass&quot;.split()
+test(find_unknown_words(vocab, book_words) == [&quot;from&quot;, &quot;to&quot;])
+test(find_unknown_words([], book_words) == book_words)
+test(find_unknown_words(vocab, [&quot;the&quot;, &quot;boy&quot;, &quot;fell&quot;]) == [])</code></pre>
+<p>Notice we were a bit lazy, and used <code>split</code> to create our list of words —it is easier than typing out the list, and very convenient if you want to input a sentence into the program and turn it into a list of words.</p>
+<p>We now need to implement the function for which we’ve written tests, and we’ll make use of our linear search. The basic strategy is to run through each of the words in the book, look it up in the vocabulary, and if it is not in the vocabulary, save it into a new resulting list which we return from the function:</p>
+<pre><code class="language-python">def find_unknown_words(vocab, wds):
+    &quot;&quot;&quot; Return a list of words in wds that do not occur in vocab &quot;&quot;&quot;
+    result = []
+    for w in wds:
+        if (search_linear(vocab, w) &lt; 0):
+            result.append(w)
+    return result</code></pre>
+<p>We can happily report now that the tests all pass.</p>
+<p>Now let us look at the scalability. We have more realistic vocabulary in the text file that could be downloaded at the beginning of this chapter, so let us read in the file (as a single string) and split it into a list of words. For convenience, we’ll create a function to do this for us, and test it on a file we happen to have available:</p>
+<pre><code class="language-python">def load_words_from_file(filename):
+    &quot;&quot;&quot; Read words from filename, return list of words. &quot;&quot;&quot;
+    f = open(filename, &quot;r&quot;)
+    file_content = f.read()
+    f.close()
+    wds = file_content.split()
+    return wds
+
+bigger_vocab = load_words_from_file(&quot;vocab.txt&quot;)
+print(&quot;There are {0} words in the vocab, starting with\n {1} &quot;
+              .format(len(bigger_vocab), bigger_vocab[:6]))</code></pre>
+<p>Python responds with:</p>
+<pre><code class="language-python">There are 19469 words in the vocab, starting with 
+[&#39;a&#39;, &#39;aback&#39;, &#39;abacus&#39;, &#39;abandon&#39;, &#39;abandoned&#39;, &#39;abandonment&#39;] </code></pre>
+<p>So we’ve got a more sensible size vocabulary. Now let us load up a book, once again we’ll use the one we downloaded at the beginning of this chapter. Loading a book is much like loading words from a file, but we’re going to do a little extra black magic. Books are full of punctuation, and have mixtures of lowercase and uppercase letters. We need to clean up the contents of the book. This will involve removing punctuation, and converting everything to the same case (lowercase, because our vocabulary is all in lowercase). So we’ll want a more sophisticated way of converting text to words.</p>
+<pre><code class="language-python">test(text_to_words(&quot;My name is Earl!&quot;) == [&quot;my&quot;, &quot;name&quot;, &quot;is&quot;, &quot;earl&quot;])
+test(text_to_words(&#39;&quot;Well, I never!&quot;, said Alice.&#39;) == 
+                             [&quot;well&quot;, &quot;i&quot;, &quot;never&quot;, &quot;said&quot;, &quot;alice&quot;])</code></pre>
+<p>There is a powerful <code>translate</code> method available for strings. The idea is that one sets up desired substitutions — for every character, we can give a corresponding replacement character. The <code>translate</code> method will apply these replacements throughout the whole string. So here we go:</p>
+<p>The translation turns all uppercase characters into lowercase, and all punctuation characters and digits into spaces. Then, of course, <code>split</code> will get rid of the spaces as it breaks the text into a list of words. The tests pass.</p>
+<p>Now we’re ready to read in our book:</p>
+<pre><code class="language-python">def get_words_in_book(filename):
+    &quot;&quot;&quot; Read a book from filename, and return a list of its words. &quot;&quot;&quot;
+    f = open(filename, &quot;r&quot;)
+    content = f.read()
+    f.close()
+    wds = text_to_words(content)
+    return wds
+
+book_words = get_words_in_book(&quot;AliceInWonderland.txt&quot;)
+print(&quot;There are {0} words in the book, the first 100 are\n{1}&quot;.
+           format(len(book_words), book_words[:100]))</code></pre>
+<p>Python prints the following (all on one line, we’ve cheated a bit for the textbook):</p>
+<pre><code class="language-python">There are 27336 words in the book, the first 100 are 
+[&#39;alice&#39;, &#39;s&#39;, &#39;adventures&#39;, &#39;in&#39;, &#39;wonderland&#39;, &#39;lewis&#39;, &#39;carroll&#39;, 
+    &#39;chapter&#39;, &#39;i&#39;, &#39;down&#39;, &#39;the&#39;, &#39;rabbit&#39;, &#39;hole&#39;, &#39;alice&#39;, &#39;was&#39;, 
+    &#39;beginning&#39;, &#39;to&#39;, &#39;get&#39;, &#39;very&#39;, &#39;tired&#39;, &#39;of&#39;, &#39;sitting&#39;, &#39;by&#39;, 
+    &#39;her&#39;, &#39;sister&#39;, &#39;on&#39;, &#39;the&#39;, &#39;bank&#39;, &#39;and&#39;, &#39;of&#39;, &#39;having&#39;, 
+    &#39;nothing&#39;, &#39;to&#39;, &#39;do&#39;, &#39;once&#39;, &#39;or&#39;, &#39;twice&#39;, &#39;she&#39;, &#39;had&#39;, 
+    &#39;peeped&#39;, &#39;into&#39;, &#39;the&#39;, &#39;book&#39;, &#39;her&#39;, &#39;sister&#39;, &#39;was&#39;, &#39;reading&#39;, 
+    &#39;but&#39;, &#39;it&#39;, &#39;had&#39;, &#39;no&#39;, &#39;pictures&#39;, &#39;or&#39;, &#39;conversations&#39;, &#39;in&#39;, 
+    &#39;it&#39;, &#39;and&#39;, &#39;what&#39;, &#39;is&#39;, &#39;the&#39;, &#39;use&#39;, &#39;of&#39;, &#39;a&#39;, &#39;book&#39;, 
+    &#39;thought&#39;, &#39;alice&#39;, &#39;without&#39;, &#39;pictures&#39;, &#39;or&#39;, &#39;conversation&#39;, 
+    &#39;so&#39;, &#39;she&#39;, &#39;was&#39;, &#39;considering&#39;, &#39;in&#39;, &#39;her&#39;, &#39;own&#39;, &#39;mind&#39;, 
+    &#39;as&#39;, &#39;well&#39;, &#39;as&#39;, &#39;she&#39;, &#39;could&#39;, &#39;for&#39;, &#39;the&#39;, &#39;hot&#39;, &#39;day&#39;, 
+    &#39;made&#39;, &#39;her&#39;, &#39;feel&#39;, &#39;very&#39;, &#39;sleepy&#39;, &#39;and&#39;, &#39;stupid&#39;, 
+    &#39;whether&#39;, &#39;the&#39;, &#39;pleasure&#39;, &#39;of&#39;, &#39;making&#39;, &#39;a&#39;]  </code></pre>
+<p>Well now we have all the pieces ready. Let us see what words in this book are not in the vocabulary:</p>
+<pre><code class="language-python">&gt;&gt;&gt; missing_words = find_unknown_words(bigger_vocab, book_words) </code></pre>
+<p>We wait a considerable time now, something like a minute, before Python finally works its way through this, and prints a list of 3398 words in the book that are not in the vocabulary. Mmm… This is not particularly scaleable. For a vocabulary that is twenty times larger (you’ll often find school dictionaries with 300 000 words, for example), and longer books, this is going to be slow. So let us make some timing measurements while we think about how we can improve this in the next section.</p>
+<pre><code class="language-python">import time
+
+t0 = time.clock()
+missing_words = find_unknown_words(bigger_vocab, book_words) 
+t1 = time.clock()
+print(&quot;There are {0} unknown words.&quot;.format(len(missing_words)))
+print(&quot;That took {0:.4f} seconds.&quot;.format(t1-t0))</code></pre>
+<p>We get the results and some timing that we can refer back to later:</p>
+<pre><code class="language-python">There are 3398 unknown words.
+That took 49.8014 seconds. </code></pre>
+<pre><code>.. index:: single: search; binary search</code></pre>
+<h2>14.4. Binary Search</h2>
+<p>If you think about what we’ve just done, it is not how we work in real life. If you were given a vocabulary and asked to tell if some word was present, you’d probably start in the middle. You can do this because the vocabulary is ordered — so you can probe some word in the middle, and immediately realize that your target was before (or perhaps after) the one you had probed. Applying this principle repeatedly leads us to a very much better algorithm for searching in a list of items that are already ordered. (Note that if the items are not ordered, you have little choice other than to look through all of them. But, if we know the items are in order, we can improve our searching technique).</p>
+<p>Lets start with some tests. Remember, the list needs to be sorted:</p>
+<pre><code class="language-python">xs = [2,3,5,7,11,13,17,23,29,31,37,43,47,53]
+test(search_binary(xs, 20) == -1)   
+test(search_binary(xs, 99) == -1)
+test(search_binary(xs, 1) == -1)
+for (i, v) in enumerate(xs):
+    test(search_binary(xs, v) == i)</code></pre>
+<p>Even our test cases are interesting this time: notice that we start with items not in the list and look at boundary conditions — in the middle of the list, less than all items in the list, bigger than the biggest. Then we use a loop to use every list item as a target, and to confirm that our binary search returns the corresponding index of that item in the list.</p>
+<p>It is useful to think about having a <em>region-of-interest</em> (ROI) within the list being searched. This ROI will be the portion of the list in which it is still possible that our target might be found. Our algorithm will start with the ROI set to all the items in the list. On the first probe in the middle of the ROI, there are three possible outcomes: either we find the target, or we learn that we can discard the top half of the ROI, or we learn that we can discard the bottom half of the ROI. And we keep doing this repeatedly, until we find our target, or until we end up with no more items in our region of interest. We can code this as follows:</p>
+<pre><code class="language-python">def search_binary(xs, target):
+    &quot;&quot;&quot; Find and return the index of key in sequence xs &quot;&quot;&quot;
+    lb = 0
+    ub = len(xs)
+    while True:
+        if lb == ub:   # If region of interest (ROI) becomes empty
+           return -1
+
+        # Next probe should be in the middle of the ROI
+        mid_index = (lb + ub) // 2
+
+        # Fetch the item at that position
+        item_at_mid = xs[mid_index]
+
+        # print(&quot;ROI[{0}:{1}](size={2}), probed=&#39;{3}&#39;, target=&#39;{4}&#39;&quot;
+        #       .format(lb, ub, ub-lb, item_at_mid, target))
+
+        # How does the probed item compare to the target?
+        if item_at_mid == target:
+            return mid_index      # Found it!
+        if item_at_mid &lt; target:
+            lb = mid_index + 1    # Use upper half of ROI next time
+        else:
+            ub = mid_index        # Use lower half of ROI next time</code></pre>
+<p>The region of interest is represented by two variables, a lower bound <code>lb</code> and an upper bound <code>ub</code>. It is important to be precise about what values these indexes have. We’ll make <code>lb</code> hold the index of the first item in the ROI, and make <code>ub</code> hold the index just <em>beyond</em> the last item of interest. So these semantics are similar to a Python slice semantics: the region of interest is exactly the slice <code>xs[lb:ub]</code>. (The algorithm never actually takes any array slices!)</p>
+<p>With this code in place, our tests pass. Great. Now if we substitute a call to this search algorithm instead of calling the <code>search_linear</code> in <code>find_unknown_words</code>, can we improve our performance? Let’s do that, and again run this test:</p>
+<pre><code class="language-python">t0 = time.clock()
+missing_words = find_unknown_words(bigger_vocab, book_words) 
+t1 = time.clock()
+print(&quot;There are {0} unknown words.&quot;.format(len(missing_words)))
+print(&quot;That took {0:.4f} seconds.&quot;.format(t1-t0))</code></pre>
+<p>What a spectacular difference! More than 200 times faster!</p>
+<pre><code class="language-python">There are 3398 unknown words.
+That took 0.2262 seconds.</code></pre>
+<p>Why is this binary search so much faster than the linear search? If we uncomment the print statement on lines 15 and 16, we’ll get a trace of the probes done during a search. Let’s go ahead, and try that:</p>
+<pre><code class="language-python">&gt;&gt;&gt; search_binary(bigger_vocab, &quot;magic&quot;)
+ROI[0:19469](size=19469), probed=&#39;known&#39;, target=&#39;magic&#39;
+ROI[9735:19469](size=9734), probed=&#39;retailer&#39;, target=&#39;magic&#39;
+ROI[9735:14602](size=4867), probed=&#39;overthrow&#39;, target=&#39;magic&#39;
+ROI[9735:12168](size=2433), probed=&#39;mission&#39;, target=&#39;magic&#39;
+ROI[9735:10951](size=1216), probed=&#39;magnificent&#39;, target=&#39;magic&#39;
+ROI[9735:10343](size=608), probed=&#39;liken&#39;, target=&#39;magic&#39;
+ROI[10040:10343](size=303), probed=&#39;looks&#39;, target=&#39;magic&#39;
+ROI[10192:10343](size=151), probed=&#39;lump&#39;, target=&#39;magic&#39;
+ROI[10268:10343](size=75), probed=&#39;machete&#39;, target=&#39;magic&#39;
+ROI[10306:10343](size=37), probed=&#39;mafia&#39;, target=&#39;magic&#39;
+ROI[10325:10343](size=18), probed=&#39;magnanimous&#39;, target=&#39;magic&#39;
+ROI[10325:10334](size=9), probed=&#39;magical&#39;, target=&#39;magic&#39;
+ROI[10325:10329](size=4), probed= maggot&#39;, target=&#39;magic&#39;
+ROI[10328:10329](size=1), probed=&#39;magic&#39;, target=&#39;magic&#39;
+10328</code></pre>
+<p>Here we see that finding the target word “magic” needed just 14 probes before it was found at index 10328. The important thing is that each probe halves (with some truncation) the remaining region of interest. By contrast, the linear search would have needed 10329 probes to find the same target word.</p>
+<p>The word <em>binary</em> means <em>two</em>. Binary search gets its name from the fact that each probe splits the list into two pieces and discards the one half from the region of interest.</p>
+<p>The beauty of the algorithm is that we could double the size of the vocabulary, and it would only need one more probe! And after another doubling, just another one probe. So as the vocabulary gets bigger, this algorithm’s performance becomes even more impressive.</p>
+<p>Can we put a formula to this? If our list size is N, what is the biggest number of probes k we could need? The maths is a bit easier if we turn the question around: how big a list N could we deal with, given that we were only allowed to make k probes?</p>
+<p>With 1 probe, we can only search a list of size 1. With two probes we could cope with lists up to size 3 - (test the middle item with the first probe, then test either the left or right sublist with the second probe). With one more probe, we could cope with 7 items (the middle item, and two sublists of size 3). With four probes, we can search 15 items, and 5 probes lets us search up to 31 items. So the general relationship is given by the formula</p>
+<pre><code class="language-python">N = 2 ** k - 1</code></pre>
+<p>where k is the number of probes we’re allowed to make, and N is the maximum size of the list that can be searched in that many probes. This function is <em>exponential</em> in k (because k occurs in the exponent part). If we wanted to turn the formula around and solve for k in terms of N, we need to move the constant 1 to the other side, and take a log (base 2) on each side. (The log is the inverse of an exponent.) So the formula for k in terms of N is now:</p>
+<p><img src="Chapter-14/log2np1.png" /></p>
+<p>The square-only-on-top brackets are called <em>ceiling brackets</em>: this means that you must round the number up to the next whole integer.</p>
+<p>Let us try this on a calculator, or in Python, which is the mother of all calculators: suppose I have 1000 elements to be searched, what is the maximum number of probes I’ll need? (There is a pesky +1 in the formula, so let us not forget to add it on…):</p>
+<pre><code class="language-python">&gt;&gt;&gt; from math import log
+&gt;&gt;&gt; log(1000 + 1, 2)
+9.967226258835993</code></pre>
+<p>Telling us that we’ll need 9.96 probes maximum, to search 1000 items is not quite what we want. We forgot to take the ceiling. The <code>ceil</code> function in the <code>math</code> module does exactly this. So more accurately, now:</p>
+<pre><code class="language-python">&gt;&gt;&gt; from math import log, ceil
+&gt;&gt;&gt; ceil(log(1000 + 1, 2))
+10
+&gt;&gt;&gt; ceil(log(1000000 + 1, 2))
+20
+&gt;&gt;&gt; ceil(log(1000000000 + 1, 2))
+30 </code></pre>
+<p>This tells us that searching 1000 items needs 10 probes. (Well technically, with 10 probes we can search exactly 1023 items, but the easy and useful stuff to remember here is that “1000 items needs 10 probes, a million needs 20 probes, and a billion items only needs 30 probes”).</p>
+<p>You will rarely encounter algorithms that scale to large datasets as beautifully as binary search does!</p>
+<pre><code>.. index:: single: duplicate removal</code></pre>
+<h2>14.5. Removing adjacent duplicates from a list</h2>
+<p>We often want to get the unique elements in a list, i.e. produce a new list in which each different element occurs just once. Consider our case of looking for words in Alice in Wonderland that are not in our vocabulary. We had a report that there are 3398 such words, but there are duplicates in that list. In fact, the word “alice” occurs 398 times in the book, and it is not in our vocabulary! How should we remove these duplicates?</p>
+<p>A good approach is to sort the list, then remove all adjacent duplicates. Let us start with removing adjacent duplicates</p>
+<pre><code class="language-python">test(remove_adjacent_dups([1,2,3,3,3,3,5,6,9,9]) == [1,2,3,5,6,9])
+test(remove_adjacent_dups([]) == [])
+test(remove_adjacent_dups([&quot;a&quot;, &quot;big&quot;, &quot;big&quot;, &quot;bite&quot;, &quot;dog&quot;]) ==
+                                   [&quot;a&quot;, &quot;big&quot;, &quot;bite&quot;, &quot;dog&quot;])</code></pre>
+<p>The algorithm is easy and efficient. We simply have to remember the most recent item that was inserted into the result, and avoid inserting it again:</p>
+<pre><code class="language-python">def remove_adjacent_dups(xs):
+    &quot;&quot;&quot; Return a new list in which all adjacent 
+        duplicates from xs have been removed.
+    &quot;&quot;&quot;
+    result = []
+    most_recent_elem = None
+    for e in xs:
+        if e != most_recent_elem:
+            result.append(e)
+            most_recent_elem = e
+
+    return result</code></pre>
+<p>The amount of work done in this algorithm is linear — each item in <code>xs</code> causes the loop to execute exactly once, and there are no nested loops. So doubling the number of elements in <code>xs</code> should cause this function to run twice as long: the relationship between the size of the list and the time to run will be graphed as a straight (linear) line.</p>
+<p>Let us go back now to our analysis of Alice in Wonderland. Before checking the words in the book against the vocabulary, we’ll sort those words into order, and eliminate duplicates. So our new code looks like this:</p>
+<pre><code class="language-python">all_words = get_words_in_book(&quot;AliceInWonderland.txt&quot;)
+all_words.sort()
+book_words = remove_adjacent_dups(all_words)
+print(&quot;There are {0} words in the book. Only {1} are unique.&quot;.
+                      format(len(all_words), len(book_words))) 
+print(&quot;The first 100 words are\n{0}&quot;.  
+           format(book_words[:100]))</code></pre>
+<p>Almost magically, we get the following output:</p>
+<pre><code class="language-python">There are 27336 words in the book. Only 2570 are unique. 
+The first 100 words are
+[&#39;_i_&#39;, &#39;a&#39;, &#39;abide&#39;, &#39;able&#39;, &#39;about&#39;, &#39;above&#39;, &#39;absence&#39;, &#39;absurd&#39;,
+ &#39;acceptance&#39;, &#39;accident&#39;, &#39;accidentally&#39;, &#39;account&#39;, &#39;accounting&#39;, 
+ &#39;accounts&#39;, &#39;accusation&#39;, &#39;accustomed&#39;, &#39;ache&#39;, &#39;across&#39;, &#39;act&#39;, 
+ &#39;actually&#39;, &#39;ada&#39;, &#39;added&#39;, &#39;adding&#39;, &#39;addressed&#39;, &#39;addressing&#39;, 
+ &#39;adjourn&#39;, &#39;adoption&#39;, &#39;advance&#39;, &#39;advantage&#39;, &#39;adventures&#39;, 
+ &#39;advice&#39;, &#39;advisable&#39;, &#39;advise&#39;, &#39;affair&#39;, &#39;affectionately&#39;, 
+ &#39;afford&#39;, &#39;afore&#39;, &#39;afraid&#39;, &#39;after&#39;, &#39;afterwards&#39;, &#39;again&#39;, 
+ &#39;against&#39;, &#39;age&#39;, &#39;ago&#39;, &#39;agony&#39;, &#39;agree&#39;, &#39;ah&#39;, &#39;ahem&#39;, &#39;air&#39;, 
+ &#39;airs&#39;, &#39;alarm&#39;, &#39;alarmed&#39;, &#39;alas&#39;, &#39;alice&#39;, &#39;alive&#39;, &#39;all&#39;, 
+ &#39;allow&#39;, &#39;almost&#39;, &#39;alone&#39;, &#39;along&#39;, &#39;aloud&#39;, &#39;already&#39;, &#39;also&#39;, 
+ &#39;altered&#39;, &#39;alternately&#39;, &#39;altogether&#39;, &#39;always&#39;, &#39;am&#39;, &#39;ambition&#39;,
+ &#39;among&#39;, &#39;an&#39;, &#39;ancient&#39;, &#39;and&#39;, &#39;anger&#39;, &#39;angrily&#39;, &#39;angry&#39;, 
+ &#39;animal&#39;, &#39;animals&#39;, &#39;ann&#39;, &#39;annoy&#39;, &#39;annoyed&#39;, &#39;another&#39;, 
+ &#39;answer&#39;, &#39;answered&#39;, &#39;answers&#39;, &#39;antipathies&#39;, &#39;anxious&#39;, 
+ &#39;anxiously&#39;, &#39;any&#39;, &#39;anything&#39;, &#39;anywhere&#39;, &#39;appealed&#39;, &#39;appear&#39;, 
+ &#39;appearance&#39;, &#39;appeared&#39;, &#39;appearing&#39;, &#39;applause&#39;, &#39;apple&#39;, 
+ &#39;apples&#39;, &#39;arch&#39;]</code></pre>
+<p>Lewis Carroll was able to write a classic piece of literature using only 2570 different words!</p>
+<pre><code>.. index:: single: sort; merge sort</code></pre>
+<h2>14.6. Merging sorted lists</h2>
+<p>Suppose we have two sorted lists. Devise an algorithm to merge them together into a single sorted list.</p>
+<p>A simple but inefficient algorithm could be to simply append the two lists together, and sort the result:</p>
+<pre><code class="language-python">newlist = (xs + ys)
+newlist.sort()</code></pre>
+<p>But this doesn’t take advantage of the fact that the two lists are already sorted, and is going to have poor scalability and performance for very large lists.</p>
+<p>Lets get some tests together first:</p>
+<pre><code class="language-python">xs = [1,3,5,7,9,11,13,15,17,19]
+ys = [4,8,12,16,20,24]
+zs = xs+ys
+zs.sort()
+test(merge(xs, []) == xs)
+test(merge([], ys) == ys)
+test(merge([], []) == [])
+test(merge(xs, ys) == zs)
+test(merge([1,2,3], [3,4,5]) == [1,2,3,3,4,5])
+test(merge([&quot;a&quot;, &quot;big&quot;, &quot;cat&quot;], [&quot;big&quot;, &quot;bite&quot;, &quot;dog&quot;]) ==
+               [&quot;a&quot;, &quot;big&quot;, &quot;big&quot;, &quot;bite&quot;, &quot;cat&quot;, &quot;dog&quot;])</code></pre>
+<p>Here is our merge algorithm:</p>
+<pre><code class="language-python">def merge(xs, ys):
+    &quot;&quot;&quot; merge sorted lists xs and ys. Return a sorted result &quot;&quot;&quot;
+    result = []
+    xi = 0
+    yi = 0
+
+    while True:
+        if xi &gt;= len(xs):          # If xs list is finished, 
+            result.extend(ys[yi:]) # Add remaining items from ys
+            return result          # And we&#39;re done.
+
+        if yi &gt;= len(ys):          # Same again, but swap roles
+            result.extend(xs[xi:])
+            return result
+
+        # Both lists still have items, copy smaller item to result.       
+        if xs[xi] &lt;= ys[yi]:
+            result.append(xs[xi])
+            xi += 1
+        else:
+            result.append(ys[yi])
+            yi += 1</code></pre>
+<p>The algorithm works as follows: we create a result list, and keep two indexes, one into each list (lines 3-5). On each iteration of the loop, whichever list item is smaller is copied to the result list, and that list’s index is advanced. As soon as either index reaches the end of its list, we copy all the remaining items from the other list into the result, which we return.</p>
+<h2>14.7. Alice in Wonderland, again!</h2>
+<p>Underlying the algorithm for merging sorted lists is a deep pattern of computation that is widely reusable. The pattern essence is <em>“Run through the lists always processing the smallest remaining items from each, with these cases to consider:”</em></p>
+<ul>
+<li>What should we do when either list has no more items?</li>
+<li>What should we do if the smallest items from each list are equal to each other?</li>
+<li>What should we do if the smallest item in the first list is smaller than the smallest one the second<br />
+list?</li>
+<li>What should we do in the remaining case?</li>
+</ul>
+<p>Lets assume we have two sorted lists. Exercise your algorithmic skills by adapting the merging algorithm pattern for each of these cases:</p>
+<ul>
+<li>Return only those items that are present in both lists.</li>
+<li>Return only those items that are present in the first list, but not in the second.</li>
+<li>Return only those items that are present in the second list, but not in the first.</li>
+<li>Return items that are present in either the first or the second list.</li>
+<li>Return items from the first list that are not eliminated by a matching element in the second list. In this case, an item in the second list “knocks out” just one matching item in the first list. This operation is sometimes called <em>bagdiff</em>. For example <code>bagdiff([5,7,11,11,11,12,13], [7,8,11])</code> would return <code>[5,11,11,12,13]</code></li>
+</ul>
+<p>In the previous section we sorted the words from the book, and eliminated duplicates. Our vocabulary is also sorted. So third case above — find all items in the second list that are not in the first list, would be another way to implement <code>find_unknown_words</code>. Instead of searching for every word in the dictionary (either by linear or binary search), why not use a variant of the merge to return the words that occur in the book, but not in the vocabulary.</p>
+<pre><code class="language-python">def find_unknowns_merge_pattern(vocab, wds):
+    &quot;&quot;&quot; Both the vocab and wds must be sorted.  Return a new 
+        list of words from wds that do not occur in vocab.
+    &quot;&quot;&quot;
+
+    result = []
+    xi = 0
+    yi = 0
+
+    while True:
+        if xi &gt;= len(vocab):
+            result.extend(wds[yi:])
+            return result
+
+        if yi &gt;= len(wds):
+            return result
+
+        if vocab[xi] == wds[yi]:  # Good, word exists in vocab
+            yi += 1
+
+        elif vocab[xi] &lt; wds[yi]: # Move past this vocab word,
+            xi += 1
+
+        else:                     # Got word that is not in vocab
+            result.append(wds[yi])
+            yi += 1</code></pre>
+<p>Now we put it all together:</p>
+<p>Even more stunning performance here:</p>
+<pre><code class="language-python">There are 828 unknown words.
+That took 0.0410 seconds.    </code></pre>
+<p>Let’s review what we’ve done. We started with a word-by-word linear lookup in the vocabulary that ran in about 50 seconds. We implemented a clever binary search, and got that down to 0.22 seconds, more than 200 times faster. But then we did something even better: we sorted the words from the book, eliminated duplicates, and used a merging pattern to find words from the book that were not in the dictionary. This was about five times faster than even the binary lookup algorithm. At the end of the chapter our algorithm is more than a 1000 times faster than our first attempt!</p>
+<p>That is what we can call a good day at the office!</p>
+<pre><code>.. index:: Eight Queens puzzle, data representation, data structure</code></pre>
+<h2>14.8. Eight Queens puzzle, part 1</h2>
+<p>As told by Wikipedia, <em>“The eight queens puzzle is the problem of placing eight chess queens on an 8x8 chessboard so that no two queens attack each other. Thus, a solution requires that no two queens share the same row, column, or diagonal.”</em></p>
+<p><img src="Chapter-14/eight_queens_01.png" /></p>
+<p>Please try this yourself, and find a few more solutions by hand.</p>
+<p>We’d like to write a program to find solutions to this puzzle. In fact, the puzzle generalizes to placing N queens on an NxN board, so we’re going to think about the general case, not just the 8x8 case. Perhaps we can find solutions for 12 queens on a 12x12 board, or 20 queens on a 20x20 board.</p>
+<p>How do we approach a complex problem like this? A good starting point is to think about our <em>data structures</em> — how exactly do we plan to represent the state of the chessboard and its queens in our program? Once we have some handle on what our puzzle is going to look like in memory, we can begin to think about the functions and logic we’ll need to solve the puzzle, i.e. how do we put another queen onto the board somewhere, and to check whether it clashes with any of the queens already on the board.</p>
+<p>The steps of finding a good representation, and then finding a good algorithm to operate on the data cannot always be done independently of each other. As you think about the operations you require, you may want to change or reorganize the data somewhat to make it easier to do the operations you need.</p>
+<p>This relationship between algorithms and data was elegantly expressed in the title of a book <em>Algorithms + Data Structures = Programs</em>, written by one of the pioneers in Computer Science, Niklaus Wirth, the inventor of Pascal.</p>
+<p>Let’s brainstorm some ideas about how a chessboard and queens could be represented in memory.</p>
+<ul>
+<li><p>A two dimensional matrix (a list of 8 lists, each containing 8 squares) is one possibility. At each square of the board would like to know whether it contains a queen or not — just two possible states for each square — so perhaps each element in the lists could be True or False, or, more simply, 0 or 1.</p>
+<p>Our state for the solution above could then have this data representation:</p>
+<pre><code class="language-python">bd1 = [[0,0,0,1,0,0,0,0], 
+       [0,0,0,0,0,0,1,0], 
+       [0,0,1,0,0,0,0,0], 
+       [0,0,0,0,0,0,0,1], 
+       [0,1,0,0,0,0,0,0], 
+       [0,0,0,0,1,0,0,0], 
+       [1,0,0,0,0,0,0,0], 
+       [0,0,0,0,0,1,0,0]]</code></pre>
+<p>You should also be able to see how the empty board would be represented, and you should start to imagine what operations or changes you’d need to make to the data to place another queen somewhere on the board.</p></li>
+<li><p>Another idea might be to keep a list of coordinates of where the queens are. Using the notation in the illustration, for example, we could represent the state of that solution as:</p>
+<pre><code class="language-python">bd2 = [ &quot;a6&quot;, &quot;b4&quot;, &quot;c2&quot;, &quot;d0&quot;, &quot;e5&quot;, &quot;f7&quot;, &quot;g1&quot;, &quot;h3&quot; ]</code></pre></li>
+<li><p>We could make other tweaks to this — perhaps each element in this list should rather be a tuple, with integer coordinates for both axes. And being good computer scientists, we’d probably start numbering each axis from 0 instead of at 1. Now our representation could be:</p>
+<pre><code class="language-python">bd3 = [(0,6), (1,4), (2,2), (3,0), (4,5), (5,7), (6,1), (7,3)]</code></pre></li>
+<li><p>Looking at this representation, we can’t help but notice that the first coordinates are <code>0,1,2,3,4,5,6,7</code> and they correspond exactly to the index position of the pairs in the list. So we could discard them, and come up with this really compact alternative representation of the solution:</p>
+<pre><code class="language-python">bd4 = [6, 4, 2, 0, 5, 7, 1, 3]</code></pre>
+<p>This will be what we’ll use, let’s see where that takes us.</p></li>
+</ul>
+<p>Let us now take some grand insight into the problem. Do you think it is a coincidence that there are no repeated numbers in the solution? The solution <code>[6,4,2,0,5,7,1,3]</code> contains the numbers <code>0,1,2,3,4,5,6,7</code>, but none are duplicated! Could other solutions contain duplicate numbers, or not?</p>
+<p>A little thinking should convince you that there can never be duplicate numbers in a solution: the numbers represent the row on which the queen is placed, and because we are never permitted to put two queens in the same row, no solution will ever have duplicate row numbers in it.</p>
+<p>Our key insight</p>
+<p><em>In our representation, any solution to the N queens problem musttherefore be a permutation of the numbers [0 .. N-1].</em></p>
+<p>Note that not all permutations are solutions. For example, <code>[0,1,2,3,4,5,6,7]</code> has all queens on the same diagonal.</p>
+<p>Wow, we seem to be making progress on this problem merely by thinking, rather than coding!</p>
+<p>Our algorithm should start taking shape now. We can start with the list [0..N-1], generate various permutations of that list, and check each permutation to see if it has any clashes (queens that are on the same diagonal). If it has no clashes, it is a solution, and we can print it.</p>
+<p>Let us be precise and clear on this issue: if we only use permutations of the rows, and we’re using our compact representation, no queens can clash on either rows or columns, and we don’t even have to concern ourselves with those cases. So the only clashes we need to test for are clashes on the diagonals.</p>
+<p>It sounds like a useful function will be one that can test if two queens share a diagonal. Each queen is on some (x,y) position. So does the queen at (5,2) share a diagonal with the one at (2,0)? Does (5,2) clash with (3,0)?</p>
+<pre><code class="language-python">test(not share_diagonal(5,2,2,0))
+test(share_diagonal(5,2,3,0))
+test(share_diagonal(5,2,4,3))
+test(share_diagonal(5,2,4,1))</code></pre>
+<p>A little geometry will help us here. A diagonal has a slope of either 1 or -1. The question we really want to ask is <em>is their distance between them the same in the x and the y direction?</em> If it is, they share a diagonal. Because diagonals can be to the left or right, it will make sense for this program to use the absolute distance in each direction:</p>
+<pre><code class="language-python">def share_diagonal(x0, y0, x1, y1):
+    &quot;&quot;&quot; Is (x0, y0) on a shared diagonal with (x1, y1)? &quot;&quot;&quot; 
+    dy = abs(y1 - y0)        # Calc the absolute y distance 
+    dx = abs(x1 - x0)        # CXalc the absolute x distance
+    return dx == dy          # They clash if dx == dy</code></pre>
+<p>If you copy the code and run it, you’ll be happy to learn that the tests pass!</p>
+<p>Now let’s consider how we construct a solution by hand. We’ll put a queen somewhere in the first column, then place one in the second column, only if it does not clash with the one already on the board. And then we’ll put a third one on, checking it against the two queens already to its left. When we consider the queen on column 6, we’ll need to check for clashes against those in all the columns to its left, i.e. in columns 0,1,2,3,4,5.</p>
+<p>So the next building block is a function that, given a partially completed puzzle, can check whether the queen at column <code>c</code> clashes with any of the queens to its left, at columns 0,1,2,..c-1:</p>
+<pre><code class="language-python"># Solutions cases that should not have any clashes  
+test(not col_clashes([6,4,2,0,5], 4))   
+test(not col_clashes([6,4,2,0,5,7,1,3], 7))  
+
+# More test cases that should mostly clash
+test(col_clashes([0,1], 1))
+test(col_clashes([5,6], 1))
+test(col_clashes([6,5], 1))
+test(col_clashes([0,6,4,3], 3))
+test(col_clashes([5,0,7], 2))
+test(not col_clashes([2,0,1,3], 1))
+test(col_clashes([2,0,1,3], 2))   </code></pre>
+<p>Here is our function that makes them all pass:</p>
+<pre><code class="language-python">def col_clashes(bs, c):
+    &quot;&quot;&quot; Return True if the queen at column c clashes
+         with any queen to its left.
+    &quot;&quot;&quot;
+    for i in range(c):     # Look at all columns to the left of c
+          if share_diagonal(i, bs[i], c, bs[c]):
+              return True
+
+    return False           # No clashes - col c has a safe placement.</code></pre>
+<p>Finally, we’re going to give our program one of our permutations — i.e. all queens placed somewhere, one on each row, one on each column. But does the permutation have any diagonal clashes?</p>
+<pre><code class="language-python">test(not has_clashes([6,4,2,0,5,7,1,3])) # Solution from above
+test(has_clashes([4,6,2,0,5,7,1,3]))     # Swap rows of first two
+test(has_clashes([0,1,2,3]))             # Try small 4x4 board
+test(not has_clashes([2,0,3,1]))         # Solution to 4x4 case</code></pre>
+<p>And the code to make the tests pass:</p>
+<pre><code class="language-python">def has_clashes(the_board):
+    &quot;&quot;&quot; Determine whether we have any queens clashing on the diagonals.
+        We&#39;re assuming here that the_board is a permutation of column
+        numbers, so we&#39;re not explicitly checking row or column clashes.
+    &quot;&quot;&quot;
+    for col in range(1,len(the_board)):
+        if col_clashes(the_board, col):
+            return True
+    return False</code></pre>
+<p>Summary of what we’ve done so far: we now have a powerful function called <code>has_clashes</code> that can tell if a configuration is a solution to the queens puzzle. Let’s get on now with generating lots of permutations and finding solutions!</p>
+<h2>14.9. Eight Queens puzzle, part 2</h2>
+<p>This is the fun, easy part. We could try to find all permutations of <code>[0,1,2,3,4,5,6,7]</code> — that might be algorithmically challenging, and would be a <em>brute force</em> way of tackling the problem. We just try everything, and find all possible solutions.</p>
+<p>Of course we know there are N! permutations of N things, so we can get an early idea of how long it would take to search all of them for all solutions. Not too long at all, actually -8! is only 40320 different cases to check out. This is vastly better than starting with 64 places to put eight queens. If you do the sums for how many ways can you choose 8 of the 64 squares for your queens, the formula (called <em>N choose k</em> where you’re choosing k=8 squares of the available N=64) yields a whopping 4426165368, obtained from (64! / (8! x 56!)).</p>
+<p>So our earlier key insight — that we only need to consider permutations — has reduced what we call the <em>problem space</em> from about 4.4 billion cases to just 40320!</p>
+<p>We’re not even going to explore all those, however. When we introduced the random number module, we learned that it had a <code>shuffle</code> method that randomly permuted a list of items. So we’re going to write a “random” algorithm to find solutions to the N queens problem. We’ll begin with the permutation [0,1,2,3,4,5,6,7] and we’ll repeatedly shuffle the list, and test each to see if it works! Along the way we’ll count how many attempts we need before we find each solution, and we’ll find 10 solutions (we could hit the same solution more than once, because shuffle is random!):</p>
+<pre><code class="language-python">def main():
+    import random
+    rng = random.Random()   # Instantiate a generator 
+
+    bd = list(range(8))     # Generate the initial permutation
+    num_found = 0
+    tries = 0
+    while num_found &lt; 10:
+       rng.shuffle(bd)
+       tries += 1
+       if not has_clashes(bd):
+           print(&quot;Found solution {0} in {1} tries.&quot;.format(bd, tries))
+           tries = 0
+           num_found += 1
+
+main()</code></pre>
+<p>Almost magically, and at great speed, we get this:</p>
+<pre><code class="language-python">Found solution [3, 6, 2, 7, 1, 4, 0, 5] in 693 tries.
+Found solution [5, 7, 1, 3, 0, 6, 4, 2] in 82 tries.
+Found solution [3, 0, 4, 7, 1, 6, 2, 5] in 747 tries.
+Found solution [1, 6, 4, 7, 0, 3, 5, 2] in 428 tries.
+Found solution [6, 1, 3, 0, 7, 4, 2, 5] in 376 tries.
+Found solution [3, 0, 4, 7, 5, 2, 6, 1] in 204 tries.
+Found solution [4, 1, 7, 0, 3, 6, 2, 5] in 98 tries.
+Found solution [3, 5, 0, 4, 1, 7, 2, 6] in 64 tries.
+Found solution [5, 1, 6, 0, 3, 7, 4, 2] in 177 tries.
+Found solution [1, 6, 2, 5, 7, 4, 0, 3] in 478 tries.</code></pre>
+<p>Here is an interesting fact. On an 8x8 board, there are known to be 92 different solutions to this puzzle. We are randomly picking one of 40320 possible permutations of our representation. So our chances of picking a solution on each try are 92/40320. Put another way, on average we’ll need 40320/92 tries — about 438.26 — before we stumble across a solution. The number of tries we printed looks like our experimental data agrees quite nicely with our theory!</p>
+<p>Save this code for later.</p>
+<p>In the chapter on PyGame we plan to write a module to draw the board with its queens, and integrate that module with this code.</p>
+<h2>14.10. Glossary</h2>
+<pre><code>binary search  
+    A famous algorithm that searches for a target in a sorted list. Each
+    probe in the list allows us to discard half the remaining items, so the
+    algorithm is very efficient.
+
+linear  
+    Relating to a straight line. Here, we talk about graphing how the time
+    taken by an algorithm depends on the size of the data it is processing.
+    Linear algorithms have straight-line graphs that can describe this
+    relationship.
+
+linear search  
+    A search that probes each item in a list or sequence, from first, until
+    it finds what it is looking for. It is used for searching for a target
+    in unordered lists of items.
+
+Merge algorithm  
+    An efficient algorithm that merges two already sorted lists, to produce
+    a sorted list result. The merge algorithm is really a pattern of
+    computation that can be adapted and reused for various other scenarios,
+    such as finding words that are in a book, but not in a vocabulary.
+
+probe  
+    Each time we take a look when searching for an item is called a probe.
+    In our chapter on &lt;span class=&quot;title-ref&quot;&gt;Iteration&lt;/span&gt; we also
+    played a guessing game where the computer tried to guess the user&#39;s
+    secret number. Each of those tries would also be called a probe.
+
+test-driven development (TDD)  
+    A software development practice which arrives at a desired feature
+    through a series of small, iterative steps motivated by automated tests
+    which are *written first* that express increasing refinements of the
+    desired feature. (see the Wikipedia article on [Test-driven
+    development](http://en.wikipedia.org/wiki/Test_driven_development) for
+    more information.)</code></pre>
+<h2>14.11. Exercises</h2>
+<ol type="1">
+<li><p>The section in this chapter called Alice in Wonderland, again started with the observation that the merge algorithm uses a pattern that can be reused in other situations. Adapt the merge algorithm to write each of these functions, as was suggested there:</p>
+<ol type="1">
+<li>Return only those items that are present in both lists.</li>
+<li>Return only those items that are present in the first list, but not in the second.</li>
+<li>Return only those items that are present in the second list, but not in the first.</li>
+<li>Return items that are present in either the first or the second list.</li>
+<li>Return items from the first list that are not eliminated by a matching element in the second list. In this case, an item in the second list “knocks out” just one matching item in the first list. This operation is sometimes called <em>bagdiff</em>. For example <code>bagdiff([5,7,11,11,11,12,13], [7,8,11])</code> would return <code>[5,11,11,12,13]</code></li>
+</ol></li>
+<li><p>Modify the queens program to solve some boards of size 4, 12, and 16. What is the maximum size puzzle you can usually solve in under a minute?</p></li>
+<li><p>Adapt the queens program so that we keep a list of solutions that have already printed, so that we don’t print the same solution more than once.</p></li>
+<li><p>Chess boards are symmetric: if we have a solution to the queens problem, its mirror solution — either flipping the board on the X or in the Y axis, is also a solution. And giving the board a 90 degree, 180 degree, or 270 degree rotation is also a solution. In some sense, solutions that are just mirror images or rotations of other solutions — in the same family —are less interesting than the unique “core cases”. Of the 92 solutions for the 8 queens problem, there are only 12 unique families if you take rotations and mirror images into account. Wikipedia has some fascinating stuff about this.</p>
+<ol type="1">
+<li><p>Write a function to mirror a solution in the Y axis,</p></li>
+<li><p>Write a function to mirror a solution in the X axis,</p></li>
+<li><p>Write a function to rotate a solution by 90 degrees anti-clockwise, and use this to provide 180 and 270 degree rotations too.</p></li>
+<li><p>Write a function which is given a solution, and it generates the family of symmetries for that solution. For example, the symmetries of <code>[0,4,7,5,2,6,1,3]</code> are :</p>
+<pre><code>[[0,4,7,5,2,6,1,3],[7,1,3,0,6,4,2,5],
+ [4,6,1,5,2,0,3,7],[2,5,3,1,7,4,6,0],
+ [3,1,6,2,5,7,4,0],[0,6,4,7,1,3,5,2],
+ [7,3,0,2,5,1,6,4],[5,2,4,6,0,3,1,7]] </code></pre></li>
+<li><p>Now adapt the queens program so it won’t list solutions that are in the same family. It only prints solutions from unique families.</p></li>
+</ol></li>
+<li><p>Every week a computer scientist buys four lotto tickets. She always chooses the same prime numbers, with the hope that if she ever hits the jackpot, she will be able to go onto TV and Facebook and tell everyone her secret. This will suddenly create widespread public interest in prime numbers, and will be the trigger event that ushers in a new age of enlightenment. She represents her weekly tickets in Python as a list of lists:</p>
+<pre><code>my_tickets = [ [ 7, 17, 37, 19, 23, 43], 
+               [ 7,  2, 13, 41, 31, 43], 
+               [ 2,  5,  7, 11, 13, 17], 
+               [13, 17, 37, 19, 23, 43] ]</code></pre>
+<p>Complete these exercises.</p>
+<ol type="1">
+<li><p>Each lotto draw takes six random balls, numbered from 1 to 49. Write a function to return a lotto draw.</p></li>
+<li><p>Write a function that compares a single ticket and a draw, and returns the number of correct picks on that ticket:</p>
+<pre><code>test(lotto_match([42,4,7,11,1,13], [2,5,7,11,13,17]) == 3)</code></pre></li>
+<li><p>Write a function that takes a list of tickets and a draw, and returns a list telling how many picks were correct on each ticket:</p>
+<pre><code>test(lotto_matches([42,4,7,11,1,13], my_tickets) == [1,2,3,1])</code></pre></li>
+<li><p>Write a function that takes a list of integers, and returns the number of primes in the list:</p>
+<pre><code>test(primes_in([42, 4, 7, 11, 1, 13]) == 3)</code></pre></li>
+<li><p>Write a function to discover whether the computer scientist has missed any prime numbers in her selection of the four tickets. Return a list of all primes that she has missed:</p>
+<pre><code>test(prime_misses(my_tickets) == [3, 29, 47])</code></pre></li>
+<li><p>Write a function that repeatedly makes a new draw, and compares the draw to the four tickets.</p>
+<ol type="1">
+<li>Count how many draws are needed until one of the computer scientist’s tickets has at least 3 correct picks. Try the experiment twenty times, and average out the number of draws needed.</li>
+<li>How many draws are needed, on average, before she gets at least 4 picks correct?</li>
+<li>How many draws are needed, on average, before she gets at least 5 correct? (Hint: this might take a while. It would be nice if you could print some dots, like a progress bar, to show when each of the 20 experiments has completed.)</li>
+</ol>
+<p>Notice that we have difficulty constructing test cases here, because our random numbers are not deterministic. Automated testing only really works if you already know what the answer should be!</p></li>
+</ol></li>
+<li><p>Read <em>Alice in Wonderland</em>. You can read the plain text version we have with this textbook, or if you<br />
+have e-book reader software on your PC, or a Kindle, iPhone, Android, etc. you’ll be able to find a suitable version for your device at http://www.gutenberg.org. They also have html and pdf versions, with pictures, and thousands of other classic books!</p></li>
+</ol>
+<script type="text/javascript">
+/* PrismJS 1.23.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+css-extras+python&plugins=line-numbers+inline-color */
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(u){var c=/\blang(?:uage)?-([\w-]+)\b/i,n=0,e={},M={manual:u.Prism&&u.Prism.manual,disableWorkerMessageHandler:u.Prism&&u.Prism.disableWorkerMessageHandler,util:{encode:function e(n){return n instanceof W?new W(n.type,e(n.content),n.alias):Array.isArray(n)?n.map(e):n.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).slice(8,-1)},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++n}),e.__id},clone:function t(e,r){var a,n;switch(r=r||{},M.util.type(e)){case"Object":if(n=M.util.objId(e),r[n])return r[n];for(var i in a={},r[n]=a,e)e.hasOwnProperty(i)&&(a[i]=t(e[i],r));return a;case"Array":return n=M.util.objId(e),r[n]?r[n]:(a=[],r[n]=a,e.forEach(function(e,n){a[n]=t(e,r)}),a);default:return e}},getLanguage:function(e){for(;e&&!c.test(e.className);)e=e.parentElement;return e?(e.className.match(c)||[,"none"])[1].toLowerCase():"none"},currentScript:function(){if("undefined"==typeof document)return null;if("currentScript"in document)return document.currentScript;try{throw new Error}catch(e){var n=(/at [^(\r\n]*\((.*):.+:.+\)$/i.exec(e.stack)||[])[1];if(n){var t=document.getElementsByTagName("script");for(var r in t)if(t[r].src==n)return t[r]}return null}},isActive:function(e,n,t){for(var r="no-"+n;e;){var a=e.classList;if(a.contains(n))return!0;if(a.contains(r))return!1;e=e.parentElement}return!!t}},languages:{plain:e,plaintext:e,text:e,txt:e,extend:function(e,n){var t=M.util.clone(M.languages[e]);for(var r in n)t[r]=n[r];return t},insertBefore:function(t,e,n,r){var a=(r=r||M.languages)[t],i={};for(var l in a)if(a.hasOwnProperty(l)){if(l==e)for(var o in n)n.hasOwnProperty(o)&&(i[o]=n[o]);n.hasOwnProperty(l)||(i[l]=a[l])}var s=r[t];return r[t]=i,M.languages.DFS(M.languages,function(e,n){n===s&&e!=t&&(this[e]=i)}),i},DFS:function e(n,t,r,a){a=a||{};var i=M.util.objId;for(var l in n)if(n.hasOwnProperty(l)){t.call(n,l,n[l],r||l);var o=n[l],s=M.util.type(o);"Object"!==s||a[i(o)]?"Array"!==s||a[i(o)]||(a[i(o)]=!0,e(o,t,l,a)):(a[i(o)]=!0,e(o,t,null,a))}}},plugins:{},highlightAll:function(e,n){M.highlightAllUnder(document,e,n)},highlightAllUnder:function(e,n,t){var r={callback:t,container:e,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};M.hooks.run("before-highlightall",r),r.elements=Array.prototype.slice.apply(r.container.querySelectorAll(r.selector)),M.hooks.run("before-all-elements-highlight",r);for(var a,i=0;a=r.elements[i++];)M.highlightElement(a,!0===n,r.callback)},highlightElement:function(e,n,t){var r=M.util.getLanguage(e),a=M.languages[r];e.className=e.className.replace(c,"").replace(/\s+/g," ")+" language-"+r;var i=e.parentElement;i&&"pre"===i.nodeName.toLowerCase()&&(i.className=i.className.replace(c,"").replace(/\s+/g," ")+" language-"+r);var l={element:e,language:r,grammar:a,code:e.textContent};function o(e){l.highlightedCode=e,M.hooks.run("before-insert",l),l.element.innerHTML=l.highlightedCode,M.hooks.run("after-highlight",l),M.hooks.run("complete",l),t&&t.call(l.element)}if(M.hooks.run("before-sanity-check",l),(i=l.element.parentElement)&&"pre"===i.nodeName.toLowerCase()&&!i.hasAttribute("tabindex")&&i.setAttribute("tabindex","0"),!l.code)return M.hooks.run("complete",l),void(t&&t.call(l.element));if(M.hooks.run("before-highlight",l),l.grammar)if(n&&u.Worker){var s=new Worker(M.filename);s.onmessage=function(e){o(e.data)},s.postMessage(JSON.stringify({language:l.language,code:l.code,immediateClose:!0}))}else o(M.highlight(l.code,l.grammar,l.language));else o(M.util.encode(l.code))},highlight:function(e,n,t){var r={code:e,grammar:n,language:t};return M.hooks.run("before-tokenize",r),r.tokens=M.tokenize(r.code,r.grammar),M.hooks.run("after-tokenize",r),W.stringify(M.util.encode(r.tokens),r.language)},tokenize:function(e,n){var t=n.rest;if(t){for(var r in t)n[r]=t[r];delete n.rest}var a=new i;return I(a,a.head,e),function e(n,t,r,a,i,l){for(var o in r)if(r.hasOwnProperty(o)&&r[o]){var s=r[o];s=Array.isArray(s)?s:[s];for(var u=0;u<s.length;++u){if(l&&l.cause==o+","+u)return;var c=s[u],g=c.inside,f=!!c.lookbehind,h=!!c.greedy,d=c.alias;if(h&&!c.pattern.global){var p=c.pattern.toString().match(/[imsuy]*$/)[0];c.pattern=RegExp(c.pattern.source,p+"g")}for(var v=c.pattern||c,m=a.next,y=i;m!==t.tail&&!(l&&y>=l.reach);y+=m.value.length,m=m.next){var b=m.value;if(t.length>n.length)return;if(!(b instanceof W)){var k,x=1;if(h){if(!(k=z(v,y,n,f)))break;var w=k.index,A=k.index+k[0].length,P=y;for(P+=m.value.length;P<=w;)m=m.next,P+=m.value.length;if(P-=m.value.length,y=P,m.value instanceof W)continue;for(var E=m;E!==t.tail&&(P<A||"string"==typeof E.value);E=E.next)x++,P+=E.value.length;x--,b=n.slice(y,P),k.index-=y}else if(!(k=z(v,0,b,f)))continue;var w=k.index,S=k[0],O=b.slice(0,w),L=b.slice(w+S.length),N=y+b.length;l&&N>l.reach&&(l.reach=N);var j=m.prev;O&&(j=I(t,j,O),y+=O.length),q(t,j,x);var C=new W(o,g?M.tokenize(S,g):S,d,S);if(m=I(t,j,C),L&&I(t,m,L),1<x){var _={cause:o+","+u,reach:N};e(n,t,r,m.prev,y,_),l&&_.reach>l.reach&&(l.reach=_.reach)}}}}}}(e,a,n,a.head,0),function(e){var n=[],t=e.head.next;for(;t!==e.tail;)n.push(t.value),t=t.next;return n}(a)},hooks:{all:{},add:function(e,n){var t=M.hooks.all;t[e]=t[e]||[],t[e].push(n)},run:function(e,n){var t=M.hooks.all[e];if(t&&t.length)for(var r,a=0;r=t[a++];)r(n)}},Token:W};function W(e,n,t,r){this.type=e,this.content=n,this.alias=t,this.length=0|(r||"").length}function z(e,n,t,r){e.lastIndex=n;var a=e.exec(t);if(a&&r&&a[1]){var i=a[1].length;a.index+=i,a[0]=a[0].slice(i)}return a}function i(){var e={value:null,prev:null,next:null},n={value:null,prev:e,next:null};e.next=n,this.head=e,this.tail=n,this.length=0}function I(e,n,t){var r=n.next,a={value:t,prev:n,next:r};return n.next=a,r.prev=a,e.length++,a}function q(e,n,t){for(var r=n.next,a=0;a<t&&r!==e.tail;a++)r=r.next;(n.next=r).prev=n,e.length-=a}if(u.Prism=M,W.stringify=function n(e,t){if("string"==typeof e)return e;if(Array.isArray(e)){var r="";return e.forEach(function(e){r+=n(e,t)}),r}var a={type:e.type,content:n(e.content,t),tag:"span",classes:["token",e.type],attributes:{},language:t},i=e.alias;i&&(Array.isArray(i)?Array.prototype.push.apply(a.classes,i):a.classes.push(i)),M.hooks.run("wrap",a);var l="";for(var o in a.attributes)l+=" "+o+'="'+(a.attributes[o]||"").replace(/"/g,"&quot;")+'"';return"<"+a.tag+' class="'+a.classes.join(" ")+'"'+l+">"+a.content+"</"+a.tag+">"},!u.document)return u.addEventListener&&(M.disableWorkerMessageHandler||u.addEventListener("message",function(e){var n=JSON.parse(e.data),t=n.language,r=n.code,a=n.immediateClose;u.postMessage(M.highlight(r,M.languages[t],t)),a&&u.close()},!1)),M;var t=M.util.currentScript();function r(){M.manual||M.highlightAll()}if(t&&(M.filename=t.src,t.hasAttribute("data-manual")&&(M.manual=!0)),!M.manual){var a=document.readyState;"loading"===a||"interactive"===a&&t&&t.defer?document.addEventListener("DOMContentLoaded",r):window.requestAnimationFrame?window.requestAnimationFrame(r):window.setTimeout(r,16)}return M}(_self);"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+Prism.languages.markup={comment:/<!--[\s\S]*?-->/,prolog:/<\?[\s\S]+?\?>/,doctype:{pattern:/<!DOCTYPE(?:[^>"'[\]]|"[^"]*"|'[^']*')+(?:\[(?:[^<"'\]]|"[^"]*"|'[^']*'|<(?!!--)|<!--(?:[^-]|-(?!->))*-->)*\]\s*)?>/i,greedy:!0,inside:{"internal-subset":{pattern:/(\[)[\s\S]+(?=\]>$)/,lookbehind:!0,greedy:!0,inside:null},string:{pattern:/"[^"]*"|'[^']*'/,greedy:!0},punctuation:/^<!|>$|[[\]]/,"doctype-tag":/^DOCTYPE/,name:/[^\s<>'"]+/}},cdata:/<!\[CDATA\[[\s\S]*?]]>/i,tag:{pattern:/<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/,greedy:!0,inside:{tag:{pattern:/^<\/?[^\s>\/]+/,inside:{punctuation:/^<\/?/,namespace:/^[^\s>\/:]+:/}},"special-attr":[],"attr-value":{pattern:/=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+)/,inside:{punctuation:[{pattern:/^=/,alias:"attr-equals"},/"|'/]}},punctuation:/\/?>/,"attr-name":{pattern:/[^\s>\/]+/,inside:{namespace:/^[^\s>\/:]+:/}}}},entity:[{pattern:/&[\da-z]{1,8};/i,alias:"named-entity"},/&#x?[\da-f]{1,8};/i]},Prism.languages.markup.tag.inside["attr-value"].inside.entity=Prism.languages.markup.entity,Prism.languages.markup.doctype.inside["internal-subset"].inside=Prism.languages.markup,Prism.hooks.add("wrap",function(a){"entity"===a.type&&(a.attributes.title=a.content.replace(/&amp;/,"&"))}),Object.defineProperty(Prism.languages.markup.tag,"addInlined",{value:function(a,e){var s={};s["language-"+e]={pattern:/(^<!\[CDATA\[)[\s\S]+?(?=\]\]>$)/i,lookbehind:!0,inside:Prism.languages[e]},s.cdata=/^<!\[CDATA\[|\]\]>$/i;var t={"included-cdata":{pattern:/<!\[CDATA\[[\s\S]*?\]\]>/i,inside:s}};t["language-"+e]={pattern:/[\s\S]+/,inside:Prism.languages[e]};var n={};n[a]={pattern:RegExp("(<__[^>]*>)(?:<!\\[CDATA\\[(?:[^\\]]|\\](?!\\]>))*\\]\\]>|(?!<!\\[CDATA\\[)[^])*?(?=</__>)".replace(/__/g,function(){return a}),"i"),lookbehind:!0,greedy:!0,inside:t},Prism.languages.insertBefore("markup","cdata",n)}}),Object.defineProperty(Prism.languages.markup.tag,"addAttribute",{value:function(a,e){Prism.languages.markup.tag.inside["special-attr"].push({pattern:RegExp("(^|[\"'\\s])(?:"+a+")\\s*=\\s*(?:\"[^\"]*\"|'[^']*'|[^\\s'\">=]+(?=[\\s>]))","i"),lookbehind:!0,inside:{"attr-name":/^[^\s=]+/,"attr-value":{pattern:/=[\s\S]+/,inside:{value:{pattern:/(=\s*(["']|(?!["'])))\S[\s\S]*(?=\2$)/,lookbehind:!0,alias:[e,"language-"+e],inside:Prism.languages[e]},punctuation:[{pattern:/^=/,alias:"attr-equals"},/"|'/]}}}})}}),Prism.languages.html=Prism.languages.markup,Prism.languages.mathml=Prism.languages.markup,Prism.languages.svg=Prism.languages.markup,Prism.languages.xml=Prism.languages.extend("markup",{}),Prism.languages.ssml=Prism.languages.xml,Prism.languages.atom=Prism.languages.xml,Prism.languages.rss=Prism.languages.xml;
+!function(s){var e=/("|')(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/;s.languages.css={comment:/\/\*[\s\S]*?\*\//,atrule:{pattern:/@[\w-](?:[^;{\s]|\s+(?![\s{]))*(?:;|(?=\s*\{))/,inside:{rule:/^@[\w-]+/,"selector-function-argument":{pattern:/(\bselector\s*\(\s*(?![\s)]))(?:[^()\s]|\s+(?![\s)])|\((?:[^()]|\([^()]*\))*\))+(?=\s*\))/,lookbehind:!0,alias:"selector"},keyword:{pattern:/(^|[^\w-])(?:and|not|only|or)(?![\w-])/,lookbehind:!0}}},url:{pattern:RegExp("\\burl\\((?:"+e.source+"|(?:[^\\\\\r\n()\"']|\\\\[^])*)\\)","i"),greedy:!0,inside:{function:/^url/i,punctuation:/^\(|\)$/,string:{pattern:RegExp("^"+e.source+"$"),alias:"url"}}},selector:RegExp("[^{}\\s](?:[^{};\"'\\s]|\\s+(?![\\s{])|"+e.source+")*(?=\\s*\\{)"),string:{pattern:e,greedy:!0},property:/(?!\s)[-_a-z\xA0-\uFFFF](?:(?!\s)[-\w\xA0-\uFFFF])*(?=\s*:)/i,important:/!important\b/i,function:/[-a-z0-9]+(?=\()/i,punctuation:/[(){};:,]/},s.languages.css.atrule.inside.rest=s.languages.css;var t=s.languages.markup;t&&(t.tag.addInlined("style","css"),t.tag.addAttribute("style","css"))}(Prism);
+Prism.languages.clike={comment:[{pattern:/(^|[^\\])\/\*[\s\S]*?(?:\*\/|$)/,lookbehind:!0,greedy:!0},{pattern:/(^|[^\\:])\/\/.*/,lookbehind:!0,greedy:!0}],string:{pattern:/(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,greedy:!0},"class-name":{pattern:/(\b(?:class|interface|extends|implements|trait|instanceof|new)\s+|\bcatch\s+\()[\w.\\]+/i,lookbehind:!0,inside:{punctuation:/[.\\]/}},keyword:/\b(?:if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,boolean:/\b(?:true|false)\b/,function:/\w+(?=\()/,number:/\b0x[\da-f]+\b|(?:\b\d+(?:\.\d*)?|\B\.\d+)(?:e[+-]?\d+)?/i,operator:/[<>]=?|[!=]=?=?|--?|\+\+?|&&?|\|\|?|[?*/~^%]/,punctuation:/[{}[\];(),.:]/};
+Prism.languages.javascript=Prism.languages.extend("clike",{"class-name":[Prism.languages.clike["class-name"],{pattern:/(^|[^$\w\xA0-\uFFFF])(?!\s)[_$A-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\.(?:prototype|constructor))/,lookbehind:!0}],keyword:[{pattern:/((?:^|})\s*)catch\b/,lookbehind:!0},{pattern:/(^|[^.]|\.\.\.\s*)\b(?:as|async(?=\s*(?:function\b|\(|[$\w\xA0-\uFFFF]|$))|await|break|case|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally(?=\s*(?:\{|$))|for|from(?=\s*(?:['"]|$))|function|(?:get|set)(?=\s*(?:[#\[$\w\xA0-\uFFFF]|$))|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)\b/,lookbehind:!0}],function:/#?(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*(?:\.\s*(?:apply|bind|call)\s*)?\()/,number:/\b(?:(?:0[xX](?:[\dA-Fa-f](?:_[\dA-Fa-f])?)+|0[bB](?:[01](?:_[01])?)+|0[oO](?:[0-7](?:_[0-7])?)+)n?|(?:\d(?:_\d)?)+n|NaN|Infinity)\b|(?:\b(?:\d(?:_\d)?)+\.?(?:\d(?:_\d)?)*|\B\.(?:\d(?:_\d)?)+)(?:[Ee][+-]?(?:\d(?:_\d)?)+)?/,operator:/--|\+\+|\*\*=?|=>|&&=?|\|\|=?|[!=]==|<<=?|>>>?=?|[-+*/%&|^!=<>]=?|\.{3}|\?\?=?|\?\.?|[~:]/}),Prism.languages.javascript["class-name"][0].pattern=/(\b(?:class|interface|extends|implements|instanceof|new)\s+)[\w.\\]+/,Prism.languages.insertBefore("javascript","keyword",{regex:{pattern:/((?:^|[^$\w\xA0-\uFFFF."'\])\s]|\b(?:return|yield))\s*)\/(?:\[(?:[^\]\\\r\n]|\\.)*]|\\.|[^/\\\[\r\n])+\/[gimyus]{0,6}(?=(?:\s|\/\*(?:[^*]|\*(?!\/))*\*\/)*(?:$|[\r\n,.;:})\]]|\/\/))/,lookbehind:!0,greedy:!0,inside:{"regex-source":{pattern:/^(\/)[\s\S]+(?=\/[a-z]*$)/,lookbehind:!0,alias:"language-regex",inside:Prism.languages.regex},"regex-flags":/[a-z]+$/,"regex-delimiter":/^\/|\/$/}},"function-variable":{pattern:/#?(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*[=:]\s*(?:async\s*)?(?:\bfunction\b|(?:\((?:[^()]|\([^()]*\))*\)|(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*)\s*=>))/,alias:"function"},parameter:[{pattern:/(function(?:\s+(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*)?\s*\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\))/,lookbehind:!0,inside:Prism.languages.javascript},{pattern:/(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*=>)/i,inside:Prism.languages.javascript},{pattern:/(\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\)\s*=>)/,lookbehind:!0,inside:Prism.languages.javascript},{pattern:/((?:\b|\s|^)(?!(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)(?![$\w\xA0-\uFFFF]))(?:(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*\s*)\(\s*|\]\s*\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\)\s*\{)/,lookbehind:!0,inside:Prism.languages.javascript}],constant:/\b[A-Z](?:[A-Z_]|\dx?)*\b/}),Prism.languages.insertBefore("javascript","string",{hashbang:{pattern:/^#!.*/,greedy:!0,alias:"comment"},"template-string":{pattern:/`(?:\\[\s\S]|\${(?:[^{}]|{(?:[^{}]|{[^}]*})*})+}|(?!\${)[^\\`])*`/,greedy:!0,inside:{"template-punctuation":{pattern:/^`|`$/,alias:"string"},interpolation:{pattern:/((?:^|[^\\])(?:\\{2})*)\${(?:[^{}]|{(?:[^{}]|{[^}]*})*})+}/,lookbehind:!0,inside:{"interpolation-punctuation":{pattern:/^\${|}$/,alias:"punctuation"},rest:Prism.languages.javascript}},string:/[\s\S]+/}}}),Prism.languages.markup&&(Prism.languages.markup.tag.addInlined("script","javascript"),Prism.languages.markup.tag.addAttribute("on(?:abort|blur|change|click|composition(?:end|start|update)|dblclick|error|focus(?:in|out)?|key(?:down|up)|load|mouse(?:down|enter|leave|move|out|over|up)|reset|resize|scroll|select|slotchange|submit|unload|wheel)","javascript")),Prism.languages.js=Prism.languages.javascript;
+!function(e){var a,n=/("|')(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/;e.languages.css.selector={pattern:e.languages.css.selector,inside:a={"pseudo-element":/:(?:after|before|first-letter|first-line|selection)|::[-\w]+/,"pseudo-class":/:[-\w]+/,class:/\.[-\w]+/,id:/#[-\w]+/,attribute:{pattern:RegExp("\\[(?:[^[\\]\"']|"+n.source+")*\\]"),greedy:!0,inside:{punctuation:/^\[|\]$/,"case-sensitivity":{pattern:/(\s)[si]$/i,lookbehind:!0,alias:"keyword"},namespace:{pattern:/^(\s*)(?:(?!\s)[-*\w\xA0-\uFFFF])*\|(?!=)/,lookbehind:!0,inside:{punctuation:/\|$/}},"attr-name":{pattern:/^(\s*)(?:(?!\s)[-\w\xA0-\uFFFF])+/,lookbehind:!0},"attr-value":[n,{pattern:/(=\s*)(?:(?!\s)[-\w\xA0-\uFFFF])+(?=\s*$)/,lookbehind:!0}],operator:/[|~*^$]?=/}},"n-th":[{pattern:/(\(\s*)[+-]?\d*[\dn](?:\s*[+-]\s*\d+)?(?=\s*\))/,lookbehind:!0,inside:{number:/[\dn]+/,operator:/[+-]/}},{pattern:/(\(\s*)(?:even|odd)(?=\s*\))/i,lookbehind:!0}],combinator:/>|\+|~|\|\|/,punctuation:/[(),]/}},e.languages.css.atrule.inside["selector-function-argument"].inside=a,e.languages.insertBefore("css","property",{variable:{pattern:/(^|[^-\w\xA0-\uFFFF])--(?!\s)[-_a-z\xA0-\uFFFF](?:(?!\s)[-\w\xA0-\uFFFF])*/i,lookbehind:!0}});var r={pattern:/(\b\d+)(?:%|[a-z]+\b)/,lookbehind:!0},i={pattern:/(^|[^\w.-])-?(?:\d+(?:\.\d+)?|\.\d+)/,lookbehind:!0};e.languages.insertBefore("css","function",{operator:{pattern:/(\s)[+\-*\/](?=\s)/,lookbehind:!0},hexcode:{pattern:/\B#(?:[\da-f]{1,2}){3,4}\b/i,alias:"color"},color:[/\b(?:AliceBlue|AntiqueWhite|Aqua|Aquamarine|Azure|Beige|Bisque|Black|BlanchedAlmond|Blue|BlueViolet|Brown|BurlyWood|CadetBlue|Chartreuse|Chocolate|Coral|CornflowerBlue|Cornsilk|Crimson|Cyan|DarkBlue|DarkCyan|DarkGoldenRod|DarkGr[ae]y|DarkGreen|DarkKhaki|DarkMagenta|DarkOliveGreen|DarkOrange|DarkOrchid|DarkRed|DarkSalmon|DarkSeaGreen|DarkSlateBlue|DarkSlateGr[ae]y|DarkTurquoise|DarkViolet|DeepPink|DeepSkyBlue|DimGr[ae]y|DodgerBlue|FireBrick|FloralWhite|ForestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|IndianRed|Indigo|Ivory|Khaki|Lavender|LavenderBlush|LawnGreen|LemonChiffon|LightBlue|LightCoral|LightCyan|LightGoldenRodYellow|LightGr[ae]y|LightGreen|LightPink|LightSalmon|LightSeaGreen|LightSkyBlue|LightSlateGr[ae]y|LightSteelBlue|LightYellow|Lime|LimeGreen|Linen|Magenta|Maroon|MediumAquaMarine|MediumBlue|MediumOrchid|MediumPurple|MediumSeaGreen|MediumSlateBlue|MediumSpringGreen|MediumTurquoise|MediumVioletRed|MidnightBlue|MintCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGoldenRod|PaleGreen|PaleTurquoise|PaleVioletRed|PapayaWhip|PeachPuff|Peru|Pink|Plum|PowderBlue|Purple|Red|RosyBrown|RoyalBlue|SaddleBrown|Salmon|SandyBrown|SeaGreen|SeaShell|Sienna|Silver|SkyBlue|SlateBlue|SlateGr[ae]y|Snow|SpringGreen|SteelBlue|Tan|Teal|Thistle|Tomato|Transparent|Turquoise|Violet|Wheat|White|WhiteSmoke|Yellow|YellowGreen)\b/i,{pattern:/\b(?:rgb|hsl)\(\s*\d{1,3}\s*,\s*\d{1,3}%?\s*,\s*\d{1,3}%?\s*\)\B|\b(?:rgb|hsl)a\(\s*\d{1,3}\s*,\s*\d{1,3}%?\s*,\s*\d{1,3}%?\s*,\s*(?:0|0?\.\d+|1)\s*\)\B/i,inside:{unit:r,number:i,function:/[\w-]+(?=\()/,punctuation:/[(),]/}}],entity:/\\[\da-f]{1,8}/i,unit:r,number:i})}(Prism);
+Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-interpolation":{pattern:/(?:f|rf|fr)(?:("""|''')[\s\S]*?\1|("|')(?:\\.|(?!\2)[^\\\r\n])*\2)/i,greedy:!0,inside:{interpolation:{pattern:/((?:^|[^{])(?:{{)*){(?!{)(?:[^{}]|{(?!{)(?:[^{}]|{(?!{)(?:[^{}])+})+})+}/,lookbehind:!0,inside:{"format-spec":{pattern:/(:)[^:(){}]+(?=}$)/,lookbehind:!0},"conversion-option":{pattern:/![sra](?=[:}]$)/,alias:"punctuation"},rest:null}},string:/[\s\S]+/}},"triple-quoted-string":{pattern:/(?:[rub]|rb|br)?("""|''')[\s\S]*?\1/i,greedy:!0,alias:"string"},string:{pattern:/(?:[rub]|rb|br)?("|')(?:\\.|(?!\1)[^\\\r\n])*\1/i,greedy:!0},function:{pattern:/((?:^|\s)def[ \t]+)[a-zA-Z_]\w*(?=\s*\()/g,lookbehind:!0},"class-name":{pattern:/(\bclass\s+)\w+/i,lookbehind:!0},decorator:{pattern:/(^\s*)@\w+(?:\.\w+)*/im,lookbehind:!0,alias:["annotation","punctuation"],inside:{punctuation:/\./}},keyword:/\b(?:and|as|assert|async|await|break|class|continue|def|del|elif|else|except|exec|finally|for|from|global|if|import|in|is|lambda|nonlocal|not|or|pass|print|raise|return|try|while|with|yield)\b/,builtin:/\b(?:__import__|abs|all|any|apply|ascii|basestring|bin|bool|buffer|bytearray|bytes|callable|chr|classmethod|cmp|coerce|compile|complex|delattr|dict|dir|divmod|enumerate|eval|execfile|file|filter|float|format|frozenset|getattr|globals|hasattr|hash|help|hex|id|input|int|intern|isinstance|issubclass|iter|len|list|locals|long|map|max|memoryview|min|next|object|oct|open|ord|pow|property|range|raw_input|reduce|reload|repr|reversed|round|set|setattr|slice|sorted|staticmethod|str|sum|super|tuple|type|unichr|unicode|vars|xrange|zip)\b/,boolean:/\b(?:True|False|None)\b/,number:/(?:\b(?=\d)|\B(?=\.))(?:0[bo])?(?:(?:\d|0x[\da-f])[\da-f]*(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?j?\b/i,operator:/[-+%=]=?|!=|\*\*?=?|\/\/?=?|<[<=>]?|>[=>]?|[&|^~]/,punctuation:/[{}[\];(),.:]/},Prism.languages.python["string-interpolation"].inside.interpolation.inside.rest=Prism.languages.python,Prism.languages.py=Prism.languages.python;
+!function(){if("undefined"!=typeof Prism&&"undefined"!=typeof document){var o="line-numbers",a=/\n(?!$)/g,e=Prism.plugins.lineNumbers={getLine:function(e,n){if("PRE"===e.tagName&&e.classList.contains(o)){var t=e.querySelector(".line-numbers-rows");if(t){var i=parseInt(e.getAttribute("data-start"),10)||1,r=i+(t.children.length-1);n<i&&(n=i),r<n&&(n=r);var s=n-i;return t.children[s]}}},resize:function(e){u([e])},assumeViewportIndependence:!0},n=void 0;window.addEventListener("resize",function(){e.assumeViewportIndependence&&n===window.innerWidth||(n=window.innerWidth,u(Array.prototype.slice.call(document.querySelectorAll("pre."+o))))}),Prism.hooks.add("complete",function(e){if(e.code){var n=e.element,t=n.parentNode;if(t&&/pre/i.test(t.nodeName)&&!n.querySelector(".line-numbers-rows")&&Prism.util.isActive(n,o)){n.classList.remove(o),t.classList.add(o);var i,r=e.code.match(a),s=r?r.length+1:1,l=new Array(s+1).join("<span></span>");(i=document.createElement("span")).setAttribute("aria-hidden","true"),i.className="line-numbers-rows",i.innerHTML=l,t.hasAttribute("data-start")&&(t.style.counterReset="linenumber "+(parseInt(t.getAttribute("data-start"),10)-1)),e.element.appendChild(i),u([t]),Prism.hooks.run("line-numbers",e)}}}),Prism.hooks.add("line-numbers",function(e){e.plugins=e.plugins||{},e.plugins.lineNumbers=!0})}function u(e){if(0!=(e=e.filter(function(e){var n=function(e){return e?window.getComputedStyle?getComputedStyle(e):e.currentStyle||null:null}(e)["white-space"];return"pre-wrap"===n||"pre-line"===n})).length){var n=e.map(function(e){var n=e.querySelector("code"),t=e.querySelector(".line-numbers-rows");if(n&&t){var i=e.querySelector(".line-numbers-sizer"),r=n.textContent.split(a);i||((i=document.createElement("span")).className="line-numbers-sizer",n.appendChild(i)),i.innerHTML="0",i.style.display="block";var s=i.getBoundingClientRect().height;return i.innerHTML="",{element:e,lines:r,lineHeights:[],oneLinerHeight:s,sizer:i}}}).filter(Boolean);n.forEach(function(e){var i=e.sizer,n=e.lines,r=e.lineHeights,s=e.oneLinerHeight;r[n.length-1]=void 0,n.forEach(function(e,n){if(e&&1<e.length){var t=i.appendChild(document.createElement("span"));t.style.display="block",t.textContent=e}else r[n]=s})}),n.forEach(function(e){for(var n=e.sizer,t=e.lineHeights,i=0,r=0;r<t.length;r++)void 0===t[r]&&(t[r]=n.children[i++].getBoundingClientRect().height)}),n.forEach(function(e){var n=e.sizer,t=e.element.querySelector(".line-numbers-rows");n.style.display="none",n.innerHTML="",e.lineHeights.forEach(function(e,n){t.children[n].style.height=e+"px"})})}}}();
+!function(){if("undefined"!=typeof Prism&&"undefined"!=typeof document){var a=/<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/g,c=/^#?((?:[\da-f]){3,4}|(?:[\da-f]{2}){3,4})$/i,l=[function(n){var r=c.exec(n);if(r){for(var o=6<=(n=r[1]).length?2:1,s=n.length/o,e=1==o?1/15:1/255,t=[],i=0;i<s;i++){var a=parseInt(n.substr(i*o,o),16);t.push(a*e)}return 3==s&&t.push(1),"rgba("+t.slice(0,3).map(function(n){return String(Math.round(255*n))}).join(",")+","+String(Number(t[3].toFixed(3)))+")"}},function(n){var r=(new Option).style;return r.color=n,r.color?n:void 0}];Prism.hooks.add("wrap",function(n){if("color"===n.type||0<=n.classes.indexOf("color")){for(var r,o=n.content,s=o.split(a).join(""),e=0,t=l.length;e<t&&!r;e++)r=l[e](s);if(!r)return;var i='<span class="inline-color-wrapper"><span class="inline-color" style="background-color:'+r+';"></span></span>';n.content=i+o}})}}();
+
+</script>
+
+</body>
+</html>

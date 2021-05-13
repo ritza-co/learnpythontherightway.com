@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>book</title>
+    <meta name="description" content="learn python the right way">
+
+    <style type="text/css">
+        figure {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 90%;
+            text-align: center;
+            font-size: 80%;
+        }
+
+        img {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+	</style>
+<style type="text/css">
+	:root{--background-body:#fff;--background:#efefef;--background-alt:#f7f7f7;--selection:#9e9e9e;--text-main:#363636;--text-bright:#000;--text-muted:#70777f;--links:#0076d1;--focus:rgba(0,150,191,0.67);--border:#dbdbdb;--code:#000;--animation-duration:0.1s;--button-hover:#ddd;--scrollbar-thumb:#d5d5d5;--scrollbar-thumb-hover:#c4c4c4;--form-placeholder:#949494;--form-text:#000;--variable:#39a33c;--highlight:#ff0;--select-arrow:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23161f27'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E")}@media (prefers-color-scheme:dark){:root{--background-body:#202b38;--background:#161f27;--background-alt:#1a242f;--selection:#1c76c5;--text-main:#dbdbdb;--text-bright:#fff;--text-muted:#a9b1ba;--links:#41adff;--focus:rgba(0,150,191,0.67);--border:#526980;--code:#ffbe85;--animation-duration:0.1s;--button-hover:#324759;--scrollbar-thumb:var(--button-hover);--scrollbar-thumb-hover:#141414;--form-placeholder:#a9a9a9;--form-text:#fff;--variable:#d941e2;--highlight:#efdb43;--select-arrow:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23efefef'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E")}}html{scrollbar-color:#d5d5d5 #fff;scrollbar-color:var(--scrollbar-thumb) var(--background-body);scrollbar-width:thin}@media (prefers-color-scheme:dark){html{scrollbar-color:#324759 #202b38;scrollbar-color:var(--scrollbar-thumb) var(--background-body)}}body{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Segoe UI Emoji,Apple Color Emoji,Noto Color Emoji,sans-serif;line-height:1.4;max-width:800px;margin:20px auto;padding:0 10px;word-wrap:break-word;color:#363636;color:var(--text-main);background:#fff;background:var(--background-body);text-rendering:optimizeLegibility}@media (prefers-color-scheme:dark){body{background:#202b38;background:var(--background-body);color:#dbdbdb;color:var(--text-main)}}button{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}@media (prefers-color-scheme:dark){button{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}}input{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}@media (prefers-color-scheme:dark){input{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}}textarea{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}@media (prefers-color-scheme:dark){textarea{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}}h1{font-size:2.2em;margin-top:0}h1,h2,h3,h4,h5,h6{margin-bottom:12px;margin-top:24px}h1{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h1{color:#fff;color:var(--text-bright)}}h2{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h2{color:#fff;color:var(--text-bright)}}h3{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h3{color:#fff;color:var(--text-bright)}}h4{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h4{color:#fff;color:var(--text-bright)}}h5{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h5{color:#fff;color:var(--text-bright)}}h6{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h6{color:#fff;color:var(--text-bright)}}strong{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){strong{color:#fff;color:var(--text-bright)}}b,h1,h2,h3,h4,h5,h6,strong,th{font-weight:600}q:after,q:before{content:none}blockquote{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus);margin:1.5em 0;padding:.5em 1em;font-style:italic}@media (prefers-color-scheme:dark){blockquote{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus)}}q{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus);margin:1.5em 0;padding:.5em 1em;font-style:italic}@media (prefers-color-scheme:dark){q{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus)}}blockquote>footer{font-style:normal;border:0}address,blockquote cite{font-style:normal}a[href^=mailto\:]:before{content:"📧 "}a[href^=tel\:]:before{content:"📞 "}a[href^=sms\:]:before{content:"💬 "}mark{background-color:#ff0;background-color:var(--highlight);border-radius:2px;padding:0 2px;color:#000}@media (prefers-color-scheme:dark){mark{background-color:#efdb43;background-color:var(--highlight)}}button,input[type=button],input[type=checkbox],input[type=radio],input[type=range],input[type=submit],select{cursor:pointer}input:not([type=checkbox]):not([type=radio]),select{display:block}input{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){input{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}button{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){button{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}textarea{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){textarea{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}select{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){select{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}input[type=checkbox],input[type=radio]{height:1em;width:1em}input[type=radio]{border-radius:100%}input{vertical-align:top}label{vertical-align:middle;margin-bottom:4px;display:inline-block}button,input:not([type=checkbox]):not([type=radio]),input[type=range],select,textarea{-webkit-appearance:none}textarea{display:block;margin-right:0;box-sizing:border-box;resize:vertical}textarea:not([cols]){width:100%}textarea:not([rows]){min-height:40px;height:140px}select{background:#efefef url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23161f27'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E") calc(100% - 12px) 50%/12px no-repeat;background:var(--background) var(--select-arrow) calc(100% - 12px) 50%/12px no-repeat;padding-right:35px}@media (prefers-color-scheme:dark){select{background:#161f27 url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23efefef'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E") calc(100% - 12px) 50%/12px no-repeat;background:var(--background) var(--select-arrow) calc(100% - 12px) 50%/12px no-repeat}}select::-ms-expand{display:none}select[multiple]{padding-right:10px;background-image:none;overflow-y:auto}button,input[type=button],input[type=submit]{padding-right:30px;padding-left:30px}button:hover{background:#ddd;background:var(--button-hover)}@media (prefers-color-scheme:dark){button:hover{background:#324759;background:var(--button-hover)}}input[type=submit]:hover{background:#ddd;background:var(--button-hover)}@media (prefers-color-scheme:dark){input[type=submit]:hover{background:#324759;background:var(--button-hover)}}input[type=button]:hover{background:#ddd;background:var(--button-hover)}@media (prefers-color-scheme:dark){input[type=button]:hover{background:#324759;background:var(--button-hover)}}input:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){input:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}select:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){select:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}button:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){button:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}textarea:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){textarea:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}button:active,input[type=button]:active,input[type=checkbox]:active,input[type=radio]:active,input[type=range]:active,input[type=submit]:active{transform:translateY(2px)}button:disabled,input:disabled,select:disabled,textarea:disabled{cursor:not-allowed;opacity:.5}::-moz-placeholder{color:#949494;color:var(--form-placeholder)}:-ms-input-placeholder{color:#949494;color:var(--form-placeholder)}::-ms-input-placeholder{color:#949494;color:var(--form-placeholder)}::placeholder{color:#949494;color:var(--form-placeholder)}@media (prefers-color-scheme:dark){::-moz-placeholder{color:#a9a9a9;color:var(--form-placeholder)}:-ms-input-placeholder{color:#a9a9a9;color:var(--form-placeholder)}::-ms-input-placeholder{color:#a9a9a9;color:var(--form-placeholder)}::placeholder{color:#a9a9a9;color:var(--form-placeholder)}}fieldset{border:1px solid rgba(0,150,191,.67);border:1px solid var(--focus);border-radius:6px;margin:0 0 12px;padding:10px}@media (prefers-color-scheme:dark){fieldset{border:1px solid rgba(0,150,191,.67);border:1px solid var(--focus)}}legend{font-size:.9em;font-weight:600}input[type=range]{margin:10px 0;padding:10px 0;background:transparent}input[type=range]:focus{outline:none}input[type=range]::-webkit-slider-runnable-track{width:100%;height:9.5px;-webkit-transition:.2s;transition:.2s;background:#efefef;background:var(--background);border-radius:3px}@media (prefers-color-scheme:dark){input[type=range]::-webkit-slider-runnable-track{background:#161f27;background:var(--background)}}input[type=range]::-webkit-slider-thumb{box-shadow:0 1px 1px #000,0 0 1px #0d0d0d;height:20px;width:20px;border-radius:50%;background:#dbdbdb;background:var(--border);-webkit-appearance:none;margin-top:-7px}@media (prefers-color-scheme:dark){input[type=range]::-webkit-slider-thumb{background:#526980;background:var(--border)}}input[type=range]:focus::-webkit-slider-runnable-track{background:#efefef;background:var(--background)}@media (prefers-color-scheme:dark){input[type=range]:focus::-webkit-slider-runnable-track{background:#161f27;background:var(--background)}}input[type=range]::-moz-range-track{width:100%;height:9.5px;-moz-transition:.2s;transition:.2s;background:#efefef;background:var(--background);border-radius:3px}@media (prefers-color-scheme:dark){input[type=range]::-moz-range-track{background:#161f27;background:var(--background)}}input[type=range]::-moz-range-thumb{box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d;height:20px;width:20px;border-radius:50%;background:#dbdbdb;background:var(--border)}@media (prefers-color-scheme:dark){input[type=range]::-moz-range-thumb{background:#526980;background:var(--border)}}input[type=range]::-ms-track{width:100%;height:9.5px;background:transparent;border-color:transparent;border-width:16px 0;color:transparent}input[type=range]::-ms-fill-lower{background:#efefef;background:var(--background);border:.2px solid #010101;border-radius:3px;box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d}@media (prefers-color-scheme:dark){input[type=range]::-ms-fill-lower{background:#161f27;background:var(--background)}}input[type=range]::-ms-fill-upper{background:#efefef;background:var(--background);border:.2px solid #010101;border-radius:3px;box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d}@media (prefers-color-scheme:dark){input[type=range]::-ms-fill-upper{background:#161f27;background:var(--background)}}input[type=range]::-ms-thumb{box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d;border:1px solid #000;height:20px;width:20px;border-radius:50%;background:#dbdbdb;background:var(--border)}@media (prefers-color-scheme:dark){input[type=range]::-ms-thumb{background:#526980;background:var(--border)}}input[type=range]:focus::-ms-fill-lower{background:#efefef;background:var(--background)}@media (prefers-color-scheme:dark){input[type=range]:focus::-ms-fill-lower{background:#161f27;background:var(--background)}}input[type=range]:focus::-ms-fill-upper{background:#efefef;background:var(--background)}@media (prefers-color-scheme:dark){input[type=range]:focus::-ms-fill-upper{background:#161f27;background:var(--background)}}a{text-decoration:none;color:#0076d1;color:var(--links)}@media (prefers-color-scheme:dark){a{color:#41adff;color:var(--links)}}a:hover{text-decoration:underline}code{background:#efefef;background:var(--background);color:#000;color:var(--code);padding:2.5px 5px;border-radius:6px;font-size:1em}@media (prefers-color-scheme:dark){code{color:#ffbe85;color:var(--code);background:#161f27;background:var(--background)}}samp{background:#efefef;background:var(--background);color:#000;color:var(--code);padding:2.5px 5px;border-radius:6px;font-size:1em}@media (prefers-color-scheme:dark){samp{color:#ffbe85;color:var(--code);background:#161f27;background:var(--background)}}time{background:#efefef;background:var(--background);color:#000;color:var(--code);padding:2.5px 5px;border-radius:6px;font-size:1em}@media (prefers-color-scheme:dark){time{color:#ffbe85;color:var(--code);background:#161f27;background:var(--background)}}pre>code{padding:10px;display:block;overflow-x:auto}var{color:#39a33c;color:var(--variable);font-style:normal;font-family:monospace}@media (prefers-color-scheme:dark){var{color:#d941e2;color:var(--variable)}}kbd{background:#efefef;background:var(--background);border:1px solid #dbdbdb;border:1px solid var(--border);border-radius:2px;color:#363636;color:var(--text-main);padding:2px 4px}@media (prefers-color-scheme:dark){kbd{color:#dbdbdb;color:var(--text-main);border:1px solid #526980;border:1px solid var(--border);background:#161f27;background:var(--background)}}img,video{max-width:100%;height:auto}hr{border:none;border-top:1px solid #dbdbdb;border-top:1px solid var(--border)}@media (prefers-color-scheme:dark){hr{border-top:1px solid #526980;border-top:1px solid var(--border)}}table{border-collapse:collapse;margin-bottom:10px;width:100%;table-layout:fixed}table caption,td,th{text-align:left}td,th{padding:6px;vertical-align:top;word-wrap:break-word}thead{border-bottom:1px solid #dbdbdb;border-bottom:1px solid var(--border)}@media (prefers-color-scheme:dark){thead{border-bottom:1px solid #526980;border-bottom:1px solid var(--border)}}tfoot{border-top:1px solid #dbdbdb;border-top:1px solid var(--border)}@media (prefers-color-scheme:dark){tfoot{border-top:1px solid #526980;border-top:1px solid var(--border)}}tbody tr:nth-child(2n){background-color:#f7f7f7;background-color:var(--background-alt)}@media (prefers-color-scheme:dark){tbody tr:nth-child(2n){background-color:#1a242f;background-color:var(--background-alt)}}::-webkit-scrollbar{height:10px;width:10px}::-webkit-scrollbar-track{background:#efefef;background:var(--background);border-radius:6px}@media (prefers-color-scheme:dark){::-webkit-scrollbar-track{background:#161f27;background:var(--background)}}::-webkit-scrollbar-thumb{background:#d5d5d5;background:var(--scrollbar-thumb);border-radius:6px}@media (prefers-color-scheme:dark){::-webkit-scrollbar-thumb{background:#324759;background:var(--scrollbar-thumb)}}::-webkit-scrollbar-thumb:hover{background:#c4c4c4;background:var(--scrollbar-thumb-hover)}@media (prefers-color-scheme:dark){::-webkit-scrollbar-thumb:hover{background:#141414;background:var(--scrollbar-thumb-hover)}}::-moz-selection{background-color:#9e9e9e;background-color:var(--selection);color:#000;color:var(--text-bright)}::selection{background-color:#9e9e9e;background-color:var(--selection);color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){::-moz-selection{color:#fff;color:var(--text-bright)}::selection{color:#fff;color:var(--text-bright)}}@media (prefers-color-scheme:dark){::-moz-selection{background-color:#1c76c5;background-color:var(--selection)}::selection{background-color:#1c76c5;background-color:var(--selection)}}details{display:flex;flex-direction:column;align-items:flex-start;background-color:#f7f7f7;background-color:var(--background-alt);padding:10px 10px 0;margin:1em 0;border-radius:6px;overflow:hidden}@media (prefers-color-scheme:dark){details{background-color:#1a242f;background-color:var(--background-alt)}}details[open]{padding:10px}details>:last-child{margin-bottom:0}details[open] summary{margin-bottom:10px}summary{display:list-item;background-color:#efefef;background-color:var(--background);padding:10px;margin:-10px -10px 0;cursor:pointer;outline:none}@media (prefers-color-scheme:dark){summary{background-color:#161f27;background-color:var(--background)}}summary:focus,summary:hover{text-decoration:underline}details>:not(summary){margin-top:0}summary::-webkit-details-marker{color:#363636;color:var(--text-main)}@media (prefers-color-scheme:dark){summary::-webkit-details-marker{color:#dbdbdb;color:var(--text-main)}}footer{border-top:1px solid #dbdbdb;border-top:1px solid var(--border);padding-top:10px;color:#70777f;color:var(--text-muted)}@media (prefers-color-scheme:dark){footer{color:#a9b1ba;color:var(--text-muted);border-top:1px solid #526980;border-top:1px solid var(--border)}}body>footer{margin-top:40px}@media print{body,button,code,details,input,pre,summary,textarea{background-color:#fff}button,input,textarea{border:1px solid #000}body,button,code,footer,h1,h2,h3,h4,h5,h6,input,pre,strong,summary,textarea{color:#000}summary::marker{color:#000}summary::-webkit-details-marker{color:#000}tbody tr:nth-child(2n){background-color:#f2f2f2}a{color:#00f;text-decoration:underline}}
+/*# sourceMappingURL=water.min.css.map */
+	</style>
+
+    <style type="text/css">
+    code[class*="language-"],pre[class*="language-"]{border-radius: 7px;color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*="language-"]::-moz-selection,pre[class*="language-"] ::-moz-selection,code[class*="language-"]::-moz-selection,code[class*="language-"] ::-moz-selection{text-shadow:none;background:#b3d4fc}pre[class*="language-"]::selection,pre[class*="language-"] ::selection,code[class*="language-"]::selection,code[class*="language-"] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*="language-"],pre[class*="language-"]{text-shadow:none}}pre[class*="language-"]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*="language-"],pre[class*="language-"]{background:#f5f2f0}:not(pre)>code[class*="language-"]{padding:.1em;border-radius:.3em;white-space:normal}.token.comment,.token.prolog,.token.doctype,.token.cdata{color:slategray}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.property,.token.tag,.token.boolean,.token.number,.token.constant,.token.symbol,.token.deleted{color:#905}.token.selector,.token.attr-name,.token.string,.token.char,.token.builtin,.token.inserted{color:#690}.token.operator,.token.entity,.token.url,.language-css .token.string,.style .token.string{color:#9a6e3a}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.function,.token.class-name{color:#DD4A68}.token.regex,.token.important,.token.variable{color:#e90}.token.important,.token.bold{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}pre[class*="language-"].line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}pre[class*="language-"].line-numbers>code{position:relative;white-space:inherit}.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:0;font-size:100%;left:-3.8em;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.line-numbers-rows>span{display:block;counter-increment:linenumber}.line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}span.inline-color-wrapper{background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyIDIiPjxwYXRoIGZpbGw9ImdyYXkiIGQ9Ik0wIDBoMnYySDB6Ii8+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0wIDBoMXYxSDB6TTEgMWgxdjFIMXoiLz48L3N2Zz4=);background-position:center;background-size:110%;display:inline-block;height:1.333ch;width:1.333ch;margin:0 .333ch;box-sizing:border-box;border:1px solid #fff;outline:1px solid rgba(0,0,0,.5);overflow:hidden}span.inline-color{display:block;height:120%;width:120%}
+    </style>
+    <style type="text/css">
+    @import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap);:root{--background-body:#fff;--background:#eee;--background-alt:#1a242f;--selection:#9abfdf;--text-main:#1a242f;--text-bright:#1e426f;--text-muted:#a9b1ba;--links:#2496ee;--focus:rgba(0,150,191,.67);--border:#526980;--code:#d20577;--animation-duration:0.1s;--button-hover:#324759;--scrollbar-thumb:var(--button-hover);--scrollbar-thumb-hover:#141414;--form-placeholder:#a9a9a9;--form-text:#fff;--variable:#d941e2;--highlight:#efdb43;--select-arrow:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23efefef'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E")}body{font-family:"IBM Plex Sans",sans-serif;font-size:16px;line-height: 1.6;}
+    </style>
+ 
+
+</head>
+
+<body>
+    <header><h1></h1>
+
+        <nav>
+        </nav>
+
+    </header><h1>Chapter 17: PyGame</h1>
+<p>PyGame is a package that is not part of the standard Python distribution, so if you do not already have it installed (i.e. <code>import pygame</code> fails), download and install a suitable version from http://pygame.org/download.shtml. These notes are based on PyGame 1.9.1, the most recent version at the time of writing.</p>
+<p>PyGame comes with a substantial set of tutorials, examples, and help, so there is ample opportunity to stretch yourself on the code. You may need to look around a bit to find these resources, though: if you’ve installed PyGame on a Windows machine, for example, they’ll end up in a folder like C:\Python31\Lib\site-packages\pygame\ where you will find directories for <em>docs</em> and <em>examples</em>.</p>
+<h2>17.1. The game loop</h2>
+<p>The structure of the games we’ll consider always follows this fixed pattern:</p>
+<p><img src="Chapter-17/pygame_structure.png" /></p>
+<p>In every game, in the <em>setup</em> section we’ll create a window, load and prepare some content, and then enter the <strong>game loop</strong>. The game loop continuously does four main things:</p>
+<ul>
+<li>it <strong>polls</strong> for events — i.e. asks the system whether events have occurred — and responds appropriately,</li>
+<li>it updates whatever internal data structures or objects need changing,</li>
+<li>it draws the current state of the game into a (non-visible) surface,</li>
+<li>it puts the just-drawn surface on display.</li>
+</ul>
+<p>This program pops up a window which stays there until we close it:</p>
+<p><img src="Chapter-17/pygame_screenshot01.png" /></p>
+<p>PyGame does all its drawing onto rectangular <em>surfaces</em>. After initializing PyGame at line 5, we create a window holding our main surface. The main loop of the game extends from line 15 to 30, with the following key bits of logic:</p>
+<ul>
+<li>First (line 16) we poll to fetch the next event that might be ready for us. This step will always be followed by some conditional statements that will determine whether any event that we’re interested in has happened. Polling for the event consumes it, as far as PyGame is concerned, so we only get one chance to fetch and use each event. On line 17 we test whether the type of the event is the predefined constant called pygame.QUIT. This is the event that we’ll see when the user clicks the close button on the PyGame window. In response to this event, we leave the loop.</li>
+<li>Once we’ve left the loop, the code at line 32 closes window, and we’ll return from function <code>main</code>. Your program could go on to do other things, or reinitialize pygame and create another window, but it will usually just end too.</li>
+<li>There are different kinds of events — key presses, mouse motion, mouse clicks, joystick movement, and so on. It is usual that we test and handle all these cases with new code squeezed in before line 19. The general idea is “handle events first, then worry about the other stuff”.</li>
+<li>At line 20 we’d update objects or data — for example, if we wanted to vary the color, position, or size of the rectangle we’re about to draw, we’d re-assign <code>some_color</code>, and <code>small_rect</code> here.</li>
+<li>A modern way to write games (now that we have fast computers and fast graphics cards) is to redraw everything from scratch on every iteration of the game loop. So the first thing we do at line 24 is fill the entire surface with a background color. The <code>fill</code> method of a surface takes two arguments — the color to use for filling, and the rectangle to be filled. But the second argument is optional, and if it is left out the entire surface is filled.</li>
+<li>In line 27 we fill a second rectangle, this time using <code>some_color</code>. The placement and size of the rectangle are given by the tuple <code>small_rect</code>, a 4-element tuple <code>(x, y, width, height)</code>.</li>
+<li>It is important to understand that the origin of the PyGame’s surface is at the top left corner (unlike the turtle module that puts its origin in the middle of the screen). So, if you wanted the rectangle closer to the top of the window, you need to make its y coordinate smaller.</li>
+<li>If your graphics display hardware tries to read from memory at the same time as the program is writing to that memory, they will interfere with each other, causing video noise and flicker. To get around this, PyGame keeps two buffers in the main surface — the <em>back buffer</em> that the program draws to, while the <em>front buffer</em> is being shown to the user. Each time the program has fully prepared its back buffer, it flips the back/front role of the two buffers. So the drawing on lines 24 and 27 does does not change what is seen on the screen until we <code>flip</code> the buffers, on line 30.</li>
+</ul>
+<h2>17.2. Displaying images and text</h2>
+<p>To draw an image on the main surface, we load the image, say a beach ball, into its own new surface. The main surface has a <code>blit</code> method that copies pixels from the beach ball surface into its own surface. When we call <code>blit</code>, we can specify where the beach ball should be placed on the main surface. The term <strong>blit</strong> is widely used in computer graphics, and means <em>to make a fast copy of pixels from one area of memory to another</em>.</p>
+<p>So in the setup section, before we enter the game loop, we’d load the image, like this:</p>
+<pre><code class="language-python">ball = pygame.image.load(&quot;ball.png&quot;)</code></pre>
+<p>and after line 28 in the program above, we’d add this code to display our image at position (100,120):</p>
+<pre><code class="language-python">main_surface.blit(ball, (100, 120))</code></pre>
+<p>To display text, we need do do three things. Before we enter the game loop, we instantiate a <code>font</code> object:</p>
+<pre><code class="language-python"># Instantiate 16 point Courier font to draw text.
+my_font = pygame.font.SysFont(&quot;Courier&quot;, 16) </code></pre>
+<p>and after line 28, again, we use the font’s <code>render</code> method to create a new surface containing the pixels of the drawn text, and then, as in the case for images, we blit our new surface onto the main surface. Notice that <code>render</code> takes two extra parameters — the second tells it whether to carefully smooth edges of the text while drawing (this process is called <em>anti-aliasing</em>), and the second is the color that we want the text text be. Here we’ve used <code>(0,0,0)</code> which is black:</p>
+<pre><code class="language-python">the_text = my_font.render(&quot;Hello, world!&quot;, True, (0,0,0))
+main_surface.blit(the_text, (10, 10))</code></pre>
+<p>We’ll demonstrate these two new features by counting the frames — the iterations of the game loop — and keeping some timing information. On each frame, we’ll display the frame count, and the frame rate. We will only update the frame rate after every 500 frames, when we’ll look at the timing interval and can do the calculations.</p>
+<pre><code class="language-python">import pygame     
+import time
+
+def main():
+
+    pygame.init()    # Prepare the PyGame module for use
+    main_surface = pygame.display.set_mode((480, 240))
+
+    # Load an image to draw. Substitute your own.
+    # PyGame handles gif, jpg, png, etc. image types.
+    ball = pygame.image.load(&quot;ball.png&quot;)  
+
+    # Create a font for rendering text
+    my_font = pygame.font.SysFont(&quot;Courier&quot;, 16)
+
+    frame_count = 0
+    frame_rate = 0
+    t0 = time.clock()
+
+    while True:
+
+        # Look for an event from keyboard, mouse, joystick, etc.
+        ev = pygame.event.poll()
+        if ev.type == pygame.QUIT:   # Window close button clicked?
+            break                    # Leave game loop
+
+        # Do other bits of logic for the game here
+        frame_count += 1
+        if frame_count % 500 == 0:
+            t1 = time.clock()
+            frame_rate = 500 / (t1-t0)
+            t0 = t1
+
+        # Completely redraw the surface, starting with background
+        main_surface.fill((0, 200, 255))
+
+        # Put a red rectangle somewhere on the surface
+        main_surface.fill((255,0,0), (300, 100, 150, 90))
+
+        # Copy our image to the surface, at this (x,y) posn
+        main_surface.blit(ball, (100, 120))
+
+        # Make a new surface with an image of the text
+        the_text = my_font.render(&quot;Frame = {0},  rate = {1:.2f} fps&quot;
+                  .format(frame_count, frame_rate), True, (0,0,0))
+        # Copy the text surface to the main surface
+        main_surface.blit(the_text, (10, 10))
+
+        # Now that everything is drawn, put it on display!
+        pygame.display.flip()
+
+    pygame.quit()   
+
+
+main()</code></pre>
+<p>The frame rate is close to ridiculous — a lot faster than one’s eye can process frames. (Commercial video games usually plan their action for 60 frames per second (fps).) Of course, our rate will drop once we start doing something a little more strenuous inside our game loop.</p>
+<p><img src="Chapter-17/pygame_screenshot02.png" /></p>
+<h2>17.3. Drawing a board for the N queens puzzle</h2>
+<p>We previously solved our N queens puzzle. For the 8x8 board, one of the solutions was the list <code>[6,4,2,0,5,7,1,3]</code>. Let’s use that solution as testdata, and now use PyGame to draw that chessboard with its queens.</p>
+<p>We’ll create a new module for the drawing code, called <code>draw_queens.py</code>. When we have our test case(s) working, we can go back to our solver, import this new module, and add a call to our new function to draw a board each time a solution is discovered.</p>
+<p>We begin with a background of black and red squares for the board. Perhaps we could create an image that we could load and draw, but that approach would need different background images for different size boards. Just drawing our own red and black rectangles of the appropriate size sounds like much more fun!</p>
+<pre><code class="language-python">def draw_board(the_board):
+    &quot;&quot;&quot; Draw a chess board with queens, from the_board. &quot;&quot;&quot;
+
+    pygame.init()                  
+    colors = [(255,0,0), (0,0,0)]    # Set up colors [red, black]
+
+    n = len(the_board)         # This is an NxN chess board.
+    surface_sz = 480           # Proposed physical surface size.                          
+    sq_sz = surface_sz // n    # sq_sz is length of a square.          
+    surface_sz = n * sq_sz     # Adjust to exactly fit n squares.
+
+    # Create the surface of (width, height), and its window.
+    surface = pygame.display.set_mode((surface_sz, surface_sz))</code></pre>
+<p>Here we precompute <code>sq_sz</code>, the integer size that each square will be, so that we can fit the squares nicely into the available window. So if we’d like the board to be 480x480, and we’re drawing an 8x8 chessboard, then each square will need to have a size of 60 units. But we notice that a 7x7 board cannot fit nicely into 480 — we’re going to get some ugly border that our squares don’t fill exactly. So we recompute the surface size to exactly fit our squares before we create the window.</p>
+<p>Now let’s draw the squares, in the game loop. We’ll need a nested loop: the outer loop will run over the rows of the chessboard, the inner loop over the columns:</p>
+<pre><code class="language-python"># Draw a fresh background (a blank chess board)
+for row in range(n):           # Draw each row of the board.
+    c_indx = row % 2           # Change starting color on each row
+    for col in range(n):       # Run through cols drawing squares
+        the_square = (col*sq_sz, row*sq_sz, sq_sz, sq_sz)
+        surface.fill(colors[c_indx], the_square)
+        # now flip the color index for the next square 
+        c_indx = (c_indx + 1) % 2   </code></pre>
+<p>There are two important ideas in this code: firstly, we compute the rectangle to be filled from the <code>row</code> and <code>col</code> loop variables, multiplying them by the size of the square to get their position. And, of course, each square is a fixed width and height. So <code>the_square</code> represents the rectangle to be filled on the current iteration of the loop. The second idea is that we have to alternate colors on every square. In the earlier setup code we created a list containing two colors, here we manipulate <code>c_indx</code> (which will always either have the value 0 or 1) to start each row on a color that is different from the previous row’s starting color, and to switch colors each time a square is filled.</p>
+<p>This (together with the other fragments not shown to flip the surface onto the display) leads to the pleasing backgrounds like this, for different size boards:</p>
+<p><img src="Chapter-17/pygame_screenshot03.png" /></p>
+<p>Now, on to drawing the queens! Recall that our solution <code>[6,4,2,0,5,7,1,3]</code> means that in column 0 of the board we want a queen at row 6, at column 1 we want a queen at row 4, and so on. So we need a loop running over each queen:</p>
+<pre><code class="language-python">for (col, row) in enumerate(the_board):
+    # draw a queen at col, row...</code></pre>
+<p>In this chapter we already have a beach ball image, so we’ll use that for our queens. In the setup code before our game loop, we load the ball image (as we did before), and in the body of the loop, we add the line:</p>
+<pre><code class="language-python">surface.blit(ball, (col * sq_sz, row * sq_sz))
+
+.. image:: illustrations/pygame_screenshot04.png</code></pre>
+<p>We’re getting there, but those queens need to be centred in their squares! Our problem arises from the fact that both the ball and the rectangle have their upper left corner as their reference points. If we’re going to centre this ball in the square, we need to give it an extra offset in both the x and y direction. (Since the ball is round and the square is square, the offset in the two directions will be the same, so we’ll just compute a single offset value, and use it in both directions.)</p>
+<p>The offset we need is half the (size of the square less the size of the ball). So we’ll precompute this in the game’s setup section, after we’ve loaded the ball and determined the square size:</p>
+<pre><code class="language-python">ball_offset = (sq_sz - ball.get_width()) // 2</code></pre>
+<p>Now we touch up the drawing code for the ball and we’re done:</p>
+<pre><code class="language-python">surface.blit(ball, (col * sq_sz + ball_offset, row * q_sz + ball_offset))    </code></pre>
+<p>We might just want to think about what would happen if the ball was bigger than the square. In that case, <code>ball_offset</code> would become negative. So it would still be centered in the square - it would just spill over the boundaries, or perhaps obscure the square entirely!</p>
+<p>Here is the complete program:</p>
+<pre><code class="language-python">import pygame      
+
+def draw_board(the_board):
+    &quot;&quot;&quot; Draw a chess board with queens, as determined by the the_board. &quot;&quot;&quot;
+
+    pygame.init()                  
+    colors = [(255,0,0), (0,0,0)]    # Set up colors [red, black]
+
+    n = len(the_board)         # This is an NxN chess board.
+    surface_sz = 480           # Proposed physical surface size.                          
+    sq_sz = surface_sz // n    # sq_sz is length of a square.          
+    surface_sz = n * sq_sz     # Adjust to exactly fit n squares.
+
+    # Create the surface of (width, height), and its window.
+    surface = pygame.display.set_mode((surface_sz, surface_sz))
+
+    ball = pygame.image.load(&quot;ball.png&quot;)
+
+    # Use an extra offset to centre the ball in its square.
+    # If the square is too small, offset becomes negative,
+    #   but it will still be centered :-)
+    ball_offset = (sq_sz-ball.get_width()) // 2
+
+    while True:
+
+        # Look for an event from keyboard, mouse, etc.
+        ev = pygame.event.poll()
+        if ev.type == pygame.QUIT:
+            break;
+
+        # Draw a fresh background (a blank chess board)
+        for row in range(n):           # Draw each row of the board.
+            c_indx = row % 2           # Alternate starting color 
+            for col in range(n):       # Run through cols drawing squares
+                the_square = (col*sq_sz, row*sq_sz, sq_sz, sq_sz)
+                surface.fill(colors[c_indx], the_square)
+                # Now flip the color index for the next square 
+                c_indx = (c_indx + 1) % 2   
+
+        # Now that squares are drawn, draw the queens.
+        for (col, row) in enumerate(the_board):
+          surface.blit(ball, 
+                   (col*sq_sz+ball_offset,row*sq_sz+ball_offset))
+
+        pygame.display.flip()
+
+
+    pygame.quit()
+
+if __name__ == &quot;__main__&quot;:
+    draw_board([0, 5, 3, 1, 6, 4, 2])    # 7 x 7 to test window size
+    draw_board([6, 4, 2, 0, 5, 7, 1, 3])
+    draw_board([9, 6, 0, 3, 10, 7, 2, 4, 12, 8, 11, 5, 1])  # 13 x 13
+    draw_board([11, 4, 8, 12, 2, 7, 3, 15, 0, 14, 10, 6, 13, 1, 5, 9])</code></pre>
+<p>There is one more thing worth reviewing here. The conditional statement on line 50 tests whether the name of the currently executing program is <code>__main__</code>. This allows us to distinguish whether this module is being run as a main program, or whether it has been imported elsewhere, and used as a module. If we run this module in Python, the test cases in lines 51-54 will be executed. However, if we import this module into another program (i.e. our N queens solver from earlier) the condition at line 50 will be false, and the statements on lines 51-54 won’t run.</p>
+<p>In the section <code>eightqueensmainprog</code> our main program looked like this:</p>
+<pre><code class="language-python">def main():
+
+    bd = list(range(8))     # Generate the initial permutation
+    num_found = 0
+    tries = 0
+    while num_found &lt; 10:
+       random.shuffle(bd)
+       tries += 1
+       if not has_clashes(bd):
+           print(&quot;Found solution {0} in {1} tries.&quot;.format(bd, tries))
+           tries = 0
+           num_found += 1
+
+main()</code></pre>
+<p>Now we just need two changes. At the top of that program, we import the module that we’ve been working on here (assume we called it <code>draw_queens</code>). (You’ll have to ensure that the two modules are saved in the same folder.) Then after line 10 here we add a call to draw the solution that we’ve just discovered:</p>
+<pre><code>draw_queens.draw_board(bd)</code></pre>
+<p>And that gives a very satisfying combination of program that can search for solutions to the N queens problem, and when it finds each, it pops up the board showing the solution.</p>
+<h2>17.4. Sprites</h2>
+<p>A sprite is an object that can move about in a game, and has internal behaviour and state of its own. For example, a spaceship would be a sprite, the player would be a sprite, and bullets and bombs would all be sprites.</p>
+<p>Object oriented programming (OOP) is ideally suited to a situation like this: each object can have its own attributes and internal state, and a couple of methods. Let’s have some fun with our N queens board. Instead of placing the queen in her final position, we’d like to drop her in from the top of the board, and let her fall into position, perhaps bouncing along the way.</p>
+<p>The first encapsulation we need is to turn each of our queens into an object. We’ll keep a list of all the active sprites (i.e. a list of queen objects), and arrange two new things in our game loop:</p>
+<ul>
+<li>After handling events, but before drawing, call an <code>update</code> method on every sprite. This will give each sprite a chance to modify its internal state in some way — perhaps change its image, or change its position, or rotate itself, or make itself grow a bit bigger or a bit smaller.</li>
+<li>Once all the sprites have updated themselves, the game loop can begin drawing - first the background, and then call a <code>draw</code> method on each sprite in turn, and delegate (hand off) the task of drawing to the object itself. This is in line with the OOP idea that we don’t say “Hey, <em>draw</em>, show this queen!”, but we prefer to say “Hey, <em>queen</em>, draw yourself!”.</li>
+</ul>
+<p>We start with a simple object, no movement or animation yet, just scaffolding, to see how to fit all the pieces together:</p>
+<pre><code class="language-python">class QueenSprite:
+
+    def __init__(self, img, target_posn):
+        &quot;&quot;&quot; Create and initialize a queen for this 
+            target position on the board 
+        &quot;&quot;&quot;
+        self.image = img
+        self.target_posn = target_posn
+        self.posn = target_posn
+
+    def update(self):
+        return                # Do nothing for the moment.
+
+    def draw(self, target_surface):
+        target_surface.blit(self.image, self.posn)    </code></pre>
+<p>We’ve given the sprite three attributes: an image to be drawn, a target position, and a current position. If we’re going to move the spite about, the current position may need to be different from the target, which is where we want the queen finally to end up. In this code at this time we’ve done nothing in the <code>update</code> method, and our <code>draw</code> method (which can probably remain this simple in future) simply draws itself at its current position on the surface that is provided by the caller.</p>
+<p>With its class definition in place, we now instantiate our N queens, put them into a list of sprites, and arrange for the game loop to call the <code>update</code> and <code>draw</code> methods on each frame. The new bits of code, and the revised game loop look like this:</p>
+<pre><code class="language-python">all_sprites = []      # Keep a list of all sprites in the game
+
+# Create a sprite object for each queen, and populate our list.
+for (col, row) in enumerate(the_board):
+    a_queen = QueenSprite(ball, 
+               (col*sq_sz+ball_offset, row*sq_sz+ball_offset))
+    all_sprites.append(a_queen)
+
+while True:
+    # Look for an event from keyboard, mouse, etc.
+    ev = pygame.event.poll()
+    if ev.type == pygame.QUIT:
+        break;
+
+    # Ask every sprite to update itself.
+    for sprite in all_sprites:
+        sprite.update()
+
+    # Draw a fresh background (a blank chess board)
+    # ... same as before ...
+
+    # Ask every sprite to draw itself. 
+    for sprite in all_sprites:
+        sprite.draw(surface)
+
+    pygame.display.flip()</code></pre>
+<p>This works just like it did before, but our extra work in making objects for the queens has prepared the way for some more ambitious extensions.</p>
+<p>Let us begin with a falling queen object. At any instant, it will have a velocity i.e. a speed, in a certain direction. (We are only working with movement in the y direction, but use your imagination!) So in the object’s <code>update</code> method, we want to change its current position by its velocity. If our N queens board is floating in space, velocity would stay constant, but hey, here on Earth we have gravity! Gravity changes the velocity on each time interval, so we’ll want a ball that speeds up as it falls further. Gravity will be constant for all queens, so we won’t keep it in the instances — we’ll just make it a variable in our module. We’ll make one other change too: we will start every queen at the top of the board, so that it can fall towards its target position. With these changes, we now get the following:</p>
+<pre><code class="language-python">gravity = 0.0001
+
+class QueenSprite:
+
+    def __init__(self, img, target_posn):
+        self.image = img
+        self.target_posn = target_posn
+        (x, y) = target_posn
+        self.posn = (x, 0)     # Start ball at top of its column
+        self.y_velocity = 0    #    with zero initial velocity
+
+    def update(self):
+        self.y_velocity += gravity       # Gravity changes velocity
+        (x, y) = self.posn
+        new_y_pos = y + self.y_velocity  # Velocity moves the ball
+        self.posn = (x, new_y_pos)       #   to this new position.
+
+    def draw(self, target_surface):      # Same as before.
+        target_surface.blit(self.image, self.posn)</code></pre>
+<p>Making these changes gives us a new chessboard in which each queen starts at the top of its column, and speeds up, until it drops off the bottom of the board and disappears forever. A good start — we have movement!</p>
+<p>The next step is to get the ball to bounce when it reaches its own target position. It is pretty easy to bounce something — you just change the sign of its velocity, and it will move at the same speed in the opposite direction. Of course, if it is travelling up towards the top of the board it will be slowed down by gravity. (Gravity always sucks down!) And you’ll find it bounces all the way up to where it began from, reaches zero velocity, and starts falling all over again. So we’ll have bouncing balls that never settle.</p>
+<p>A realistic way to settle the object is to lose some energy (probably to friction) each time it bounces — so instead of simply reversing the sign of the velocity, we multiply it by some fractional factor — say -0.65. This means the ball only retains 65% of its energy on each bounce, so it will, as in real life, stop bouncing after a short while, and settle on its “ground”.</p>
+<p>The only changes are in the <code>update</code> method, which now looks like this:</p>
+<pre><code class="language-python">def update(self):
+    self.y_velocity += gravity
+    (x, y) = self.posn
+    new_y_pos = y + self.y_velocity
+    (target_x, target_y) = self.target_posn   # Unpack the position 
+    dist_to_go = target_y - new_y_pos         # How far to our floor?
+
+    if dist_to_go &lt; 0:                        # Are we under floor?
+        self.y_velocity = -0.65 * self.y_velocity     # Bounce
+        new_y_pos = target_y + dist_to_go     # Move back above floor
+
+    self.posn = (x, new_y_pos)                # Set our new position.</code></pre>
+<p>Heh, heh, heh! We’re not going to show animated screenshots, so copy the code into your Python environment and see for yourself.</p>
+<h2>17.5. Events</h2>
+<p>The only kind of event we’re handled so far has been the QUIT event. But we can also detect keydown and keyup events, mouse motion, and mousebutton down or up events. Consult the PyGame documentation and follow the link to Event.</p>
+<p>When your program polls for and receives an event object from PyGame, its event type will determine what secondary information is available. Each event object carries a <em>dictionary</em> (which you may only cover in due course in these notes). The dictionary holds certain <em>keys</em> and <em>values</em> that make sense for the type of event.</p>
+<p>For example, if the type of event is MOUSEMOTION, we’ll be able to find the mouse position and information about the state of the mouse buttons in the dictionary attached to the event. Similarly, if the event is KEYDOWN, we can learn from the dictionary which key went down, and whether any modifier keys (shift, control, alt, etc.) are also down. You also get events when the game window becomes active (i.e. gets focus) or loses focus.</p>
+<p>The event object with type NOEVENT is returned if there are no events waiting. Events can be printed, allowing you to experiment and play around. So dropping these lines of code into the game loop directly after polling for any event is quite informative:</p>
+<pre><code class="language-python">if ev.type != pygame.NOEVENT:   # Only print if it is interesting!
+    print(ev)</code></pre>
+<p>With this is place, hit the space bar and the escape key, and watch the events you get. Click your three mouse buttons. Move your mouse over the window. (This causes a vast cascade of events, so you may also need to filter those out of the printing.) You’ll get output that looks something like this:</p>
+<pre><code class="language-python">&lt;Event(17-VideoExpose {})&gt;
+&lt;Event(1-ActiveEvent {&#39;state&#39;: 1, &#39;gain&#39;: 0})&gt;
+&lt;Event(2-KeyDown {&#39;scancode&#39;: 57, &#39;key&#39;: 32, &#39;unicode&#39;: &#39; &#39;, &#39;mod&#39;: 0})&gt;
+&lt;Event(3-KeyUp {&#39;scancode&#39;: 57, &#39;key&#39;: 32, &#39;mod&#39;: 0})&gt;
+&lt;Event(2-KeyDown {&#39;scancode&#39;: 1, &#39;key&#39;: 27, &#39;unicode&#39;: &#39;\x1b&#39;, &#39;mod&#39;: 0})&gt;
+&lt;Event(3-KeyUp {&#39;scancode&#39;: 1, &#39;key&#39;: 27, &#39;mod&#39;: 0})&gt;
+...
+&lt;Event(4-MouseMotion {&#39;buttons&#39;: (0, 0, 0), &#39;pos&#39;: (323, 194), &#39;rel&#39;: (-3, -1)})&gt;
+&lt;Event(4-MouseMotion {&#39;buttons&#39;: (0, 0, 0), &#39;pos&#39;: (322, 193), &#39;rel&#39;: (-1, -1)})&gt;
+&lt;Event(4-MouseMotion {&#39;buttons&#39;: (0, 0, 0), &#39;pos&#39;: (321, 192), &#39;rel&#39;: (-1, -1)})&gt;
+&lt;Event(4-MouseMotion {&#39;buttons&#39;: (0, 0, 0), &#39;pos&#39;: (319, 192), &#39;rel&#39;: (-2, 0)})&gt;
+&lt;Event(5-MouseButtonDown {&#39;button&#39;: 1, &#39;pos&#39;: (319, 192)})&gt;
+&lt;Event(6-MouseButtonUp {&#39;button&#39;: 1, &#39;pos&#39;: (319, 192)})&gt;
+&lt;Event(4-MouseMotion {&#39;buttons&#39;: (0, 0, 0), &#39;pos&#39;: (319, 191), &#39;rel&#39;: (0, -1)})&gt;
+&lt;Event(5-MouseButtonDown {&#39;button&#39;: 2, &#39;pos&#39;: (319, 191)})&gt;
+&lt;Event(5-MouseButtonDown {&#39;button&#39;: 5, &#39;pos&#39;: (319, 191)})&gt;
+&lt;Event(6-MouseButtonUp {&#39;button&#39;: 5, &#39;pos&#39;: (319, 191)})&gt;
+&lt;Event(6-MouseButtonUp {&#39;button&#39;: 2, &#39;pos&#39;: (319, 191)})&gt;
+&lt;Event(5-MouseButtonDown {&#39;button&#39;: 3, &#39;pos&#39;: (319, 191)})&gt;
+&lt;Event(6-MouseButtonUp {&#39;button&#39;: 3, &#39;pos&#39;: (319, 191)})&gt;
+ ...
+&lt;Event(1-ActiveEvent {&#39;state&#39;: 1, &#39;gain&#39;: 0})&gt;
+&lt;Event(12-Quit {})&gt;</code></pre>
+<p>So let us now make these changes to the code near the top of our game loop:</p>
+<pre><code class="language-python">while True:
+
+    # Look for an event from keyboard, mouse, etc.
+    ev = pygame.event.poll()
+    if ev.type == pygame.QUIT:
+        break;
+    if ev.type == pygame.KEYDOWN:
+        key = ev.dict[&quot;key&quot;]
+        if key == 27:                  # On Escape key ...
+            break                      #   leave the game loop.
+        if key == ord(&quot;r&quot;):
+            colors[0] = (255, 0, 0)    # Change to red + black.
+        elif key == ord(&quot;g&quot;):
+            colors[0] = (0, 255, 0)    # Change to green + black. 
+        elif key == ord(&quot;b&quot;):
+            colors[0] = (0, 0, 255)    # Change to blue + black. 
+
+    if ev.type == pygame.MOUSEBUTTONDOWN: # Mouse gone down?
+        posn_of_click = ev.dict[&quot;pos&quot;]    # Get the coordinates.
+        print(posn_of_click)              # Just print them. </code></pre>
+<p>Lines 7-16 show typical processing for a KEYDOWN event — if a key has gone down, we test which key it is, and take some action. With this in place, we have another way to quit our queens program —by hitting the escape key. Also, we can use keys to change the color of the board that is drawn.</p>
+<p>Finally, at line 20, we respond (pretty lamely) to the mouse button going down.</p>
+<p>As a final exercise in this section, we’ll write a better response handler to mouse clicks. What we will do is figure out if the user has clicked the mouse on one of our sprites. If there is a sprite under the mouse when the click occurs, we’ll send the click to the sprite and let it respond in some sensible way.</p>
+<p>We’ll begin with some code that finds out which sprite is under the clicked position, perhaps none! We add a method to the class, <code>contains_point</code>, which returns True if the point is within the rectangle of the sprite:</p>
+<pre><code class="language-python">def contains_point(self, pt):
+    &quot;&quot;&quot; Return True if my sprite rectangle contains point pt &quot;&quot;&quot;
+    (my_x, my_y) = self.posn
+    my_width = self.image.get_width()
+    my_height = self.image.get_height()
+    (x, y) = pt
+    return ( x &gt;= my_x and x &lt; my_x + my_width and
+             y &gt;= my_y and y &lt; my_y + my_height)</code></pre>
+<p>Now in the game loop, once we’ve seen the mouse event, we determine which queen, if any, should be told to respond to the event:</p>
+<pre><code class="language-python">if ev.type == pygame.MOUSEBUTTONDOWN:
+    posn_of_click = ev.dict[&quot;pos&quot;]
+    for sprite in all_sprites:
+        if sprite.contains_point(posn_of_click):
+            sprite.handle_click()
+            break</code></pre>
+<p>And the final thing is to write a new method called <code>handle_click</code> in the <code>QueenSprite</code> class. When a sprite is clicked, we’ll just add some velocity in the up direction, i.e. kick it back into the air.</p>
+<pre><code class="language-python">def handle_click(self):
+    self.y_velocity += -0.3   # Kick it up </code></pre>
+<p>With these changes we have a playable game! See if you can keep all the balls on the move, not allowing any one to settle!</p>
+<h2>17.6. A wave of animation</h2>
+<p>Many games have sprites that are animated: they crouch, jump and shoot. How do they do that?</p>
+<p>Consider this sequence of 10 images: if we display them in quick succession, Duke will wave at us. (Duke is a friendly visitor from the kingdom of Javaland.)</p>
+<p><img src="Chapter-17/duke_spritesheet.png" /></p>
+<p>A compound image containing smaller <em>patches</em> which are intended for animation is called a <strong>sprite sheet</strong>. Download this sprite sheet by right-clicking in your browser and saving it in your working directory with the name <code>duke_spritesheet.png</code>.</p>
+<p>The sprite sheet has been quite carefully prepared: each of the 10 patches are spaced exactly 50 pixels apart. So, assuming we want to draw patch number 4 (numbering from 0), we want to draw only the rectangle that starts at x position 200, and is 50 pixels wide, within the sprite sheet. Here we’ve shown the patches and highlighted the patch we want to draw.</p>
+<p><img src="Chapter-17/duke_spritesheet_with_patch.png" /></p>
+<p>The <code>blit</code> method we’ve been using — for copying pixels from one surface to another —can copy a sub-rectangle of the source surface. So the grand idea here is that each time we draw Duke, we won’t blit the whole sprite sheet. Instead we’ll provide an extra rectangle argument that determines which portion of the sprite sheet will be blitted.</p>
+<p>We’re going to add new code in this section to our existing N queens drawing game. What we want is to put some instances of Duke on the chessboard somewhere. If the user clicks on one of them, we’ll get him to respond by waving back, for one cycle of his animation.</p>
+<p>But before we do that, we need another change. Up until now, our game loop has been running at really fast frame rates that are unpredictable. So we’ve chosen some <em>magic numbers</em> for gravity and for bouncing and kicking the ball on the basis of trial-and-error. If we’re going to start animating more sprites, we need to tame our game loop to operate at a fixed, known frame rate. This will allow us to plan our animation better.</p>
+<p>PyGame gives us the tools to do this in just two lines of code. In the setup section of the game, we instantiate a new <code>Clock</code> object:</p>
+<pre><code class="language-python">my_clock = pygame.time.Clock()</code></pre>
+<p>and right at the bottom of the game loop, we call a method on this object that limits the frame rate to whatever we specify. So let’s plan our game and animation for 60 frames per second, by adding this line at the bottom of our game loop:</p>
+<pre><code class="language-python">my_clock.tick(60)  # Waste time so that frame rate becomes 60 fps </code></pre>
+<p>You’ll find that you have to go back and adjust the numbers for gravity and kicking the ball now, to match this much slower frame rate. When we plan an animation so that it only works sensibly at a fixed frame rate, we say that we’ve <em>baked</em> the animation. In this case we’re baking our animations for 60 frames per second.</p>
+<p>To fit into the existing framework that we already have for our queens board, we want to create a <code>DukeSprite</code> class that has all the same methods as the <code>QueenSprite</code> class. Then we can add one or more Duke instances onto our list of <code>all_sprites</code>, and our existing game loop will then call methods of the Duke instance. Let us start with skeleton scaffolding for the new class:</p>
+<pre><code class="language-python">class DukeSprite:
+
+    def __init__(self, img, target_posn):
+        self.image = img
+        self.posn = target_posn
+
+    def update(self):
+        return
+
+    def draw(self, target_surface):
+        return
+
+    def handle_click(self):
+        return
+
+    def contains_point(self, pt):
+        # Use code from QueenSprite here
+        return</code></pre>
+<p>The only changes we’ll need to the existing game are all in the setup section. We load up the new sprite sheet and instantiate a couple of instances of Duke, at the positions we want on the chessboard. So before entering the game loop, we add this code:</p>
+<pre><code class="language-python"># Load the sprite sheet
+duke_sprite_sheet = pygame.image.load(&quot;duke_spritesheet.png&quot;)
+
+# Instantiate two duke instances, put them on the chessboard
+duke1 = DukeSprite(duke_sprite_sheet,(sq_sz*2, 0))
+duke2 = DukeSprite(duke_sprite_sheet,(sq_sz*5, sq_sz)) 
+
+# Add them to the list of sprites which our game loop manages
+all_sprites.append(duke1)
+all_sprites.append(duke2)</code></pre>
+<p>Now the game loop will test if each instance has been clicked, will call the click handler for that instance. It will also call update and draw for all sprites. All the remaining changes we need to make will be made in the methods of the <code>DukeSprite</code> class.</p>
+<p>Let’s begin with drawing one of the patches. We’ll introduce a new attribute <code>curr_patch_num</code> into the class. It holds a value between 0 and 9, and determines which patch to draw. So the job of the <code>draw</code> method is to compute the sub-rectangle of the patch to be drawn, and to blit only that portion of the spritesheet:</p>
+<pre><code class="language-python">def draw(self, target_surface):
+    patch_rect = (self.curr_patch_num * 50, 0,
+                    50, self.image.get_height())
+    target_surface.blit(self.image, self.posn, patch_rect)</code></pre>
+<p>Now on to getting the animation to work. We need to arrange logic in <code>update</code> so that if we’re busy animating, we change the <code>curr_patch_num</code> every so often, and we also decide when to bring Duke back to his rest position, and stop the animation. An important issue is that the game loop frame rate —in our case 60 fps — is not the same as the <em>animation rate</em> — the rate at which we want to change Duke’s animation patches. So we’ll plan Duke wave’s animation cycle for a duration of 1 second. In other words, we want to play out Duke’s 10 animation patches over 60 calls to <code>update</code>. (This is how the baking of the animation takes place!) So we’ll keep another animation frame counter in the class, which will be zero when we’re not animating, and each call to <code>update</code> will increment the counter up to 59, and then back to 0. We can then divide that animation counter by 6, to set the <code>curr_patch_num</code> variable to select the patch we want to show.</p>
+<pre><code class="language-python">def update(self):
+    if self.anim_frame_count &gt; 0:
+       self.anim_frame_count = (self.anim_frame_count + 1 ) % 60
+       self.curr_patch_num = self.anim_frame_count // 6</code></pre>
+<p>Notice that if <code>anim_frame_count</code> is zero, i.e. Duke is at rest, nothing happens here. But if we start the counter running, it will count up to 59 before settling back to zero. Notice also, that because <code>anim_frame_count</code> can only be a value between 0 and 59, the <code>curr_patch_num</code> will always stay between 0 and 9. Just what we require!</p>
+<p>Now how do we trigger the animation, and start it running? On the mouse click.</p>
+<pre><code class="language-python">def handle_click(self):
+     if self.anim_frame_count == 0:
+        self.anim_frame_count = 5</code></pre>
+<p>Two things of interest here. We only start the animation if Duke is at rest. Clicks on Duke while he is already waving get ignored. And when we do start the animation, we set the counter to 5 — this means that on the very next call to <code>update</code> the counter becomes 6, and the image changes. If we had set the counter to 1, we would have needed to wait for 5 more calls to <code>update</code> before anything happened — a slight lag, but enough to make things feel sluggish.</p>
+<p>The final touch-up is to initialize our two new attributes when we instantiate the class. Here is the code for the whole class now:</p>
+<pre><code class="language-python">class DukeSprite:
+
+    def __init__(self, img, target_posn):
+        self.image = img
+        self.posn = target_posn
+        self.anim_frame_count = 0
+        self.curr_patch_num = 0
+
+    def update(self):
+        if self.anim_frame_count &gt; 0:
+           self.anim_frame_count = (self.anim_frame_count + 1 ) % 60
+           self.curr_patch_num = self.anim_frame_count // 6
+
+    def draw(self, target_surface):
+        patch_rect = (self.curr_patch_num * 50, 0,
+                       50, self.image.get_height())
+        target_surface.blit(self.image, self.posn, patch_rect)
+
+    def contains_point(self, pt):
+         &quot;&quot;&quot; Return True if my sprite rectangle contains  pt &quot;&quot;&quot;
+         (my_x, my_y) = self.posn
+         my_width = self.image.get_width()
+         my_height = self.image.get_height()
+         (x, y) = pt
+         return ( x &gt;= my_x and x &lt; my_x + my_width and
+                  y &gt;= my_y and y &lt; my_y + my_height)
+
+    def handle_click(self):
+         if self.anim_frame_count == 0:
+            self.anim_frame_count = 5 </code></pre>
+<p>Now we have two extra Duke instances on our chessboard, and clicking on either causes that instance to wave.</p>
+<p><img src="Chapter-17/pygame_screenshot05.png" /></p>
+<h2>17.7. Aliens - a case study</h2>
+<p>Find the example games with the PyGame package, (On a windows system, something like C:\Python3\Lib\site-packages\pygame\examples) and play the Aliens game. Then read the code, in an editor or Python environment that shows line numbers.</p>
+<p>It does a number of much more advanced things than we do, and relies on the PyGame framework for more of its logic. Here are some of the points to notice:</p>
+<ul>
+<li>The frame rate is deliberately constrained near the bottom of the game loop at line 311. If we change that number we can make the game very slow or unplayably fast!</li>
+<li>There are different kinds of sprites: Explosions, Shots, Bombs, Aliens and a Player. Some of these have more than one image — by swapping the images, we get animation of the sprites, i.e. the Alien spacecraft lights change, and this is done at line 112.</li>
+<li>Different kinds of objects are referenced in different groups of sprites, and PyGame helps maintain these. This lets the program check for collisions between, say, the list of shots fired by the player, and the list of spaceships that are attacking. PyGame does a lot of the hard work for us.</li>
+<li>Unlike our game, objects in the Aliens game have a limited lifetime, and have to get killed. For example, if we shoot, a Shot object is created — if it reaches the top of the screen without expoding against anything, it has to be removed from the game. Lines 141-142 do this. Similarly, when a falling bomb gets close to the ground (line 156), it instantiates a new Explosion sprite, and the bomb kills itself.</li>
+<li>There are random timings that add to the fun — when to spawn the next Alien, when an Alien drops the next bomb, etc.</li>
+<li>The game plays sounds too: a less-than-relaxing loop sound, plus sounds for the shots and explosions.</li>
+</ul>
+<h2>17.8. Reflections</h2>
+<p>Object oriented programming is a good organizational tool for software. In the examples in this chapter, we’ve started to use (and hopefully appreciate) these benefits. Here we had N queens each with its own state, falling to its own floor level, bouncing, getting kicked, etc. We might have managed without the organizational power of objects — perhaps we could have kept lists of velocities for each queen, and lists of target positions, and so on — our code would likely have been much more complicated, ugly, and a lot poorer!</p>
+<h2>17.9. Glossary</h2>
+<pre><code>animation rate  
+    The rate at which we play back successive patches to create the illusion
+    of movement. In the sample we considered in this chapter, we played
+    Duke&#39;s 10 patches over the duration of one second. Not the same as the
+    frame rate.
+
+baked animation  
+    An animation that is designed to look good at a predetermined fixed
+    frame rate. This reduces the amount of computation that needs to be done
+    when the game is running. High-end commercial games usually bake their
+    animations.
+
+blit  
+    A verb used in computer graphics, meaning to make a fast copy of an
+    image or pixels from a sub-rectangle of one image or surface to another
+    surface or image.
+
+frame rate  
+    The rate at which the game loop executes and updates the display.
+
+game loop  
+    A loop that drives the logic of a game. It will usually poll for events,
+    then update each of the objects in the game, then get everything drawn,
+    and then put the newly drawn frame on display.
+
+pixel  
+    A single picture element, or dot, from which images are made.
+
+poll  
+    To ask whether something like a keypress or mouse movement has happened.
+    Game loops usually poll to discover what events have occurred. This is
+    different from event-driven programs like the ones seen in the chapter
+    titled &quot;Events&quot;. In those cases, the button click or keypress event
+    triggers the call of a handler function in your program, but this
+    happens behind your back.
+
+sprite  
+    An active agent or element in a game, with its own state, position and
+    behaviour.
+
+surface  
+    This is PyGame&#39;s term for what the Turtle module calls a *canvas*. A
+    surface is a rectangle of pixels used for displaying shapes and images.
+</code></pre>
+<h2>17.10. Exercises</h2>
+<ol type="1">
+<li>Have fun with Python, and with PyGame.</li>
+<li>We deliberately left a bug in the code for animating Duke. If you click on one of the chessboard squares to the right of Duke, he waves anyway. Why? Find a one-line fix for the bug.</li>
+<li>Use your preferred search engine to search their image library for “sprite sheet playing cards”. Create a list [0..51] to represent an encoding of the 52 cards in a deck. Shuffle the cards, slice off the top five as your hand in a poker deal. Display the hand you have been dealt.</li>
+<li>So the Aliens game is in outer space, without gravity. Shots fly away forever, and bombs don’t speed up when they fall. Add some gravity to the game. Decide if you’re going to allow your own shots to fall back on your head and kill you.</li>
+<li>Those pesky Aliens seem to pass right through each other! Change the game so that they collide, and destroy each other in a mighty explosion.</li>
+</ol>
+<script type="text/javascript">
+/* PrismJS 1.23.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+css-extras+python&plugins=line-numbers+inline-color */
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(u){var c=/\blang(?:uage)?-([\w-]+)\b/i,n=0,e={},M={manual:u.Prism&&u.Prism.manual,disableWorkerMessageHandler:u.Prism&&u.Prism.disableWorkerMessageHandler,util:{encode:function e(n){return n instanceof W?new W(n.type,e(n.content),n.alias):Array.isArray(n)?n.map(e):n.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).slice(8,-1)},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++n}),e.__id},clone:function t(e,r){var a,n;switch(r=r||{},M.util.type(e)){case"Object":if(n=M.util.objId(e),r[n])return r[n];for(var i in a={},r[n]=a,e)e.hasOwnProperty(i)&&(a[i]=t(e[i],r));return a;case"Array":return n=M.util.objId(e),r[n]?r[n]:(a=[],r[n]=a,e.forEach(function(e,n){a[n]=t(e,r)}),a);default:return e}},getLanguage:function(e){for(;e&&!c.test(e.className);)e=e.parentElement;return e?(e.className.match(c)||[,"none"])[1].toLowerCase():"none"},currentScript:function(){if("undefined"==typeof document)return null;if("currentScript"in document)return document.currentScript;try{throw new Error}catch(e){var n=(/at [^(\r\n]*\((.*):.+:.+\)$/i.exec(e.stack)||[])[1];if(n){var t=document.getElementsByTagName("script");for(var r in t)if(t[r].src==n)return t[r]}return null}},isActive:function(e,n,t){for(var r="no-"+n;e;){var a=e.classList;if(a.contains(n))return!0;if(a.contains(r))return!1;e=e.parentElement}return!!t}},languages:{plain:e,plaintext:e,text:e,txt:e,extend:function(e,n){var t=M.util.clone(M.languages[e]);for(var r in n)t[r]=n[r];return t},insertBefore:function(t,e,n,r){var a=(r=r||M.languages)[t],i={};for(var l in a)if(a.hasOwnProperty(l)){if(l==e)for(var o in n)n.hasOwnProperty(o)&&(i[o]=n[o]);n.hasOwnProperty(l)||(i[l]=a[l])}var s=r[t];return r[t]=i,M.languages.DFS(M.languages,function(e,n){n===s&&e!=t&&(this[e]=i)}),i},DFS:function e(n,t,r,a){a=a||{};var i=M.util.objId;for(var l in n)if(n.hasOwnProperty(l)){t.call(n,l,n[l],r||l);var o=n[l],s=M.util.type(o);"Object"!==s||a[i(o)]?"Array"!==s||a[i(o)]||(a[i(o)]=!0,e(o,t,l,a)):(a[i(o)]=!0,e(o,t,null,a))}}},plugins:{},highlightAll:function(e,n){M.highlightAllUnder(document,e,n)},highlightAllUnder:function(e,n,t){var r={callback:t,container:e,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};M.hooks.run("before-highlightall",r),r.elements=Array.prototype.slice.apply(r.container.querySelectorAll(r.selector)),M.hooks.run("before-all-elements-highlight",r);for(var a,i=0;a=r.elements[i++];)M.highlightElement(a,!0===n,r.callback)},highlightElement:function(e,n,t){var r=M.util.getLanguage(e),a=M.languages[r];e.className=e.className.replace(c,"").replace(/\s+/g," ")+" language-"+r;var i=e.parentElement;i&&"pre"===i.nodeName.toLowerCase()&&(i.className=i.className.replace(c,"").replace(/\s+/g," ")+" language-"+r);var l={element:e,language:r,grammar:a,code:e.textContent};function o(e){l.highlightedCode=e,M.hooks.run("before-insert",l),l.element.innerHTML=l.highlightedCode,M.hooks.run("after-highlight",l),M.hooks.run("complete",l),t&&t.call(l.element)}if(M.hooks.run("before-sanity-check",l),(i=l.element.parentElement)&&"pre"===i.nodeName.toLowerCase()&&!i.hasAttribute("tabindex")&&i.setAttribute("tabindex","0"),!l.code)return M.hooks.run("complete",l),void(t&&t.call(l.element));if(M.hooks.run("before-highlight",l),l.grammar)if(n&&u.Worker){var s=new Worker(M.filename);s.onmessage=function(e){o(e.data)},s.postMessage(JSON.stringify({language:l.language,code:l.code,immediateClose:!0}))}else o(M.highlight(l.code,l.grammar,l.language));else o(M.util.encode(l.code))},highlight:function(e,n,t){var r={code:e,grammar:n,language:t};return M.hooks.run("before-tokenize",r),r.tokens=M.tokenize(r.code,r.grammar),M.hooks.run("after-tokenize",r),W.stringify(M.util.encode(r.tokens),r.language)},tokenize:function(e,n){var t=n.rest;if(t){for(var r in t)n[r]=t[r];delete n.rest}var a=new i;return I(a,a.head,e),function e(n,t,r,a,i,l){for(var o in r)if(r.hasOwnProperty(o)&&r[o]){var s=r[o];s=Array.isArray(s)?s:[s];for(var u=0;u<s.length;++u){if(l&&l.cause==o+","+u)return;var c=s[u],g=c.inside,f=!!c.lookbehind,h=!!c.greedy,d=c.alias;if(h&&!c.pattern.global){var p=c.pattern.toString().match(/[imsuy]*$/)[0];c.pattern=RegExp(c.pattern.source,p+"g")}for(var v=c.pattern||c,m=a.next,y=i;m!==t.tail&&!(l&&y>=l.reach);y+=m.value.length,m=m.next){var b=m.value;if(t.length>n.length)return;if(!(b instanceof W)){var k,x=1;if(h){if(!(k=z(v,y,n,f)))break;var w=k.index,A=k.index+k[0].length,P=y;for(P+=m.value.length;P<=w;)m=m.next,P+=m.value.length;if(P-=m.value.length,y=P,m.value instanceof W)continue;for(var E=m;E!==t.tail&&(P<A||"string"==typeof E.value);E=E.next)x++,P+=E.value.length;x--,b=n.slice(y,P),k.index-=y}else if(!(k=z(v,0,b,f)))continue;var w=k.index,S=k[0],O=b.slice(0,w),L=b.slice(w+S.length),N=y+b.length;l&&N>l.reach&&(l.reach=N);var j=m.prev;O&&(j=I(t,j,O),y+=O.length),q(t,j,x);var C=new W(o,g?M.tokenize(S,g):S,d,S);if(m=I(t,j,C),L&&I(t,m,L),1<x){var _={cause:o+","+u,reach:N};e(n,t,r,m.prev,y,_),l&&_.reach>l.reach&&(l.reach=_.reach)}}}}}}(e,a,n,a.head,0),function(e){var n=[],t=e.head.next;for(;t!==e.tail;)n.push(t.value),t=t.next;return n}(a)},hooks:{all:{},add:function(e,n){var t=M.hooks.all;t[e]=t[e]||[],t[e].push(n)},run:function(e,n){var t=M.hooks.all[e];if(t&&t.length)for(var r,a=0;r=t[a++];)r(n)}},Token:W};function W(e,n,t,r){this.type=e,this.content=n,this.alias=t,this.length=0|(r||"").length}function z(e,n,t,r){e.lastIndex=n;var a=e.exec(t);if(a&&r&&a[1]){var i=a[1].length;a.index+=i,a[0]=a[0].slice(i)}return a}function i(){var e={value:null,prev:null,next:null},n={value:null,prev:e,next:null};e.next=n,this.head=e,this.tail=n,this.length=0}function I(e,n,t){var r=n.next,a={value:t,prev:n,next:r};return n.next=a,r.prev=a,e.length++,a}function q(e,n,t){for(var r=n.next,a=0;a<t&&r!==e.tail;a++)r=r.next;(n.next=r).prev=n,e.length-=a}if(u.Prism=M,W.stringify=function n(e,t){if("string"==typeof e)return e;if(Array.isArray(e)){var r="";return e.forEach(function(e){r+=n(e,t)}),r}var a={type:e.type,content:n(e.content,t),tag:"span",classes:["token",e.type],attributes:{},language:t},i=e.alias;i&&(Array.isArray(i)?Array.prototype.push.apply(a.classes,i):a.classes.push(i)),M.hooks.run("wrap",a);var l="";for(var o in a.attributes)l+=" "+o+'="'+(a.attributes[o]||"").replace(/"/g,"&quot;")+'"';return"<"+a.tag+' class="'+a.classes.join(" ")+'"'+l+">"+a.content+"</"+a.tag+">"},!u.document)return u.addEventListener&&(M.disableWorkerMessageHandler||u.addEventListener("message",function(e){var n=JSON.parse(e.data),t=n.language,r=n.code,a=n.immediateClose;u.postMessage(M.highlight(r,M.languages[t],t)),a&&u.close()},!1)),M;var t=M.util.currentScript();function r(){M.manual||M.highlightAll()}if(t&&(M.filename=t.src,t.hasAttribute("data-manual")&&(M.manual=!0)),!M.manual){var a=document.readyState;"loading"===a||"interactive"===a&&t&&t.defer?document.addEventListener("DOMContentLoaded",r):window.requestAnimationFrame?window.requestAnimationFrame(r):window.setTimeout(r,16)}return M}(_self);"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+Prism.languages.markup={comment:/<!--[\s\S]*?-->/,prolog:/<\?[\s\S]+?\?>/,doctype:{pattern:/<!DOCTYPE(?:[^>"'[\]]|"[^"]*"|'[^']*')+(?:\[(?:[^<"'\]]|"[^"]*"|'[^']*'|<(?!!--)|<!--(?:[^-]|-(?!->))*-->)*\]\s*)?>/i,greedy:!0,inside:{"internal-subset":{pattern:/(\[)[\s\S]+(?=\]>$)/,lookbehind:!0,greedy:!0,inside:null},string:{pattern:/"[^"]*"|'[^']*'/,greedy:!0},punctuation:/^<!|>$|[[\]]/,"doctype-tag":/^DOCTYPE/,name:/[^\s<>'"]+/}},cdata:/<!\[CDATA\[[\s\S]*?]]>/i,tag:{pattern:/<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/,greedy:!0,inside:{tag:{pattern:/^<\/?[^\s>\/]+/,inside:{punctuation:/^<\/?/,namespace:/^[^\s>\/:]+:/}},"special-attr":[],"attr-value":{pattern:/=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+)/,inside:{punctuation:[{pattern:/^=/,alias:"attr-equals"},/"|'/]}},punctuation:/\/?>/,"attr-name":{pattern:/[^\s>\/]+/,inside:{namespace:/^[^\s>\/:]+:/}}}},entity:[{pattern:/&[\da-z]{1,8};/i,alias:"named-entity"},/&#x?[\da-f]{1,8};/i]},Prism.languages.markup.tag.inside["attr-value"].inside.entity=Prism.languages.markup.entity,Prism.languages.markup.doctype.inside["internal-subset"].inside=Prism.languages.markup,Prism.hooks.add("wrap",function(a){"entity"===a.type&&(a.attributes.title=a.content.replace(/&amp;/,"&"))}),Object.defineProperty(Prism.languages.markup.tag,"addInlined",{value:function(a,e){var s={};s["language-"+e]={pattern:/(^<!\[CDATA\[)[\s\S]+?(?=\]\]>$)/i,lookbehind:!0,inside:Prism.languages[e]},s.cdata=/^<!\[CDATA\[|\]\]>$/i;var t={"included-cdata":{pattern:/<!\[CDATA\[[\s\S]*?\]\]>/i,inside:s}};t["language-"+e]={pattern:/[\s\S]+/,inside:Prism.languages[e]};var n={};n[a]={pattern:RegExp("(<__[^>]*>)(?:<!\\[CDATA\\[(?:[^\\]]|\\](?!\\]>))*\\]\\]>|(?!<!\\[CDATA\\[)[^])*?(?=</__>)".replace(/__/g,function(){return a}),"i"),lookbehind:!0,greedy:!0,inside:t},Prism.languages.insertBefore("markup","cdata",n)}}),Object.defineProperty(Prism.languages.markup.tag,"addAttribute",{value:function(a,e){Prism.languages.markup.tag.inside["special-attr"].push({pattern:RegExp("(^|[\"'\\s])(?:"+a+")\\s*=\\s*(?:\"[^\"]*\"|'[^']*'|[^\\s'\">=]+(?=[\\s>]))","i"),lookbehind:!0,inside:{"attr-name":/^[^\s=]+/,"attr-value":{pattern:/=[\s\S]+/,inside:{value:{pattern:/(=\s*(["']|(?!["'])))\S[\s\S]*(?=\2$)/,lookbehind:!0,alias:[e,"language-"+e],inside:Prism.languages[e]},punctuation:[{pattern:/^=/,alias:"attr-equals"},/"|'/]}}}})}}),Prism.languages.html=Prism.languages.markup,Prism.languages.mathml=Prism.languages.markup,Prism.languages.svg=Prism.languages.markup,Prism.languages.xml=Prism.languages.extend("markup",{}),Prism.languages.ssml=Prism.languages.xml,Prism.languages.atom=Prism.languages.xml,Prism.languages.rss=Prism.languages.xml;
+!function(s){var e=/("|')(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/;s.languages.css={comment:/\/\*[\s\S]*?\*\//,atrule:{pattern:/@[\w-](?:[^;{\s]|\s+(?![\s{]))*(?:;|(?=\s*\{))/,inside:{rule:/^@[\w-]+/,"selector-function-argument":{pattern:/(\bselector\s*\(\s*(?![\s)]))(?:[^()\s]|\s+(?![\s)])|\((?:[^()]|\([^()]*\))*\))+(?=\s*\))/,lookbehind:!0,alias:"selector"},keyword:{pattern:/(^|[^\w-])(?:and|not|only|or)(?![\w-])/,lookbehind:!0}}},url:{pattern:RegExp("\\burl\\((?:"+e.source+"|(?:[^\\\\\r\n()\"']|\\\\[^])*)\\)","i"),greedy:!0,inside:{function:/^url/i,punctuation:/^\(|\)$/,string:{pattern:RegExp("^"+e.source+"$"),alias:"url"}}},selector:RegExp("[^{}\\s](?:[^{};\"'\\s]|\\s+(?![\\s{])|"+e.source+")*(?=\\s*\\{)"),string:{pattern:e,greedy:!0},property:/(?!\s)[-_a-z\xA0-\uFFFF](?:(?!\s)[-\w\xA0-\uFFFF])*(?=\s*:)/i,important:/!important\b/i,function:/[-a-z0-9]+(?=\()/i,punctuation:/[(){};:,]/},s.languages.css.atrule.inside.rest=s.languages.css;var t=s.languages.markup;t&&(t.tag.addInlined("style","css"),t.tag.addAttribute("style","css"))}(Prism);
+Prism.languages.clike={comment:[{pattern:/(^|[^\\])\/\*[\s\S]*?(?:\*\/|$)/,lookbehind:!0,greedy:!0},{pattern:/(^|[^\\:])\/\/.*/,lookbehind:!0,greedy:!0}],string:{pattern:/(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,greedy:!0},"class-name":{pattern:/(\b(?:class|interface|extends|implements|trait|instanceof|new)\s+|\bcatch\s+\()[\w.\\]+/i,lookbehind:!0,inside:{punctuation:/[.\\]/}},keyword:/\b(?:if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,boolean:/\b(?:true|false)\b/,function:/\w+(?=\()/,number:/\b0x[\da-f]+\b|(?:\b\d+(?:\.\d*)?|\B\.\d+)(?:e[+-]?\d+)?/i,operator:/[<>]=?|[!=]=?=?|--?|\+\+?|&&?|\|\|?|[?*/~^%]/,punctuation:/[{}[\];(),.:]/};
+Prism.languages.javascript=Prism.languages.extend("clike",{"class-name":[Prism.languages.clike["class-name"],{pattern:/(^|[^$\w\xA0-\uFFFF])(?!\s)[_$A-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\.(?:prototype|constructor))/,lookbehind:!0}],keyword:[{pattern:/((?:^|})\s*)catch\b/,lookbehind:!0},{pattern:/(^|[^.]|\.\.\.\s*)\b(?:as|async(?=\s*(?:function\b|\(|[$\w\xA0-\uFFFF]|$))|await|break|case|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally(?=\s*(?:\{|$))|for|from(?=\s*(?:['"]|$))|function|(?:get|set)(?=\s*(?:[#\[$\w\xA0-\uFFFF]|$))|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)\b/,lookbehind:!0}],function:/#?(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*(?:\.\s*(?:apply|bind|call)\s*)?\()/,number:/\b(?:(?:0[xX](?:[\dA-Fa-f](?:_[\dA-Fa-f])?)+|0[bB](?:[01](?:_[01])?)+|0[oO](?:[0-7](?:_[0-7])?)+)n?|(?:\d(?:_\d)?)+n|NaN|Infinity)\b|(?:\b(?:\d(?:_\d)?)+\.?(?:\d(?:_\d)?)*|\B\.(?:\d(?:_\d)?)+)(?:[Ee][+-]?(?:\d(?:_\d)?)+)?/,operator:/--|\+\+|\*\*=?|=>|&&=?|\|\|=?|[!=]==|<<=?|>>>?=?|[-+*/%&|^!=<>]=?|\.{3}|\?\?=?|\?\.?|[~:]/}),Prism.languages.javascript["class-name"][0].pattern=/(\b(?:class|interface|extends|implements|instanceof|new)\s+)[\w.\\]+/,Prism.languages.insertBefore("javascript","keyword",{regex:{pattern:/((?:^|[^$\w\xA0-\uFFFF."'\])\s]|\b(?:return|yield))\s*)\/(?:\[(?:[^\]\\\r\n]|\\.)*]|\\.|[^/\\\[\r\n])+\/[gimyus]{0,6}(?=(?:\s|\/\*(?:[^*]|\*(?!\/))*\*\/)*(?:$|[\r\n,.;:})\]]|\/\/))/,lookbehind:!0,greedy:!0,inside:{"regex-source":{pattern:/^(\/)[\s\S]+(?=\/[a-z]*$)/,lookbehind:!0,alias:"language-regex",inside:Prism.languages.regex},"regex-flags":/[a-z]+$/,"regex-delimiter":/^\/|\/$/}},"function-variable":{pattern:/#?(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*[=:]\s*(?:async\s*)?(?:\bfunction\b|(?:\((?:[^()]|\([^()]*\))*\)|(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*)\s*=>))/,alias:"function"},parameter:[{pattern:/(function(?:\s+(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*)?\s*\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\))/,lookbehind:!0,inside:Prism.languages.javascript},{pattern:/(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*=>)/i,inside:Prism.languages.javascript},{pattern:/(\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\)\s*=>)/,lookbehind:!0,inside:Prism.languages.javascript},{pattern:/((?:\b|\s|^)(?!(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)(?![$\w\xA0-\uFFFF]))(?:(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*\s*)\(\s*|\]\s*\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\)\s*\{)/,lookbehind:!0,inside:Prism.languages.javascript}],constant:/\b[A-Z](?:[A-Z_]|\dx?)*\b/}),Prism.languages.insertBefore("javascript","string",{hashbang:{pattern:/^#!.*/,greedy:!0,alias:"comment"},"template-string":{pattern:/`(?:\\[\s\S]|\${(?:[^{}]|{(?:[^{}]|{[^}]*})*})+}|(?!\${)[^\\`])*`/,greedy:!0,inside:{"template-punctuation":{pattern:/^`|`$/,alias:"string"},interpolation:{pattern:/((?:^|[^\\])(?:\\{2})*)\${(?:[^{}]|{(?:[^{}]|{[^}]*})*})+}/,lookbehind:!0,inside:{"interpolation-punctuation":{pattern:/^\${|}$/,alias:"punctuation"},rest:Prism.languages.javascript}},string:/[\s\S]+/}}}),Prism.languages.markup&&(Prism.languages.markup.tag.addInlined("script","javascript"),Prism.languages.markup.tag.addAttribute("on(?:abort|blur|change|click|composition(?:end|start|update)|dblclick|error|focus(?:in|out)?|key(?:down|up)|load|mouse(?:down|enter|leave|move|out|over|up)|reset|resize|scroll|select|slotchange|submit|unload|wheel)","javascript")),Prism.languages.js=Prism.languages.javascript;
+!function(e){var a,n=/("|')(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/;e.languages.css.selector={pattern:e.languages.css.selector,inside:a={"pseudo-element":/:(?:after|before|first-letter|first-line|selection)|::[-\w]+/,"pseudo-class":/:[-\w]+/,class:/\.[-\w]+/,id:/#[-\w]+/,attribute:{pattern:RegExp("\\[(?:[^[\\]\"']|"+n.source+")*\\]"),greedy:!0,inside:{punctuation:/^\[|\]$/,"case-sensitivity":{pattern:/(\s)[si]$/i,lookbehind:!0,alias:"keyword"},namespace:{pattern:/^(\s*)(?:(?!\s)[-*\w\xA0-\uFFFF])*\|(?!=)/,lookbehind:!0,inside:{punctuation:/\|$/}},"attr-name":{pattern:/^(\s*)(?:(?!\s)[-\w\xA0-\uFFFF])+/,lookbehind:!0},"attr-value":[n,{pattern:/(=\s*)(?:(?!\s)[-\w\xA0-\uFFFF])+(?=\s*$)/,lookbehind:!0}],operator:/[|~*^$]?=/}},"n-th":[{pattern:/(\(\s*)[+-]?\d*[\dn](?:\s*[+-]\s*\d+)?(?=\s*\))/,lookbehind:!0,inside:{number:/[\dn]+/,operator:/[+-]/}},{pattern:/(\(\s*)(?:even|odd)(?=\s*\))/i,lookbehind:!0}],combinator:/>|\+|~|\|\|/,punctuation:/[(),]/}},e.languages.css.atrule.inside["selector-function-argument"].inside=a,e.languages.insertBefore("css","property",{variable:{pattern:/(^|[^-\w\xA0-\uFFFF])--(?!\s)[-_a-z\xA0-\uFFFF](?:(?!\s)[-\w\xA0-\uFFFF])*/i,lookbehind:!0}});var r={pattern:/(\b\d+)(?:%|[a-z]+\b)/,lookbehind:!0},i={pattern:/(^|[^\w.-])-?(?:\d+(?:\.\d+)?|\.\d+)/,lookbehind:!0};e.languages.insertBefore("css","function",{operator:{pattern:/(\s)[+\-*\/](?=\s)/,lookbehind:!0},hexcode:{pattern:/\B#(?:[\da-f]{1,2}){3,4}\b/i,alias:"color"},color:[/\b(?:AliceBlue|AntiqueWhite|Aqua|Aquamarine|Azure|Beige|Bisque|Black|BlanchedAlmond|Blue|BlueViolet|Brown|BurlyWood|CadetBlue|Chartreuse|Chocolate|Coral|CornflowerBlue|Cornsilk|Crimson|Cyan|DarkBlue|DarkCyan|DarkGoldenRod|DarkGr[ae]y|DarkGreen|DarkKhaki|DarkMagenta|DarkOliveGreen|DarkOrange|DarkOrchid|DarkRed|DarkSalmon|DarkSeaGreen|DarkSlateBlue|DarkSlateGr[ae]y|DarkTurquoise|DarkViolet|DeepPink|DeepSkyBlue|DimGr[ae]y|DodgerBlue|FireBrick|FloralWhite|ForestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|IndianRed|Indigo|Ivory|Khaki|Lavender|LavenderBlush|LawnGreen|LemonChiffon|LightBlue|LightCoral|LightCyan|LightGoldenRodYellow|LightGr[ae]y|LightGreen|LightPink|LightSalmon|LightSeaGreen|LightSkyBlue|LightSlateGr[ae]y|LightSteelBlue|LightYellow|Lime|LimeGreen|Linen|Magenta|Maroon|MediumAquaMarine|MediumBlue|MediumOrchid|MediumPurple|MediumSeaGreen|MediumSlateBlue|MediumSpringGreen|MediumTurquoise|MediumVioletRed|MidnightBlue|MintCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGoldenRod|PaleGreen|PaleTurquoise|PaleVioletRed|PapayaWhip|PeachPuff|Peru|Pink|Plum|PowderBlue|Purple|Red|RosyBrown|RoyalBlue|SaddleBrown|Salmon|SandyBrown|SeaGreen|SeaShell|Sienna|Silver|SkyBlue|SlateBlue|SlateGr[ae]y|Snow|SpringGreen|SteelBlue|Tan|Teal|Thistle|Tomato|Transparent|Turquoise|Violet|Wheat|White|WhiteSmoke|Yellow|YellowGreen)\b/i,{pattern:/\b(?:rgb|hsl)\(\s*\d{1,3}\s*,\s*\d{1,3}%?\s*,\s*\d{1,3}%?\s*\)\B|\b(?:rgb|hsl)a\(\s*\d{1,3}\s*,\s*\d{1,3}%?\s*,\s*\d{1,3}%?\s*,\s*(?:0|0?\.\d+|1)\s*\)\B/i,inside:{unit:r,number:i,function:/[\w-]+(?=\()/,punctuation:/[(),]/}}],entity:/\\[\da-f]{1,8}/i,unit:r,number:i})}(Prism);
+Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-interpolation":{pattern:/(?:f|rf|fr)(?:("""|''')[\s\S]*?\1|("|')(?:\\.|(?!\2)[^\\\r\n])*\2)/i,greedy:!0,inside:{interpolation:{pattern:/((?:^|[^{])(?:{{)*){(?!{)(?:[^{}]|{(?!{)(?:[^{}]|{(?!{)(?:[^{}])+})+})+}/,lookbehind:!0,inside:{"format-spec":{pattern:/(:)[^:(){}]+(?=}$)/,lookbehind:!0},"conversion-option":{pattern:/![sra](?=[:}]$)/,alias:"punctuation"},rest:null}},string:/[\s\S]+/}},"triple-quoted-string":{pattern:/(?:[rub]|rb|br)?("""|''')[\s\S]*?\1/i,greedy:!0,alias:"string"},string:{pattern:/(?:[rub]|rb|br)?("|')(?:\\.|(?!\1)[^\\\r\n])*\1/i,greedy:!0},function:{pattern:/((?:^|\s)def[ \t]+)[a-zA-Z_]\w*(?=\s*\()/g,lookbehind:!0},"class-name":{pattern:/(\bclass\s+)\w+/i,lookbehind:!0},decorator:{pattern:/(^\s*)@\w+(?:\.\w+)*/im,lookbehind:!0,alias:["annotation","punctuation"],inside:{punctuation:/\./}},keyword:/\b(?:and|as|assert|async|await|break|class|continue|def|del|elif|else|except|exec|finally|for|from|global|if|import|in|is|lambda|nonlocal|not|or|pass|print|raise|return|try|while|with|yield)\b/,builtin:/\b(?:__import__|abs|all|any|apply|ascii|basestring|bin|bool|buffer|bytearray|bytes|callable|chr|classmethod|cmp|coerce|compile|complex|delattr|dict|dir|divmod|enumerate|eval|execfile|file|filter|float|format|frozenset|getattr|globals|hasattr|hash|help|hex|id|input|int|intern|isinstance|issubclass|iter|len|list|locals|long|map|max|memoryview|min|next|object|oct|open|ord|pow|property|range|raw_input|reduce|reload|repr|reversed|round|set|setattr|slice|sorted|staticmethod|str|sum|super|tuple|type|unichr|unicode|vars|xrange|zip)\b/,boolean:/\b(?:True|False|None)\b/,number:/(?:\b(?=\d)|\B(?=\.))(?:0[bo])?(?:(?:\d|0x[\da-f])[\da-f]*(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?j?\b/i,operator:/[-+%=]=?|!=|\*\*?=?|\/\/?=?|<[<=>]?|>[=>]?|[&|^~]/,punctuation:/[{}[\];(),.:]/},Prism.languages.python["string-interpolation"].inside.interpolation.inside.rest=Prism.languages.python,Prism.languages.py=Prism.languages.python;
+!function(){if("undefined"!=typeof Prism&&"undefined"!=typeof document){var o="line-numbers",a=/\n(?!$)/g,e=Prism.plugins.lineNumbers={getLine:function(e,n){if("PRE"===e.tagName&&e.classList.contains(o)){var t=e.querySelector(".line-numbers-rows");if(t){var i=parseInt(e.getAttribute("data-start"),10)||1,r=i+(t.children.length-1);n<i&&(n=i),r<n&&(n=r);var s=n-i;return t.children[s]}}},resize:function(e){u([e])},assumeViewportIndependence:!0},n=void 0;window.addEventListener("resize",function(){e.assumeViewportIndependence&&n===window.innerWidth||(n=window.innerWidth,u(Array.prototype.slice.call(document.querySelectorAll("pre."+o))))}),Prism.hooks.add("complete",function(e){if(e.code){var n=e.element,t=n.parentNode;if(t&&/pre/i.test(t.nodeName)&&!n.querySelector(".line-numbers-rows")&&Prism.util.isActive(n,o)){n.classList.remove(o),t.classList.add(o);var i,r=e.code.match(a),s=r?r.length+1:1,l=new Array(s+1).join("<span></span>");(i=document.createElement("span")).setAttribute("aria-hidden","true"),i.className="line-numbers-rows",i.innerHTML=l,t.hasAttribute("data-start")&&(t.style.counterReset="linenumber "+(parseInt(t.getAttribute("data-start"),10)-1)),e.element.appendChild(i),u([t]),Prism.hooks.run("line-numbers",e)}}}),Prism.hooks.add("line-numbers",function(e){e.plugins=e.plugins||{},e.plugins.lineNumbers=!0})}function u(e){if(0!=(e=e.filter(function(e){var n=function(e){return e?window.getComputedStyle?getComputedStyle(e):e.currentStyle||null:null}(e)["white-space"];return"pre-wrap"===n||"pre-line"===n})).length){var n=e.map(function(e){var n=e.querySelector("code"),t=e.querySelector(".line-numbers-rows");if(n&&t){var i=e.querySelector(".line-numbers-sizer"),r=n.textContent.split(a);i||((i=document.createElement("span")).className="line-numbers-sizer",n.appendChild(i)),i.innerHTML="0",i.style.display="block";var s=i.getBoundingClientRect().height;return i.innerHTML="",{element:e,lines:r,lineHeights:[],oneLinerHeight:s,sizer:i}}}).filter(Boolean);n.forEach(function(e){var i=e.sizer,n=e.lines,r=e.lineHeights,s=e.oneLinerHeight;r[n.length-1]=void 0,n.forEach(function(e,n){if(e&&1<e.length){var t=i.appendChild(document.createElement("span"));t.style.display="block",t.textContent=e}else r[n]=s})}),n.forEach(function(e){for(var n=e.sizer,t=e.lineHeights,i=0,r=0;r<t.length;r++)void 0===t[r]&&(t[r]=n.children[i++].getBoundingClientRect().height)}),n.forEach(function(e){var n=e.sizer,t=e.element.querySelector(".line-numbers-rows");n.style.display="none",n.innerHTML="",e.lineHeights.forEach(function(e,n){t.children[n].style.height=e+"px"})})}}}();
+!function(){if("undefined"!=typeof Prism&&"undefined"!=typeof document){var a=/<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/g,c=/^#?((?:[\da-f]){3,4}|(?:[\da-f]{2}){3,4})$/i,l=[function(n){var r=c.exec(n);if(r){for(var o=6<=(n=r[1]).length?2:1,s=n.length/o,e=1==o?1/15:1/255,t=[],i=0;i<s;i++){var a=parseInt(n.substr(i*o,o),16);t.push(a*e)}return 3==s&&t.push(1),"rgba("+t.slice(0,3).map(function(n){return String(Math.round(255*n))}).join(",")+","+String(Number(t[3].toFixed(3)))+")"}},function(n){var r=(new Option).style;return r.color=n,r.color?n:void 0}];Prism.hooks.add("wrap",function(n){if("color"===n.type||0<=n.classes.indexOf("color")){for(var r,o=n.content,s=o.split(a).join(""),e=0,t=l.length;e<t&&!r;e++)r=l[e](s);if(!r)return;var i='<span class="inline-color-wrapper"><span class="inline-color" style="background-color:'+r+';"></span></span>';n.content=i+o}})}}();
+
+</script>
+
+</body>
+</html>

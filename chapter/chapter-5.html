@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>book</title>
+    <meta name="description" content="learn python the right way">
+
+    <style type="text/css">
+        figure {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 90%;
+            text-align: center;
+            font-size: 80%;
+        }
+
+        img {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+	</style>
+<style type="text/css">
+	:root{--background-body:#fff;--background:#efefef;--background-alt:#f7f7f7;--selection:#9e9e9e;--text-main:#363636;--text-bright:#000;--text-muted:#70777f;--links:#0076d1;--focus:rgba(0,150,191,0.67);--border:#dbdbdb;--code:#000;--animation-duration:0.1s;--button-hover:#ddd;--scrollbar-thumb:#d5d5d5;--scrollbar-thumb-hover:#c4c4c4;--form-placeholder:#949494;--form-text:#000;--variable:#39a33c;--highlight:#ff0;--select-arrow:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23161f27'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E")}@media (prefers-color-scheme:dark){:root{--background-body:#202b38;--background:#161f27;--background-alt:#1a242f;--selection:#1c76c5;--text-main:#dbdbdb;--text-bright:#fff;--text-muted:#a9b1ba;--links:#41adff;--focus:rgba(0,150,191,0.67);--border:#526980;--code:#ffbe85;--animation-duration:0.1s;--button-hover:#324759;--scrollbar-thumb:var(--button-hover);--scrollbar-thumb-hover:#141414;--form-placeholder:#a9a9a9;--form-text:#fff;--variable:#d941e2;--highlight:#efdb43;--select-arrow:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23efefef'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E")}}html{scrollbar-color:#d5d5d5 #fff;scrollbar-color:var(--scrollbar-thumb) var(--background-body);scrollbar-width:thin}@media (prefers-color-scheme:dark){html{scrollbar-color:#324759 #202b38;scrollbar-color:var(--scrollbar-thumb) var(--background-body)}}body{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Segoe UI Emoji,Apple Color Emoji,Noto Color Emoji,sans-serif;line-height:1.4;max-width:800px;margin:20px auto;padding:0 10px;word-wrap:break-word;color:#363636;color:var(--text-main);background:#fff;background:var(--background-body);text-rendering:optimizeLegibility}@media (prefers-color-scheme:dark){body{background:#202b38;background:var(--background-body);color:#dbdbdb;color:var(--text-main)}}button{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}@media (prefers-color-scheme:dark){button{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}}input{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}@media (prefers-color-scheme:dark){input{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}}textarea{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}@media (prefers-color-scheme:dark){textarea{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}}h1{font-size:2.2em;margin-top:0}h1,h2,h3,h4,h5,h6{margin-bottom:12px;margin-top:24px}h1{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h1{color:#fff;color:var(--text-bright)}}h2{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h2{color:#fff;color:var(--text-bright)}}h3{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h3{color:#fff;color:var(--text-bright)}}h4{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h4{color:#fff;color:var(--text-bright)}}h5{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h5{color:#fff;color:var(--text-bright)}}h6{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h6{color:#fff;color:var(--text-bright)}}strong{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){strong{color:#fff;color:var(--text-bright)}}b,h1,h2,h3,h4,h5,h6,strong,th{font-weight:600}q:after,q:before{content:none}blockquote{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus);margin:1.5em 0;padding:.5em 1em;font-style:italic}@media (prefers-color-scheme:dark){blockquote{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus)}}q{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus);margin:1.5em 0;padding:.5em 1em;font-style:italic}@media (prefers-color-scheme:dark){q{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus)}}blockquote>footer{font-style:normal;border:0}address,blockquote cite{font-style:normal}a[href^=mailto\:]:before{content:"📧 "}a[href^=tel\:]:before{content:"📞 "}a[href^=sms\:]:before{content:"💬 "}mark{background-color:#ff0;background-color:var(--highlight);border-radius:2px;padding:0 2px;color:#000}@media (prefers-color-scheme:dark){mark{background-color:#efdb43;background-color:var(--highlight)}}button,input[type=button],input[type=checkbox],input[type=radio],input[type=range],input[type=submit],select{cursor:pointer}input:not([type=checkbox]):not([type=radio]),select{display:block}input{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){input{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}button{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){button{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}textarea{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){textarea{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}select{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){select{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}input[type=checkbox],input[type=radio]{height:1em;width:1em}input[type=radio]{border-radius:100%}input{vertical-align:top}label{vertical-align:middle;margin-bottom:4px;display:inline-block}button,input:not([type=checkbox]):not([type=radio]),input[type=range],select,textarea{-webkit-appearance:none}textarea{display:block;margin-right:0;box-sizing:border-box;resize:vertical}textarea:not([cols]){width:100%}textarea:not([rows]){min-height:40px;height:140px}select{background:#efefef url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23161f27'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E") calc(100% - 12px) 50%/12px no-repeat;background:var(--background) var(--select-arrow) calc(100% - 12px) 50%/12px no-repeat;padding-right:35px}@media (prefers-color-scheme:dark){select{background:#161f27 url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23efefef'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E") calc(100% - 12px) 50%/12px no-repeat;background:var(--background) var(--select-arrow) calc(100% - 12px) 50%/12px no-repeat}}select::-ms-expand{display:none}select[multiple]{padding-right:10px;background-image:none;overflow-y:auto}button,input[type=button],input[type=submit]{padding-right:30px;padding-left:30px}button:hover{background:#ddd;background:var(--button-hover)}@media (prefers-color-scheme:dark){button:hover{background:#324759;background:var(--button-hover)}}input[type=submit]:hover{background:#ddd;background:var(--button-hover)}@media (prefers-color-scheme:dark){input[type=submit]:hover{background:#324759;background:var(--button-hover)}}input[type=button]:hover{background:#ddd;background:var(--button-hover)}@media (prefers-color-scheme:dark){input[type=button]:hover{background:#324759;background:var(--button-hover)}}input:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){input:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}select:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){select:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}button:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){button:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}textarea:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){textarea:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}button:active,input[type=button]:active,input[type=checkbox]:active,input[type=radio]:active,input[type=range]:active,input[type=submit]:active{transform:translateY(2px)}button:disabled,input:disabled,select:disabled,textarea:disabled{cursor:not-allowed;opacity:.5}::-moz-placeholder{color:#949494;color:var(--form-placeholder)}:-ms-input-placeholder{color:#949494;color:var(--form-placeholder)}::-ms-input-placeholder{color:#949494;color:var(--form-placeholder)}::placeholder{color:#949494;color:var(--form-placeholder)}@media (prefers-color-scheme:dark){::-moz-placeholder{color:#a9a9a9;color:var(--form-placeholder)}:-ms-input-placeholder{color:#a9a9a9;color:var(--form-placeholder)}::-ms-input-placeholder{color:#a9a9a9;color:var(--form-placeholder)}::placeholder{color:#a9a9a9;color:var(--form-placeholder)}}fieldset{border:1px solid rgba(0,150,191,.67);border:1px solid var(--focus);border-radius:6px;margin:0 0 12px;padding:10px}@media (prefers-color-scheme:dark){fieldset{border:1px solid rgba(0,150,191,.67);border:1px solid var(--focus)}}legend{font-size:.9em;font-weight:600}input[type=range]{margin:10px 0;padding:10px 0;background:transparent}input[type=range]:focus{outline:none}input[type=range]::-webkit-slider-runnable-track{width:100%;height:9.5px;-webkit-transition:.2s;transition:.2s;background:#efefef;background:var(--background);border-radius:3px}@media (prefers-color-scheme:dark){input[type=range]::-webkit-slider-runnable-track{background:#161f27;background:var(--background)}}input[type=range]::-webkit-slider-thumb{box-shadow:0 1px 1px #000,0 0 1px #0d0d0d;height:20px;width:20px;border-radius:50%;background:#dbdbdb;background:var(--border);-webkit-appearance:none;margin-top:-7px}@media (prefers-color-scheme:dark){input[type=range]::-webkit-slider-thumb{background:#526980;background:var(--border)}}input[type=range]:focus::-webkit-slider-runnable-track{background:#efefef;background:var(--background)}@media (prefers-color-scheme:dark){input[type=range]:focus::-webkit-slider-runnable-track{background:#161f27;background:var(--background)}}input[type=range]::-moz-range-track{width:100%;height:9.5px;-moz-transition:.2s;transition:.2s;background:#efefef;background:var(--background);border-radius:3px}@media (prefers-color-scheme:dark){input[type=range]::-moz-range-track{background:#161f27;background:var(--background)}}input[type=range]::-moz-range-thumb{box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d;height:20px;width:20px;border-radius:50%;background:#dbdbdb;background:var(--border)}@media (prefers-color-scheme:dark){input[type=range]::-moz-range-thumb{background:#526980;background:var(--border)}}input[type=range]::-ms-track{width:100%;height:9.5px;background:transparent;border-color:transparent;border-width:16px 0;color:transparent}input[type=range]::-ms-fill-lower{background:#efefef;background:var(--background);border:.2px solid #010101;border-radius:3px;box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d}@media (prefers-color-scheme:dark){input[type=range]::-ms-fill-lower{background:#161f27;background:var(--background)}}input[type=range]::-ms-fill-upper{background:#efefef;background:var(--background);border:.2px solid #010101;border-radius:3px;box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d}@media (prefers-color-scheme:dark){input[type=range]::-ms-fill-upper{background:#161f27;background:var(--background)}}input[type=range]::-ms-thumb{box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d;border:1px solid #000;height:20px;width:20px;border-radius:50%;background:#dbdbdb;background:var(--border)}@media (prefers-color-scheme:dark){input[type=range]::-ms-thumb{background:#526980;background:var(--border)}}input[type=range]:focus::-ms-fill-lower{background:#efefef;background:var(--background)}@media (prefers-color-scheme:dark){input[type=range]:focus::-ms-fill-lower{background:#161f27;background:var(--background)}}input[type=range]:focus::-ms-fill-upper{background:#efefef;background:var(--background)}@media (prefers-color-scheme:dark){input[type=range]:focus::-ms-fill-upper{background:#161f27;background:var(--background)}}a{text-decoration:none;color:#0076d1;color:var(--links)}@media (prefers-color-scheme:dark){a{color:#41adff;color:var(--links)}}a:hover{text-decoration:underline}code{background:#efefef;background:var(--background);color:#000;color:var(--code);padding:2.5px 5px;border-radius:6px;font-size:1em}@media (prefers-color-scheme:dark){code{color:#ffbe85;color:var(--code);background:#161f27;background:var(--background)}}samp{background:#efefef;background:var(--background);color:#000;color:var(--code);padding:2.5px 5px;border-radius:6px;font-size:1em}@media (prefers-color-scheme:dark){samp{color:#ffbe85;color:var(--code);background:#161f27;background:var(--background)}}time{background:#efefef;background:var(--background);color:#000;color:var(--code);padding:2.5px 5px;border-radius:6px;font-size:1em}@media (prefers-color-scheme:dark){time{color:#ffbe85;color:var(--code);background:#161f27;background:var(--background)}}pre>code{padding:10px;display:block;overflow-x:auto}var{color:#39a33c;color:var(--variable);font-style:normal;font-family:monospace}@media (prefers-color-scheme:dark){var{color:#d941e2;color:var(--variable)}}kbd{background:#efefef;background:var(--background);border:1px solid #dbdbdb;border:1px solid var(--border);border-radius:2px;color:#363636;color:var(--text-main);padding:2px 4px}@media (prefers-color-scheme:dark){kbd{color:#dbdbdb;color:var(--text-main);border:1px solid #526980;border:1px solid var(--border);background:#161f27;background:var(--background)}}img,video{max-width:100%;height:auto}hr{border:none;border-top:1px solid #dbdbdb;border-top:1px solid var(--border)}@media (prefers-color-scheme:dark){hr{border-top:1px solid #526980;border-top:1px solid var(--border)}}table{border-collapse:collapse;margin-bottom:10px;width:100%;table-layout:fixed}table caption,td,th{text-align:left}td,th{padding:6px;vertical-align:top;word-wrap:break-word}thead{border-bottom:1px solid #dbdbdb;border-bottom:1px solid var(--border)}@media (prefers-color-scheme:dark){thead{border-bottom:1px solid #526980;border-bottom:1px solid var(--border)}}tfoot{border-top:1px solid #dbdbdb;border-top:1px solid var(--border)}@media (prefers-color-scheme:dark){tfoot{border-top:1px solid #526980;border-top:1px solid var(--border)}}tbody tr:nth-child(2n){background-color:#f7f7f7;background-color:var(--background-alt)}@media (prefers-color-scheme:dark){tbody tr:nth-child(2n){background-color:#1a242f;background-color:var(--background-alt)}}::-webkit-scrollbar{height:10px;width:10px}::-webkit-scrollbar-track{background:#efefef;background:var(--background);border-radius:6px}@media (prefers-color-scheme:dark){::-webkit-scrollbar-track{background:#161f27;background:var(--background)}}::-webkit-scrollbar-thumb{background:#d5d5d5;background:var(--scrollbar-thumb);border-radius:6px}@media (prefers-color-scheme:dark){::-webkit-scrollbar-thumb{background:#324759;background:var(--scrollbar-thumb)}}::-webkit-scrollbar-thumb:hover{background:#c4c4c4;background:var(--scrollbar-thumb-hover)}@media (prefers-color-scheme:dark){::-webkit-scrollbar-thumb:hover{background:#141414;background:var(--scrollbar-thumb-hover)}}::-moz-selection{background-color:#9e9e9e;background-color:var(--selection);color:#000;color:var(--text-bright)}::selection{background-color:#9e9e9e;background-color:var(--selection);color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){::-moz-selection{color:#fff;color:var(--text-bright)}::selection{color:#fff;color:var(--text-bright)}}@media (prefers-color-scheme:dark){::-moz-selection{background-color:#1c76c5;background-color:var(--selection)}::selection{background-color:#1c76c5;background-color:var(--selection)}}details{display:flex;flex-direction:column;align-items:flex-start;background-color:#f7f7f7;background-color:var(--background-alt);padding:10px 10px 0;margin:1em 0;border-radius:6px;overflow:hidden}@media (prefers-color-scheme:dark){details{background-color:#1a242f;background-color:var(--background-alt)}}details[open]{padding:10px}details>:last-child{margin-bottom:0}details[open] summary{margin-bottom:10px}summary{display:list-item;background-color:#efefef;background-color:var(--background);padding:10px;margin:-10px -10px 0;cursor:pointer;outline:none}@media (prefers-color-scheme:dark){summary{background-color:#161f27;background-color:var(--background)}}summary:focus,summary:hover{text-decoration:underline}details>:not(summary){margin-top:0}summary::-webkit-details-marker{color:#363636;color:var(--text-main)}@media (prefers-color-scheme:dark){summary::-webkit-details-marker{color:#dbdbdb;color:var(--text-main)}}footer{border-top:1px solid #dbdbdb;border-top:1px solid var(--border);padding-top:10px;color:#70777f;color:var(--text-muted)}@media (prefers-color-scheme:dark){footer{color:#a9b1ba;color:var(--text-muted);border-top:1px solid #526980;border-top:1px solid var(--border)}}body>footer{margin-top:40px}@media print{body,button,code,details,input,pre,summary,textarea{background-color:#fff}button,input,textarea{border:1px solid #000}body,button,code,footer,h1,h2,h3,h4,h5,h6,input,pre,strong,summary,textarea{color:#000}summary::marker{color:#000}summary::-webkit-details-marker{color:#000}tbody tr:nth-child(2n){background-color:#f2f2f2}a{color:#00f;text-decoration:underline}}
+/*# sourceMappingURL=water.min.css.map */
+	</style>
+
+    <style type="text/css">
+    code[class*="language-"],pre[class*="language-"]{border-radius: 7px;color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*="language-"]::-moz-selection,pre[class*="language-"] ::-moz-selection,code[class*="language-"]::-moz-selection,code[class*="language-"] ::-moz-selection{text-shadow:none;background:#b3d4fc}pre[class*="language-"]::selection,pre[class*="language-"] ::selection,code[class*="language-"]::selection,code[class*="language-"] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*="language-"],pre[class*="language-"]{text-shadow:none}}pre[class*="language-"]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*="language-"],pre[class*="language-"]{background:#f5f2f0}:not(pre)>code[class*="language-"]{padding:.1em;border-radius:.3em;white-space:normal}.token.comment,.token.prolog,.token.doctype,.token.cdata{color:slategray}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.property,.token.tag,.token.boolean,.token.number,.token.constant,.token.symbol,.token.deleted{color:#905}.token.selector,.token.attr-name,.token.string,.token.char,.token.builtin,.token.inserted{color:#690}.token.operator,.token.entity,.token.url,.language-css .token.string,.style .token.string{color:#9a6e3a}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.function,.token.class-name{color:#DD4A68}.token.regex,.token.important,.token.variable{color:#e90}.token.important,.token.bold{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}pre[class*="language-"].line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}pre[class*="language-"].line-numbers>code{position:relative;white-space:inherit}.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:0;font-size:100%;left:-3.8em;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.line-numbers-rows>span{display:block;counter-increment:linenumber}.line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}span.inline-color-wrapper{background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyIDIiPjxwYXRoIGZpbGw9ImdyYXkiIGQ9Ik0wIDBoMnYySDB6Ii8+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0wIDBoMXYxSDB6TTEgMWgxdjFIMXoiLz48L3N2Zz4=);background-position:center;background-size:110%;display:inline-block;height:1.333ch;width:1.333ch;margin:0 .333ch;box-sizing:border-box;border:1px solid #fff;outline:1px solid rgba(0,0,0,.5);overflow:hidden}span.inline-color{display:block;height:120%;width:120%}
+    </style>
+    <style type="text/css">
+    @import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap);:root{--background-body:#fff;--background:#eee;--background-alt:#1a242f;--selection:#9abfdf;--text-main:#1a242f;--text-bright:#1e426f;--text-muted:#a9b1ba;--links:#2496ee;--focus:rgba(0,150,191,.67);--border:#526980;--code:#d20577;--animation-duration:0.1s;--button-hover:#324759;--scrollbar-thumb:var(--button-hover);--scrollbar-thumb-hover:#141414;--form-placeholder:#a9a9a9;--form-text:#fff;--variable:#d941e2;--highlight:#efdb43;--select-arrow:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23efefef'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E")}body{font-family:"IBM Plex Sans",sans-serif;font-size:16px;line-height: 1.6;}
+    </style>
+ 
+
+</head>
+
+<body>
+    <header><h1></h1>
+
+        <nav>
+        </nav>
+
+    </header><h1>Chapter 5: Conditionals</h1>
+<p>Programs get really interesting when we can test conditions and change the program behaviour depending on the outcome of the tests. That’s what this chapter is about.</p>
+<h2>5.1. Boolean values and expressions</h2>
+<p>A Boolean value is either true or false. It is named after the British mathematician, George Boole, who first formulated Boolean algebra — some rules for reasoning about and combining these values. This is the basis of all modern computer logic.</p>
+<p>In Python, the two Boolean values are <code>True</code> and <code>False</code> (the capitalization must be exactly as shown), and the Python type is <strong><code>bool</code></strong>.</p>
+<pre><code class="language-python">&gt;&gt;&gt; type(True)
+&lt;class &#39;bool&#39;&gt;
+&gt;&gt;&gt; type(true)
+Traceback (most recent call last):
+  File &quot;&lt;interactive input&gt;&quot;, line 1, in &lt;module&gt;
+NameError: name &#39;true&#39; is not defined</code></pre>
+<p>A <strong>Boolean expression</strong> is an expression that evaluates to produce a result which is a Boolean value. For example, the operator <code>==</code> tests if two values are equal. It produces (or <em>yields</em>) a Boolean value:</p>
+<pre><code class="language-python">&gt;&gt;&gt; 5 == (3 + 2)   # Is 5 equal to the result of 3 + 2?
+True
+&gt;&gt;&gt; 5 == 6
+False
+&gt;&gt;&gt; j = &quot;hel&quot;
+&gt;&gt;&gt; j + &quot;lo&quot; == &quot;hello&quot;
+True</code></pre>
+<p>In the first statement, the two operands evaluate to equal values, so the expression evaluates to <code>True</code>; in the second statement, <code>5</code> is not equal to <code>6</code>, so we get <code>False</code>.</p>
+<p>The <code>==</code> operator is one of six common <strong>comparison operators</strong> which all produce a bool result; here are all six:</p>
+<pre><code class="language-python">x == y               # Produce True if ... x is equal to y
+x != y               # ... x is not equal to y
+x &gt; y                # ... x is greater than y
+x &lt; y                # ... x is less than y
+x &gt;= y               # ... x is greater than or equal to y
+x &lt;= y               # ... x is less than or equal to y</code></pre>
+<p>Although these operations are probably familiar, the Python symbols are different from the mathematical symbols. A common error is to use a single equal sign (<code>=</code>) instead of a double equal sign (<code>==</code>). Remember that<code>=</code> is an assignment operator and <code>==</code> is a comparison operator. Also, there is no such thing as <code>=&lt;</code> or <code>=&gt;</code>.</p>
+<p>Like any other types we’ve seen so far, Boolean values can be assigned to variables, printed, etc.</p>
+<pre><code class="language-python">&gt;&gt;&gt; age = 18
+&gt;&gt;&gt; old_enough_to_get_driving_licence = age &gt;= 17
+&gt;&gt;&gt; print(old_enough_to_get_driving_licence)
+True
+&gt;&gt;&gt; type(old_enough_to_get_driving_licence)
+&lt;class &#39;bool&#39;&gt;</code></pre>
+<h2>5.2. Logical operators</h2>
+<p>There are three <strong>logical operators</strong>, <code>and</code>, <code>or</code>, and <code>not</code>, that allow us to build more complex Boolean expressions from simpler Boolean expressions. The semantics (meaning) of these operators is similar to their meaning in English. For example, <code>x &gt; 0 and x &lt; 10</code> produces <code>True</code> only if <code>x</code> is greater than <code>0</code> and at the same time, <code>x</code> is less than <code>10</code>.</p>
+<p><code>n % 2 == 0 or n % 3 == 0</code> is <code>True</code> if <em>either</em> of the conditions is <code>True</code>, that is, if the number <code>n</code> is divisible by <code>2</code> <em>or</em> it is divisible by <code>3</code>. (What do you think happens if <code>n</code> is divisible by both <code>2</code> and by <code>3</code> at the same time? Will the expression yield <code>True</code> or <code>False</code>? Try it in your Python interpreter.)</p>
+<p>Finally, the <code>not</code> operator negates a Boolean value, so <code>not (x &gt; y)</code> is <code>True</code> if <code>(x &gt; y)</code> is <code>False</code>, that is, if <code>x</code> is less than or equal to <code>y</code>.</p>
+<p>The expression on the left of the or operator is evaluated first: if the result is <code>True</code>, Python does not (and need not) evaluate the expression on the right — this is called <em>short-circuit evaluation</em>. Similarly, for the <code>and</code> operator, if the expression on the left yields <code>False</code>, Python does not evaluate the expression on the right.</p>
+<p>So there are no unnecessary evaluations.</p>
+<h2>5.3. Truth Tables</h2>
+<p>A truth table is a small table that allows us to list all the possible inputs, and to give the results for the logical operators. Because the <code>and</code> and <code>or</code> operators each have two operands, there are only four rows in a truth table that describes the semantics of <code>and</code>.</p>
+<table>
+<thead>
+<tr class="header">
+<th>a</th>
+<th>b</th>
+<th>a and b</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td>False</td>
+<td>True</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td>True</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td>True</td>
+<td>True</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+<p>In a Truth Table, we sometimes use <code>T</code> and <code>F</code> as shorthand for the two Boolean values: here is the truth table describing or:</p>
+<table>
+<thead>
+<tr class="header">
+<th>a</th>
+<th>b</th>
+<th>a or b</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>T</td>
+<td>T</td>
+</tr>
+<tr class="odd">
+<td>T</td>
+<td>F</td>
+<td>T</td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td>T</td>
+<td>T</td>
+</tr>
+</tbody>
+</table>
+<p>The third logical operator, <code>not</code>, only takes a single operand, so its truth table only has two rows:</p>
+<table>
+<thead>
+<tr class="header">
+<th>a</th>
+<th>not a</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F</td>
+<td>T</td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<h2>5.4. Simplifying Boolean Expressions</h2>
+<p>A set of rules for simplifying and rearranging expressions is called an algebra. For example, we are all familiar with school <em>algebra</em> rules, such as:</p>
+<pre><code class="language-python">n * 0 == 0</code></pre>
+<p>Here we see a different algebra — the Boolean algebra — which provides rules for working with Boolean values.</p>
+<p>First, the <code>and</code> operator:</p>
+<pre><code class="language-python">x and False == False
+False and x == False
+y and x == x and y
+x and True == x
+True and x == x
+x and x == x</code></pre>
+<p>Here are some corresponding rules for the <code>or</code> operator:</p>
+<pre><code class="language-python">x or False == x
+False or x == x
+y or x == x or y
+x or True == True
+True or x == True
+x or x == x</code></pre>
+<p>Two not operators cancel each other:</p>
+<pre><code class="language-python">not (not x) == x</code></pre>
+<h2>5.5. Conditional execution</h2>
+<p>In order to write useful programs, we almost always need the ability to check conditions and change the behavior of the program accordingly. <strong>Conditional statements</strong> give us this ability. The simplest form is the <strong><code>if</code></strong> statement:</p>
+<pre><code class="language-python">if x % 2 == 0:
+    print(x, &quot; is even.&quot;)
+    print(&quot;Did you know that 2 is the only even number that is prime?&quot;)
+else:
+    print(x, &quot; is odd.&quot;)
+    print(&quot;Did you know that multiplying two odd numbers &quot; +
+                                         &quot;always gives an odd result?&quot;)</code></pre>
+<p>The Boolean expression after the <code>if</code> statement is called the <strong>condition</strong>. If it is true, then all the indented statements get executed. If not, then all the statements indented under the <code>else</code> clause get executed.</p>
+<p>A&gt; <strong>Flowchart of an <code>if</code> statement with an <code>else</code> clause</strong> A&gt; A&gt; <img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-5/05-01-flowchart_if_else.png" alt="Flowchart - if else" /></p>
+<p>The syntax for an if statement looks like this:</p>
+<pre><code class="language-python">if BOOLEAN EXPRESSION:
+    STATEMENTS_1        # Executed if condition evaluates to True
+else:
+    STATEMENTS_2        # Executed if condition evaluates to False</code></pre>
+<p>As with the function definition from the last chapter and other compound statements like <code>for</code>, the <code>if</code> statement consists of a header line and a body. The header line begins with the keyword <code>if</code> followed by a <em>Boolean expression</em> and ends with a colon (<code>:</code>).</p>
+<p>The indented statements that follow are called a <strong>block</strong>. The first unindented statement marks the end of the block.</p>
+<p>Each of the statements inside the first block of statements are executed in order if the Boolean expression evaluates to <code>True</code>. The entire first block of statements is skipped if the Boolean expression evaluates to <code>False</code>, and instead all the statements indented under the <code>else</code> clause are executed.</p>
+<p>There is no limit on the number of statements that can appear under the two clauses of an <code>if</code> statement, but there has to be at least one statement in each block. Occasionally, it is useful to have a section with no statements (usually as a place keeper, or scaffolding, for code we haven’t written yet). In that case, we can use the <code>pass</code> statement, which does nothing except act as a placeholder.</p>
+<pre><code class="language-python">if True:          # This is always True,
+    pass          #   so this is always executed, but it does nothing
+else:
+    pass</code></pre>
+<h2>5.6. Omitting the else clause</h2>
+<p>A&gt; <strong>Flowchart of an <code>if</code> statement with no <code>else</code> clause</strong> A&gt; A&gt; <img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-5/05-02-flowchart_if_only.png" alt="Flowchart - if only" /></p>
+<p>Another form of the <code>if</code> statement is one in which the <code>else</code> clause is omitted entirely. In this case, when the condition evaluates to <code>True</code>, the statements are executed, otherwise the flow of execution continues to the statement after the <code>if</code>.</p>
+<pre><code class="language-python">if x &lt; 0:
+    print(&quot;The negative number &quot;,  x, &quot; is not valid here.&quot;)
+    x = 42
+    print(&quot;I&#39;ve decided to use the number 42 instead.&quot;)
+
+print(&quot;The square root of &quot;, x, &quot;is&quot;, math.sqrt(x))</code></pre>
+<p>In this case, the <code>print</code> function that outputs the square root is the one after the <code>if</code> — not because we left a blank line, but because of the way the code is indented. Note too that the function call <code>math.sqrt(x)</code> will give an error unless we have an <code>import math</code> statement, usually placed near the top of our script.</p>
+<p>A&gt; <strong>Python terminology</strong> A&gt; A&gt; Python documentation sometimes uses the term <strong>suite</strong> of statements to mean what we have called a <em>block</em> here. They mean the same thing, and since most other languages and computer scientists use the word block, we’ll stick with that. A&gt; A&gt; Notice too that <code>else</code> is not a statement. The <code>if</code> statement has two clauses, one of which is the (optional) <code>else</code> clause.</p>
+<h2>5.7. Chained conditionals</h2>
+<p>Sometimes there are more than two possibilities and we need more than two branches. One way to express a computation like that is a <strong>chained conditional</strong>:</p>
+<pre><code class="language-python">if x &lt; y:
+    STATEMENTS_A
+elif x &gt; y:
+    STATEMENTS_B
+else:
+    STATEMENTS_C</code></pre>
+<p>A&gt; <strong>Flowchart of this chained conditional</strong> A&gt; A&gt; <img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-5/05-03-flowchart_chained_conditional.png" alt="Flowchart - chained conditional" /></p>
+<p><code>elif</code> is an abbreviation of else if. Again, exactly one branch will be executed. There is no limit of the number of <code>elif</code> statements but only a single (and optional) final <code>else</code> statement is allowed and it must be the last branch in the statement:</p>
+<pre><code class="language-python">if choice == &quot;a&quot;:
+    function_one()
+elif choice == &quot;b&quot;:
+    function_two()
+elif choice == &quot;c&quot;:
+    function_three()
+else:
+    print(&quot;Invalid choice.&quot;)</code></pre>
+<p>Each condition is checked in order. If the first is false, the next is checked, and so on. If one of them is true, the corresponding branch executes, and the statement ends. Even if more than one condition is true, only the first true branch executes.</p>
+<h2>5.8. Nested conditionals</h2>
+<p>One conditional can also be <strong>nested</strong> within another. (It is the same theme of composability, again!) We could have written the previous example as follows:</p>
+<p>A&gt; <strong>Flowchart of this nested conditional</strong> A&gt; A&gt; <img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-5/05-04-flowchart_nested_conditional.png" alt="Flowchart - nested conditional" /></p>
+<pre><code class="language-python">if x &lt; y:
+    STATEMENTS_A
+else:
+    if x &gt; y:
+        STATEMENTS_B
+    else:
+        STATEMENTS_C</code></pre>
+<p>The outer conditional contains two branches. The second branch contains another <code>if</code> statement, which has two branches of its own. Those two branches could contain conditional statements as well.</p>
+<p>Although the indentation of the statements makes the structure apparent, nested conditionals very quickly become difficult to read. In general, it is a good idea to avoid them when we can.</p>
+<p>Logical operators often provide a way to simplify nested conditional statements. For example, we can rewrite the following code using a single conditional:</p>
+<pre><code class="language-python">if 0 &lt; x:            # Assume x is an int here
+    if x &lt; 10:
+        print(&quot;x is a positive single digit.&quot;)</code></pre>
+<p>The <code>print</code> function is called only if we make it past both the conditionals, so instead of the above which uses two <code>if</code> statements each with a simple condition, we could make a more complex condition using the <code>and</code> operator. Now we only need a single <code>if</code> statement:</p>
+<pre><code class="language-python">if 0 &lt; x and x &lt; 10:
+    print(&quot;x is a positive single digit.&quot;)</code></pre>
+<h2>5.9. The return statement</h2>
+<p>The <code>return</code> statement, with or without a value, depending on whether the function is fruitful or void, allows us to terminate the execution of a function before (or when) we reach the end. One reason to use an <em>early return</em> is if we detect an error condition:</p>
+<pre><code class="language-python">def print_square_root(x):
+    if x &lt;= 0:
+        print(&quot;Positive numbers only, please.&quot;)
+        return
+
+    result = x**0.5
+    print(&quot;The square root of&quot;, x, &quot;is&quot;, result)</code></pre>
+<p>The function <code>print_square_root</code> has a parameter named <code>x</code>. The first thing it does is check whether <code>x</code> is less than or equal to <code>0</code>, in which case it displays an error message and then uses <code>return</code> to exit the function. The flow of execution immediately returns to the caller, and the remaining lines of the function are not executed.</p>
+<h2>5.10. Logical opposites</h2>
+<p>Each of the six relational operators has a logical opposite: for example, suppose we can get a driving licence when our age is greater or equal to 17, we can not get the driving licence when we are less than 17.</p>
+<p>Notice that the opposite of <code>&gt;=</code> is <code>&lt;</code>.</p>
+<table>
+<thead>
+<tr class="header">
+<th>operator</th>
+<th>logical opposite</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>==</code></td>
+<td><code>!=</code></td>
+</tr>
+<tr class="even">
+<td><code>!=</code></td>
+<td><code>==</code></td>
+</tr>
+<tr class="odd">
+<td><code>&lt;</code></td>
+<td><code>&gt;=</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;=</code></td>
+<td><code>&gt;</code></td>
+</tr>
+<tr class="odd">
+<td><code>&gt;</code></td>
+<td><code>&lt;=</code></td>
+</tr>
+<tr class="even">
+<td><code>&gt;=</code></td>
+<td><code>&lt;</code></td>
+</tr>
+</tbody>
+</table>
+<p>Understanding these logical opposites allows us to sometimes get rid of <code>not</code> operators. <code>not</code> operators are often quite difficult to read in computer code, and our intentions will usually be clearer if we can eliminate them.</p>
+<p>For example, if we wrote this Python:</p>
+<pre><code class="language-python">if not (age &gt;= 17):
+    print(&quot;Hey, you&#39;re too young to get a driving licence!&quot;)</code></pre>
+<p>it would probably be clearer to use the simplification laws, and to write instead:</p>
+<pre><code class="language-python">if age &lt; 17:
+    print(&quot;Hey, you&#39;re too young to get a driving licence!&quot;)</code></pre>
+<p>Two powerful simplification laws (called de Morgan’s laws) that are often helpful when dealing with complicated Boolean expressions are:</p>
+<pre><code class="language-python">not (x and y)  ==  (not x) or (not y)
+not (x or y)   ==  (not x) and (not y)</code></pre>
+<p>For example, suppose we can slay the dragon only if our magic lightsabre sword is charged to 90% or higher, and we have 100 or more energy units in our protective shield. We find this fragment of Python code in the game:</p>
+<pre><code class="language-python">if not ((sword_charge &gt;= 0.90) and (shield_energy &gt;= 100)):
+    print(&quot;Your attack has no effect, the dragon fries you to a crisp!&quot;)
+else:
+    print(&quot;The dragon crumples in a heap. You rescue the gorgeous princess!&quot;)</code></pre>
+<p>de Morgan’s laws together with the logical opposites would let us rework the condition in a (perhaps) easier to understand way like this:</p>
+<pre><code class="language-python">if (sword_charge &lt; 0.90) or (shield_energy &lt; 100):
+    print(&quot;Your attack has no effect, the dragon fries you to a crisp!&quot;)
+else:
+    print(&quot;The dragon crumples in a heap. You rescue the gorgeous princess!&quot;)</code></pre>
+<p>We could also get rid of the <code>not</code> by swapping around the then and else parts of the conditional. So here is a third version, also equivalent:</p>
+<pre><code class="language-python">if (sword_charge &gt;= 0.90) and (shield_energy &gt;= 100):
+    print(&quot;The dragon crumples in a heap. You rescue the gorgeous princess!&quot;)
+else:
+    print(&quot;Your attack has no effect, the dragon fries you to a crisp!&quot;)</code></pre>
+<p>This version is probably the best of the three, because it very closely matches the initial English statement. Clarity of our code (for other humans), and making it easy to see that the code does what was expected should always be a high priority.</p>
+<p>As our programming skills develop we’ll find we have more than one way to solve any problem. So good programs are <em>designed</em>. We make choices that favour clarity, simplicity, and elegance. The job title <em>software architect</em> says a lot about what we do — we are <em>architects</em> who engineer our products to balance beauty, functionality, simplicity and clarity in our creations.</p>
+<p>A&gt; <strong><em>Tip</em></strong> A&gt; A&gt; <em>Once our program works, we should play around a bit trying to polish it up. Write good comments. Think about whether the code would be clearer with different variable names. Could we have done it more elegantly? Should we rather use a function? Can we simplify the conditionals?</em> A&gt; A&gt; <em>We think of our code as our creation, our work of art! We make it great.</em></p>
+<h2>5.11. Type conversion</h2>
+<p>We’ve had a first look at this in an earlier chapter. Seeing it again won’t hurt!</p>
+<p>Many Python types come with a built-in function that attempts to convert values of another type into its own type. The <code>int</code> function, for example, takes any value and converts it to an integer, if possible, or complains otherwise:</p>
+<pre><code class="language-python">&gt;&gt;&gt; int(&quot;32&quot;)
+32
+&gt;&gt;&gt; int(&quot;Hello&quot;)
+ValueError: invalid literal for int() with base 10: &#39;Hello&#39;</code></pre>
+<p><code>int</code> can also convert floating-point values to integers, but remember that it truncates the fractional part:</p>
+<pre><code class="language-python">&gt;&gt;&gt; int(-2.3)
+-2
+&gt;&gt;&gt; int(3.99999)
+3
+&gt;&gt;&gt; int(&quot;42&quot;)
+42
+&gt;&gt;&gt; int(1.0)
+1</code></pre>
+<p>The float function converts integers and strings to floating-point numbers:</p>
+<pre><code class="language-python">&gt;&gt;&gt; float(32)
+32.0
+&gt;&gt;&gt; float(&quot;3.14159&quot;)
+3.14159
+&gt;&gt;&gt; float(1)
+1.0</code></pre>
+<p>It may seem odd that Python distinguishes the integer value <code>1</code> from the floating-point value <code>1.0</code>. They may represent the same number, but they belong to different types. The reason is that they are represented differently inside the computer.</p>
+<p>The <code>str</code> function converts any argument given to it to type string:</p>
+<pre><code class="language-python">&gt;&gt;&gt; str(32)
+&#39;32&#39;
+&gt;&gt;&gt; str(3.14149)
+&#39;3.14149&#39;
+&gt;&gt;&gt; str(True)
+&#39;True&#39;
+&gt;&gt;&gt; str(true)
+Traceback (most recent call last):
+  File &quot;&lt;interactive input&gt;&quot;, line 1, in &lt;module&gt;
+NameError: name &#39;true&#39; is not defined</code></pre>
+<p><code>str</code> will work with any value and convert it into a string. As mentioned earlier, <code>True</code> is a Boolean value; true is just an ordinary variable name, and is not defined here, so we get an error.</p>
+<h2>5.12. A Turtle Bar Chart</h2>
+<p>The turtle has a lot more power than we’ve seen so far. The full documentation can be found at http://docs.python.org/py3k/library/turtle.html.</p>
+<p>Here are a couple of new tricks for our turtles:</p>
+<ul>
+<li><p>We can get a turtle to display text on the canvas at the turtle’s current position. The method to do that is <code>alex.write("Hello")</code>.</p></li>
+<li><p>We can fill a shape (circle, semicircle, triangle, etc.) with a color. It is a two-step process. First we call the method <code>alex</code>.<code>begin_fill()</code>, then we draw the shape, then we call <code>alex.end_fill()</code>.</p></li>
+<li><p>We’ve previously set the color of our turtle — we can now also set its fill color, which need not be the same as the turtle and the pen color. We use <code>alex.color("blue","red")</code> to set the turtle to draw in blue, and fill in red.</p></li>
+</ul>
+<p>Ok, so can we get tess to draw a bar chart? Let us start with some data to be charted,</p>
+<pre><code class="language-python">xs = [48, 117, 200, 240, 160, 260, 220]</code></pre>
+<p>Corresponding to each data measurement, we’ll draw a simple rectangle of that height, with a fixed width.</p>
+<pre><code class="language-python">def draw_bar(t, height):
+    &quot;&quot;&quot; Get turtle t to draw one bar, of height. &quot;&quot;&quot;
+    t.left(90)
+    t.forward(height)     # Draw up the left side
+    t.right(90)
+    t.forward(40)         # Width of bar, along the top
+    t.right(90)
+    t.forward(height)     # And down again!
+    t.left(90)            # Put the turtle facing the way we found it.
+    t.forward(10)         # Leave small gap after each bar
+
+...
+for v in xs:              # Assume xs and tess are ready
+    draw_bar(tess, v)</code></pre>
+<figure>
+<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-5/05-05-tess_bar_1.png" alt="Simple bar chart" /><figcaption aria-hidden="true">Simple bar chart</figcaption>
+</figure>
+<p>Ok, not fantastically impressive, but it is a nice start! The important thing here was the mental chunking, or how we broke the problem into smaller pieces. Our chunk is to draw one bar, and we wrote a function to do that. Then, for the whole chart, we repeatedly called our function.</p>
+<p>Next, at the top of each bar, we’ll print the value of the data. We’ll do this in the body of <code>draw_bar</code>, by adding <code>t.write('  ' + str(height))</code> as the new third line of the body. We’ve put a little space in front of the number, and turned the number into a string. Without this extra space we tend to cramp our text awkwardly against the bar to the left. The result looks a lot better now:</p>
+<figure>
+<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-5/05-06-tess_bar_2.png" alt="Numbered bar chart" /><figcaption aria-hidden="true">Numbered bar chart</figcaption>
+</figure>
+<p>And now we’ll add two lines to fill each bar. Our final program now looks like this:</p>
+<pre><code class="language-python">import turtle
+
+def draw_bar(t, height):
+    &quot;&quot;&quot; Get turtle t to draw one bar, of height. &quot;&quot;&quot;
+    t.begin_fill()           # Added this line
+    t.left(90)
+    t.forward(height)
+    t.write(&quot;  &quot;+ str(height))
+    t.right(90)
+    t.forward(40)
+    t.right(90)
+    t.forward(height)
+    t.left(90)
+    t.end_fill()             # Added this line
+    t.forward(10)
+
+wn = turtle.Screen()         # Set up the window and its attributes
+wn.bgcolor(&quot;lightgreen&quot;)
+
+tess = turtle.Turtle()       # Create tess and set some attributes
+tess.color(&quot;blue&quot;, &quot;red&quot;)
+tess.pensize(3)
+
+xs = [48,117,200,240,160,260,220]
+
+for a in xs:
+    draw_bar(tess, a)
+
+wn.mainloop()</code></pre>
+<p>It produces the following, which is more satisfying:</p>
+<figure>
+<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-5/05-07-tess_bar_3.png" alt="Filled bar chart" /><figcaption aria-hidden="true">Filled bar chart</figcaption>
+</figure>
+<p>Mmm. Perhaps the bars should not be joined to each other at the bottom. We’ll need to pick up the pen while making the gap between the bars. We’ll leave that (and a few more tweaks) as exercises for you!</p>
+<h2>5.13. Glossary</h2>
+<p><strong>block</strong></p>
+<p>A group of consecutive statements with the same indentation.</p>
+<p><strong>body</strong></p>
+<p>The block of statements in a compound statement that follows the header.</p>
+<p><strong>Boolean algebra</strong></p>
+<p>Some rules for rearranging and reasoning about Boolean expressions.</p>
+<p><strong>Boolean expression</strong></p>
+<p>An expression that is either true or false.</p>
+<p><strong>Boolean value</strong></p>
+<p>There are exactly two Boolean values: <code>True</code> and <code>False</code>. Boolean values result when a Boolean expression is evaluated by the Python interpreter. They have type <code>bool</code>.</p>
+<p><strong>branch</strong></p>
+<p>One of the possible paths of the flow of execution determined by conditional execution.</p>
+<p><strong>chained conditional</strong></p>
+<p>A conditional branch with more than two possible flows of execution. In Python chained conditionals are written with <code>if</code> … <code>elif</code> … <code>else</code> statements.</p>
+<p><strong>comparison operator</strong></p>
+<p>One of the six operators that compares two values: <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, and <code>&lt;=</code>.</p>
+<p><strong>condition</strong></p>
+<p>The Boolean expression in a conditional statement that determines which branch is executed.</p>
+<p><strong>conditional statement</strong></p>
+<p>A statement that controls the flow of execution depending on some condition. In Python the keywords <code>if</code>, <code>elif</code>, and <code>else</code> are used for conditional statements.</p>
+<p><strong>logical operator</strong></p>
+<p>One of the operators that combines Boolean expressions: <code>and</code>, <code>or</code>, and <code>not</code>.</p>
+<p><strong>nesting</strong></p>
+<p>One program structure within another, such as a conditional statement inside a branch of another conditional statement.</p>
+<p><strong>prompt</strong></p>
+<p>A visual cue that tells the user that the system is ready to accept input data.</p>
+<p><strong>truth table</strong></p>
+<p>A concise table of Boolean values that can describe the semantics of an operator.</p>
+<p><strong>type conversion</strong></p>
+<p>An explicit function call that takes a value of one type and computes a corresponding value of another type.</p>
+<p><strong>wrapping code in a function</strong></p>
+<p>The process of adding a function header and parameters to a sequence of program statements is often referred to as “wrapping the code in a function”. This process is very useful whenever the program statements in question are going to be used multiple times. It is even more useful when it allows the programmer to express their mental chunking, and how they’ve broken a complex problem into pieces.</p>
+<h2>5.14. Exercises</h2>
+<ol type="1">
+<li><p>Assume the days of the week are numbered <code>0,1,2,3,4,5,6</code> from Sunday to Saturday. Write a function which is given the day number, and it returns the day name (a string).</p></li>
+<li><p>You go on a wonderful holiday (perhaps to jail, if you don’t like happy exercises) leaving on day number 3 (a Wednesday). You return home after 137 sleeps. Write a general version of the program which asks for the starting day number, and the length of your stay, and it will tell you the name of day of the week you will return on.</p></li>
+<li><p>Give the logical opposites of these conditions</p>
+<pre><code class="language-python">a &gt; b
+a &gt;= b
+a &gt;= 18  and  day == 3
+a &gt;= 18  and  day != 3</code></pre></li>
+<li><p>What do these expressions evaluate to?</p>
+<pre><code class="language-python">3 == 3
+3 != 3
+3 &gt;= 4
+not (3 &lt; 4)</code></pre></li>
+<li><p>Complete this truth table:</p>
+<table>
+<thead>
+<tr class="header">
+<th>p</th>
+<th>q</th>
+<th>r</th>
+<th>(not (p and q)) or r</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F</td>
+<td>F</td>
+<td>F</td>
+<td>?</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>F</td>
+<td>T</td>
+<td>?</td>
+</tr>
+<tr class="odd">
+<td>F</td>
+<td>T</td>
+<td>F</td>
+<td>?</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>T</td>
+<td>T</td>
+<td>?</td>
+</tr>
+<tr class="odd">
+<td>T</td>
+<td>F</td>
+<td>F</td>
+<td>?</td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td>F</td>
+<td>T</td>
+<td>?</td>
+</tr>
+<tr class="odd">
+<td>T</td>
+<td>T</td>
+<td>F</td>
+<td>?</td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td>T</td>
+<td>T</td>
+<td>?</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>Write a function which is given an exam mark, and it returns a string — the grade for that mark — according to this scheme:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Mark</th>
+<th>Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>&gt;= 75</td>
+<td>First</td>
+</tr>
+<tr class="even">
+<td>[70-75)</td>
+<td>Upper Second</td>
+</tr>
+<tr class="odd">
+<td>[60-70)</td>
+<td>Second</td>
+</tr>
+<tr class="even">
+<td>[50-60)</td>
+<td>Third</td>
+</tr>
+<tr class="odd">
+<td>[45-50)</td>
+<td>F1 Supp</td>
+</tr>
+<tr class="even">
+<td>[40-45)</td>
+<td>F2</td>
+</tr>
+<tr class="odd">
+<td>&lt; 40</td>
+<td>F3</td>
+</tr>
+</tbody>
+</table>
+<p>The square and round brackets denote closed and open intervals. A closed interval includes the number, and open interval excludes it. So <code>39.99999</code> gets grade <code>F3</code>, but <code>40</code> gets grade <code>F2</code>. Assume</p>
+<pre><code class="language-python">xs = [83, 75, 74.9, 70, 69.9, 65, 60, 59.9, 55, 50,
+                    49.9, 45, 44.9, 40, 39.9, 2, 0]</code></pre>
+<p>Test your function by printing the mark and the grade for all the elements in this list.</p></li>
+<li><p>Modify the turtle bar chart program so that the pen is up for the small gaps between each bar.</p></li>
+<li><p>Modify the turtle bar chart program so that the bar for any value of 200 or more is filled with red, values between [100 and 200) are filled with yellow, and bars representing values less than 100 are filled with green.</p></li>
+<li><p>In the turtle bar chart program, what do you expect to happen if one or more of the data values in the list is negative? Try it out. Change the program so that when it prints the text value for the negative bars, it puts the text below the bottom of the bar.</p></li>
+<li><p>Write a function <code>find_hypot</code> which, given the length of two sides of a right-angled triangle, returns the length of the hypotenuse. (<em>Hint: <code>x ** 0.5</code> will return the square root.</em>)</p></li>
+<li><p>Write a function <code>is_rightangled</code> which, given the length of three sides of a triangle, will determine whether the triangle is right-angled. Assume that the third argument to the function is always the longest side. It will return <code>True</code> if the triangle is right-angled, or <code>False</code> otherwise.</p>
+<p><em>Hint: Floating point arithmetic is not always exactly accurate, so it is not safe to test floating point numbers for equality. If a good programmer wants to know whether <code>x</code> is equal or close enough to <code>y</code>, they would probably code it up as:</em></p>
+<pre><code class="language-python">if  abs(x-y) &lt; 0.000001:    # If x is approximately equal to y
+    ...</code></pre></li>
+<li><p>Extend the above program so that the sides can be given to the function in any order.</p></li>
+<li><p>If you’re intrigued by why floating point arithmetic is sometimes inaccurate, on a piece of paper, divide 10 by 3 and write down the decimal result. You’ll find it does not terminate, so you’ll need an infinitely long sheet of paper. The representation of numbers in computer memory or on your calculator has similar problems: memory is finite, and some digits may have to be discarded. So small inaccuracies creep in. Try this script:</p>
+<pre><code class="language-python">import math
+a = math.sqrt(2.0)
+print(a, a*a)
+print(a*a == 2.0)</code></pre></li>
+</ol>
+<script type="text/javascript">
+/* PrismJS 1.23.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+css-extras+python&plugins=line-numbers+inline-color */
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(u){var c=/\blang(?:uage)?-([\w-]+)\b/i,n=0,e={},M={manual:u.Prism&&u.Prism.manual,disableWorkerMessageHandler:u.Prism&&u.Prism.disableWorkerMessageHandler,util:{encode:function e(n){return n instanceof W?new W(n.type,e(n.content),n.alias):Array.isArray(n)?n.map(e):n.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).slice(8,-1)},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++n}),e.__id},clone:function t(e,r){var a,n;switch(r=r||{},M.util.type(e)){case"Object":if(n=M.util.objId(e),r[n])return r[n];for(var i in a={},r[n]=a,e)e.hasOwnProperty(i)&&(a[i]=t(e[i],r));return a;case"Array":return n=M.util.objId(e),r[n]?r[n]:(a=[],r[n]=a,e.forEach(function(e,n){a[n]=t(e,r)}),a);default:return e}},getLanguage:function(e){for(;e&&!c.test(e.className);)e=e.parentElement;return e?(e.className.match(c)||[,"none"])[1].toLowerCase():"none"},currentScript:function(){if("undefined"==typeof document)return null;if("currentScript"in document)return document.currentScript;try{throw new Error}catch(e){var n=(/at [^(\r\n]*\((.*):.+:.+\)$/i.exec(e.stack)||[])[1];if(n){var t=document.getElementsByTagName("script");for(var r in t)if(t[r].src==n)return t[r]}return null}},isActive:function(e,n,t){for(var r="no-"+n;e;){var a=e.classList;if(a.contains(n))return!0;if(a.contains(r))return!1;e=e.parentElement}return!!t}},languages:{plain:e,plaintext:e,text:e,txt:e,extend:function(e,n){var t=M.util.clone(M.languages[e]);for(var r in n)t[r]=n[r];return t},insertBefore:function(t,e,n,r){var a=(r=r||M.languages)[t],i={};for(var l in a)if(a.hasOwnProperty(l)){if(l==e)for(var o in n)n.hasOwnProperty(o)&&(i[o]=n[o]);n.hasOwnProperty(l)||(i[l]=a[l])}var s=r[t];return r[t]=i,M.languages.DFS(M.languages,function(e,n){n===s&&e!=t&&(this[e]=i)}),i},DFS:function e(n,t,r,a){a=a||{};var i=M.util.objId;for(var l in n)if(n.hasOwnProperty(l)){t.call(n,l,n[l],r||l);var o=n[l],s=M.util.type(o);"Object"!==s||a[i(o)]?"Array"!==s||a[i(o)]||(a[i(o)]=!0,e(o,t,l,a)):(a[i(o)]=!0,e(o,t,null,a))}}},plugins:{},highlightAll:function(e,n){M.highlightAllUnder(document,e,n)},highlightAllUnder:function(e,n,t){var r={callback:t,container:e,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};M.hooks.run("before-highlightall",r),r.elements=Array.prototype.slice.apply(r.container.querySelectorAll(r.selector)),M.hooks.run("before-all-elements-highlight",r);for(var a,i=0;a=r.elements[i++];)M.highlightElement(a,!0===n,r.callback)},highlightElement:function(e,n,t){var r=M.util.getLanguage(e),a=M.languages[r];e.className=e.className.replace(c,"").replace(/\s+/g," ")+" language-"+r;var i=e.parentElement;i&&"pre"===i.nodeName.toLowerCase()&&(i.className=i.className.replace(c,"").replace(/\s+/g," ")+" language-"+r);var l={element:e,language:r,grammar:a,code:e.textContent};function o(e){l.highlightedCode=e,M.hooks.run("before-insert",l),l.element.innerHTML=l.highlightedCode,M.hooks.run("after-highlight",l),M.hooks.run("complete",l),t&&t.call(l.element)}if(M.hooks.run("before-sanity-check",l),(i=l.element.parentElement)&&"pre"===i.nodeName.toLowerCase()&&!i.hasAttribute("tabindex")&&i.setAttribute("tabindex","0"),!l.code)return M.hooks.run("complete",l),void(t&&t.call(l.element));if(M.hooks.run("before-highlight",l),l.grammar)if(n&&u.Worker){var s=new Worker(M.filename);s.onmessage=function(e){o(e.data)},s.postMessage(JSON.stringify({language:l.language,code:l.code,immediateClose:!0}))}else o(M.highlight(l.code,l.grammar,l.language));else o(M.util.encode(l.code))},highlight:function(e,n,t){var r={code:e,grammar:n,language:t};return M.hooks.run("before-tokenize",r),r.tokens=M.tokenize(r.code,r.grammar),M.hooks.run("after-tokenize",r),W.stringify(M.util.encode(r.tokens),r.language)},tokenize:function(e,n){var t=n.rest;if(t){for(var r in t)n[r]=t[r];delete n.rest}var a=new i;return I(a,a.head,e),function e(n,t,r,a,i,l){for(var o in r)if(r.hasOwnProperty(o)&&r[o]){var s=r[o];s=Array.isArray(s)?s:[s];for(var u=0;u<s.length;++u){if(l&&l.cause==o+","+u)return;var c=s[u],g=c.inside,f=!!c.lookbehind,h=!!c.greedy,d=c.alias;if(h&&!c.pattern.global){var p=c.pattern.toString().match(/[imsuy]*$/)[0];c.pattern=RegExp(c.pattern.source,p+"g")}for(var v=c.pattern||c,m=a.next,y=i;m!==t.tail&&!(l&&y>=l.reach);y+=m.value.length,m=m.next){var b=m.value;if(t.length>n.length)return;if(!(b instanceof W)){var k,x=1;if(h){if(!(k=z(v,y,n,f)))break;var w=k.index,A=k.index+k[0].length,P=y;for(P+=m.value.length;P<=w;)m=m.next,P+=m.value.length;if(P-=m.value.length,y=P,m.value instanceof W)continue;for(var E=m;E!==t.tail&&(P<A||"string"==typeof E.value);E=E.next)x++,P+=E.value.length;x--,b=n.slice(y,P),k.index-=y}else if(!(k=z(v,0,b,f)))continue;var w=k.index,S=k[0],O=b.slice(0,w),L=b.slice(w+S.length),N=y+b.length;l&&N>l.reach&&(l.reach=N);var j=m.prev;O&&(j=I(t,j,O),y+=O.length),q(t,j,x);var C=new W(o,g?M.tokenize(S,g):S,d,S);if(m=I(t,j,C),L&&I(t,m,L),1<x){var _={cause:o+","+u,reach:N};e(n,t,r,m.prev,y,_),l&&_.reach>l.reach&&(l.reach=_.reach)}}}}}}(e,a,n,a.head,0),function(e){var n=[],t=e.head.next;for(;t!==e.tail;)n.push(t.value),t=t.next;return n}(a)},hooks:{all:{},add:function(e,n){var t=M.hooks.all;t[e]=t[e]||[],t[e].push(n)},run:function(e,n){var t=M.hooks.all[e];if(t&&t.length)for(var r,a=0;r=t[a++];)r(n)}},Token:W};function W(e,n,t,r){this.type=e,this.content=n,this.alias=t,this.length=0|(r||"").length}function z(e,n,t,r){e.lastIndex=n;var a=e.exec(t);if(a&&r&&a[1]){var i=a[1].length;a.index+=i,a[0]=a[0].slice(i)}return a}function i(){var e={value:null,prev:null,next:null},n={value:null,prev:e,next:null};e.next=n,this.head=e,this.tail=n,this.length=0}function I(e,n,t){var r=n.next,a={value:t,prev:n,next:r};return n.next=a,r.prev=a,e.length++,a}function q(e,n,t){for(var r=n.next,a=0;a<t&&r!==e.tail;a++)r=r.next;(n.next=r).prev=n,e.length-=a}if(u.Prism=M,W.stringify=function n(e,t){if("string"==typeof e)return e;if(Array.isArray(e)){var r="";return e.forEach(function(e){r+=n(e,t)}),r}var a={type:e.type,content:n(e.content,t),tag:"span",classes:["token",e.type],attributes:{},language:t},i=e.alias;i&&(Array.isArray(i)?Array.prototype.push.apply(a.classes,i):a.classes.push(i)),M.hooks.run("wrap",a);var l="";for(var o in a.attributes)l+=" "+o+'="'+(a.attributes[o]||"").replace(/"/g,"&quot;")+'"';return"<"+a.tag+' class="'+a.classes.join(" ")+'"'+l+">"+a.content+"</"+a.tag+">"},!u.document)return u.addEventListener&&(M.disableWorkerMessageHandler||u.addEventListener("message",function(e){var n=JSON.parse(e.data),t=n.language,r=n.code,a=n.immediateClose;u.postMessage(M.highlight(r,M.languages[t],t)),a&&u.close()},!1)),M;var t=M.util.currentScript();function r(){M.manual||M.highlightAll()}if(t&&(M.filename=t.src,t.hasAttribute("data-manual")&&(M.manual=!0)),!M.manual){var a=document.readyState;"loading"===a||"interactive"===a&&t&&t.defer?document.addEventListener("DOMContentLoaded",r):window.requestAnimationFrame?window.requestAnimationFrame(r):window.setTimeout(r,16)}return M}(_self);"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+Prism.languages.markup={comment:/<!--[\s\S]*?-->/,prolog:/<\?[\s\S]+?\?>/,doctype:{pattern:/<!DOCTYPE(?:[^>"'[\]]|"[^"]*"|'[^']*')+(?:\[(?:[^<"'\]]|"[^"]*"|'[^']*'|<(?!!--)|<!--(?:[^-]|-(?!->))*-->)*\]\s*)?>/i,greedy:!0,inside:{"internal-subset":{pattern:/(\[)[\s\S]+(?=\]>$)/,lookbehind:!0,greedy:!0,inside:null},string:{pattern:/"[^"]*"|'[^']*'/,greedy:!0},punctuation:/^<!|>$|[[\]]/,"doctype-tag":/^DOCTYPE/,name:/[^\s<>'"]+/}},cdata:/<!\[CDATA\[[\s\S]*?]]>/i,tag:{pattern:/<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/,greedy:!0,inside:{tag:{pattern:/^<\/?[^\s>\/]+/,inside:{punctuation:/^<\/?/,namespace:/^[^\s>\/:]+:/}},"special-attr":[],"attr-value":{pattern:/=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+)/,inside:{punctuation:[{pattern:/^=/,alias:"attr-equals"},/"|'/]}},punctuation:/\/?>/,"attr-name":{pattern:/[^\s>\/]+/,inside:{namespace:/^[^\s>\/:]+:/}}}},entity:[{pattern:/&[\da-z]{1,8};/i,alias:"named-entity"},/&#x?[\da-f]{1,8};/i]},Prism.languages.markup.tag.inside["attr-value"].inside.entity=Prism.languages.markup.entity,Prism.languages.markup.doctype.inside["internal-subset"].inside=Prism.languages.markup,Prism.hooks.add("wrap",function(a){"entity"===a.type&&(a.attributes.title=a.content.replace(/&amp;/,"&"))}),Object.defineProperty(Prism.languages.markup.tag,"addInlined",{value:function(a,e){var s={};s["language-"+e]={pattern:/(^<!\[CDATA\[)[\s\S]+?(?=\]\]>$)/i,lookbehind:!0,inside:Prism.languages[e]},s.cdata=/^<!\[CDATA\[|\]\]>$/i;var t={"included-cdata":{pattern:/<!\[CDATA\[[\s\S]*?\]\]>/i,inside:s}};t["language-"+e]={pattern:/[\s\S]+/,inside:Prism.languages[e]};var n={};n[a]={pattern:RegExp("(<__[^>]*>)(?:<!\\[CDATA\\[(?:[^\\]]|\\](?!\\]>))*\\]\\]>|(?!<!\\[CDATA\\[)[^])*?(?=</__>)".replace(/__/g,function(){return a}),"i"),lookbehind:!0,greedy:!0,inside:t},Prism.languages.insertBefore("markup","cdata",n)}}),Object.defineProperty(Prism.languages.markup.tag,"addAttribute",{value:function(a,e){Prism.languages.markup.tag.inside["special-attr"].push({pattern:RegExp("(^|[\"'\\s])(?:"+a+")\\s*=\\s*(?:\"[^\"]*\"|'[^']*'|[^\\s'\">=]+(?=[\\s>]))","i"),lookbehind:!0,inside:{"attr-name":/^[^\s=]+/,"attr-value":{pattern:/=[\s\S]+/,inside:{value:{pattern:/(=\s*(["']|(?!["'])))\S[\s\S]*(?=\2$)/,lookbehind:!0,alias:[e,"language-"+e],inside:Prism.languages[e]},punctuation:[{pattern:/^=/,alias:"attr-equals"},/"|'/]}}}})}}),Prism.languages.html=Prism.languages.markup,Prism.languages.mathml=Prism.languages.markup,Prism.languages.svg=Prism.languages.markup,Prism.languages.xml=Prism.languages.extend("markup",{}),Prism.languages.ssml=Prism.languages.xml,Prism.languages.atom=Prism.languages.xml,Prism.languages.rss=Prism.languages.xml;
+!function(s){var e=/("|')(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/;s.languages.css={comment:/\/\*[\s\S]*?\*\//,atrule:{pattern:/@[\w-](?:[^;{\s]|\s+(?![\s{]))*(?:;|(?=\s*\{))/,inside:{rule:/^@[\w-]+/,"selector-function-argument":{pattern:/(\bselector\s*\(\s*(?![\s)]))(?:[^()\s]|\s+(?![\s)])|\((?:[^()]|\([^()]*\))*\))+(?=\s*\))/,lookbehind:!0,alias:"selector"},keyword:{pattern:/(^|[^\w-])(?:and|not|only|or)(?![\w-])/,lookbehind:!0}}},url:{pattern:RegExp("\\burl\\((?:"+e.source+"|(?:[^\\\\\r\n()\"']|\\\\[^])*)\\)","i"),greedy:!0,inside:{function:/^url/i,punctuation:/^\(|\)$/,string:{pattern:RegExp("^"+e.source+"$"),alias:"url"}}},selector:RegExp("[^{}\\s](?:[^{};\"'\\s]|\\s+(?![\\s{])|"+e.source+")*(?=\\s*\\{)"),string:{pattern:e,greedy:!0},property:/(?!\s)[-_a-z\xA0-\uFFFF](?:(?!\s)[-\w\xA0-\uFFFF])*(?=\s*:)/i,important:/!important\b/i,function:/[-a-z0-9]+(?=\()/i,punctuation:/[(){};:,]/},s.languages.css.atrule.inside.rest=s.languages.css;var t=s.languages.markup;t&&(t.tag.addInlined("style","css"),t.tag.addAttribute("style","css"))}(Prism);
+Prism.languages.clike={comment:[{pattern:/(^|[^\\])\/\*[\s\S]*?(?:\*\/|$)/,lookbehind:!0,greedy:!0},{pattern:/(^|[^\\:])\/\/.*/,lookbehind:!0,greedy:!0}],string:{pattern:/(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,greedy:!0},"class-name":{pattern:/(\b(?:class|interface|extends|implements|trait|instanceof|new)\s+|\bcatch\s+\()[\w.\\]+/i,lookbehind:!0,inside:{punctuation:/[.\\]/}},keyword:/\b(?:if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,boolean:/\b(?:true|false)\b/,function:/\w+(?=\()/,number:/\b0x[\da-f]+\b|(?:\b\d+(?:\.\d*)?|\B\.\d+)(?:e[+-]?\d+)?/i,operator:/[<>]=?|[!=]=?=?|--?|\+\+?|&&?|\|\|?|[?*/~^%]/,punctuation:/[{}[\];(),.:]/};
+Prism.languages.javascript=Prism.languages.extend("clike",{"class-name":[Prism.languages.clike["class-name"],{pattern:/(^|[^$\w\xA0-\uFFFF])(?!\s)[_$A-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\.(?:prototype|constructor))/,lookbehind:!0}],keyword:[{pattern:/((?:^|})\s*)catch\b/,lookbehind:!0},{pattern:/(^|[^.]|\.\.\.\s*)\b(?:as|async(?=\s*(?:function\b|\(|[$\w\xA0-\uFFFF]|$))|await|break|case|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally(?=\s*(?:\{|$))|for|from(?=\s*(?:['"]|$))|function|(?:get|set)(?=\s*(?:[#\[$\w\xA0-\uFFFF]|$))|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)\b/,lookbehind:!0}],function:/#?(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*(?:\.\s*(?:apply|bind|call)\s*)?\()/,number:/\b(?:(?:0[xX](?:[\dA-Fa-f](?:_[\dA-Fa-f])?)+|0[bB](?:[01](?:_[01])?)+|0[oO](?:[0-7](?:_[0-7])?)+)n?|(?:\d(?:_\d)?)+n|NaN|Infinity)\b|(?:\b(?:\d(?:_\d)?)+\.?(?:\d(?:_\d)?)*|\B\.(?:\d(?:_\d)?)+)(?:[Ee][+-]?(?:\d(?:_\d)?)+)?/,operator:/--|\+\+|\*\*=?|=>|&&=?|\|\|=?|[!=]==|<<=?|>>>?=?|[-+*/%&|^!=<>]=?|\.{3}|\?\?=?|\?\.?|[~:]/}),Prism.languages.javascript["class-name"][0].pattern=/(\b(?:class|interface|extends|implements|instanceof|new)\s+)[\w.\\]+/,Prism.languages.insertBefore("javascript","keyword",{regex:{pattern:/((?:^|[^$\w\xA0-\uFFFF."'\])\s]|\b(?:return|yield))\s*)\/(?:\[(?:[^\]\\\r\n]|\\.)*]|\\.|[^/\\\[\r\n])+\/[gimyus]{0,6}(?=(?:\s|\/\*(?:[^*]|\*(?!\/))*\*\/)*(?:$|[\r\n,.;:})\]]|\/\/))/,lookbehind:!0,greedy:!0,inside:{"regex-source":{pattern:/^(\/)[\s\S]+(?=\/[a-z]*$)/,lookbehind:!0,alias:"language-regex",inside:Prism.languages.regex},"regex-flags":/[a-z]+$/,"regex-delimiter":/^\/|\/$/}},"function-variable":{pattern:/#?(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*[=:]\s*(?:async\s*)?(?:\bfunction\b|(?:\((?:[^()]|\([^()]*\))*\)|(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*)\s*=>))/,alias:"function"},parameter:[{pattern:/(function(?:\s+(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*)?\s*\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\))/,lookbehind:!0,inside:Prism.languages.javascript},{pattern:/(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*=>)/i,inside:Prism.languages.javascript},{pattern:/(\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\)\s*=>)/,lookbehind:!0,inside:Prism.languages.javascript},{pattern:/((?:\b|\s|^)(?!(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)(?![$\w\xA0-\uFFFF]))(?:(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*\s*)\(\s*|\]\s*\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\)\s*\{)/,lookbehind:!0,inside:Prism.languages.javascript}],constant:/\b[A-Z](?:[A-Z_]|\dx?)*\b/}),Prism.languages.insertBefore("javascript","string",{hashbang:{pattern:/^#!.*/,greedy:!0,alias:"comment"},"template-string":{pattern:/`(?:\\[\s\S]|\${(?:[^{}]|{(?:[^{}]|{[^}]*})*})+}|(?!\${)[^\\`])*`/,greedy:!0,inside:{"template-punctuation":{pattern:/^`|`$/,alias:"string"},interpolation:{pattern:/((?:^|[^\\])(?:\\{2})*)\${(?:[^{}]|{(?:[^{}]|{[^}]*})*})+}/,lookbehind:!0,inside:{"interpolation-punctuation":{pattern:/^\${|}$/,alias:"punctuation"},rest:Prism.languages.javascript}},string:/[\s\S]+/}}}),Prism.languages.markup&&(Prism.languages.markup.tag.addInlined("script","javascript"),Prism.languages.markup.tag.addAttribute("on(?:abort|blur|change|click|composition(?:end|start|update)|dblclick|error|focus(?:in|out)?|key(?:down|up)|load|mouse(?:down|enter|leave|move|out|over|up)|reset|resize|scroll|select|slotchange|submit|unload|wheel)","javascript")),Prism.languages.js=Prism.languages.javascript;
+!function(e){var a,n=/("|')(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/;e.languages.css.selector={pattern:e.languages.css.selector,inside:a={"pseudo-element":/:(?:after|before|first-letter|first-line|selection)|::[-\w]+/,"pseudo-class":/:[-\w]+/,class:/\.[-\w]+/,id:/#[-\w]+/,attribute:{pattern:RegExp("\\[(?:[^[\\]\"']|"+n.source+")*\\]"),greedy:!0,inside:{punctuation:/^\[|\]$/,"case-sensitivity":{pattern:/(\s)[si]$/i,lookbehind:!0,alias:"keyword"},namespace:{pattern:/^(\s*)(?:(?!\s)[-*\w\xA0-\uFFFF])*\|(?!=)/,lookbehind:!0,inside:{punctuation:/\|$/}},"attr-name":{pattern:/^(\s*)(?:(?!\s)[-\w\xA0-\uFFFF])+/,lookbehind:!0},"attr-value":[n,{pattern:/(=\s*)(?:(?!\s)[-\w\xA0-\uFFFF])+(?=\s*$)/,lookbehind:!0}],operator:/[|~*^$]?=/}},"n-th":[{pattern:/(\(\s*)[+-]?\d*[\dn](?:\s*[+-]\s*\d+)?(?=\s*\))/,lookbehind:!0,inside:{number:/[\dn]+/,operator:/[+-]/}},{pattern:/(\(\s*)(?:even|odd)(?=\s*\))/i,lookbehind:!0}],combinator:/>|\+|~|\|\|/,punctuation:/[(),]/}},e.languages.css.atrule.inside["selector-function-argument"].inside=a,e.languages.insertBefore("css","property",{variable:{pattern:/(^|[^-\w\xA0-\uFFFF])--(?!\s)[-_a-z\xA0-\uFFFF](?:(?!\s)[-\w\xA0-\uFFFF])*/i,lookbehind:!0}});var r={pattern:/(\b\d+)(?:%|[a-z]+\b)/,lookbehind:!0},i={pattern:/(^|[^\w.-])-?(?:\d+(?:\.\d+)?|\.\d+)/,lookbehind:!0};e.languages.insertBefore("css","function",{operator:{pattern:/(\s)[+\-*\/](?=\s)/,lookbehind:!0},hexcode:{pattern:/\B#(?:[\da-f]{1,2}){3,4}\b/i,alias:"color"},color:[/\b(?:AliceBlue|AntiqueWhite|Aqua|Aquamarine|Azure|Beige|Bisque|Black|BlanchedAlmond|Blue|BlueViolet|Brown|BurlyWood|CadetBlue|Chartreuse|Chocolate|Coral|CornflowerBlue|Cornsilk|Crimson|Cyan|DarkBlue|DarkCyan|DarkGoldenRod|DarkGr[ae]y|DarkGreen|DarkKhaki|DarkMagenta|DarkOliveGreen|DarkOrange|DarkOrchid|DarkRed|DarkSalmon|DarkSeaGreen|DarkSlateBlue|DarkSlateGr[ae]y|DarkTurquoise|DarkViolet|DeepPink|DeepSkyBlue|DimGr[ae]y|DodgerBlue|FireBrick|FloralWhite|ForestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|IndianRed|Indigo|Ivory|Khaki|Lavender|LavenderBlush|LawnGreen|LemonChiffon|LightBlue|LightCoral|LightCyan|LightGoldenRodYellow|LightGr[ae]y|LightGreen|LightPink|LightSalmon|LightSeaGreen|LightSkyBlue|LightSlateGr[ae]y|LightSteelBlue|LightYellow|Lime|LimeGreen|Linen|Magenta|Maroon|MediumAquaMarine|MediumBlue|MediumOrchid|MediumPurple|MediumSeaGreen|MediumSlateBlue|MediumSpringGreen|MediumTurquoise|MediumVioletRed|MidnightBlue|MintCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGoldenRod|PaleGreen|PaleTurquoise|PaleVioletRed|PapayaWhip|PeachPuff|Peru|Pink|Plum|PowderBlue|Purple|Red|RosyBrown|RoyalBlue|SaddleBrown|Salmon|SandyBrown|SeaGreen|SeaShell|Sienna|Silver|SkyBlue|SlateBlue|SlateGr[ae]y|Snow|SpringGreen|SteelBlue|Tan|Teal|Thistle|Tomato|Transparent|Turquoise|Violet|Wheat|White|WhiteSmoke|Yellow|YellowGreen)\b/i,{pattern:/\b(?:rgb|hsl)\(\s*\d{1,3}\s*,\s*\d{1,3}%?\s*,\s*\d{1,3}%?\s*\)\B|\b(?:rgb|hsl)a\(\s*\d{1,3}\s*,\s*\d{1,3}%?\s*,\s*\d{1,3}%?\s*,\s*(?:0|0?\.\d+|1)\s*\)\B/i,inside:{unit:r,number:i,function:/[\w-]+(?=\()/,punctuation:/[(),]/}}],entity:/\\[\da-f]{1,8}/i,unit:r,number:i})}(Prism);
+Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-interpolation":{pattern:/(?:f|rf|fr)(?:("""|''')[\s\S]*?\1|("|')(?:\\.|(?!\2)[^\\\r\n])*\2)/i,greedy:!0,inside:{interpolation:{pattern:/((?:^|[^{])(?:{{)*){(?!{)(?:[^{}]|{(?!{)(?:[^{}]|{(?!{)(?:[^{}])+})+})+}/,lookbehind:!0,inside:{"format-spec":{pattern:/(:)[^:(){}]+(?=}$)/,lookbehind:!0},"conversion-option":{pattern:/![sra](?=[:}]$)/,alias:"punctuation"},rest:null}},string:/[\s\S]+/}},"triple-quoted-string":{pattern:/(?:[rub]|rb|br)?("""|''')[\s\S]*?\1/i,greedy:!0,alias:"string"},string:{pattern:/(?:[rub]|rb|br)?("|')(?:\\.|(?!\1)[^\\\r\n])*\1/i,greedy:!0},function:{pattern:/((?:^|\s)def[ \t]+)[a-zA-Z_]\w*(?=\s*\()/g,lookbehind:!0},"class-name":{pattern:/(\bclass\s+)\w+/i,lookbehind:!0},decorator:{pattern:/(^\s*)@\w+(?:\.\w+)*/im,lookbehind:!0,alias:["annotation","punctuation"],inside:{punctuation:/\./}},keyword:/\b(?:and|as|assert|async|await|break|class|continue|def|del|elif|else|except|exec|finally|for|from|global|if|import|in|is|lambda|nonlocal|not|or|pass|print|raise|return|try|while|with|yield)\b/,builtin:/\b(?:__import__|abs|all|any|apply|ascii|basestring|bin|bool|buffer|bytearray|bytes|callable|chr|classmethod|cmp|coerce|compile|complex|delattr|dict|dir|divmod|enumerate|eval|execfile|file|filter|float|format|frozenset|getattr|globals|hasattr|hash|help|hex|id|input|int|intern|isinstance|issubclass|iter|len|list|locals|long|map|max|memoryview|min|next|object|oct|open|ord|pow|property|range|raw_input|reduce|reload|repr|reversed|round|set|setattr|slice|sorted|staticmethod|str|sum|super|tuple|type|unichr|unicode|vars|xrange|zip)\b/,boolean:/\b(?:True|False|None)\b/,number:/(?:\b(?=\d)|\B(?=\.))(?:0[bo])?(?:(?:\d|0x[\da-f])[\da-f]*(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?j?\b/i,operator:/[-+%=]=?|!=|\*\*?=?|\/\/?=?|<[<=>]?|>[=>]?|[&|^~]/,punctuation:/[{}[\];(),.:]/},Prism.languages.python["string-interpolation"].inside.interpolation.inside.rest=Prism.languages.python,Prism.languages.py=Prism.languages.python;
+!function(){if("undefined"!=typeof Prism&&"undefined"!=typeof document){var o="line-numbers",a=/\n(?!$)/g,e=Prism.plugins.lineNumbers={getLine:function(e,n){if("PRE"===e.tagName&&e.classList.contains(o)){var t=e.querySelector(".line-numbers-rows");if(t){var i=parseInt(e.getAttribute("data-start"),10)||1,r=i+(t.children.length-1);n<i&&(n=i),r<n&&(n=r);var s=n-i;return t.children[s]}}},resize:function(e){u([e])},assumeViewportIndependence:!0},n=void 0;window.addEventListener("resize",function(){e.assumeViewportIndependence&&n===window.innerWidth||(n=window.innerWidth,u(Array.prototype.slice.call(document.querySelectorAll("pre."+o))))}),Prism.hooks.add("complete",function(e){if(e.code){var n=e.element,t=n.parentNode;if(t&&/pre/i.test(t.nodeName)&&!n.querySelector(".line-numbers-rows")&&Prism.util.isActive(n,o)){n.classList.remove(o),t.classList.add(o);var i,r=e.code.match(a),s=r?r.length+1:1,l=new Array(s+1).join("<span></span>");(i=document.createElement("span")).setAttribute("aria-hidden","true"),i.className="line-numbers-rows",i.innerHTML=l,t.hasAttribute("data-start")&&(t.style.counterReset="linenumber "+(parseInt(t.getAttribute("data-start"),10)-1)),e.element.appendChild(i),u([t]),Prism.hooks.run("line-numbers",e)}}}),Prism.hooks.add("line-numbers",function(e){e.plugins=e.plugins||{},e.plugins.lineNumbers=!0})}function u(e){if(0!=(e=e.filter(function(e){var n=function(e){return e?window.getComputedStyle?getComputedStyle(e):e.currentStyle||null:null}(e)["white-space"];return"pre-wrap"===n||"pre-line"===n})).length){var n=e.map(function(e){var n=e.querySelector("code"),t=e.querySelector(".line-numbers-rows");if(n&&t){var i=e.querySelector(".line-numbers-sizer"),r=n.textContent.split(a);i||((i=document.createElement("span")).className="line-numbers-sizer",n.appendChild(i)),i.innerHTML="0",i.style.display="block";var s=i.getBoundingClientRect().height;return i.innerHTML="",{element:e,lines:r,lineHeights:[],oneLinerHeight:s,sizer:i}}}).filter(Boolean);n.forEach(function(e){var i=e.sizer,n=e.lines,r=e.lineHeights,s=e.oneLinerHeight;r[n.length-1]=void 0,n.forEach(function(e,n){if(e&&1<e.length){var t=i.appendChild(document.createElement("span"));t.style.display="block",t.textContent=e}else r[n]=s})}),n.forEach(function(e){for(var n=e.sizer,t=e.lineHeights,i=0,r=0;r<t.length;r++)void 0===t[r]&&(t[r]=n.children[i++].getBoundingClientRect().height)}),n.forEach(function(e){var n=e.sizer,t=e.element.querySelector(".line-numbers-rows");n.style.display="none",n.innerHTML="",e.lineHeights.forEach(function(e,n){t.children[n].style.height=e+"px"})})}}}();
+!function(){if("undefined"!=typeof Prism&&"undefined"!=typeof document){var a=/<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/g,c=/^#?((?:[\da-f]){3,4}|(?:[\da-f]{2}){3,4})$/i,l=[function(n){var r=c.exec(n);if(r){for(var o=6<=(n=r[1]).length?2:1,s=n.length/o,e=1==o?1/15:1/255,t=[],i=0;i<s;i++){var a=parseInt(n.substr(i*o,o),16);t.push(a*e)}return 3==s&&t.push(1),"rgba("+t.slice(0,3).map(function(n){return String(Math.round(255*n))}).join(",")+","+String(Number(t[3].toFixed(3)))+")"}},function(n){var r=(new Option).style;return r.color=n,r.color?n:void 0}];Prism.hooks.add("wrap",function(n){if("color"===n.type||0<=n.classes.indexOf("color")){for(var r,o=n.content,s=o.split(a).join(""),e=0,t=l.length;e<t&&!r;e++)r=l[e](s);if(!r)return;var i='<span class="inline-color-wrapper"><span class="inline-color" style="background-color:'+r+';"></span></span>';n.content=i+o}})}}();
+
+</script>
+
+</body>
+</html>

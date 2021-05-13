@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>book</title>
+    <meta name="description" content="learn python the right way">
+
+    <style type="text/css">
+        figure {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 90%;
+            text-align: center;
+            font-size: 80%;
+        }
+
+        img {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+	</style>
+<style type="text/css">
+	:root{--background-body:#fff;--background:#efefef;--background-alt:#f7f7f7;--selection:#9e9e9e;--text-main:#363636;--text-bright:#000;--text-muted:#70777f;--links:#0076d1;--focus:rgba(0,150,191,0.67);--border:#dbdbdb;--code:#000;--animation-duration:0.1s;--button-hover:#ddd;--scrollbar-thumb:#d5d5d5;--scrollbar-thumb-hover:#c4c4c4;--form-placeholder:#949494;--form-text:#000;--variable:#39a33c;--highlight:#ff0;--select-arrow:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23161f27'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E")}@media (prefers-color-scheme:dark){:root{--background-body:#202b38;--background:#161f27;--background-alt:#1a242f;--selection:#1c76c5;--text-main:#dbdbdb;--text-bright:#fff;--text-muted:#a9b1ba;--links:#41adff;--focus:rgba(0,150,191,0.67);--border:#526980;--code:#ffbe85;--animation-duration:0.1s;--button-hover:#324759;--scrollbar-thumb:var(--button-hover);--scrollbar-thumb-hover:#141414;--form-placeholder:#a9a9a9;--form-text:#fff;--variable:#d941e2;--highlight:#efdb43;--select-arrow:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23efefef'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E")}}html{scrollbar-color:#d5d5d5 #fff;scrollbar-color:var(--scrollbar-thumb) var(--background-body);scrollbar-width:thin}@media (prefers-color-scheme:dark){html{scrollbar-color:#324759 #202b38;scrollbar-color:var(--scrollbar-thumb) var(--background-body)}}body{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Segoe UI Emoji,Apple Color Emoji,Noto Color Emoji,sans-serif;line-height:1.4;max-width:800px;margin:20px auto;padding:0 10px;word-wrap:break-word;color:#363636;color:var(--text-main);background:#fff;background:var(--background-body);text-rendering:optimizeLegibility}@media (prefers-color-scheme:dark){body{background:#202b38;background:var(--background-body);color:#dbdbdb;color:var(--text-main)}}button{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}@media (prefers-color-scheme:dark){button{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}}input{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}@media (prefers-color-scheme:dark){input{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}}textarea{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}@media (prefers-color-scheme:dark){textarea{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}}h1{font-size:2.2em;margin-top:0}h1,h2,h3,h4,h5,h6{margin-bottom:12px;margin-top:24px}h1{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h1{color:#fff;color:var(--text-bright)}}h2{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h2{color:#fff;color:var(--text-bright)}}h3{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h3{color:#fff;color:var(--text-bright)}}h4{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h4{color:#fff;color:var(--text-bright)}}h5{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h5{color:#fff;color:var(--text-bright)}}h6{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h6{color:#fff;color:var(--text-bright)}}strong{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){strong{color:#fff;color:var(--text-bright)}}b,h1,h2,h3,h4,h5,h6,strong,th{font-weight:600}q:after,q:before{content:none}blockquote{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus);margin:1.5em 0;padding:.5em 1em;font-style:italic}@media (prefers-color-scheme:dark){blockquote{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus)}}q{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus);margin:1.5em 0;padding:.5em 1em;font-style:italic}@media (prefers-color-scheme:dark){q{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus)}}blockquote>footer{font-style:normal;border:0}address,blockquote cite{font-style:normal}a[href^=mailto\:]:before{content:"📧 "}a[href^=tel\:]:before{content:"📞 "}a[href^=sms\:]:before{content:"💬 "}mark{background-color:#ff0;background-color:var(--highlight);border-radius:2px;padding:0 2px;color:#000}@media (prefers-color-scheme:dark){mark{background-color:#efdb43;background-color:var(--highlight)}}button,input[type=button],input[type=checkbox],input[type=radio],input[type=range],input[type=submit],select{cursor:pointer}input:not([type=checkbox]):not([type=radio]),select{display:block}input{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){input{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}button{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){button{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}textarea{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){textarea{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}select{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){select{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}input[type=checkbox],input[type=radio]{height:1em;width:1em}input[type=radio]{border-radius:100%}input{vertical-align:top}label{vertical-align:middle;margin-bottom:4px;display:inline-block}button,input:not([type=checkbox]):not([type=radio]),input[type=range],select,textarea{-webkit-appearance:none}textarea{display:block;margin-right:0;box-sizing:border-box;resize:vertical}textarea:not([cols]){width:100%}textarea:not([rows]){min-height:40px;height:140px}select{background:#efefef url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23161f27'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E") calc(100% - 12px) 50%/12px no-repeat;background:var(--background) var(--select-arrow) calc(100% - 12px) 50%/12px no-repeat;padding-right:35px}@media (prefers-color-scheme:dark){select{background:#161f27 url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23efefef'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E") calc(100% - 12px) 50%/12px no-repeat;background:var(--background) var(--select-arrow) calc(100% - 12px) 50%/12px no-repeat}}select::-ms-expand{display:none}select[multiple]{padding-right:10px;background-image:none;overflow-y:auto}button,input[type=button],input[type=submit]{padding-right:30px;padding-left:30px}button:hover{background:#ddd;background:var(--button-hover)}@media (prefers-color-scheme:dark){button:hover{background:#324759;background:var(--button-hover)}}input[type=submit]:hover{background:#ddd;background:var(--button-hover)}@media (prefers-color-scheme:dark){input[type=submit]:hover{background:#324759;background:var(--button-hover)}}input[type=button]:hover{background:#ddd;background:var(--button-hover)}@media (prefers-color-scheme:dark){input[type=button]:hover{background:#324759;background:var(--button-hover)}}input:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){input:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}select:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){select:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}button:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){button:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}textarea:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){textarea:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}button:active,input[type=button]:active,input[type=checkbox]:active,input[type=radio]:active,input[type=range]:active,input[type=submit]:active{transform:translateY(2px)}button:disabled,input:disabled,select:disabled,textarea:disabled{cursor:not-allowed;opacity:.5}::-moz-placeholder{color:#949494;color:var(--form-placeholder)}:-ms-input-placeholder{color:#949494;color:var(--form-placeholder)}::-ms-input-placeholder{color:#949494;color:var(--form-placeholder)}::placeholder{color:#949494;color:var(--form-placeholder)}@media (prefers-color-scheme:dark){::-moz-placeholder{color:#a9a9a9;color:var(--form-placeholder)}:-ms-input-placeholder{color:#a9a9a9;color:var(--form-placeholder)}::-ms-input-placeholder{color:#a9a9a9;color:var(--form-placeholder)}::placeholder{color:#a9a9a9;color:var(--form-placeholder)}}fieldset{border:1px solid rgba(0,150,191,.67);border:1px solid var(--focus);border-radius:6px;margin:0 0 12px;padding:10px}@media (prefers-color-scheme:dark){fieldset{border:1px solid rgba(0,150,191,.67);border:1px solid var(--focus)}}legend{font-size:.9em;font-weight:600}input[type=range]{margin:10px 0;padding:10px 0;background:transparent}input[type=range]:focus{outline:none}input[type=range]::-webkit-slider-runnable-track{width:100%;height:9.5px;-webkit-transition:.2s;transition:.2s;background:#efefef;background:var(--background);border-radius:3px}@media (prefers-color-scheme:dark){input[type=range]::-webkit-slider-runnable-track{background:#161f27;background:var(--background)}}input[type=range]::-webkit-slider-thumb{box-shadow:0 1px 1px #000,0 0 1px #0d0d0d;height:20px;width:20px;border-radius:50%;background:#dbdbdb;background:var(--border);-webkit-appearance:none;margin-top:-7px}@media (prefers-color-scheme:dark){input[type=range]::-webkit-slider-thumb{background:#526980;background:var(--border)}}input[type=range]:focus::-webkit-slider-runnable-track{background:#efefef;background:var(--background)}@media (prefers-color-scheme:dark){input[type=range]:focus::-webkit-slider-runnable-track{background:#161f27;background:var(--background)}}input[type=range]::-moz-range-track{width:100%;height:9.5px;-moz-transition:.2s;transition:.2s;background:#efefef;background:var(--background);border-radius:3px}@media (prefers-color-scheme:dark){input[type=range]::-moz-range-track{background:#161f27;background:var(--background)}}input[type=range]::-moz-range-thumb{box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d;height:20px;width:20px;border-radius:50%;background:#dbdbdb;background:var(--border)}@media (prefers-color-scheme:dark){input[type=range]::-moz-range-thumb{background:#526980;background:var(--border)}}input[type=range]::-ms-track{width:100%;height:9.5px;background:transparent;border-color:transparent;border-width:16px 0;color:transparent}input[type=range]::-ms-fill-lower{background:#efefef;background:var(--background);border:.2px solid #010101;border-radius:3px;box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d}@media (prefers-color-scheme:dark){input[type=range]::-ms-fill-lower{background:#161f27;background:var(--background)}}input[type=range]::-ms-fill-upper{background:#efefef;background:var(--background);border:.2px solid #010101;border-radius:3px;box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d}@media (prefers-color-scheme:dark){input[type=range]::-ms-fill-upper{background:#161f27;background:var(--background)}}input[type=range]::-ms-thumb{box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d;border:1px solid #000;height:20px;width:20px;border-radius:50%;background:#dbdbdb;background:var(--border)}@media (prefers-color-scheme:dark){input[type=range]::-ms-thumb{background:#526980;background:var(--border)}}input[type=range]:focus::-ms-fill-lower{background:#efefef;background:var(--background)}@media (prefers-color-scheme:dark){input[type=range]:focus::-ms-fill-lower{background:#161f27;background:var(--background)}}input[type=range]:focus::-ms-fill-upper{background:#efefef;background:var(--background)}@media (prefers-color-scheme:dark){input[type=range]:focus::-ms-fill-upper{background:#161f27;background:var(--background)}}a{text-decoration:none;color:#0076d1;color:var(--links)}@media (prefers-color-scheme:dark){a{color:#41adff;color:var(--links)}}a:hover{text-decoration:underline}code{background:#efefef;background:var(--background);color:#000;color:var(--code);padding:2.5px 5px;border-radius:6px;font-size:1em}@media (prefers-color-scheme:dark){code{color:#ffbe85;color:var(--code);background:#161f27;background:var(--background)}}samp{background:#efefef;background:var(--background);color:#000;color:var(--code);padding:2.5px 5px;border-radius:6px;font-size:1em}@media (prefers-color-scheme:dark){samp{color:#ffbe85;color:var(--code);background:#161f27;background:var(--background)}}time{background:#efefef;background:var(--background);color:#000;color:var(--code);padding:2.5px 5px;border-radius:6px;font-size:1em}@media (prefers-color-scheme:dark){time{color:#ffbe85;color:var(--code);background:#161f27;background:var(--background)}}pre>code{padding:10px;display:block;overflow-x:auto}var{color:#39a33c;color:var(--variable);font-style:normal;font-family:monospace}@media (prefers-color-scheme:dark){var{color:#d941e2;color:var(--variable)}}kbd{background:#efefef;background:var(--background);border:1px solid #dbdbdb;border:1px solid var(--border);border-radius:2px;color:#363636;color:var(--text-main);padding:2px 4px}@media (prefers-color-scheme:dark){kbd{color:#dbdbdb;color:var(--text-main);border:1px solid #526980;border:1px solid var(--border);background:#161f27;background:var(--background)}}img,video{max-width:100%;height:auto}hr{border:none;border-top:1px solid #dbdbdb;border-top:1px solid var(--border)}@media (prefers-color-scheme:dark){hr{border-top:1px solid #526980;border-top:1px solid var(--border)}}table{border-collapse:collapse;margin-bottom:10px;width:100%;table-layout:fixed}table caption,td,th{text-align:left}td,th{padding:6px;vertical-align:top;word-wrap:break-word}thead{border-bottom:1px solid #dbdbdb;border-bottom:1px solid var(--border)}@media (prefers-color-scheme:dark){thead{border-bottom:1px solid #526980;border-bottom:1px solid var(--border)}}tfoot{border-top:1px solid #dbdbdb;border-top:1px solid var(--border)}@media (prefers-color-scheme:dark){tfoot{border-top:1px solid #526980;border-top:1px solid var(--border)}}tbody tr:nth-child(2n){background-color:#f7f7f7;background-color:var(--background-alt)}@media (prefers-color-scheme:dark){tbody tr:nth-child(2n){background-color:#1a242f;background-color:var(--background-alt)}}::-webkit-scrollbar{height:10px;width:10px}::-webkit-scrollbar-track{background:#efefef;background:var(--background);border-radius:6px}@media (prefers-color-scheme:dark){::-webkit-scrollbar-track{background:#161f27;background:var(--background)}}::-webkit-scrollbar-thumb{background:#d5d5d5;background:var(--scrollbar-thumb);border-radius:6px}@media (prefers-color-scheme:dark){::-webkit-scrollbar-thumb{background:#324759;background:var(--scrollbar-thumb)}}::-webkit-scrollbar-thumb:hover{background:#c4c4c4;background:var(--scrollbar-thumb-hover)}@media (prefers-color-scheme:dark){::-webkit-scrollbar-thumb:hover{background:#141414;background:var(--scrollbar-thumb-hover)}}::-moz-selection{background-color:#9e9e9e;background-color:var(--selection);color:#000;color:var(--text-bright)}::selection{background-color:#9e9e9e;background-color:var(--selection);color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){::-moz-selection{color:#fff;color:var(--text-bright)}::selection{color:#fff;color:var(--text-bright)}}@media (prefers-color-scheme:dark){::-moz-selection{background-color:#1c76c5;background-color:var(--selection)}::selection{background-color:#1c76c5;background-color:var(--selection)}}details{display:flex;flex-direction:column;align-items:flex-start;background-color:#f7f7f7;background-color:var(--background-alt);padding:10px 10px 0;margin:1em 0;border-radius:6px;overflow:hidden}@media (prefers-color-scheme:dark){details{background-color:#1a242f;background-color:var(--background-alt)}}details[open]{padding:10px}details>:last-child{margin-bottom:0}details[open] summary{margin-bottom:10px}summary{display:list-item;background-color:#efefef;background-color:var(--background);padding:10px;margin:-10px -10px 0;cursor:pointer;outline:none}@media (prefers-color-scheme:dark){summary{background-color:#161f27;background-color:var(--background)}}summary:focus,summary:hover{text-decoration:underline}details>:not(summary){margin-top:0}summary::-webkit-details-marker{color:#363636;color:var(--text-main)}@media (prefers-color-scheme:dark){summary::-webkit-details-marker{color:#dbdbdb;color:var(--text-main)}}footer{border-top:1px solid #dbdbdb;border-top:1px solid var(--border);padding-top:10px;color:#70777f;color:var(--text-muted)}@media (prefers-color-scheme:dark){footer{color:#a9b1ba;color:var(--text-muted);border-top:1px solid #526980;border-top:1px solid var(--border)}}body>footer{margin-top:40px}@media print{body,button,code,details,input,pre,summary,textarea{background-color:#fff}button,input,textarea{border:1px solid #000}body,button,code,footer,h1,h2,h3,h4,h5,h6,input,pre,strong,summary,textarea{color:#000}summary::marker{color:#000}summary::-webkit-details-marker{color:#000}tbody tr:nth-child(2n){background-color:#f2f2f2}a{color:#00f;text-decoration:underline}}
+/*# sourceMappingURL=water.min.css.map */
+	</style>
+
+    <style type="text/css">
+    code[class*="language-"],pre[class*="language-"]{border-radius: 7px;color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*="language-"]::-moz-selection,pre[class*="language-"] ::-moz-selection,code[class*="language-"]::-moz-selection,code[class*="language-"] ::-moz-selection{text-shadow:none;background:#b3d4fc}pre[class*="language-"]::selection,pre[class*="language-"] ::selection,code[class*="language-"]::selection,code[class*="language-"] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*="language-"],pre[class*="language-"]{text-shadow:none}}pre[class*="language-"]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*="language-"],pre[class*="language-"]{background:#f5f2f0}:not(pre)>code[class*="language-"]{padding:.1em;border-radius:.3em;white-space:normal}.token.comment,.token.prolog,.token.doctype,.token.cdata{color:slategray}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.property,.token.tag,.token.boolean,.token.number,.token.constant,.token.symbol,.token.deleted{color:#905}.token.selector,.token.attr-name,.token.string,.token.char,.token.builtin,.token.inserted{color:#690}.token.operator,.token.entity,.token.url,.language-css .token.string,.style .token.string{color:#9a6e3a}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.function,.token.class-name{color:#DD4A68}.token.regex,.token.important,.token.variable{color:#e90}.token.important,.token.bold{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}pre[class*="language-"].line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}pre[class*="language-"].line-numbers>code{position:relative;white-space:inherit}.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:0;font-size:100%;left:-3.8em;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.line-numbers-rows>span{display:block;counter-increment:linenumber}.line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}span.inline-color-wrapper{background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyIDIiPjxwYXRoIGZpbGw9ImdyYXkiIGQ9Ik0wIDBoMnYySDB6Ii8+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0wIDBoMXYxSDB6TTEgMWgxdjFIMXoiLz48L3N2Zz4=);background-position:center;background-size:110%;display:inline-block;height:1.333ch;width:1.333ch;margin:0 .333ch;box-sizing:border-box;border:1px solid #fff;outline:1px solid rgba(0,0,0,.5);overflow:hidden}span.inline-color{display:block;height:120%;width:120%}
+    </style>
+    <style type="text/css">
+    @import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap);:root{--background-body:#fff;--background:#eee;--background-alt:#1a242f;--selection:#9abfdf;--text-main:#1a242f;--text-bright:#1e426f;--text-muted:#a9b1ba;--links:#2496ee;--focus:rgba(0,150,191,.67);--border:#526980;--code:#d20577;--animation-duration:0.1s;--button-hover:#324759;--scrollbar-thumb:var(--button-hover);--scrollbar-thumb-hover:#141414;--form-placeholder:#a9a9a9;--form-text:#fff;--variable:#d941e2;--highlight:#efdb43;--select-arrow:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23efefef'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E")}body{font-family:"IBM Plex Sans",sans-serif;font-size:16px;line-height: 1.6;}
+    </style>
+ 
+
+</head>
+
+<body>
+    <header><h1></h1>
+
+        <nav>
+        </nav>
+
+    </header><h1>Chapter 12: Modules</h1>
+<p>A <strong>module</strong> is a file containing Python definitions and statements intended for use in other Python programs. There are many Python modules that come with Python as part of the <strong>standard library</strong>. We have seen at least two of these already, the <code>turtle</code> module and the <code>string</code> module.</p>
+<p>We have also shown you how to access help. The help system contains a listing of all the standard modules that are available with Python. Play with help!</p>
+<pre><code class="language-python">.. index:: random numbers, shuffle, promise</code></pre>
+<h2>12.1. Random numbers</h2>
+<p>We often want to use random numbers in programs, here are a few typical uses:</p>
+<ul>
+<li>To play a game of chance where the computer needs to throw some dice, pick a number, or flip a coin</li>
+<li>To shuffle a deck of playing cards randomly,</li>
+<li>To allow/make an enemy spaceship appear at a random location and start shooting at the player</li>
+<li>To simulate possible rainfall when we make a computerized model for estimating the environmental impact<br />
+of building a dam,</li>
+<li>For encrypting banking sessions on the Internet.</li>
+</ul>
+<p>Python provides a module <code>random</code> that helps with tasks like this. You can look it up using help, but here are the key things we’ll do with it:</p>
+<pre><code class="language-python">import random
+
+# Create a black box object that generates random numbers
+rng = random.Random()    
+
+dice_throw = rng.randrange(1,7)   # Return an int, one of 1,2,3,4,5,6
+delay_in_seconds = rng.random() * 5.0</code></pre>
+<p>The <code>randrange</code> method call generates an integer between its lower and upper argument, using the same semantics as <code>range</code> — so the lower bound is included, but the upper bound is excluded. All the values have an equal probability of occurring (i.e. the results are <em>uniformly</em> distributed). Like <code>range</code>, <code>randrange</code> can also take an optional step argument. So let’s assume we needed a random odd number less than 100, we could say:</p>
+<pre><code class="language-python">r_odd = rng.randrange(1, 100, 2)  </code></pre>
+<p>Other methods can also generate other distributions e.g. a bell-shaped, or “normal” distribution might be more appropriate for estimating seasonal rainfall, or the concentration of a compound in the body after taking a dose of medicine.</p>
+<p>The <code>random</code> method returns a floating point number in the interval [0.0, 1.0) — the square bracket means “closed interval on the left” and the round parenthesis means “open interval on the right”. In other words, 0.0 is possible, but all returned numbers will be strictly less than 1.0. It is usual to <em>scale</em> the results after calling this method, to get them into an interval suitable for your application. In the case shown here, we’ve converted the result of the method call to a number in the interval [0.0, 5.0). Once more, these are uniformly distributed numbers — numbers close to 0 are just as likely to occur as numbers close to 0.5, or numbers close to 1.0.</p>
+<p>This example shows how to shuffle a list. (<code>shuffle</code> cannot work directly with a lazy promise, so notice that we had to convert the range object using the <code>list</code> type converter first.)</p>
+<pre><code class="language-python">cards = list(range(52))  # Generate ints [0 .. 51] 
+                         #    representing a pack of cards.
+rng.shuffle(cards)       # Shuffle the pack</code></pre>
+<pre><code class="language-python">.. index:: deterministic algorithm, algorithm; deterministic, unit tests</code></pre>
+<h3>12.1.1. Repeatability and Testing</h3>
+<p>Random number generators are based on a <strong>deterministic</strong> algorithm — repeatable and predictable. So they’re called <strong>pseudo-random</strong> generators — they are not genuinely random. They start with a <em>seed</em> value. Each time you ask for another random number, you’ll get one based on the current seed attribute, and the state of the seed (which is one of the attributes of the generator) will be updated.</p>
+<p>For debugging and for writing unit tests, it is convenient to have repeatability — programs that do the same thing every time they are run. We can arrange this by forcing the random number generator to be initialized with a known seed every time. (Often this is only wanted during testing — playing a game of cards where the shuffled deck was always in the same order as last time you played would get boring very rapidly!)</p>
+<pre><code class="language-python">drng = random.Random(123)  # Create generator with known starting state </code></pre>
+<p>This alternative way of creating a random number generator gives an explicit seed value to the object. Without this argument, the system probably uses something based on the time. So grabbing some random numbers from <code>drng</code> today will give you precisely the same random sequence as it will tomorrow!</p>
+<h3>12.1.2. Picking balls from bags, throwing dice, shuffling a pack of cards</h3>
+<p>Here is an example to generate a list containing n random ints between a lower and an upper bound:</p>
+<pre><code class="language-python">import random
+
+def make_random_ints(num, lower_bound, upper_bound): 
+   &quot;&quot;&quot; 
+     Generate a list containing num random ints between lower_bound
+     and upper_bound. upper_bound is an open bound.
+   &quot;&quot;&quot;
+   rng = random.Random()  # Create a random number generator
+   result = []
+   for i in range(num):
+      result.append(rng.randrange(lower_bound, upper_bound))
+   return result</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; make_random_ints(5, 1, 13)  # Pick 5 random month numbers
+[8, 1, 8, 5, 6] </code></pre>
+<p>Notice that we got a duplicate in the result. Often this is wanted, e.g. if we throw a die five times, we would expect some duplicates.</p>
+<p>But what if you don’t want duplicates? If you wanted 5 distinct months, then this algorithm is wrong. In this case a good algorithm is to generate the list of possibilities, shuffle it, and slice off the number of elements you want:</p>
+<pre><code class="language-python">xs = list(range(1,13))  # Make list 1..12  (there are no duplicates)
+rng = random.Random()   # Make a random number generator
+rng.shuffle(xs)         # Shuffle the list
+result = xs[:5]         # Take the first five elements</code></pre>
+<p>In statistics courses, the first case — allowing duplicates — is usually described as pulling balls out of a bag <em>with replacement</em> — you put the drawn ball back in each time, so it can occur again. The latter case, with no duplicates, is usually described as pulling balls out of the bag <em>without replacement</em>. Once the ball is drawn, it doesn’t go back to be drawn again. TV lotto games work like this.</p>
+<p>The second “shuffle and slice” algorithm would not be so great if you only wanted a few elements, but from a very large domain. Suppose I wanted five numbers between one and ten million, without duplicates. Generating a list of ten million items, shuffling it, and then slicing off the first five would be a performance disaster! So let us have another try:</p>
+<pre><code class="language-python">import random
+
+def make_random_ints_no_dups(num, lower_bound, upper_bound):
+   &quot;&quot;&quot;
+     Generate a list containing num random ints between 
+     lower_bound and upper_bound. upper_bound is an open bound.  
+     The result list cannot contain duplicates.
+   &quot;&quot;&quot;
+   result = []
+   rng = random.Random()
+   for i in range(num):
+        while True:
+            candidate = rng.randrange(lower_bound, upper_bound)
+            if candidate not in result:
+                break
+        result.append(candidate)
+   return result
+
+xs = make_random_ints_no_dups(5, 1, 10000000)
+print(xs)</code></pre>
+<p>This agreeably produces 5 random numbers, without duplicates:</p>
+<pre><code class="language-python">[3344629, 1735163, 9433892, 1081511, 4923270]</code></pre>
+<p>Even this function has its pitfalls. Can you spot what is going to happen in this case?</p>
+<pre><code class="language-python">xs = make_random_ints_no_dups(10, 1, 6)</code></pre>
+<h2>12.2. The <code>time</code> module</h2>
+<p>As we start to work with more sophisticated algorithms and bigger programs, a natural concern is <em>“is our code efficient?”</em> One way to experiment is to time how long various operations take. The <code>time</code> module has a function called <code>clock</code> that is recommended for this purpose. Whenever <code>clock</code> is called, it returns a floating point number representing how many seconds have elapsed since your program started running.</p>
+<p>The way to use it is to call <code>clock</code> and assign the result to a variable, say <code>t0</code>, just before you start executing the code you want to measure. Then after execution, call <code>clock</code> again, (this time we’ll save the result in variable <code>t1</code>). The difference <code>t1-t0</code> is the time elapsed, and is a measure of how fast your program is running.</p>
+<p>Let’s try a small example. Python has a built-in <code>sum</code> function that can sum the elements in a list. We can also write our own. How do we think they would compare for speed? We’ll try to do the summation of a list [0, 1, 2 …] in both cases, and compare the results:</p>
+<pre><code class="language-python">import time
+
+def do_my_sum(xs):
+    sum = 0
+    for v in xs:
+        sum += v
+    return sum
+
+sz = 10000000        # Lets have 10 million elements in the list
+testdata = range(sz)
+
+t0 = time.clock()
+my_result = do_my_sum(testdata)
+t1 = time.clock()
+print(&quot;my_result    = {0} (time taken = {1:.4f} seconds)&quot;
+        .format(my_result, t1-t0))
+
+t2 = time.clock()
+their_result = sum(testdata)
+t3 = time.clock()
+print(&quot;their_result = {0} (time taken = {1:.4f} seconds)&quot;
+        .format(their_result, t3-t2))</code></pre>
+<p>On a reasonably modest laptop, we get these results:</p>
+<pre><code class="language-python">my_sum    = 49999995000000 (time taken = 1.5567 seconds)
+their_sum = 49999995000000 (time taken = 0.9897 seconds)</code></pre>
+<p>So our function runs about 57% slower than the built-in one. Generating and summing up ten million elements in under a second is not too shabby!</p>
+<h2>12.3. The <code>math</code> module</h2>
+<p>The <code>math</code> module contains the kinds of mathematical functions you’d typically find on your calculator (<code>sin</code>, <code>cos</code>, <code>sqrt</code>, <code>asin</code>, <code>log</code>, <code>log10</code>) and some mathematical constants like <code>pi</code> and <code>e</code>:</p>
+<pre><code class="language-python">&gt;&gt;&gt; import math
+&gt;&gt;&gt; math.pi                 # Constant pi
+3.141592653589793
+&gt;&gt;&gt; math.e                  # Constant natural log base
+2.718281828459045
+&gt;&gt;&gt; math.sqrt(2.0)          # Square root function
+1.4142135623730951
+&gt;&gt;&gt; math.radians(90)        # Convert 90 degrees to radians
+1.5707963267948966
+&gt;&gt;&gt; math.sin(math.radians(90))  # Find sin of 90 degrees
+1.0
+&gt;&gt;&gt; math.asin(1.0) * 2      # Double the arcsin of 1.0 to get pi
+3.141592653589793</code></pre>
+<p>Like almost all other programming languages, angles are expressed in <em>radians</em> rather than degrees. There are two functions <code>radians</code> and <code>degrees</code> to convert between these two popular ways of measuring angles.</p>
+<p>Notice another difference between this module and our use of <code>random</code> and <code>turtle</code>: in <code>random</code> and <code>turtle</code> we create objects and we call methods on the object. This is because objects have <em>state</em> — a turtle has a color, a position, a heading, etc., and every random number generator has a seed value that determines its next result.</p>
+<p>Mathematical functions are “pure” and don’t have any state — calculating the square root of 2.0 doesn’t depend on any kind of state or history about what happened in the past. So the functions are not methods of an object — they are simply functions that are grouped together in a module called <code>math</code>.</p>
+<pre><code class="language-python">.. index:: import statement, statement; import</code></pre>
+<h2>12.4. Creating your own modules</h2>
+<p>All we need to do to create our own modules is to save our script as a file with a <code>.py</code> extension. Suppose, for example, this script is saved as a file named <code>seqtools.py</code>:</p>
+<pre><code class="language-python">def remove_at(pos, seq):
+    return seq[:pos] + seq[pos+1:]</code></pre>
+<p>We can now use our module, both in scripts we write, or in the interactive Python interpreter. To do so, we must first <code>import</code> the module.</p>
+<pre><code class="language-python">&gt;&gt;&gt; import seqtools
+&gt;&gt;&gt; s = &quot;A string!&quot;
+&gt;&gt;&gt; seqtools.remove_at(4, s)
+&#39;A sting!&#39;</code></pre>
+<p>We do not include the <code>.py</code> file extension when importing. Python expects the file names of Python modules to end in <code>.py</code>, so the file extension is not included in the <strong>import statement</strong>.</p>
+<p>The use of modules makes it possible to break up very large programs into manageable sized parts, and to keep related parts together.</p>
+<pre><code class="language-python">.. index:: namespace</code></pre>
+<h2>12.5. Namespaces</h2>
+<p>A <strong>namespace</strong> is a collection of identifiers that belong to a module, or to a function, (and as we will see soon, in classes too). Generally, we like a namespace to hold “related” things, e.g. all the math functions, or all the typical things we’d do with random numbers.</p>
+<p>Each module has its own namespace, so we can use the same identifier name in multiple modules without causing an identification problem.</p>
+<pre><code class="language-python"># Module1.py
+
+question = &quot;What is the meaning of Life, the Universe, and Everything?&quot;
+answer = 42</code></pre>
+<pre><code class="language-python"># Module2.py
+
+question = &quot;What is your quest?&quot;
+answer = &quot;To seek the holy grail.&quot; </code></pre>
+<p>We can now import both modules and access <code>question</code> and <code>answer</code> in each:</p>
+<pre><code class="language-python">import module1
+import module2
+
+print(module1.question)
+print(module2.question)
+print(module1.answer)
+print(module2.answer)</code></pre>
+<p>will output the following:</p>
+<pre><code class="language-python">What is the meaning of Life, the Universe, and Everything?
+What is your quest?
+42
+To seek the holy grail.</code></pre>
+<p>Functions also have their own namespaces:</p>
+<pre><code class="language-python">def f():
+    n = 7
+    print(&quot;printing n inside of f:&quot;, n)
+
+def g():
+    n = 42
+    print(&quot;printing n inside of g:&quot;, n)
+
+n = 11
+print(&quot;printing n before calling f:&quot;, n)
+f()
+print(&quot;printing n after calling f:&quot;, n)
+g()
+print(&quot;printing n after calling g:&quot;, n)</code></pre>
+<p>Running this program produces the following output:</p>
+<pre><code class="language-python">printing n before calling f: 11
+printing n inside of f: 7
+printing n after calling f: 11
+printing n inside of g: 42
+printing n after calling g: 11</code></pre>
+<p>The three <code>n</code>’s here do not collide since they are each in a different namespace — they are three names for three different variables, just like there might be three different instances of people, all called “Bruce”.</p>
+<p>Namespaces permit several programmers to work on the same project without having naming collisions.</p>
+<p>How are namespaces, files and modules related?</p>
+<p>Python has a convenient and simplifying one-to-one mapping, one module per file, giving rise to one namespace. Also, Python takes the module name from the file name, and this becomes the name of the namespace. <code>math.py</code> is a filename, the module is called <code>math</code>, and its namespace is <code>math</code>. So in Python the concepts are more or less interchangeable.</p>
+<p>But you will encounter other languages (e.g. C#), that allow one module to span multiple files, or one file to have multiple namespaces, or many files to all share the same namespace. So the name of the file doesn’t need to be the same as the namespace.</p>
+<p>So a good idea is to try to keep the concepts distinct in your mind.</p>
+<p>Files and directories organize <em>where</em> things are stored in our computer. On the other hand, namespaces and modules are a programming concept: they help us organize how we want to group related functions and attributes. They are not about “where” to store things, and should not have to coincide with the file and directory structures.</p>
+<p>So in Python, if you rename the file <code>math.py</code>, its module name also changes, your <code>import</code> statements would need to change, and your code that refers to functions or attributes inside that namespace would also need to change.</p>
+<p>In other languages this is not necessarily the case. So don’t blur the concepts, just because Python blurs them!</p>
+<pre><code class="language-python">.. index:: scope, scope; global, scope; local, scope; builtin, builtin scope, global scope, local scope</code></pre>
+<h2>12.6. Scope and lookup rules</h2>
+<p>The <strong>scope</strong> of an identifier is the region of program code in which the identifier can be accessed, or used.</p>
+<p>There are three important scopes in Python:</p>
+<ul>
+<li><strong>Local scope</strong> refers to identifiers declared within a function. These identifiers are kept in the<br />
+namespace that belongs to the function, and each function has its own namespace.</li>
+<li><strong>Global scope</strong> refers to all the identifiers declared within the current module, or file.</li>
+<li><strong>Built-in scope</strong> refers to all the identifiers built into Python — those like <code>range</code> and <code>min</code> that can be used without having to import anything, and are (almost) always available.</li>
+</ul>
+<p>Python (like most other computer languages) uses precedence rules: the same name could occur in more than one of these scopes, but the innermost, or local scope, will always take precedence over the global scope, and the global scope always gets used in preference to the built-in scope. Let’s start with a simple example:</p>
+<pre><code class="language-python">def range(n):
+    return 123*n
+
+print(range(10))</code></pre>
+<p>What gets printed? We’ve defined our own function called <code>range</code>, so there is now a potential ambiguity. When we use <code>range</code>, do we mean our own one, or the built-in one? Using the scope lookup rules determines this: our own <code>range</code> function, not the built-in one, is called, because our function <code>range</code> is in the global namespace, which takes precedence over the built-in names.</p>
+<p>So although names likes <code>range</code> and <code>min</code> are built-in, they can be “hidden” from your use if you choose to define your own variables or functions that reuse those names. (It is a confusing practice to redefine built-in names — so to be a good programmer you need to understand the scope rules and understand that you can do nasty things that will cause confusion, and then you avoid doing them!)</p>
+<p>Now, a slightly more complex example:</p>
+<pre><code class="language-python">n = 10
+m = 3
+def f(n):
+   m = 7
+   return 2*n+m
+
+print(f(5), n, m)</code></pre>
+<p>This prints 17 10 3. The reason is that the two variables <code>m</code> and <code>n</code> in lines 1 and 2 are outside the function in the global namespace. Inside the function, new variables called <code>n</code> and <code>m</code> are created <em>just for the duration of the execution of f</em>. These are created in the local namespace of function <code>f</code>. Within the body of <code>f</code>, the scope lookup rules determine that we use the local variables <code>m</code> and <code>n</code>. By contrast, after we’ve returned from <code>f</code>, the <code>n</code> and <code>m</code> arguments to the <code>print</code> function refer to the original variables on lines 1 and 2, and these have not been changed in any way by executing function <code>f</code>.</p>
+<p>Notice too that the <code>def</code> puts name <code>f</code> into the global namespace here. So it can be called on line 7.</p>
+<p>What is the scope of the variable <code>n</code> on line 1? Its scope — the region in which it is visible — is lines 1, 2, 6, 7. It is hidden from view in lines 3, 4, 5 because of the local variable <code>n</code>.</p>
+<pre><code class="language-python">.. index:: attribute, dot operator</code></pre>
+<h2>12.7. Attributes and the dot operator</h2>
+<p>Variables defined inside a module are called <strong>attributes</strong> of the module. We’ve seen that objects have attributes too: for example, most objects have a <code>__doc__</code> attribute, some functions have a <code>__annotations__</code> attribute. Attributes are accessed using the <strong>dot operator</strong> (<code>.</code>). The <code>question</code> attribute of <code>module1</code> and <code>module2</code> is accessed using <code>module1.question</code> and <code>module2.question</code>.</p>
+<p>Modules contain functions as well as attributes, and the dot operator is used to access them in the same way. <code>seqtools.remove_at</code> refers to the <code>remove_at</code> function in the <code>seqtools</code> module.</p>
+<p>When we use a dotted name, we often refer to it as a <strong>fully qualified name</strong>, because we’re saying exactly which <code>question</code> attribute we mean.</p>
+<pre><code class="language-python">.. index:: import statement</code></pre>
+<h2>12.8. Three <code>import</code> statement variants</h2>
+<p>Here are three different ways to import names into the current namespace, and to use them:</p>
+<pre><code class="language-python">import math
+x = math.sqrt(10)</code></pre>
+<p>Here just the single identifier <code>math</code> is added to the current namespace. If you want to access one of the functions in the module, you need to use the dot notation to get to it.</p>
+<p>Here is a different arrangement:</p>
+<pre><code class="language-python">from math import cos, sin, sqrt
+x = sqrt(10)</code></pre>
+<p>The names are added directly to the current namespace, and can be used without qualification. The name <code>math</code> is not itself imported, so trying to use the qualified form <code>math.sqrt</code> would give an error.</p>
+<p>Then we have a convenient shorthand:</p>
+<pre><code class="language-python">from math import *   # Import all the identifiers from math,
+                     #   adding them to the current namespace.
+x = sqrt(10)         # Use them without qualification.</code></pre>
+<p>Of these three, the first method is generally preferred, even though it means a little more typing each time. Although, we can make things shorter by importing a module under a different name:</p>
+<pre><code class="language-python">&gt;&gt;&gt; import math as m
+&gt;&gt;&gt; m.pi
+3.141592653589793</code></pre>
+<p>But hey, with nice editors that do auto-completion, and fast fingers, that’s a small price!</p>
+<p>Finally, observe this case:</p>
+<pre><code class="language-python">def area(radius):
+    import math
+    return math.pi * radius * radius
+
+x = math.sqrt(10)      # This gives an error</code></pre>
+<p>Here we imported <code>math</code>, but we imported it into the local namespace of <code>area</code>. So the name is usable within the function body, but not in the enclosing script, because it is not in the global namespace.</p>
+<h2>12.9. Turn your unit tester into a module</h2>
+<p>Near the end of Chapter 6 (Fruitful functions) we introduced unit testing, and our own <code>test</code> function, and you’ve had to copy this into each module for which you wrote tests. Now we can put that definition into a module of its own, say <code>unit_tester.py</code>, and simply use one line in each new script instead:</p>
+<pre><code class="language-python">from unit_tester import test</code></pre>
+<h2>12.10. Glossary</h2>
+<pre><code class="language-python">attribute  
+    A variable defined inside a module (or class or instance -- as we will
+    see later). Module attributes are accessed by using the **dot operator**
+    (`.`).
+
+dot operator  
+    The dot operator (`.`) permits access to attributes and functions of a
+    module (or attributes and methods of a class or instance -- as we have
+    seen elsewhere).
+
+fully qualified name  
+    A name that is prefixed by some namespace identifier and the dot
+    operator, or by an instance object, e.g. `math.sqrt` or
+    `tess.forward(10)`.
+
+import statement  
+    A statement which makes the objects contained in a module available for
+    use within another module. There are two forms for the import statement.
+    Using hypothetical modules named `mymod1` and `mymod2` each containing
+    functions `f1` and `f2`, and variables `v1` and `v2`, examples of these
+    two forms include:
+
+    ```python
+    import mymod1 
+    from mymod2 import f1, f2, v1, v2 
+    ```
+
+    The second form brings the imported objects into the namespace of the
+    importing module, while the first form preserves a separate namespace
+    for the imported module, requiring `mymod1.v1` to access the `v1`
+    variable from that module.
+
+method  
+    Function-like attribute of an object. Methods are *invoked* (called) on
+    an object using the dot operator. For example:
+
+    ```python
+    &gt;&gt;&gt; s = &quot;this is a string.&quot;
+    &gt;&gt;&gt; s.upper()
+    &#39;THIS IS A STRING.&#39;
+    &gt;&gt;&gt;
+    ```
+
+    We say that the method, `upper` is invoked on the string, `s`. `s` is
+    implicitely the first argument to `upper`.
+
+module  
+    A file containing Python definitions and statements intended for use in
+    other Python programs. The contents of a module are made available to
+    the other program by using the `import` statement.
+
+namespace  
+    A syntactic container providing a context for names so that the same
+    name can reside in different namespaces without ambiguity. In Python,
+    modules, classes, functions and methods all form namespaces.
+
+naming collision  
+    A situation in which two or more names in a given namespace cannot be
+    unambiguously resolved. Using
+
+    ```python
+    import string
+    ```
+
+    instead of
+
+    ```python
+    from string import *
+    ```
+
+    prevents naming collisions.
+
+    standard library A library is a collection of software used as tools in
+    the development of other software. The standard library of a programming
+    language is the set of such tools that are distributed with the core
+    programming language. Python comes with an extensive standard library.</code></pre>
+<h2>12.11. Exercises</h2>
+<ol type="1">
+<li><p>Open help for the <code>calendar</code> module.</p>
+<ol type="1">
+<li>Try the following:</li>
+</ol>
+<pre><code class="language-python">import calendar
+cal = calendar.TextCalendar()      # Create an instance
+cal.pryear(2012)                   # What happens here?</code></pre>
+<ol start="2" type="1">
+<li>Observe that the week starts on Monday. An adventurous CompSci student believes that it is better mental chunking to have his week start on Thursday, because then there are only two working days to the weekend, and every week has a break in the middle. Read the documentation for TextCalendar, and see how you can help him print a calendar that suits his needs.</li>
+<li>Find a function to print just the month in which your birthday occurs this year.</li>
+<li>Try this:</li>
+</ol>
+<pre><code class="language-python">d = calendar.LocaleTextCalendar(6, &quot;SPANISH&quot;)     
+d.pryear(2012)   
+
+Try a few other languages, including one that doesn&#39;t work, and see what happens.</code></pre>
+<ol start="5" type="1">
+<li>Experiment with <code>calendar.isleap</code>. What does it expect as an argument? What does it return as a result? What kind of a function is this?</li>
+</ol>
+<p>Make detailed notes about what you learned from these exercises.</p></li>
+<li><p>Open help for the <code>math</code> module.</p>
+<ol type="1">
+<li>How many functions are in the <code>math</code> module?</li>
+<li>What does <code>math.ceil</code> do? What about <code>math.floor</code>? (<em>hint:</em> both <code>floor</code> and <code>ceil</code> expect floating point arguments.)</li>
+<li>Describe how we have been computing the same value as <code>math.sqrt</code> without using the <code>math</code> module.</li>
+<li>What are the two data constants in the <code>math</code> module?</li>
+</ol>
+<p>Record detailed notes of your investigation in this exercise.</p></li>
+<li><p>Investigate the <code>copy</code> module. What does <code>deepcopy</code> do? In which exercises from last chapter would <code>deepcopy</code> have come in handy?</p></li>
+<li><p>Create a module named <code>mymodule1.py</code>. Add attributes <code>myage</code> set to your current age, and <code>year</code> set to the current year. Create another module named <code>mymodule2.py</code>. Add attributes <code>myage</code> set to 0, and <code>year</code> set to the year you were born. Now create a file named <code>namespace_test.py</code>. Import both of the modules above and write the following statement:</p>
+<pre><code class="language-python">print( (mymodule2.myage - mymodule1.myage) == 
+       (mymodule2.year - mymodule1.year)  )</code></pre>
+<p>When you will run <code>namespace_test.py</code> you will see either <code>True</code> or <code>False</code> as output depending on whether or not you’ve already had your birthday this year.</p>
+<p>What this example illustrates is that out different modules can both have attributes named <code>myage</code> and <code>year</code>. Because they’re in different namespaces, they don’t clash with one another. When we write <code>namespace_test.py</code>, we fully qualify exactly which variable <code>year</code> or <code>myage</code> we are referring to.</p></li>
+<li><p>Add the following statement to <code>mymodule1.py</code>, <code>mymodule2.py</code>, and <code>namespace_test.py</code> from the previous exercise:</p>
+<pre><code class="language-python">print(&quot;My name is&quot;, __name__)</code></pre>
+<p>Run <code>namespace_test.py</code>. What happens? Why? Now add the following to the bottom of <code>mymodule1.py</code>:</p>
+<pre><code class="language-python">if __name__ == &quot;__main__&quot;:
+    print(&quot;This won&#39;t run if I&#39;m  imported.&quot;)</code></pre>
+<p>Run <code>mymodule1.py</code> and <code>namespace_test.py</code> again. In which case do you see the new print statement?</p></li>
+<li><p>In a Python shell / interactive interpreter, try the following:</p>
+<pre><code class="language-python">&gt;&gt;&gt; import this</code></pre>
+<p>What does Tim Peters have to say about namespaces?</p></li>
+<li><p>Give the Python interpreter’s response to each of the following from a continuous interpreter session:</p>
+<pre><code class="language-python">&gt;&gt;&gt; s = &quot;If we took the bones out, it wouldn&#39;t be crunchy, would it?&quot;
+&gt;&gt;&gt; s.split()
+&gt;&gt;&gt; type(s.split())
+&gt;&gt;&gt; s.split(&quot;o&quot;)
+&gt;&gt;&gt; s.split(&quot;i&quot;)
+&gt;&gt;&gt; &quot;0&quot;.join(s.split(&quot;o&quot;))</code></pre>
+<p>Be sure you understand why you get each result. Then apply what you have learned to fill in the body of the function below using the <code>split</code> and <code>join</code> methods of <code>str</code> objects:</p>
+<pre><code class="language-python">def myreplace(old, new, s):
+    &quot;&quot;&quot; Replace all occurrences of old with new in s. &quot;&quot;&quot;
+    ...
+
+
+test(myreplace(&quot;,&quot;, &quot;;&quot;, &quot;this, that, and some other thing&quot;) ==
+                         &quot;this; that; and some other thing&quot;)
+test(myreplace(&quot; &quot;, &quot;**&quot;, 
+                 &quot;Words will now      be  separated by stars.&quot;) ==
+                 &quot;Words**will**now**be**separated**by**stars.&quot;)</code></pre>
+<p>Your solution should pass the tests.</p></li>
+<li><p>Create a module named <code>wordtools.py</code> with our test scaffolding in place.</p>
+<p>Now add functions to these tests pass:</p>
+<pre><code>test(cleanword(&quot;what?&quot;) == &quot;what&quot;)
+test(cleanword(&quot;&#39;now!&#39;&quot;) == &quot;now&quot;)
+test(cleanword(&quot;?+=&#39;w-o-r-d!,@$()&#39;&quot;) ==  &quot;word&quot;)
+
+test(has_dashdash(&quot;distance--but&quot;))
+test(not has_dashdash(&quot;several&quot;))
+test(has_dashdash(&quot;spoke--&quot;))
+test(has_dashdash(&quot;distance--but&quot;))
+test(not has_dashdash(&quot;-yo-yo-&quot;))
+
+test(extract_words(&quot;Now is the time!  &#39;Now&#39;, is the time? Yes, now.&quot;) ==
+      [&#39;now&#39;,&#39;is&#39;,&#39;the&#39;,&#39;time&#39;,&#39;now&#39;,&#39;is&#39;,&#39;the&#39;,&#39;time&#39;,&#39;yes&#39;,&#39;now&#39;])
+test(extract_words(&quot;she tried to curtsey as she spoke--fancy&quot;) ==
+      [&#39;she&#39;,&#39;tried&#39;,&#39;to&#39;,&#39;curtsey&#39;,&#39;as&#39;,&#39;she&#39;,&#39;spoke&#39;,&#39;fancy&#39;])
+
+test(wordcount(&quot;now&quot;, [&quot;now&quot;,&quot;is&quot;,&quot;time&quot;,&quot;is&quot;,&quot;now&quot;,&quot;is&quot;,&quot;is&quot;]) == 2)
+test(wordcount(&quot;is&quot;, [&quot;now&quot;,&quot;is&quot;,&quot;time&quot;,&quot;is&quot;,&quot;now&quot;,&quot;the&quot;,&quot;is&quot;]) == 3)
+test(wordcount(&quot;time&quot;, [&quot;now&quot;,&quot;is&quot;,&quot;time&quot;,&quot;is&quot;,&quot;now&quot;,&quot;is&quot;,&quot;is&quot;]) == 1)
+test(wordcount(&quot;frog&quot;, [&quot;now&quot;,&quot;is&quot;,&quot;time&quot;,&quot;is&quot;,&quot;now&quot;,&quot;is&quot;,&quot;is&quot;]) == 0)
+
+test(wordset([&quot;now&quot;, &quot;is&quot;, &quot;time&quot;, &quot;is&quot;, &quot;now&quot;, &quot;is&quot;, &quot;is&quot;]) ==
+      [&quot;is&quot;, &quot;now&quot;, &quot;time&quot;])
+test(wordset([&quot;I&quot;, &quot;a&quot;, &quot;a&quot;, &quot;is&quot;, &quot;a&quot;, &quot;is&quot;, &quot;I&quot;, &quot;am&quot;]) ==
+      [&quot;I&quot;, &quot;a&quot;, &quot;am&quot;, &quot;is&quot;])
+test(wordset([&quot;or&quot;, &quot;a&quot;, &quot;am&quot;, &quot;is&quot;, &quot;are&quot;, &quot;be&quot;, &quot;but&quot;, &quot;am&quot;]) ==
+      [&quot;a&quot;, &quot;am&quot;, &quot;are&quot;, &quot;be&quot;, &quot;but&quot;, &quot;is&quot;, &quot;or&quot;])
+
+test(longestword([&quot;a&quot;, &quot;apple&quot;, &quot;pear&quot;, &quot;grape&quot;]) == 5)
+test(longestword([&quot;a&quot;, &quot;am&quot;, &quot;I&quot;, &quot;be&quot;]) == 2)
+test(longestword([&quot;this&quot;,&quot;supercalifragilisticexpialidocious&quot;]) == 34)
+test(longestword([ ]) == 0)</code></pre>
+<p>Save this module so you can use the tools it contains in future programs.</p></li>
+</ol>
+<script type="text/javascript">
+/* PrismJS 1.23.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+css-extras+python&plugins=line-numbers+inline-color */
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(u){var c=/\blang(?:uage)?-([\w-]+)\b/i,n=0,e={},M={manual:u.Prism&&u.Prism.manual,disableWorkerMessageHandler:u.Prism&&u.Prism.disableWorkerMessageHandler,util:{encode:function e(n){return n instanceof W?new W(n.type,e(n.content),n.alias):Array.isArray(n)?n.map(e):n.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).slice(8,-1)},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++n}),e.__id},clone:function t(e,r){var a,n;switch(r=r||{},M.util.type(e)){case"Object":if(n=M.util.objId(e),r[n])return r[n];for(var i in a={},r[n]=a,e)e.hasOwnProperty(i)&&(a[i]=t(e[i],r));return a;case"Array":return n=M.util.objId(e),r[n]?r[n]:(a=[],r[n]=a,e.forEach(function(e,n){a[n]=t(e,r)}),a);default:return e}},getLanguage:function(e){for(;e&&!c.test(e.className);)e=e.parentElement;return e?(e.className.match(c)||[,"none"])[1].toLowerCase():"none"},currentScript:function(){if("undefined"==typeof document)return null;if("currentScript"in document)return document.currentScript;try{throw new Error}catch(e){var n=(/at [^(\r\n]*\((.*):.+:.+\)$/i.exec(e.stack)||[])[1];if(n){var t=document.getElementsByTagName("script");for(var r in t)if(t[r].src==n)return t[r]}return null}},isActive:function(e,n,t){for(var r="no-"+n;e;){var a=e.classList;if(a.contains(n))return!0;if(a.contains(r))return!1;e=e.parentElement}return!!t}},languages:{plain:e,plaintext:e,text:e,txt:e,extend:function(e,n){var t=M.util.clone(M.languages[e]);for(var r in n)t[r]=n[r];return t},insertBefore:function(t,e,n,r){var a=(r=r||M.languages)[t],i={};for(var l in a)if(a.hasOwnProperty(l)){if(l==e)for(var o in n)n.hasOwnProperty(o)&&(i[o]=n[o]);n.hasOwnProperty(l)||(i[l]=a[l])}var s=r[t];return r[t]=i,M.languages.DFS(M.languages,function(e,n){n===s&&e!=t&&(this[e]=i)}),i},DFS:function e(n,t,r,a){a=a||{};var i=M.util.objId;for(var l in n)if(n.hasOwnProperty(l)){t.call(n,l,n[l],r||l);var o=n[l],s=M.util.type(o);"Object"!==s||a[i(o)]?"Array"!==s||a[i(o)]||(a[i(o)]=!0,e(o,t,l,a)):(a[i(o)]=!0,e(o,t,null,a))}}},plugins:{},highlightAll:function(e,n){M.highlightAllUnder(document,e,n)},highlightAllUnder:function(e,n,t){var r={callback:t,container:e,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};M.hooks.run("before-highlightall",r),r.elements=Array.prototype.slice.apply(r.container.querySelectorAll(r.selector)),M.hooks.run("before-all-elements-highlight",r);for(var a,i=0;a=r.elements[i++];)M.highlightElement(a,!0===n,r.callback)},highlightElement:function(e,n,t){var r=M.util.getLanguage(e),a=M.languages[r];e.className=e.className.replace(c,"").replace(/\s+/g," ")+" language-"+r;var i=e.parentElement;i&&"pre"===i.nodeName.toLowerCase()&&(i.className=i.className.replace(c,"").replace(/\s+/g," ")+" language-"+r);var l={element:e,language:r,grammar:a,code:e.textContent};function o(e){l.highlightedCode=e,M.hooks.run("before-insert",l),l.element.innerHTML=l.highlightedCode,M.hooks.run("after-highlight",l),M.hooks.run("complete",l),t&&t.call(l.element)}if(M.hooks.run("before-sanity-check",l),(i=l.element.parentElement)&&"pre"===i.nodeName.toLowerCase()&&!i.hasAttribute("tabindex")&&i.setAttribute("tabindex","0"),!l.code)return M.hooks.run("complete",l),void(t&&t.call(l.element));if(M.hooks.run("before-highlight",l),l.grammar)if(n&&u.Worker){var s=new Worker(M.filename);s.onmessage=function(e){o(e.data)},s.postMessage(JSON.stringify({language:l.language,code:l.code,immediateClose:!0}))}else o(M.highlight(l.code,l.grammar,l.language));else o(M.util.encode(l.code))},highlight:function(e,n,t){var r={code:e,grammar:n,language:t};return M.hooks.run("before-tokenize",r),r.tokens=M.tokenize(r.code,r.grammar),M.hooks.run("after-tokenize",r),W.stringify(M.util.encode(r.tokens),r.language)},tokenize:function(e,n){var t=n.rest;if(t){for(var r in t)n[r]=t[r];delete n.rest}var a=new i;return I(a,a.head,e),function e(n,t,r,a,i,l){for(var o in r)if(r.hasOwnProperty(o)&&r[o]){var s=r[o];s=Array.isArray(s)?s:[s];for(var u=0;u<s.length;++u){if(l&&l.cause==o+","+u)return;var c=s[u],g=c.inside,f=!!c.lookbehind,h=!!c.greedy,d=c.alias;if(h&&!c.pattern.global){var p=c.pattern.toString().match(/[imsuy]*$/)[0];c.pattern=RegExp(c.pattern.source,p+"g")}for(var v=c.pattern||c,m=a.next,y=i;m!==t.tail&&!(l&&y>=l.reach);y+=m.value.length,m=m.next){var b=m.value;if(t.length>n.length)return;if(!(b instanceof W)){var k,x=1;if(h){if(!(k=z(v,y,n,f)))break;var w=k.index,A=k.index+k[0].length,P=y;for(P+=m.value.length;P<=w;)m=m.next,P+=m.value.length;if(P-=m.value.length,y=P,m.value instanceof W)continue;for(var E=m;E!==t.tail&&(P<A||"string"==typeof E.value);E=E.next)x++,P+=E.value.length;x--,b=n.slice(y,P),k.index-=y}else if(!(k=z(v,0,b,f)))continue;var w=k.index,S=k[0],O=b.slice(0,w),L=b.slice(w+S.length),N=y+b.length;l&&N>l.reach&&(l.reach=N);var j=m.prev;O&&(j=I(t,j,O),y+=O.length),q(t,j,x);var C=new W(o,g?M.tokenize(S,g):S,d,S);if(m=I(t,j,C),L&&I(t,m,L),1<x){var _={cause:o+","+u,reach:N};e(n,t,r,m.prev,y,_),l&&_.reach>l.reach&&(l.reach=_.reach)}}}}}}(e,a,n,a.head,0),function(e){var n=[],t=e.head.next;for(;t!==e.tail;)n.push(t.value),t=t.next;return n}(a)},hooks:{all:{},add:function(e,n){var t=M.hooks.all;t[e]=t[e]||[],t[e].push(n)},run:function(e,n){var t=M.hooks.all[e];if(t&&t.length)for(var r,a=0;r=t[a++];)r(n)}},Token:W};function W(e,n,t,r){this.type=e,this.content=n,this.alias=t,this.length=0|(r||"").length}function z(e,n,t,r){e.lastIndex=n;var a=e.exec(t);if(a&&r&&a[1]){var i=a[1].length;a.index+=i,a[0]=a[0].slice(i)}return a}function i(){var e={value:null,prev:null,next:null},n={value:null,prev:e,next:null};e.next=n,this.head=e,this.tail=n,this.length=0}function I(e,n,t){var r=n.next,a={value:t,prev:n,next:r};return n.next=a,r.prev=a,e.length++,a}function q(e,n,t){for(var r=n.next,a=0;a<t&&r!==e.tail;a++)r=r.next;(n.next=r).prev=n,e.length-=a}if(u.Prism=M,W.stringify=function n(e,t){if("string"==typeof e)return e;if(Array.isArray(e)){var r="";return e.forEach(function(e){r+=n(e,t)}),r}var a={type:e.type,content:n(e.content,t),tag:"span",classes:["token",e.type],attributes:{},language:t},i=e.alias;i&&(Array.isArray(i)?Array.prototype.push.apply(a.classes,i):a.classes.push(i)),M.hooks.run("wrap",a);var l="";for(var o in a.attributes)l+=" "+o+'="'+(a.attributes[o]||"").replace(/"/g,"&quot;")+'"';return"<"+a.tag+' class="'+a.classes.join(" ")+'"'+l+">"+a.content+"</"+a.tag+">"},!u.document)return u.addEventListener&&(M.disableWorkerMessageHandler||u.addEventListener("message",function(e){var n=JSON.parse(e.data),t=n.language,r=n.code,a=n.immediateClose;u.postMessage(M.highlight(r,M.languages[t],t)),a&&u.close()},!1)),M;var t=M.util.currentScript();function r(){M.manual||M.highlightAll()}if(t&&(M.filename=t.src,t.hasAttribute("data-manual")&&(M.manual=!0)),!M.manual){var a=document.readyState;"loading"===a||"interactive"===a&&t&&t.defer?document.addEventListener("DOMContentLoaded",r):window.requestAnimationFrame?window.requestAnimationFrame(r):window.setTimeout(r,16)}return M}(_self);"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+Prism.languages.markup={comment:/<!--[\s\S]*?-->/,prolog:/<\?[\s\S]+?\?>/,doctype:{pattern:/<!DOCTYPE(?:[^>"'[\]]|"[^"]*"|'[^']*')+(?:\[(?:[^<"'\]]|"[^"]*"|'[^']*'|<(?!!--)|<!--(?:[^-]|-(?!->))*-->)*\]\s*)?>/i,greedy:!0,inside:{"internal-subset":{pattern:/(\[)[\s\S]+(?=\]>$)/,lookbehind:!0,greedy:!0,inside:null},string:{pattern:/"[^"]*"|'[^']*'/,greedy:!0},punctuation:/^<!|>$|[[\]]/,"doctype-tag":/^DOCTYPE/,name:/[^\s<>'"]+/}},cdata:/<!\[CDATA\[[\s\S]*?]]>/i,tag:{pattern:/<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/,greedy:!0,inside:{tag:{pattern:/^<\/?[^\s>\/]+/,inside:{punctuation:/^<\/?/,namespace:/^[^\s>\/:]+:/}},"special-attr":[],"attr-value":{pattern:/=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+)/,inside:{punctuation:[{pattern:/^=/,alias:"attr-equals"},/"|'/]}},punctuation:/\/?>/,"attr-name":{pattern:/[^\s>\/]+/,inside:{namespace:/^[^\s>\/:]+:/}}}},entity:[{pattern:/&[\da-z]{1,8};/i,alias:"named-entity"},/&#x?[\da-f]{1,8};/i]},Prism.languages.markup.tag.inside["attr-value"].inside.entity=Prism.languages.markup.entity,Prism.languages.markup.doctype.inside["internal-subset"].inside=Prism.languages.markup,Prism.hooks.add("wrap",function(a){"entity"===a.type&&(a.attributes.title=a.content.replace(/&amp;/,"&"))}),Object.defineProperty(Prism.languages.markup.tag,"addInlined",{value:function(a,e){var s={};s["language-"+e]={pattern:/(^<!\[CDATA\[)[\s\S]+?(?=\]\]>$)/i,lookbehind:!0,inside:Prism.languages[e]},s.cdata=/^<!\[CDATA\[|\]\]>$/i;var t={"included-cdata":{pattern:/<!\[CDATA\[[\s\S]*?\]\]>/i,inside:s}};t["language-"+e]={pattern:/[\s\S]+/,inside:Prism.languages[e]};var n={};n[a]={pattern:RegExp("(<__[^>]*>)(?:<!\\[CDATA\\[(?:[^\\]]|\\](?!\\]>))*\\]\\]>|(?!<!\\[CDATA\\[)[^])*?(?=</__>)".replace(/__/g,function(){return a}),"i"),lookbehind:!0,greedy:!0,inside:t},Prism.languages.insertBefore("markup","cdata",n)}}),Object.defineProperty(Prism.languages.markup.tag,"addAttribute",{value:function(a,e){Prism.languages.markup.tag.inside["special-attr"].push({pattern:RegExp("(^|[\"'\\s])(?:"+a+")\\s*=\\s*(?:\"[^\"]*\"|'[^']*'|[^\\s'\">=]+(?=[\\s>]))","i"),lookbehind:!0,inside:{"attr-name":/^[^\s=]+/,"attr-value":{pattern:/=[\s\S]+/,inside:{value:{pattern:/(=\s*(["']|(?!["'])))\S[\s\S]*(?=\2$)/,lookbehind:!0,alias:[e,"language-"+e],inside:Prism.languages[e]},punctuation:[{pattern:/^=/,alias:"attr-equals"},/"|'/]}}}})}}),Prism.languages.html=Prism.languages.markup,Prism.languages.mathml=Prism.languages.markup,Prism.languages.svg=Prism.languages.markup,Prism.languages.xml=Prism.languages.extend("markup",{}),Prism.languages.ssml=Prism.languages.xml,Prism.languages.atom=Prism.languages.xml,Prism.languages.rss=Prism.languages.xml;
+!function(s){var e=/("|')(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/;s.languages.css={comment:/\/\*[\s\S]*?\*\//,atrule:{pattern:/@[\w-](?:[^;{\s]|\s+(?![\s{]))*(?:;|(?=\s*\{))/,inside:{rule:/^@[\w-]+/,"selector-function-argument":{pattern:/(\bselector\s*\(\s*(?![\s)]))(?:[^()\s]|\s+(?![\s)])|\((?:[^()]|\([^()]*\))*\))+(?=\s*\))/,lookbehind:!0,alias:"selector"},keyword:{pattern:/(^|[^\w-])(?:and|not|only|or)(?![\w-])/,lookbehind:!0}}},url:{pattern:RegExp("\\burl\\((?:"+e.source+"|(?:[^\\\\\r\n()\"']|\\\\[^])*)\\)","i"),greedy:!0,inside:{function:/^url/i,punctuation:/^\(|\)$/,string:{pattern:RegExp("^"+e.source+"$"),alias:"url"}}},selector:RegExp("[^{}\\s](?:[^{};\"'\\s]|\\s+(?![\\s{])|"+e.source+")*(?=\\s*\\{)"),string:{pattern:e,greedy:!0},property:/(?!\s)[-_a-z\xA0-\uFFFF](?:(?!\s)[-\w\xA0-\uFFFF])*(?=\s*:)/i,important:/!important\b/i,function:/[-a-z0-9]+(?=\()/i,punctuation:/[(){};:,]/},s.languages.css.atrule.inside.rest=s.languages.css;var t=s.languages.markup;t&&(t.tag.addInlined("style","css"),t.tag.addAttribute("style","css"))}(Prism);
+Prism.languages.clike={comment:[{pattern:/(^|[^\\])\/\*[\s\S]*?(?:\*\/|$)/,lookbehind:!0,greedy:!0},{pattern:/(^|[^\\:])\/\/.*/,lookbehind:!0,greedy:!0}],string:{pattern:/(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,greedy:!0},"class-name":{pattern:/(\b(?:class|interface|extends|implements|trait|instanceof|new)\s+|\bcatch\s+\()[\w.\\]+/i,lookbehind:!0,inside:{punctuation:/[.\\]/}},keyword:/\b(?:if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,boolean:/\b(?:true|false)\b/,function:/\w+(?=\()/,number:/\b0x[\da-f]+\b|(?:\b\d+(?:\.\d*)?|\B\.\d+)(?:e[+-]?\d+)?/i,operator:/[<>]=?|[!=]=?=?|--?|\+\+?|&&?|\|\|?|[?*/~^%]/,punctuation:/[{}[\];(),.:]/};
+Prism.languages.javascript=Prism.languages.extend("clike",{"class-name":[Prism.languages.clike["class-name"],{pattern:/(^|[^$\w\xA0-\uFFFF])(?!\s)[_$A-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\.(?:prototype|constructor))/,lookbehind:!0}],keyword:[{pattern:/((?:^|})\s*)catch\b/,lookbehind:!0},{pattern:/(^|[^.]|\.\.\.\s*)\b(?:as|async(?=\s*(?:function\b|\(|[$\w\xA0-\uFFFF]|$))|await|break|case|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally(?=\s*(?:\{|$))|for|from(?=\s*(?:['"]|$))|function|(?:get|set)(?=\s*(?:[#\[$\w\xA0-\uFFFF]|$))|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)\b/,lookbehind:!0}],function:/#?(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*(?:\.\s*(?:apply|bind|call)\s*)?\()/,number:/\b(?:(?:0[xX](?:[\dA-Fa-f](?:_[\dA-Fa-f])?)+|0[bB](?:[01](?:_[01])?)+|0[oO](?:[0-7](?:_[0-7])?)+)n?|(?:\d(?:_\d)?)+n|NaN|Infinity)\b|(?:\b(?:\d(?:_\d)?)+\.?(?:\d(?:_\d)?)*|\B\.(?:\d(?:_\d)?)+)(?:[Ee][+-]?(?:\d(?:_\d)?)+)?/,operator:/--|\+\+|\*\*=?|=>|&&=?|\|\|=?|[!=]==|<<=?|>>>?=?|[-+*/%&|^!=<>]=?|\.{3}|\?\?=?|\?\.?|[~:]/}),Prism.languages.javascript["class-name"][0].pattern=/(\b(?:class|interface|extends|implements|instanceof|new)\s+)[\w.\\]+/,Prism.languages.insertBefore("javascript","keyword",{regex:{pattern:/((?:^|[^$\w\xA0-\uFFFF."'\])\s]|\b(?:return|yield))\s*)\/(?:\[(?:[^\]\\\r\n]|\\.)*]|\\.|[^/\\\[\r\n])+\/[gimyus]{0,6}(?=(?:\s|\/\*(?:[^*]|\*(?!\/))*\*\/)*(?:$|[\r\n,.;:})\]]|\/\/))/,lookbehind:!0,greedy:!0,inside:{"regex-source":{pattern:/^(\/)[\s\S]+(?=\/[a-z]*$)/,lookbehind:!0,alias:"language-regex",inside:Prism.languages.regex},"regex-flags":/[a-z]+$/,"regex-delimiter":/^\/|\/$/}},"function-variable":{pattern:/#?(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*[=:]\s*(?:async\s*)?(?:\bfunction\b|(?:\((?:[^()]|\([^()]*\))*\)|(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*)\s*=>))/,alias:"function"},parameter:[{pattern:/(function(?:\s+(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*)?\s*\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\))/,lookbehind:!0,inside:Prism.languages.javascript},{pattern:/(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*=>)/i,inside:Prism.languages.javascript},{pattern:/(\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\)\s*=>)/,lookbehind:!0,inside:Prism.languages.javascript},{pattern:/((?:\b|\s|^)(?!(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)(?![$\w\xA0-\uFFFF]))(?:(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*\s*)\(\s*|\]\s*\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\)\s*\{)/,lookbehind:!0,inside:Prism.languages.javascript}],constant:/\b[A-Z](?:[A-Z_]|\dx?)*\b/}),Prism.languages.insertBefore("javascript","string",{hashbang:{pattern:/^#!.*/,greedy:!0,alias:"comment"},"template-string":{pattern:/`(?:\\[\s\S]|\${(?:[^{}]|{(?:[^{}]|{[^}]*})*})+}|(?!\${)[^\\`])*`/,greedy:!0,inside:{"template-punctuation":{pattern:/^`|`$/,alias:"string"},interpolation:{pattern:/((?:^|[^\\])(?:\\{2})*)\${(?:[^{}]|{(?:[^{}]|{[^}]*})*})+}/,lookbehind:!0,inside:{"interpolation-punctuation":{pattern:/^\${|}$/,alias:"punctuation"},rest:Prism.languages.javascript}},string:/[\s\S]+/}}}),Prism.languages.markup&&(Prism.languages.markup.tag.addInlined("script","javascript"),Prism.languages.markup.tag.addAttribute("on(?:abort|blur|change|click|composition(?:end|start|update)|dblclick|error|focus(?:in|out)?|key(?:down|up)|load|mouse(?:down|enter|leave|move|out|over|up)|reset|resize|scroll|select|slotchange|submit|unload|wheel)","javascript")),Prism.languages.js=Prism.languages.javascript;
+!function(e){var a,n=/("|')(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/;e.languages.css.selector={pattern:e.languages.css.selector,inside:a={"pseudo-element":/:(?:after|before|first-letter|first-line|selection)|::[-\w]+/,"pseudo-class":/:[-\w]+/,class:/\.[-\w]+/,id:/#[-\w]+/,attribute:{pattern:RegExp("\\[(?:[^[\\]\"']|"+n.source+")*\\]"),greedy:!0,inside:{punctuation:/^\[|\]$/,"case-sensitivity":{pattern:/(\s)[si]$/i,lookbehind:!0,alias:"keyword"},namespace:{pattern:/^(\s*)(?:(?!\s)[-*\w\xA0-\uFFFF])*\|(?!=)/,lookbehind:!0,inside:{punctuation:/\|$/}},"attr-name":{pattern:/^(\s*)(?:(?!\s)[-\w\xA0-\uFFFF])+/,lookbehind:!0},"attr-value":[n,{pattern:/(=\s*)(?:(?!\s)[-\w\xA0-\uFFFF])+(?=\s*$)/,lookbehind:!0}],operator:/[|~*^$]?=/}},"n-th":[{pattern:/(\(\s*)[+-]?\d*[\dn](?:\s*[+-]\s*\d+)?(?=\s*\))/,lookbehind:!0,inside:{number:/[\dn]+/,operator:/[+-]/}},{pattern:/(\(\s*)(?:even|odd)(?=\s*\))/i,lookbehind:!0}],combinator:/>|\+|~|\|\|/,punctuation:/[(),]/}},e.languages.css.atrule.inside["selector-function-argument"].inside=a,e.languages.insertBefore("css","property",{variable:{pattern:/(^|[^-\w\xA0-\uFFFF])--(?!\s)[-_a-z\xA0-\uFFFF](?:(?!\s)[-\w\xA0-\uFFFF])*/i,lookbehind:!0}});var r={pattern:/(\b\d+)(?:%|[a-z]+\b)/,lookbehind:!0},i={pattern:/(^|[^\w.-])-?(?:\d+(?:\.\d+)?|\.\d+)/,lookbehind:!0};e.languages.insertBefore("css","function",{operator:{pattern:/(\s)[+\-*\/](?=\s)/,lookbehind:!0},hexcode:{pattern:/\B#(?:[\da-f]{1,2}){3,4}\b/i,alias:"color"},color:[/\b(?:AliceBlue|AntiqueWhite|Aqua|Aquamarine|Azure|Beige|Bisque|Black|BlanchedAlmond|Blue|BlueViolet|Brown|BurlyWood|CadetBlue|Chartreuse|Chocolate|Coral|CornflowerBlue|Cornsilk|Crimson|Cyan|DarkBlue|DarkCyan|DarkGoldenRod|DarkGr[ae]y|DarkGreen|DarkKhaki|DarkMagenta|DarkOliveGreen|DarkOrange|DarkOrchid|DarkRed|DarkSalmon|DarkSeaGreen|DarkSlateBlue|DarkSlateGr[ae]y|DarkTurquoise|DarkViolet|DeepPink|DeepSkyBlue|DimGr[ae]y|DodgerBlue|FireBrick|FloralWhite|ForestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|IndianRed|Indigo|Ivory|Khaki|Lavender|LavenderBlush|LawnGreen|LemonChiffon|LightBlue|LightCoral|LightCyan|LightGoldenRodYellow|LightGr[ae]y|LightGreen|LightPink|LightSalmon|LightSeaGreen|LightSkyBlue|LightSlateGr[ae]y|LightSteelBlue|LightYellow|Lime|LimeGreen|Linen|Magenta|Maroon|MediumAquaMarine|MediumBlue|MediumOrchid|MediumPurple|MediumSeaGreen|MediumSlateBlue|MediumSpringGreen|MediumTurquoise|MediumVioletRed|MidnightBlue|MintCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGoldenRod|PaleGreen|PaleTurquoise|PaleVioletRed|PapayaWhip|PeachPuff|Peru|Pink|Plum|PowderBlue|Purple|Red|RosyBrown|RoyalBlue|SaddleBrown|Salmon|SandyBrown|SeaGreen|SeaShell|Sienna|Silver|SkyBlue|SlateBlue|SlateGr[ae]y|Snow|SpringGreen|SteelBlue|Tan|Teal|Thistle|Tomato|Transparent|Turquoise|Violet|Wheat|White|WhiteSmoke|Yellow|YellowGreen)\b/i,{pattern:/\b(?:rgb|hsl)\(\s*\d{1,3}\s*,\s*\d{1,3}%?\s*,\s*\d{1,3}%?\s*\)\B|\b(?:rgb|hsl)a\(\s*\d{1,3}\s*,\s*\d{1,3}%?\s*,\s*\d{1,3}%?\s*,\s*(?:0|0?\.\d+|1)\s*\)\B/i,inside:{unit:r,number:i,function:/[\w-]+(?=\()/,punctuation:/[(),]/}}],entity:/\\[\da-f]{1,8}/i,unit:r,number:i})}(Prism);
+Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-interpolation":{pattern:/(?:f|rf|fr)(?:("""|''')[\s\S]*?\1|("|')(?:\\.|(?!\2)[^\\\r\n])*\2)/i,greedy:!0,inside:{interpolation:{pattern:/((?:^|[^{])(?:{{)*){(?!{)(?:[^{}]|{(?!{)(?:[^{}]|{(?!{)(?:[^{}])+})+})+}/,lookbehind:!0,inside:{"format-spec":{pattern:/(:)[^:(){}]+(?=}$)/,lookbehind:!0},"conversion-option":{pattern:/![sra](?=[:}]$)/,alias:"punctuation"},rest:null}},string:/[\s\S]+/}},"triple-quoted-string":{pattern:/(?:[rub]|rb|br)?("""|''')[\s\S]*?\1/i,greedy:!0,alias:"string"},string:{pattern:/(?:[rub]|rb|br)?("|')(?:\\.|(?!\1)[^\\\r\n])*\1/i,greedy:!0},function:{pattern:/((?:^|\s)def[ \t]+)[a-zA-Z_]\w*(?=\s*\()/g,lookbehind:!0},"class-name":{pattern:/(\bclass\s+)\w+/i,lookbehind:!0},decorator:{pattern:/(^\s*)@\w+(?:\.\w+)*/im,lookbehind:!0,alias:["annotation","punctuation"],inside:{punctuation:/\./}},keyword:/\b(?:and|as|assert|async|await|break|class|continue|def|del|elif|else|except|exec|finally|for|from|global|if|import|in|is|lambda|nonlocal|not|or|pass|print|raise|return|try|while|with|yield)\b/,builtin:/\b(?:__import__|abs|all|any|apply|ascii|basestring|bin|bool|buffer|bytearray|bytes|callable|chr|classmethod|cmp|coerce|compile|complex|delattr|dict|dir|divmod|enumerate|eval|execfile|file|filter|float|format|frozenset|getattr|globals|hasattr|hash|help|hex|id|input|int|intern|isinstance|issubclass|iter|len|list|locals|long|map|max|memoryview|min|next|object|oct|open|ord|pow|property|range|raw_input|reduce|reload|repr|reversed|round|set|setattr|slice|sorted|staticmethod|str|sum|super|tuple|type|unichr|unicode|vars|xrange|zip)\b/,boolean:/\b(?:True|False|None)\b/,number:/(?:\b(?=\d)|\B(?=\.))(?:0[bo])?(?:(?:\d|0x[\da-f])[\da-f]*(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?j?\b/i,operator:/[-+%=]=?|!=|\*\*?=?|\/\/?=?|<[<=>]?|>[=>]?|[&|^~]/,punctuation:/[{}[\];(),.:]/},Prism.languages.python["string-interpolation"].inside.interpolation.inside.rest=Prism.languages.python,Prism.languages.py=Prism.languages.python;
+!function(){if("undefined"!=typeof Prism&&"undefined"!=typeof document){var o="line-numbers",a=/\n(?!$)/g,e=Prism.plugins.lineNumbers={getLine:function(e,n){if("PRE"===e.tagName&&e.classList.contains(o)){var t=e.querySelector(".line-numbers-rows");if(t){var i=parseInt(e.getAttribute("data-start"),10)||1,r=i+(t.children.length-1);n<i&&(n=i),r<n&&(n=r);var s=n-i;return t.children[s]}}},resize:function(e){u([e])},assumeViewportIndependence:!0},n=void 0;window.addEventListener("resize",function(){e.assumeViewportIndependence&&n===window.innerWidth||(n=window.innerWidth,u(Array.prototype.slice.call(document.querySelectorAll("pre."+o))))}),Prism.hooks.add("complete",function(e){if(e.code){var n=e.element,t=n.parentNode;if(t&&/pre/i.test(t.nodeName)&&!n.querySelector(".line-numbers-rows")&&Prism.util.isActive(n,o)){n.classList.remove(o),t.classList.add(o);var i,r=e.code.match(a),s=r?r.length+1:1,l=new Array(s+1).join("<span></span>");(i=document.createElement("span")).setAttribute("aria-hidden","true"),i.className="line-numbers-rows",i.innerHTML=l,t.hasAttribute("data-start")&&(t.style.counterReset="linenumber "+(parseInt(t.getAttribute("data-start"),10)-1)),e.element.appendChild(i),u([t]),Prism.hooks.run("line-numbers",e)}}}),Prism.hooks.add("line-numbers",function(e){e.plugins=e.plugins||{},e.plugins.lineNumbers=!0})}function u(e){if(0!=(e=e.filter(function(e){var n=function(e){return e?window.getComputedStyle?getComputedStyle(e):e.currentStyle||null:null}(e)["white-space"];return"pre-wrap"===n||"pre-line"===n})).length){var n=e.map(function(e){var n=e.querySelector("code"),t=e.querySelector(".line-numbers-rows");if(n&&t){var i=e.querySelector(".line-numbers-sizer"),r=n.textContent.split(a);i||((i=document.createElement("span")).className="line-numbers-sizer",n.appendChild(i)),i.innerHTML="0",i.style.display="block";var s=i.getBoundingClientRect().height;return i.innerHTML="",{element:e,lines:r,lineHeights:[],oneLinerHeight:s,sizer:i}}}).filter(Boolean);n.forEach(function(e){var i=e.sizer,n=e.lines,r=e.lineHeights,s=e.oneLinerHeight;r[n.length-1]=void 0,n.forEach(function(e,n){if(e&&1<e.length){var t=i.appendChild(document.createElement("span"));t.style.display="block",t.textContent=e}else r[n]=s})}),n.forEach(function(e){for(var n=e.sizer,t=e.lineHeights,i=0,r=0;r<t.length;r++)void 0===t[r]&&(t[r]=n.children[i++].getBoundingClientRect().height)}),n.forEach(function(e){var n=e.sizer,t=e.element.querySelector(".line-numbers-rows");n.style.display="none",n.innerHTML="",e.lineHeights.forEach(function(e,n){t.children[n].style.height=e+"px"})})}}}();
+!function(){if("undefined"!=typeof Prism&&"undefined"!=typeof document){var a=/<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/g,c=/^#?((?:[\da-f]){3,4}|(?:[\da-f]{2}){3,4})$/i,l=[function(n){var r=c.exec(n);if(r){for(var o=6<=(n=r[1]).length?2:1,s=n.length/o,e=1==o?1/15:1/255,t=[],i=0;i<s;i++){var a=parseInt(n.substr(i*o,o),16);t.push(a*e)}return 3==s&&t.push(1),"rgba("+t.slice(0,3).map(function(n){return String(Math.round(255*n))}).join(",")+","+String(Number(t[3].toFixed(3)))+")"}},function(n){var r=(new Option).style;return r.color=n,r.color?n:void 0}];Prism.hooks.add("wrap",function(n){if("color"===n.type||0<=n.classes.indexOf("color")){for(var r,o=n.content,s=o.split(a).join(""),e=0,t=l.length;e<t&&!r;e++)r=l[e](s);if(!r)return;var i='<span class="inline-color-wrapper"><span class="inline-color" style="background-color:'+r+';"></span></span>';n.content=i+o}})}}();
+
+</script>
+
+</body>
+</html>

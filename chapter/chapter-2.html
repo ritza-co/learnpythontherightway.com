@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>book</title>
+    <meta name="description" content="learn python the right way">
+
+    <style type="text/css">
+        figure {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 90%;
+            text-align: center;
+            font-size: 80%;
+        }
+
+        img {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+	</style>
+<style type="text/css">
+	:root{--background-body:#fff;--background:#efefef;--background-alt:#f7f7f7;--selection:#9e9e9e;--text-main:#363636;--text-bright:#000;--text-muted:#70777f;--links:#0076d1;--focus:rgba(0,150,191,0.67);--border:#dbdbdb;--code:#000;--animation-duration:0.1s;--button-hover:#ddd;--scrollbar-thumb:#d5d5d5;--scrollbar-thumb-hover:#c4c4c4;--form-placeholder:#949494;--form-text:#000;--variable:#39a33c;--highlight:#ff0;--select-arrow:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23161f27'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E")}@media (prefers-color-scheme:dark){:root{--background-body:#202b38;--background:#161f27;--background-alt:#1a242f;--selection:#1c76c5;--text-main:#dbdbdb;--text-bright:#fff;--text-muted:#a9b1ba;--links:#41adff;--focus:rgba(0,150,191,0.67);--border:#526980;--code:#ffbe85;--animation-duration:0.1s;--button-hover:#324759;--scrollbar-thumb:var(--button-hover);--scrollbar-thumb-hover:#141414;--form-placeholder:#a9a9a9;--form-text:#fff;--variable:#d941e2;--highlight:#efdb43;--select-arrow:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23efefef'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E")}}html{scrollbar-color:#d5d5d5 #fff;scrollbar-color:var(--scrollbar-thumb) var(--background-body);scrollbar-width:thin}@media (prefers-color-scheme:dark){html{scrollbar-color:#324759 #202b38;scrollbar-color:var(--scrollbar-thumb) var(--background-body)}}body{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Segoe UI Emoji,Apple Color Emoji,Noto Color Emoji,sans-serif;line-height:1.4;max-width:800px;margin:20px auto;padding:0 10px;word-wrap:break-word;color:#363636;color:var(--text-main);background:#fff;background:var(--background-body);text-rendering:optimizeLegibility}@media (prefers-color-scheme:dark){body{background:#202b38;background:var(--background-body);color:#dbdbdb;color:var(--text-main)}}button{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}@media (prefers-color-scheme:dark){button{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}}input{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}@media (prefers-color-scheme:dark){input{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}}textarea{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}@media (prefers-color-scheme:dark){textarea{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}}h1{font-size:2.2em;margin-top:0}h1,h2,h3,h4,h5,h6{margin-bottom:12px;margin-top:24px}h1{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h1{color:#fff;color:var(--text-bright)}}h2{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h2{color:#fff;color:var(--text-bright)}}h3{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h3{color:#fff;color:var(--text-bright)}}h4{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h4{color:#fff;color:var(--text-bright)}}h5{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h5{color:#fff;color:var(--text-bright)}}h6{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h6{color:#fff;color:var(--text-bright)}}strong{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){strong{color:#fff;color:var(--text-bright)}}b,h1,h2,h3,h4,h5,h6,strong,th{font-weight:600}q:after,q:before{content:none}blockquote{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus);margin:1.5em 0;padding:.5em 1em;font-style:italic}@media (prefers-color-scheme:dark){blockquote{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus)}}q{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus);margin:1.5em 0;padding:.5em 1em;font-style:italic}@media (prefers-color-scheme:dark){q{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus)}}blockquote>footer{font-style:normal;border:0}address,blockquote cite{font-style:normal}a[href^=mailto\:]:before{content:"📧 "}a[href^=tel\:]:before{content:"📞 "}a[href^=sms\:]:before{content:"💬 "}mark{background-color:#ff0;background-color:var(--highlight);border-radius:2px;padding:0 2px;color:#000}@media (prefers-color-scheme:dark){mark{background-color:#efdb43;background-color:var(--highlight)}}button,input[type=button],input[type=checkbox],input[type=radio],input[type=range],input[type=submit],select{cursor:pointer}input:not([type=checkbox]):not([type=radio]),select{display:block}input{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){input{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}button{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){button{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}textarea{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){textarea{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}select{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){select{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}input[type=checkbox],input[type=radio]{height:1em;width:1em}input[type=radio]{border-radius:100%}input{vertical-align:top}label{vertical-align:middle;margin-bottom:4px;display:inline-block}button,input:not([type=checkbox]):not([type=radio]),input[type=range],select,textarea{-webkit-appearance:none}textarea{display:block;margin-right:0;box-sizing:border-box;resize:vertical}textarea:not([cols]){width:100%}textarea:not([rows]){min-height:40px;height:140px}select{background:#efefef url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23161f27'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E") calc(100% - 12px) 50%/12px no-repeat;background:var(--background) var(--select-arrow) calc(100% - 12px) 50%/12px no-repeat;padding-right:35px}@media (prefers-color-scheme:dark){select{background:#161f27 url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23efefef'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E") calc(100% - 12px) 50%/12px no-repeat;background:var(--background) var(--select-arrow) calc(100% - 12px) 50%/12px no-repeat}}select::-ms-expand{display:none}select[multiple]{padding-right:10px;background-image:none;overflow-y:auto}button,input[type=button],input[type=submit]{padding-right:30px;padding-left:30px}button:hover{background:#ddd;background:var(--button-hover)}@media (prefers-color-scheme:dark){button:hover{background:#324759;background:var(--button-hover)}}input[type=submit]:hover{background:#ddd;background:var(--button-hover)}@media (prefers-color-scheme:dark){input[type=submit]:hover{background:#324759;background:var(--button-hover)}}input[type=button]:hover{background:#ddd;background:var(--button-hover)}@media (prefers-color-scheme:dark){input[type=button]:hover{background:#324759;background:var(--button-hover)}}input:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){input:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}select:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){select:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}button:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){button:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}textarea:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){textarea:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}button:active,input[type=button]:active,input[type=checkbox]:active,input[type=radio]:active,input[type=range]:active,input[type=submit]:active{transform:translateY(2px)}button:disabled,input:disabled,select:disabled,textarea:disabled{cursor:not-allowed;opacity:.5}::-moz-placeholder{color:#949494;color:var(--form-placeholder)}:-ms-input-placeholder{color:#949494;color:var(--form-placeholder)}::-ms-input-placeholder{color:#949494;color:var(--form-placeholder)}::placeholder{color:#949494;color:var(--form-placeholder)}@media (prefers-color-scheme:dark){::-moz-placeholder{color:#a9a9a9;color:var(--form-placeholder)}:-ms-input-placeholder{color:#a9a9a9;color:var(--form-placeholder)}::-ms-input-placeholder{color:#a9a9a9;color:var(--form-placeholder)}::placeholder{color:#a9a9a9;color:var(--form-placeholder)}}fieldset{border:1px solid rgba(0,150,191,.67);border:1px solid var(--focus);border-radius:6px;margin:0 0 12px;padding:10px}@media (prefers-color-scheme:dark){fieldset{border:1px solid rgba(0,150,191,.67);border:1px solid var(--focus)}}legend{font-size:.9em;font-weight:600}input[type=range]{margin:10px 0;padding:10px 0;background:transparent}input[type=range]:focus{outline:none}input[type=range]::-webkit-slider-runnable-track{width:100%;height:9.5px;-webkit-transition:.2s;transition:.2s;background:#efefef;background:var(--background);border-radius:3px}@media (prefers-color-scheme:dark){input[type=range]::-webkit-slider-runnable-track{background:#161f27;background:var(--background)}}input[type=range]::-webkit-slider-thumb{box-shadow:0 1px 1px #000,0 0 1px #0d0d0d;height:20px;width:20px;border-radius:50%;background:#dbdbdb;background:var(--border);-webkit-appearance:none;margin-top:-7px}@media (prefers-color-scheme:dark){input[type=range]::-webkit-slider-thumb{background:#526980;background:var(--border)}}input[type=range]:focus::-webkit-slider-runnable-track{background:#efefef;background:var(--background)}@media (prefers-color-scheme:dark){input[type=range]:focus::-webkit-slider-runnable-track{background:#161f27;background:var(--background)}}input[type=range]::-moz-range-track{width:100%;height:9.5px;-moz-transition:.2s;transition:.2s;background:#efefef;background:var(--background);border-radius:3px}@media (prefers-color-scheme:dark){input[type=range]::-moz-range-track{background:#161f27;background:var(--background)}}input[type=range]::-moz-range-thumb{box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d;height:20px;width:20px;border-radius:50%;background:#dbdbdb;background:var(--border)}@media (prefers-color-scheme:dark){input[type=range]::-moz-range-thumb{background:#526980;background:var(--border)}}input[type=range]::-ms-track{width:100%;height:9.5px;background:transparent;border-color:transparent;border-width:16px 0;color:transparent}input[type=range]::-ms-fill-lower{background:#efefef;background:var(--background);border:.2px solid #010101;border-radius:3px;box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d}@media (prefers-color-scheme:dark){input[type=range]::-ms-fill-lower{background:#161f27;background:var(--background)}}input[type=range]::-ms-fill-upper{background:#efefef;background:var(--background);border:.2px solid #010101;border-radius:3px;box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d}@media (prefers-color-scheme:dark){input[type=range]::-ms-fill-upper{background:#161f27;background:var(--background)}}input[type=range]::-ms-thumb{box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d;border:1px solid #000;height:20px;width:20px;border-radius:50%;background:#dbdbdb;background:var(--border)}@media (prefers-color-scheme:dark){input[type=range]::-ms-thumb{background:#526980;background:var(--border)}}input[type=range]:focus::-ms-fill-lower{background:#efefef;background:var(--background)}@media (prefers-color-scheme:dark){input[type=range]:focus::-ms-fill-lower{background:#161f27;background:var(--background)}}input[type=range]:focus::-ms-fill-upper{background:#efefef;background:var(--background)}@media (prefers-color-scheme:dark){input[type=range]:focus::-ms-fill-upper{background:#161f27;background:var(--background)}}a{text-decoration:none;color:#0076d1;color:var(--links)}@media (prefers-color-scheme:dark){a{color:#41adff;color:var(--links)}}a:hover{text-decoration:underline}code{background:#efefef;background:var(--background);color:#000;color:var(--code);padding:2.5px 5px;border-radius:6px;font-size:1em}@media (prefers-color-scheme:dark){code{color:#ffbe85;color:var(--code);background:#161f27;background:var(--background)}}samp{background:#efefef;background:var(--background);color:#000;color:var(--code);padding:2.5px 5px;border-radius:6px;font-size:1em}@media (prefers-color-scheme:dark){samp{color:#ffbe85;color:var(--code);background:#161f27;background:var(--background)}}time{background:#efefef;background:var(--background);color:#000;color:var(--code);padding:2.5px 5px;border-radius:6px;font-size:1em}@media (prefers-color-scheme:dark){time{color:#ffbe85;color:var(--code);background:#161f27;background:var(--background)}}pre>code{padding:10px;display:block;overflow-x:auto}var{color:#39a33c;color:var(--variable);font-style:normal;font-family:monospace}@media (prefers-color-scheme:dark){var{color:#d941e2;color:var(--variable)}}kbd{background:#efefef;background:var(--background);border:1px solid #dbdbdb;border:1px solid var(--border);border-radius:2px;color:#363636;color:var(--text-main);padding:2px 4px}@media (prefers-color-scheme:dark){kbd{color:#dbdbdb;color:var(--text-main);border:1px solid #526980;border:1px solid var(--border);background:#161f27;background:var(--background)}}img,video{max-width:100%;height:auto}hr{border:none;border-top:1px solid #dbdbdb;border-top:1px solid var(--border)}@media (prefers-color-scheme:dark){hr{border-top:1px solid #526980;border-top:1px solid var(--border)}}table{border-collapse:collapse;margin-bottom:10px;width:100%;table-layout:fixed}table caption,td,th{text-align:left}td,th{padding:6px;vertical-align:top;word-wrap:break-word}thead{border-bottom:1px solid #dbdbdb;border-bottom:1px solid var(--border)}@media (prefers-color-scheme:dark){thead{border-bottom:1px solid #526980;border-bottom:1px solid var(--border)}}tfoot{border-top:1px solid #dbdbdb;border-top:1px solid var(--border)}@media (prefers-color-scheme:dark){tfoot{border-top:1px solid #526980;border-top:1px solid var(--border)}}tbody tr:nth-child(2n){background-color:#f7f7f7;background-color:var(--background-alt)}@media (prefers-color-scheme:dark){tbody tr:nth-child(2n){background-color:#1a242f;background-color:var(--background-alt)}}::-webkit-scrollbar{height:10px;width:10px}::-webkit-scrollbar-track{background:#efefef;background:var(--background);border-radius:6px}@media (prefers-color-scheme:dark){::-webkit-scrollbar-track{background:#161f27;background:var(--background)}}::-webkit-scrollbar-thumb{background:#d5d5d5;background:var(--scrollbar-thumb);border-radius:6px}@media (prefers-color-scheme:dark){::-webkit-scrollbar-thumb{background:#324759;background:var(--scrollbar-thumb)}}::-webkit-scrollbar-thumb:hover{background:#c4c4c4;background:var(--scrollbar-thumb-hover)}@media (prefers-color-scheme:dark){::-webkit-scrollbar-thumb:hover{background:#141414;background:var(--scrollbar-thumb-hover)}}::-moz-selection{background-color:#9e9e9e;background-color:var(--selection);color:#000;color:var(--text-bright)}::selection{background-color:#9e9e9e;background-color:var(--selection);color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){::-moz-selection{color:#fff;color:var(--text-bright)}::selection{color:#fff;color:var(--text-bright)}}@media (prefers-color-scheme:dark){::-moz-selection{background-color:#1c76c5;background-color:var(--selection)}::selection{background-color:#1c76c5;background-color:var(--selection)}}details{display:flex;flex-direction:column;align-items:flex-start;background-color:#f7f7f7;background-color:var(--background-alt);padding:10px 10px 0;margin:1em 0;border-radius:6px;overflow:hidden}@media (prefers-color-scheme:dark){details{background-color:#1a242f;background-color:var(--background-alt)}}details[open]{padding:10px}details>:last-child{margin-bottom:0}details[open] summary{margin-bottom:10px}summary{display:list-item;background-color:#efefef;background-color:var(--background);padding:10px;margin:-10px -10px 0;cursor:pointer;outline:none}@media (prefers-color-scheme:dark){summary{background-color:#161f27;background-color:var(--background)}}summary:focus,summary:hover{text-decoration:underline}details>:not(summary){margin-top:0}summary::-webkit-details-marker{color:#363636;color:var(--text-main)}@media (prefers-color-scheme:dark){summary::-webkit-details-marker{color:#dbdbdb;color:var(--text-main)}}footer{border-top:1px solid #dbdbdb;border-top:1px solid var(--border);padding-top:10px;color:#70777f;color:var(--text-muted)}@media (prefers-color-scheme:dark){footer{color:#a9b1ba;color:var(--text-muted);border-top:1px solid #526980;border-top:1px solid var(--border)}}body>footer{margin-top:40px}@media print{body,button,code,details,input,pre,summary,textarea{background-color:#fff}button,input,textarea{border:1px solid #000}body,button,code,footer,h1,h2,h3,h4,h5,h6,input,pre,strong,summary,textarea{color:#000}summary::marker{color:#000}summary::-webkit-details-marker{color:#000}tbody tr:nth-child(2n){background-color:#f2f2f2}a{color:#00f;text-decoration:underline}}
+/*# sourceMappingURL=water.min.css.map */
+	</style>
+
+    <style type="text/css">
+    code[class*="language-"],pre[class*="language-"]{border-radius: 7px;color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*="language-"]::-moz-selection,pre[class*="language-"] ::-moz-selection,code[class*="language-"]::-moz-selection,code[class*="language-"] ::-moz-selection{text-shadow:none;background:#b3d4fc}pre[class*="language-"]::selection,pre[class*="language-"] ::selection,code[class*="language-"]::selection,code[class*="language-"] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*="language-"],pre[class*="language-"]{text-shadow:none}}pre[class*="language-"]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*="language-"],pre[class*="language-"]{background:#f5f2f0}:not(pre)>code[class*="language-"]{padding:.1em;border-radius:.3em;white-space:normal}.token.comment,.token.prolog,.token.doctype,.token.cdata{color:slategray}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.property,.token.tag,.token.boolean,.token.number,.token.constant,.token.symbol,.token.deleted{color:#905}.token.selector,.token.attr-name,.token.string,.token.char,.token.builtin,.token.inserted{color:#690}.token.operator,.token.entity,.token.url,.language-css .token.string,.style .token.string{color:#9a6e3a}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.function,.token.class-name{color:#DD4A68}.token.regex,.token.important,.token.variable{color:#e90}.token.important,.token.bold{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}pre[class*="language-"].line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}pre[class*="language-"].line-numbers>code{position:relative;white-space:inherit}.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:0;font-size:100%;left:-3.8em;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.line-numbers-rows>span{display:block;counter-increment:linenumber}.line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}span.inline-color-wrapper{background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyIDIiPjxwYXRoIGZpbGw9ImdyYXkiIGQ9Ik0wIDBoMnYySDB6Ii8+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0wIDBoMXYxSDB6TTEgMWgxdjFIMXoiLz48L3N2Zz4=);background-position:center;background-size:110%;display:inline-block;height:1.333ch;width:1.333ch;margin:0 .333ch;box-sizing:border-box;border:1px solid #fff;outline:1px solid rgba(0,0,0,.5);overflow:hidden}span.inline-color{display:block;height:120%;width:120%}
+    </style>
+    <style type="text/css">
+    @import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap);:root{--background-body:#fff;--background:#eee;--background-alt:#1a242f;--selection:#9abfdf;--text-main:#1a242f;--text-bright:#1e426f;--text-muted:#a9b1ba;--links:#2496ee;--focus:rgba(0,150,191,.67);--border:#526980;--code:#d20577;--animation-duration:0.1s;--button-hover:#324759;--scrollbar-thumb:var(--button-hover);--scrollbar-thumb-hover:#141414;--form-placeholder:#a9a9a9;--form-text:#fff;--variable:#d941e2;--highlight:#efdb43;--select-arrow:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23efefef'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E")}body{font-family:"IBM Plex Sans",sans-serif;font-size:16px;line-height: 1.6;}
+    </style>
+ 
+
+</head>
+
+<body>
+    <header><h1></h1>
+
+        <nav>
+        </nav>
+
+    </header><h1>Chapter 2: Variables, expressions and statements</h1>
+<h2>2.1. Values and data types</h2>
+<p>A <strong>value</strong> is one of the fundamental things — like a letter or a number — that a program manipulates. The values we have seen so far are <code>4</code> (the result when we added <code>2 + 2</code>), and <code>"Hello, World!"</code>.</p>
+<p>These values are classified into different <strong>classes</strong>, or <strong>data types</strong>: <code>4</code> is an <em>integer</em>, and <code>"Hello, World!"</code> is a <em>string</em>, so-called because it contains a string of letters. You (and the interpreter) can identify strings because they are enclosed in quotation marks.</p>
+<p>If you are not sure what class a value falls into, Python has a function called <strong>type</strong> which can tell you.</p>
+<pre><code class="language-python">&gt;&gt;&gt; type(&quot;Hello, World!&quot;)
+&lt;class &#39;str&#39;&gt;
+&gt;&gt;&gt; type(17)
+&lt;class &#39;int&#39;&gt;</code></pre>
+<p>Not surprisingly, strings belong to the class <strong>str</strong> and integers belong to the class <strong>int</strong>. Less obviously, numbers with a decimal point belong to a class called <strong>float</strong>, because these numbers are represented in a format called <em>floating-point</em>. At this stage, you can treat the words <em>class</em> and <em>type</em> interchangeably. We’ll come back to a deeper understanding of what a class is in later chapters.</p>
+<pre><code class="language-python">&gt;&gt;&gt; type(3.2)
+&lt;class &#39;float&#39;&gt;</code></pre>
+<p>What about values like <code>"17"</code> and <code>"3.2"</code>? They look like numbers, but they are in quotation marks like strings.</p>
+<pre><code class="language-python">&gt;&gt;&gt; type(&quot;17&quot;)
+&lt;class &#39;str&#39;&gt;
+&gt;&gt;&gt; type(&quot;3.2&quot;)
+&lt;class &#39;str&#39;&gt;</code></pre>
+<p>They’re strings!</p>
+<p>Strings in Python can be enclosed in either single quotes (’) or double quotes (“), or three of each (’’’ or”"")</p>
+<pre><code class="language-python">&gt;&gt;&gt; type(&#39;This is a string.&#39;)
+&lt;class &#39;str&#39;&gt;
+&gt;&gt;&gt; type(&quot;And so is this.&quot;)
+&lt;class &#39;str&#39;&gt;
+&gt;&gt;&gt; type(&quot;&quot;&quot;and this.&quot;&quot;&quot;)
+&lt;class &#39;str&#39;&gt;
+&gt;&gt;&gt; type(&#39;&#39;&#39;and even this...&#39;&#39;&#39;)
+&lt;class &#39;str&#39;&gt;</code></pre>
+<p>Double quoted strings can contain single quotes inside them, as in <code>"Bruce's beard"</code>, and single quoted strings can have double quotes inside them, as in <code>'The knights who say "Ni!"'</code>.</p>
+<p>Strings enclosed with three occurrences of either quote symbol are called triple quoted strings. They can contain either single or double quotes:</p>
+<pre><code class="language-python">&gt;&gt;&gt; print(&#39;&#39;&#39;&quot;Oh no&quot;, she exclaimed, &quot;Ben&#39;s bike is broken!&quot;&#39;&#39;&#39;)
+&quot;Oh no&quot;, she exclaimed, &quot;Ben&#39;s bike is broken!&quot;
+&gt;&gt;&gt;</code></pre>
+<p>Triple quoted strings can even span multiple lines:</p>
+<pre><code class="language-python">&gt;&gt;&gt; message = &quot;&quot;&quot;This message will
+... span several
+... lines.&quot;&quot;&quot;
+&gt;&gt;&gt; print(message)
+This message will
+span several
+lines.
+&gt;&gt;&gt;</code></pre>
+<p>Python doesn’t care whether you use single or double quotes or the three-of-a-kind quotes to surround your strings: once it has parsed the text of your program or command, the way it stores the value is identical in all cases, and the surrounding quotes are not part of the value. But when the interpreter wants to display a string, it has to decide which quotes to use to make it look like a string.</p>
+<pre><code class="language-python">&gt;&gt;&gt; &#39;This is a string.&#39;
+&#39;This is a string.&#39;
+&gt;&gt;&gt; &quot;&quot;&quot;And so is this.&quot;&quot;&quot;
+&#39;And so is this.&#39;</code></pre>
+<p>So the Python language designers usually chose to surround their strings by single quotes. What do you think would happen if the string already contained single quotes?</p>
+<p>When you type a large integer, you might be tempted to use commas between groups of three digits, as in <code>42,000</code>. This is not a legal integer in Python, but it does mean something else, which is legal:</p>
+<pre><code class="language-python">&gt;&gt;&gt; 42000
+42000
+&gt;&gt;&gt; 42,000
+(42, 0)</code></pre>
+<p>Well, that’s not what we expected at all! Because of the comma, Python chose to treat this as a pair of values. We’ll come back to learn about pairs later. But, for the moment, remember not to put commas or spaces in your integers, no matter how big they are. Also revisit what we said in the previous chapter: formal languages are strict, the notation is concise, and even the smallest change might mean something quite different from what you intended.</p>
+<h2>2.2. Variables</h2>
+<p>One of the most powerful features of a programming language is the ability to manipulate <strong>variables</strong>. A variable is a name that refers to a value.</p>
+<p>The <strong>assignment statement</strong> gives a value to a variable:</p>
+<pre><code class="language-python">&gt;&gt;&gt; message = &quot;What&#39;s up, Doc?&quot;
+&gt;&gt;&gt; n = 17
+&gt;&gt;&gt; pi = 3.14159</code></pre>
+<p>This example makes three assignments. The first assigns the string value <code>"What's up, Doc?"</code> to a variable named message. The second gives the integer <code>17</code> to <code>n</code>, and the third assigns the floating-point number <code>3.14159</code> to a variable called <code>pi</code>.</p>
+<p>The assignment token, <code>=</code>, should not be confused with <em>equals</em>, which uses the token <code>==</code>. The assignment statement binds a <em>name</em>, on the left-hand side of the operator, to a <em>value</em>, on the right-hand side. This is why you will get an error if you enter:</p>
+<pre><code class="language-python">&gt;&gt;&gt; 17 = n
+File &quot;&lt;interactive input&gt;&quot;, line 1
+SyntaxError: can&#39;t assign to literal</code></pre>
+<p>A&gt; <strong>Tip:</strong> A&gt; <em>When reading or writing code, say to yourself “n is assigned 17” or “n gets the value 17”. Don’t say “n equals 17”.</em></p>
+<p>A common way to represent variables on paper is to write the name with an arrow pointing to the variable’s value. This kind of figure is called a <strong>state snapshot</strong> because it shows what state each of the variables is in at a particular instant in time. (Think of it as the variable’s state of mind). This diagram shows the result of executing the assignment statements:</p>
+<figure>
+<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-2/02-01-state.png" alt="State Snapshot" /><figcaption aria-hidden="true">State Snapshot</figcaption>
+</figure>
+<p>If you ask the interpreter to evaluate a variable, it will produce the value that is currently linked to the variable:</p>
+<pre><code class="language-python">&gt;&gt;&gt; message
+&quot;What&#39;s up, Doc?&quot;
+&gt;&gt;&gt; n
+17
+&gt;&gt;&gt; pi
+3.14159</code></pre>
+<p>We use variables in a program to “remember” things, perhaps the current score at the football game. But variables are <em>variable</em>. This means they can change over time, just like the scoreboard at a football game. You can assign a value to a variable, and later assign a different value to the same variable. (<em>This is different from maths. In maths, if you give <code>x</code> the value <code>3</code>, it cannot change to link to a different value half-way through your calculations!</em>)</p>
+<pre><code class="language-python">&gt;&gt;&gt; day = &quot;Thursday&quot;
+&gt;&gt;&gt; day
+&#39;Thursday&#39;
+&gt;&gt;&gt; day = &quot;Friday&quot;
+&gt;&gt;&gt; day
+&#39;Friday&#39;
+&gt;&gt;&gt; day = 21
+&gt;&gt;&gt; day
+21</code></pre>
+<p>You’ll notice we changed the value of <code>day</code> three times, and on the third assignment we even made it refer to a value that was of a different type.</p>
+<p>A great deal of programming is about having the computer remember things, e.g. <em>The number of missed calls on your phone</em>, and then arranging to update or change the variable when you miss another call.</p>
+<h2>2.3. Variable names and keywords</h2>
+<p><strong>Variable names</strong> can be arbitrarily long. They can contain both letters and digits, but they have to begin with a letter or an underscore. Although it is legal to use uppercase letters, by convention we don’t. If you do, remember that case matters. <code>Bruce</code> and <code>bruce</code> are different variables.</p>
+<p>The underscore character ( _) can appear in a name. It is often used in names with multiple words, such as <code>my_name</code> or <code>price_of_tea_in_china</code>.</p>
+<p>There are some situations in which names beginning with an underscore have special meaning, so a safe rule for beginners is to start all names with a letter.</p>
+<p>If you give a variable an illegal name, you get a syntax error:</p>
+<pre><code class="language-python">&gt;&gt;&gt; 76trombones = &quot;big parade&quot;
+SyntaxError: invalid syntax
+&gt;&gt;&gt; more$ = 1000000
+SyntaxError: invalid syntax
+&gt;&gt;&gt; class = &quot;Computer Science 101&quot;
+SyntaxError: invalid syntax</code></pre>
+<p><code>76trombones</code> is illegal because it does not begin with a letter. <code>more$</code> is illegal because it contains an illegal character, the dollar sign. But what’s wrong with <code>class</code>?</p>
+<p>It turns out that <code>class</code> is one of the Python <strong>keywords</strong>. Keywords define the language’s syntax rules and structure, and they cannot be used as variable names.</p>
+<p>Python has thirty-something keywords (and every now and again improvements to Python introduce or eliminate one or two):</p>
+<table>
+<thead>
+<tr class="header">
+<th>and</th>
+<th>as</th>
+<th>assert</th>
+<th>break</th>
+<th>class</th>
+<th>continue</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>def</td>
+<td>del</td>
+<td>elif</td>
+<td>else</td>
+<td>except</td>
+<td>exec</td>
+</tr>
+<tr class="even">
+<td>finally</td>
+<td>for</td>
+<td>from</td>
+<td>global</td>
+<td>if</td>
+<td>import</td>
+</tr>
+<tr class="odd">
+<td>in</td>
+<td>is</td>
+<td>lambda</td>
+<td>nonlocal</td>
+<td>not</td>
+<td>or</td>
+</tr>
+<tr class="even">
+<td>pass</td>
+<td>raise</td>
+<td>return</td>
+<td>try</td>
+<td>while</td>
+<td>with</td>
+</tr>
+<tr class="odd">
+<td>yield</td>
+<td>True</td>
+<td>False</td>
+<td>None</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>You might want to keep this list handy. If the interpreter complains about one of your variable names and you don’t know why, see if it is on this list.</p>
+<p>Programmers generally choose names for their variables that are meaningful to the human readers of the program — they help the programmer document, or remember, what the variable is used for.</p>
+<p>A&gt; <strong><em>Caution</em></strong> A&gt; A&gt; <em>Beginners sometimes confuse “meaningful to the human readers” with “meaningful to the computer”. So they’ll wrongly think that because they’ve called some variable <code>average</code> or <code>pi</code>, it will somehow magically calculate an average, or magically know that the variable <code>pi</code> should have a value like <code>3.14159</code>. No! The computer doesn’t understand what you intend the variable to mean.</em> A&gt; A&gt; <em>So you’ll find some instructors who deliberately don’t choose meaningful names when they teach beginners — not because we don’t think it is a good habit, but because we’re trying to reinforce the message that you — the programmer — must write the program code to calculate the average, and you must write an assignment statement to give the variable <code>pi</code> the value you want it to have.</em></p>
+<h2>2.4. Statements</h2>
+<p>A <strong>statement</strong> is an instruction that the Python interpreter can execute. We have only seen the assignment statement so far. Some other kinds of statements that we’ll see shortly are <code>while</code> statements, <code>for</code> statements, <code>if</code> statements, and <code>import</code> statements. (There are other kinds too!)</p>
+<p>When you type a statement on the command line, Python executes it. Statements don’t produce any result.</p>
+<h2>2.5. Evaluating expressions</h2>
+<p>An <strong>expression</strong> is a combination of values, variables, operators, and calls to functions. If you type an expression at the Python prompt, the interpreter <strong>evaluates</strong> it and displays the result:</p>
+<pre><code class="language-python">&gt;&gt;&gt; 1 + 1
+2
+&gt;&gt;&gt; len(&quot;hello&quot;)
+5</code></pre>
+<p>In this example <code>len</code> is a built-in Python function that returns the number of characters in a <code>string</code>. We’ve previously seen the <code>print</code> and the <code>type</code> functions, so this is our third example of a function!</p>
+<p>The <em>evaluation</em> of an <em>expression</em> produces a value, which is why expressions can appear on the right hand side of assignment statements. A value all by itself is a simple expression, and so is a variable.</p>
+<pre><code class="language-python">&gt;&gt;&gt; 17
+17
+&gt;&gt;&gt; y = 3.14
+&gt;&gt;&gt; x = len(&quot;hello&quot;)
+&gt;&gt;&gt; x
+5
+&gt;&gt;&gt; y
+3.14</code></pre>
+<h2>2.6. Operators and operands</h2>
+<p><strong>Operators</strong> are special tokens that represent computations like addition, multiplication and division. The values the operator uses are called <strong>operands</strong>.</p>
+<p>The following are all legal Python expressions whose meaning is more or less clear:</p>
+<pre><code class="language-python">20+32   hour-1   hour*60+minute   minute/60   5**2   (5+9)*(15-7)</code></pre>
+<p>The tokens <code>+</code>, <code>-</code>, and <code>*</code>, and the use of parenthesis for grouping, mean in Python what they mean in mathematics. The asterisk (<code>*</code>) is the token for multiplication, and <code>**</code> is the token for exponentiation.</p>
+<pre><code class="language-python">&gt;&gt;&gt; 2 ** 3
+8
+&gt;&gt;&gt; 3 ** 2
+9</code></pre>
+<p>When a variable name appears in the place of an operand, it is replaced with its value before the operation is performed.</p>
+<p>Addition, subtraction, multiplication, and exponentiation all do what you expect.</p>
+<p>Example: so let us convert 645 minutes into hours:</p>
+<pre><code class="language-python">&gt;&gt;&gt; minutes = 645
+&gt;&gt;&gt; hours = minutes / 60
+&gt;&gt;&gt; hours
+10.75</code></pre>
+<p>Oops! In Python 3, the division operator <code>/</code>always yields a floating point result. What we might have wanted to know was how many whole hours there are, and how many minutes remain. Python gives us two different flavors of the division operator. The second, called <strong>floor division</strong> uses the token <code>//</code>. Its result is always a whole number — and if it has to adjust the number it always moves it to the left on the number line. So <code>6 // 4</code> yields <code>1</code>, but <code>-6 // 4</code> might surprise you!</p>
+<pre><code class="language-python">&gt;&gt;&gt; 7 / 4
+1.75
+&gt;&gt;&gt; 7 // 4
+1
+&gt;&gt;&gt; minutes = 645
+&gt;&gt;&gt; hours = minutes // 60
+&gt;&gt;&gt; hours
+10</code></pre>
+<p>Take care that you choose the correct flavor of the division operator. If you’re working with expressions where you need floating point values, use the division operator that does the division accurately.</p>
+<h2>2.7. Type converter functions</h2>
+<p>Here we’ll look at three more Python functions, <code>int</code>, <code>float</code> and <code>str</code>, which will (attempt to) convert their arguments into types <code>int</code>, <code>float</code> and <code>str</code> respectively. We call these <strong>type converter</strong> functions.</p>
+<p>The int function can take a floating point number or a string, and turn it into an int. For floating point numbers, it discards the decimal portion of the number — a process we call truncation towards zero on the number line. Let us see this in action:</p>
+<pre><code class="language-python">&gt;&gt;&gt; int(3.14)
+3
+&gt;&gt;&gt; int(3.9999)             # This doesn&#39;t round to the closest int!
+3
+&gt;&gt;&gt; int(3.0)
+3
+&gt;&gt;&gt; int(-3.999)             # Note that the result is closer to zero
+-3
+&gt;&gt;&gt; int(minutes / 60)
+10
+&gt;&gt;&gt; int(&quot;2345&quot;)             # Parse a string to produce an int
+2345
+&gt;&gt;&gt; int(17)                 # It even works if arg is already an int
+17
+&gt;&gt;&gt; int(&quot;23 bottles&quot;)</code></pre>
+<p>This last case doesn’t look like a number — what do we expect?</p>
+<pre><code class="language-python">Traceback (most recent call last):
+File &quot;&lt;interactive input&gt;&quot;, line 1, in &lt;module&gt;
+ValueError: invalid literal for int() with base 10: &#39;23 bottles&#39;</code></pre>
+<p>The type converter <code>float</code> can turn an integer, a float, or a syntactically legal string into a float:</p>
+<pre><code class="language-python">&gt;&gt;&gt; float(17)
+17.0
+&gt;&gt;&gt; float(&quot;123.45&quot;)
+123.45</code></pre>
+<p>The type converter <code>str</code> turns its argument into a string:</p>
+<pre><code class="language-python">&gt;&gt;&gt; str(17)
+&#39;17&#39;
+&gt;&gt;&gt; str(123.45)
+&#39;123.45&#39;</code></pre>
+<h2>2.8. Order of operations</h2>
+<p>When more than one operator appears in an expression, the order of evaluation depends on the <strong>rules of precedence</strong>. Python follows the same precedence rules for its mathematical operators that mathematics does. The acronym PEMDAS is a useful way to remember the order of operations:</p>
+<ol type="1">
+<li><p><strong>P</strong>arentheses have the highest precedence and can be used to force an expression to evaluate in the order you want. Since expressions in parentheses are evaluated first, <code>2 * (3-1)</code> is <code>4</code>, and <code>(1+1)**(5-2)</code> is <code>8</code>. You can also use parentheses to make an expression easier to read, as in <code>(minute * 100) / 60</code>, even though it doesn’t change the result.</p></li>
+<li><p><strong>E</strong>xponentiation has the next highest precedence, so <code>2**1+1</code> is <code>3</code> and not <code>4</code>, and <code>3*1**3</code> is <code>3</code> and not <code>27</code>.</p></li>
+<li><p><strong>M</strong>ultiplication and both <strong>D</strong>ivision operators have the same precedence, which is higher than <strong>A</strong>ddition and <strong>S</strong>ubtraction, which also have the same precedence. So <code>2*3-1</code> yields <code>5</code> rather than <code>4</code>, and <code>5-2*2</code> is <code>1</code>, not <code>6</code>.</p></li>
+</ol>
+<p>Operators with the same precedence are evaluated from left-to-right. In algebra we say they are left-associative. So in the expression <code>6-3+2</code>, the subtraction happens first, yielding <code>3</code>. We then add <code>2</code> to get the result <code>5</code>. If the operations had been evaluated from right to left, the result would have been <code>6-(3+2)</code>, which is <code>1</code>. (The acronym PEDMAS could mislead you to thinking that division has higher precedence than multiplication, and addition is done ahead of subtraction - don’t be misled. Subtraction and addition are at the same precedence, and the left-to-right rule applies.)</p>
+<p>Due to some historical quirk, an exception to the left-to-right left-associative rule is the exponentiation operator <code>**</code>, so a useful hint is to always use parentheses to force exactly the order you want when exponentiation is involved:</p>
+<pre><code class="language-python">&gt;&gt;&gt; 2 ** 3 ** 2     # The right-most ** operator gets done first!
+512
+&gt;&gt;&gt; (2 ** 3) ** 2   # Use parentheses to force the order you want!
+64</code></pre>
+<p>The immediate mode command prompt of Python is great for exploring and experimenting with expressions like this.</p>
+<h2>2.9. Operations on strings</h2>
+<p>In general, you cannot perform mathematical operations on strings, even if the strings look like numbers. The following are illegal (assuming that message has type string):</p>
+<pre><code class="language-python">&gt;&gt;&gt; message - 1        # Error
+&gt;&gt;&gt; &quot;Hello&quot; / 123      # Error
+&gt;&gt;&gt; message * &quot;Hello&quot;  # Error
+&gt;&gt;&gt; &quot;15&quot; + 2           # Error</code></pre>
+<p>Interestingly, the <code>+</code> operator does work with strings, but for strings, the <code>+</code> operator represents <strong>concatenation</strong>, not addition. Concatenation means joining the two operands by linking them end-to-end. For example:</p>
+<pre><code class="language-python">fruit = &quot;banana&quot;
+baked_good = &quot; nut bread&quot;
+print(fruit + baked_good)</code></pre>
+<p>The output of this program is banana nut bread. The space before the word nut is part of the string, and is necessary to produce the space between the concatenated strings.</p>
+<p>The <code>*</code> operator also works on strings; it performs repetition. For example, <code>'Fun'*3</code> is <code>'FunFunFun'</code>. One of the operands has to be a string; the other has to be an integer.</p>
+<p>On one hand, this interpretation of <code>+</code> and <code>*</code> makes sense by analogy with addition and multiplication. Just as <code>4*3</code> is equivalent to <code>4+4+4</code>, we expect <code>"Fun"*3</code> to be the same as <code>"Fun"+"Fun"+"Fun"</code>, and it is. On the other hand, there is a significant way in which string concatenation and repetition are different from integer addition and multiplication. Can you think of a property that addition and multiplication have that string concatenation and repetition do not?</p>
+<h2>2.10. Input</h2>
+<p>There is a built-in function in Python for getting input from the user:</p>
+<pre><code class="language-python">n = input(&quot;Please enter your name: &quot;)</code></pre>
+<p>A sample run of this script in Repl.it would populate your input question in the console to the left like this:</p>
+<figure>
+<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-2/02-02-input-prompt.png" alt="Input Prompt" /><figcaption aria-hidden="true">Input Prompt</figcaption>
+</figure>
+<p>The user of the program can enter the name and press enter, and when this happens the text that has been entered is returned from the input function, and in this case assigned to the variable n.</p>
+<p>Even if you asked the user to enter their age, you would get back a string like <code>"17"</code>. It would be your job, as the programmer, to convert that string into a int or a float, using the <code>int</code> or <code>float</code> converter functions we saw earlier.</p>
+<h2>2.11. Composition</h2>
+<p>So far, we have looked at the elements of a program — variables, expressions, statements, and function calls — in isolation, without talking about how to combine them.</p>
+<p>One of the most useful features of programming languages is their ability to take small building blocks and <strong>compose</strong> them into larger chunks.</p>
+<p>For example, we know how to get the user to enter some input, we know how to convert the string we get into a float, we know how to write a complex expression, and we know how to print values. Let’s put these together in a small four-step program that asks the user to input a value for the radius of a circle, and then computes the area of the circle from the formula</p>
+<figure>
+<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-2/02-03-circle_area.png" alt="Area of a circle" /><figcaption aria-hidden="true">Area of a circle</figcaption>
+</figure>
+<p>Firstly, we’ll do the four steps one at a time:</p>
+<pre><code class="language-python">response = input(&quot;What is your radius? &quot;)
+r = float(response)
+area = 3.14159 * r**2
+print(&quot;The area is &quot;, area)</code></pre>
+<p>Now let’s compose the first two lines into a single line of code, and compose the second two lines into another line of code.</p>
+<pre><code class="language-python">r = float( input(&quot;What is your radius? &quot;) )
+print(&quot;The area is &quot;, 3.14159 * r**2)</code></pre>
+<p>If we really wanted to be tricky, we could write it all in one statement:</p>
+<pre><code class="language-python">print(&quot;The area is &quot;, 3.14159*float(input(&quot;What is your radius?&quot;))**2)</code></pre>
+<p>Such compact code may not be most understandable for humans, but it does illustrate how we can compose bigger chunks from our building blocks.</p>
+<p>If you’re ever in doubt about whether to compose code or fragment it into smaller steps, try to make it as simple as you can for the human to follow. My choice would be the first case above, with four separate steps.</p>
+<h2>2.12. The modulus operator</h2>
+<p>The modulus operator works on integers (and integer expressions) and gives the remainder when the first number is divided by the second. In Python, the modulus operator is a percent sign (<code>%</code>). The syntax is the same as for other operators. It has the same precedence as the multiplication operator.</p>
+<pre><code class="language-python">&gt;&gt;&gt; q = 7 // 3     # This is integer division operator
+&gt;&gt;&gt; print(q)
+2
+&gt;&gt;&gt; r  = 7 % 3
+&gt;&gt;&gt; print(r)
+1</code></pre>
+<p>So <code>7</code> divided by <code>3</code> is <code>2</code> with a remainder of <code>1</code>.</p>
+<p>The modulus operator turns out to be surprisingly useful. For example, you can check whether one number is divisible by another—if <code>x % y</code> is zero, then <code>x</code> is divisible by <code>y</code>.</p>
+<p>Also, you can extract the right-most digit or digits from a number. For example, <code>x % 10</code> yields the right-most digit of <code>x</code> (in base <code>10</code>). Similarly <code>x % 100</code> yields the last two digits.</p>
+<p>It is also extremely useful for doing conversions, say from seconds, to hours, minutes and seconds. So let’s write a program to ask the user to enter some seconds, and we’ll convert them into hours, minutes, and remaining seconds.</p>
+<pre><code class="language-python">total_secs = int(input(&quot;How many seconds, in total?&quot;))
+hours = total_secs // 3600
+secs_still_remaining = total_secs % 3600
+minutes =  secs_still_remaining // 60
+secs_finally_remaining = secs_still_remaining  % 60
+
+print(&quot;Hrs=&quot;, hours, &quot;  mins=&quot;, minutes,
+                         &quot;secs=&quot;, secs_finally_remaining)</code></pre>
+<h2>2.13. Glossary</h2>
+<p><strong>assignment statement</strong></p>
+<p>A statement that assigns a value to a name (variable). To the left of the assignment operator, <code>=</code>, is a name. To the right of the assignment token is an expression which is evaluated by the Python interpreter and then assigned to the name. The difference between the left and right hand sides of the assignment statement is often confusing to new programmers. In the following assignment:</p>
+<pre><code>n = n + 1</code></pre>
+<p><code>n</code> plays a very different role on each side of the <code>=</code>. On the right it is a value and makes up part of the expression which will be evaluated by the Python interpreter before assigning it to the name on the left.</p>
+<p><strong>assignment token</strong></p>
+<p><code>=</code> is Python’s assignment token. Do not confuse it with <em>equals</em>, which is an operator for comparing values.</p>
+<p><strong>composition</strong></p>
+<p>The ability to combine simple expressions and statements into compound statements and expressions in order to represent complex computations concisely.</p>
+<p><strong>concatenate</strong></p>
+<p>To join two strings end-to-end.</p>
+<p><strong>data type</strong></p>
+<p>A set of values. The type of a value determines how it can be used in expressions. So far, the types you have seen are integers (<code>int</code>), floating-point numbers (<code>float</code>), and strings (<code>str</code>).</p>
+<p><strong>evaluate</strong></p>
+<p>To simplify an expression by performing the operations in order to yield a single value.</p>
+<p><strong>expression</strong></p>
+<p>A combination of variables, operators, and values that represents a single result value.</p>
+<p><strong>float</strong></p>
+<p>A Python data type which stores <em>floating-point</em> numbers. Floating-point numbers are stored internally in two parts: a <em>base</em> and an <em>exponent</em>. When printed in the standard format, they look like decimal numbers. Beware of rounding errors when you use <code>floats</code>, and remember that they are only approximate values.</p>
+<p><strong>floor division</strong></p>
+<p>An operator (denoted by the token <code>//</code>) that divides one number by another and yields an integer, or, if the result is not already an integer, it yields the next smallest integer.</p>
+<p><strong>int</strong></p>
+<p>A Python data type that holds positive and negative whole numbers.</p>
+<p><strong>keyword</strong></p>
+<p>A reserved word that is used by the compiler to parse programs; you cannot use keywords like <code>if</code>, <code>def</code>, and <code>while</code> as variable names.</p>
+<p><strong>modulus operator</strong></p>
+<p>An operator, denoted with a percent sign (<code>%</code>), that works on integers and yields the remainder when one number is divided by another.</p>
+<p><strong>operand</strong></p>
+<p>One of the values on which an operator operates.</p>
+<p><strong>operator</strong></p>
+<p>A special symbol that represents a simple computation like addition, multiplication, or string concatenation.</p>
+<p><strong>rules of precedence</strong></p>
+<p>The set of rules governing the order in which expressions involving multiple operators and operands are evaluated.</p>
+<p><strong>state snapshot</strong></p>
+<p>A graphical representation of a set of variables and the values to which they refer, taken at a particular instant during the program’s execution.</p>
+<p><strong>statement</strong></p>
+<p>An instruction that the Python interpreter can execute. So far we have only seen the assignment statement, but we will soon meet the <code>import</code> statement and the <code>for</code> statement.</p>
+<p><strong>str</strong></p>
+<p>A Python data type that holds a string of characters.</p>
+<p><strong>value</strong></p>
+<p>A number or string (or other things to be named later) that can be stored in a variable or computed in an expression.</p>
+<p><strong>variable</strong></p>
+<p>A name that refers to a value.</p>
+<p><strong>variable name</strong></p>
+<p>A name given to a variable. Variable names in Python consist of a sequence of letters (a..z, A..Z, and _) and digits (0..9) that begins with a letter. In best programming practice, variable names should be chosen so that they describe their use in the program, making the program <em>self documenting</em>.</p>
+<h2>2.14. Exercises</h2>
+<ol type="1">
+<li><p>Take the sentence: All work and no play makes Jack a dull boy. Store each word in a separate variable, then print out the sentence on one line using print.</p></li>
+<li><p>Add parenthesis to the expression <code>6 * 1 - 2</code> to change its value from <code>4</code> to <code>-6</code>.</p></li>
+<li><p>Place a comment before a line of code that previously worked, and record what happens when you rerun the program.</p></li>
+<li><p>Start the Python interpreter and enter <code>bruce + 4</code> at the prompt. This will give you an error:</p>
+<pre><code class="language-python">NameError: name &#39;bruce&#39; is not defined</code></pre>
+<p>Assign a value to bruce so that <code>bruce + 4</code> evaluates to <code>10</code>.</p></li>
+<li><p>The formula for computing the final amount if one is earning compound interest is given on Wikipedia as</p>
+<figure>
+<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-2/02-04-compoundInterest.png" alt="Compounded Interest Formula" /><figcaption aria-hidden="true">Compounded Interest Formula</figcaption>
+</figure>
+<p>Write a Python program that assigns the principal amount of $10000 to variable <code>P</code>, assign to n the value <code>12</code>, and assign to <code>r</code> the interest rate of 8%. Then have the program prompt the user for the number of years <code>t</code> that the money will be compounded for. Calculate and print the final amount after <code>t</code> years.</p></li>
+<li><p>Evaluate the following numerical expressions in your head, then use the Python interpreter to check your results:</p>
+<pre><code class="language-python">&gt;&gt;&gt; 5 % 2
+&gt;&gt;&gt; 9 % 5
+&gt;&gt;&gt; 15 % 12
+&gt;&gt;&gt; 12 % 15
+&gt;&gt;&gt; 6 % 6
+&gt;&gt;&gt; 0 % 7
+&gt;&gt;&gt; 7 % 0</code></pre>
+<p>What happened with the last example? Why? If you were able to correctly anticipate the computer’s response in all but the last one, it is time to move on. If not, take time now to make up examples of your own. Explore the modulus operator until you are confident you understand how it works.</p></li>
+<li><p>You look at the clock and it is exactly 2pm. You set an alarm to go off in 51 hours. At what time does the alarm go off? (<em>Hint: you could count on your fingers, but this is not what we’re after. If you are tempted to count on your fingers, change the 51 to 5100.</em>)</p></li>
+<li><p>Write a Python program to solve the general version of the above problem. Ask the user for the time now (in hours), and ask for the number of hours to wait. Your program should output what the time will be on the clock when the alarm goes off.</p></li>
+</ol>
+<script type="text/javascript">
+/* PrismJS 1.23.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+css-extras+python&plugins=line-numbers+inline-color */
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(u){var c=/\blang(?:uage)?-([\w-]+)\b/i,n=0,e={},M={manual:u.Prism&&u.Prism.manual,disableWorkerMessageHandler:u.Prism&&u.Prism.disableWorkerMessageHandler,util:{encode:function e(n){return n instanceof W?new W(n.type,e(n.content),n.alias):Array.isArray(n)?n.map(e):n.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).slice(8,-1)},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++n}),e.__id},clone:function t(e,r){var a,n;switch(r=r||{},M.util.type(e)){case"Object":if(n=M.util.objId(e),r[n])return r[n];for(var i in a={},r[n]=a,e)e.hasOwnProperty(i)&&(a[i]=t(e[i],r));return a;case"Array":return n=M.util.objId(e),r[n]?r[n]:(a=[],r[n]=a,e.forEach(function(e,n){a[n]=t(e,r)}),a);default:return e}},getLanguage:function(e){for(;e&&!c.test(e.className);)e=e.parentElement;return e?(e.className.match(c)||[,"none"])[1].toLowerCase():"none"},currentScript:function(){if("undefined"==typeof document)return null;if("currentScript"in document)return document.currentScript;try{throw new Error}catch(e){var n=(/at [^(\r\n]*\((.*):.+:.+\)$/i.exec(e.stack)||[])[1];if(n){var t=document.getElementsByTagName("script");for(var r in t)if(t[r].src==n)return t[r]}return null}},isActive:function(e,n,t){for(var r="no-"+n;e;){var a=e.classList;if(a.contains(n))return!0;if(a.contains(r))return!1;e=e.parentElement}return!!t}},languages:{plain:e,plaintext:e,text:e,txt:e,extend:function(e,n){var t=M.util.clone(M.languages[e]);for(var r in n)t[r]=n[r];return t},insertBefore:function(t,e,n,r){var a=(r=r||M.languages)[t],i={};for(var l in a)if(a.hasOwnProperty(l)){if(l==e)for(var o in n)n.hasOwnProperty(o)&&(i[o]=n[o]);n.hasOwnProperty(l)||(i[l]=a[l])}var s=r[t];return r[t]=i,M.languages.DFS(M.languages,function(e,n){n===s&&e!=t&&(this[e]=i)}),i},DFS:function e(n,t,r,a){a=a||{};var i=M.util.objId;for(var l in n)if(n.hasOwnProperty(l)){t.call(n,l,n[l],r||l);var o=n[l],s=M.util.type(o);"Object"!==s||a[i(o)]?"Array"!==s||a[i(o)]||(a[i(o)]=!0,e(o,t,l,a)):(a[i(o)]=!0,e(o,t,null,a))}}},plugins:{},highlightAll:function(e,n){M.highlightAllUnder(document,e,n)},highlightAllUnder:function(e,n,t){var r={callback:t,container:e,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};M.hooks.run("before-highlightall",r),r.elements=Array.prototype.slice.apply(r.container.querySelectorAll(r.selector)),M.hooks.run("before-all-elements-highlight",r);for(var a,i=0;a=r.elements[i++];)M.highlightElement(a,!0===n,r.callback)},highlightElement:function(e,n,t){var r=M.util.getLanguage(e),a=M.languages[r];e.className=e.className.replace(c,"").replace(/\s+/g," ")+" language-"+r;var i=e.parentElement;i&&"pre"===i.nodeName.toLowerCase()&&(i.className=i.className.replace(c,"").replace(/\s+/g," ")+" language-"+r);var l={element:e,language:r,grammar:a,code:e.textContent};function o(e){l.highlightedCode=e,M.hooks.run("before-insert",l),l.element.innerHTML=l.highlightedCode,M.hooks.run("after-highlight",l),M.hooks.run("complete",l),t&&t.call(l.element)}if(M.hooks.run("before-sanity-check",l),(i=l.element.parentElement)&&"pre"===i.nodeName.toLowerCase()&&!i.hasAttribute("tabindex")&&i.setAttribute("tabindex","0"),!l.code)return M.hooks.run("complete",l),void(t&&t.call(l.element));if(M.hooks.run("before-highlight",l),l.grammar)if(n&&u.Worker){var s=new Worker(M.filename);s.onmessage=function(e){o(e.data)},s.postMessage(JSON.stringify({language:l.language,code:l.code,immediateClose:!0}))}else o(M.highlight(l.code,l.grammar,l.language));else o(M.util.encode(l.code))},highlight:function(e,n,t){var r={code:e,grammar:n,language:t};return M.hooks.run("before-tokenize",r),r.tokens=M.tokenize(r.code,r.grammar),M.hooks.run("after-tokenize",r),W.stringify(M.util.encode(r.tokens),r.language)},tokenize:function(e,n){var t=n.rest;if(t){for(var r in t)n[r]=t[r];delete n.rest}var a=new i;return I(a,a.head,e),function e(n,t,r,a,i,l){for(var o in r)if(r.hasOwnProperty(o)&&r[o]){var s=r[o];s=Array.isArray(s)?s:[s];for(var u=0;u<s.length;++u){if(l&&l.cause==o+","+u)return;var c=s[u],g=c.inside,f=!!c.lookbehind,h=!!c.greedy,d=c.alias;if(h&&!c.pattern.global){var p=c.pattern.toString().match(/[imsuy]*$/)[0];c.pattern=RegExp(c.pattern.source,p+"g")}for(var v=c.pattern||c,m=a.next,y=i;m!==t.tail&&!(l&&y>=l.reach);y+=m.value.length,m=m.next){var b=m.value;if(t.length>n.length)return;if(!(b instanceof W)){var k,x=1;if(h){if(!(k=z(v,y,n,f)))break;var w=k.index,A=k.index+k[0].length,P=y;for(P+=m.value.length;P<=w;)m=m.next,P+=m.value.length;if(P-=m.value.length,y=P,m.value instanceof W)continue;for(var E=m;E!==t.tail&&(P<A||"string"==typeof E.value);E=E.next)x++,P+=E.value.length;x--,b=n.slice(y,P),k.index-=y}else if(!(k=z(v,0,b,f)))continue;var w=k.index,S=k[0],O=b.slice(0,w),L=b.slice(w+S.length),N=y+b.length;l&&N>l.reach&&(l.reach=N);var j=m.prev;O&&(j=I(t,j,O),y+=O.length),q(t,j,x);var C=new W(o,g?M.tokenize(S,g):S,d,S);if(m=I(t,j,C),L&&I(t,m,L),1<x){var _={cause:o+","+u,reach:N};e(n,t,r,m.prev,y,_),l&&_.reach>l.reach&&(l.reach=_.reach)}}}}}}(e,a,n,a.head,0),function(e){var n=[],t=e.head.next;for(;t!==e.tail;)n.push(t.value),t=t.next;return n}(a)},hooks:{all:{},add:function(e,n){var t=M.hooks.all;t[e]=t[e]||[],t[e].push(n)},run:function(e,n){var t=M.hooks.all[e];if(t&&t.length)for(var r,a=0;r=t[a++];)r(n)}},Token:W};function W(e,n,t,r){this.type=e,this.content=n,this.alias=t,this.length=0|(r||"").length}function z(e,n,t,r){e.lastIndex=n;var a=e.exec(t);if(a&&r&&a[1]){var i=a[1].length;a.index+=i,a[0]=a[0].slice(i)}return a}function i(){var e={value:null,prev:null,next:null},n={value:null,prev:e,next:null};e.next=n,this.head=e,this.tail=n,this.length=0}function I(e,n,t){var r=n.next,a={value:t,prev:n,next:r};return n.next=a,r.prev=a,e.length++,a}function q(e,n,t){for(var r=n.next,a=0;a<t&&r!==e.tail;a++)r=r.next;(n.next=r).prev=n,e.length-=a}if(u.Prism=M,W.stringify=function n(e,t){if("string"==typeof e)return e;if(Array.isArray(e)){var r="";return e.forEach(function(e){r+=n(e,t)}),r}var a={type:e.type,content:n(e.content,t),tag:"span",classes:["token",e.type],attributes:{},language:t},i=e.alias;i&&(Array.isArray(i)?Array.prototype.push.apply(a.classes,i):a.classes.push(i)),M.hooks.run("wrap",a);var l="";for(var o in a.attributes)l+=" "+o+'="'+(a.attributes[o]||"").replace(/"/g,"&quot;")+'"';return"<"+a.tag+' class="'+a.classes.join(" ")+'"'+l+">"+a.content+"</"+a.tag+">"},!u.document)return u.addEventListener&&(M.disableWorkerMessageHandler||u.addEventListener("message",function(e){var n=JSON.parse(e.data),t=n.language,r=n.code,a=n.immediateClose;u.postMessage(M.highlight(r,M.languages[t],t)),a&&u.close()},!1)),M;var t=M.util.currentScript();function r(){M.manual||M.highlightAll()}if(t&&(M.filename=t.src,t.hasAttribute("data-manual")&&(M.manual=!0)),!M.manual){var a=document.readyState;"loading"===a||"interactive"===a&&t&&t.defer?document.addEventListener("DOMContentLoaded",r):window.requestAnimationFrame?window.requestAnimationFrame(r):window.setTimeout(r,16)}return M}(_self);"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+Prism.languages.markup={comment:/<!--[\s\S]*?-->/,prolog:/<\?[\s\S]+?\?>/,doctype:{pattern:/<!DOCTYPE(?:[^>"'[\]]|"[^"]*"|'[^']*')+(?:\[(?:[^<"'\]]|"[^"]*"|'[^']*'|<(?!!--)|<!--(?:[^-]|-(?!->))*-->)*\]\s*)?>/i,greedy:!0,inside:{"internal-subset":{pattern:/(\[)[\s\S]+(?=\]>$)/,lookbehind:!0,greedy:!0,inside:null},string:{pattern:/"[^"]*"|'[^']*'/,greedy:!0},punctuation:/^<!|>$|[[\]]/,"doctype-tag":/^DOCTYPE/,name:/[^\s<>'"]+/}},cdata:/<!\[CDATA\[[\s\S]*?]]>/i,tag:{pattern:/<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/,greedy:!0,inside:{tag:{pattern:/^<\/?[^\s>\/]+/,inside:{punctuation:/^<\/?/,namespace:/^[^\s>\/:]+:/}},"special-attr":[],"attr-value":{pattern:/=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+)/,inside:{punctuation:[{pattern:/^=/,alias:"attr-equals"},/"|'/]}},punctuation:/\/?>/,"attr-name":{pattern:/[^\s>\/]+/,inside:{namespace:/^[^\s>\/:]+:/}}}},entity:[{pattern:/&[\da-z]{1,8};/i,alias:"named-entity"},/&#x?[\da-f]{1,8};/i]},Prism.languages.markup.tag.inside["attr-value"].inside.entity=Prism.languages.markup.entity,Prism.languages.markup.doctype.inside["internal-subset"].inside=Prism.languages.markup,Prism.hooks.add("wrap",function(a){"entity"===a.type&&(a.attributes.title=a.content.replace(/&amp;/,"&"))}),Object.defineProperty(Prism.languages.markup.tag,"addInlined",{value:function(a,e){var s={};s["language-"+e]={pattern:/(^<!\[CDATA\[)[\s\S]+?(?=\]\]>$)/i,lookbehind:!0,inside:Prism.languages[e]},s.cdata=/^<!\[CDATA\[|\]\]>$/i;var t={"included-cdata":{pattern:/<!\[CDATA\[[\s\S]*?\]\]>/i,inside:s}};t["language-"+e]={pattern:/[\s\S]+/,inside:Prism.languages[e]};var n={};n[a]={pattern:RegExp("(<__[^>]*>)(?:<!\\[CDATA\\[(?:[^\\]]|\\](?!\\]>))*\\]\\]>|(?!<!\\[CDATA\\[)[^])*?(?=</__>)".replace(/__/g,function(){return a}),"i"),lookbehind:!0,greedy:!0,inside:t},Prism.languages.insertBefore("markup","cdata",n)}}),Object.defineProperty(Prism.languages.markup.tag,"addAttribute",{value:function(a,e){Prism.languages.markup.tag.inside["special-attr"].push({pattern:RegExp("(^|[\"'\\s])(?:"+a+")\\s*=\\s*(?:\"[^\"]*\"|'[^']*'|[^\\s'\">=]+(?=[\\s>]))","i"),lookbehind:!0,inside:{"attr-name":/^[^\s=]+/,"attr-value":{pattern:/=[\s\S]+/,inside:{value:{pattern:/(=\s*(["']|(?!["'])))\S[\s\S]*(?=\2$)/,lookbehind:!0,alias:[e,"language-"+e],inside:Prism.languages[e]},punctuation:[{pattern:/^=/,alias:"attr-equals"},/"|'/]}}}})}}),Prism.languages.html=Prism.languages.markup,Prism.languages.mathml=Prism.languages.markup,Prism.languages.svg=Prism.languages.markup,Prism.languages.xml=Prism.languages.extend("markup",{}),Prism.languages.ssml=Prism.languages.xml,Prism.languages.atom=Prism.languages.xml,Prism.languages.rss=Prism.languages.xml;
+!function(s){var e=/("|')(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/;s.languages.css={comment:/\/\*[\s\S]*?\*\//,atrule:{pattern:/@[\w-](?:[^;{\s]|\s+(?![\s{]))*(?:;|(?=\s*\{))/,inside:{rule:/^@[\w-]+/,"selector-function-argument":{pattern:/(\bselector\s*\(\s*(?![\s)]))(?:[^()\s]|\s+(?![\s)])|\((?:[^()]|\([^()]*\))*\))+(?=\s*\))/,lookbehind:!0,alias:"selector"},keyword:{pattern:/(^|[^\w-])(?:and|not|only|or)(?![\w-])/,lookbehind:!0}}},url:{pattern:RegExp("\\burl\\((?:"+e.source+"|(?:[^\\\\\r\n()\"']|\\\\[^])*)\\)","i"),greedy:!0,inside:{function:/^url/i,punctuation:/^\(|\)$/,string:{pattern:RegExp("^"+e.source+"$"),alias:"url"}}},selector:RegExp("[^{}\\s](?:[^{};\"'\\s]|\\s+(?![\\s{])|"+e.source+")*(?=\\s*\\{)"),string:{pattern:e,greedy:!0},property:/(?!\s)[-_a-z\xA0-\uFFFF](?:(?!\s)[-\w\xA0-\uFFFF])*(?=\s*:)/i,important:/!important\b/i,function:/[-a-z0-9]+(?=\()/i,punctuation:/[(){};:,]/},s.languages.css.atrule.inside.rest=s.languages.css;var t=s.languages.markup;t&&(t.tag.addInlined("style","css"),t.tag.addAttribute("style","css"))}(Prism);
+Prism.languages.clike={comment:[{pattern:/(^|[^\\])\/\*[\s\S]*?(?:\*\/|$)/,lookbehind:!0,greedy:!0},{pattern:/(^|[^\\:])\/\/.*/,lookbehind:!0,greedy:!0}],string:{pattern:/(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,greedy:!0},"class-name":{pattern:/(\b(?:class|interface|extends|implements|trait|instanceof|new)\s+|\bcatch\s+\()[\w.\\]+/i,lookbehind:!0,inside:{punctuation:/[.\\]/}},keyword:/\b(?:if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,boolean:/\b(?:true|false)\b/,function:/\w+(?=\()/,number:/\b0x[\da-f]+\b|(?:\b\d+(?:\.\d*)?|\B\.\d+)(?:e[+-]?\d+)?/i,operator:/[<>]=?|[!=]=?=?|--?|\+\+?|&&?|\|\|?|[?*/~^%]/,punctuation:/[{}[\];(),.:]/};
+Prism.languages.javascript=Prism.languages.extend("clike",{"class-name":[Prism.languages.clike["class-name"],{pattern:/(^|[^$\w\xA0-\uFFFF])(?!\s)[_$A-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\.(?:prototype|constructor))/,lookbehind:!0}],keyword:[{pattern:/((?:^|})\s*)catch\b/,lookbehind:!0},{pattern:/(^|[^.]|\.\.\.\s*)\b(?:as|async(?=\s*(?:function\b|\(|[$\w\xA0-\uFFFF]|$))|await|break|case|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally(?=\s*(?:\{|$))|for|from(?=\s*(?:['"]|$))|function|(?:get|set)(?=\s*(?:[#\[$\w\xA0-\uFFFF]|$))|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)\b/,lookbehind:!0}],function:/#?(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*(?:\.\s*(?:apply|bind|call)\s*)?\()/,number:/\b(?:(?:0[xX](?:[\dA-Fa-f](?:_[\dA-Fa-f])?)+|0[bB](?:[01](?:_[01])?)+|0[oO](?:[0-7](?:_[0-7])?)+)n?|(?:\d(?:_\d)?)+n|NaN|Infinity)\b|(?:\b(?:\d(?:_\d)?)+\.?(?:\d(?:_\d)?)*|\B\.(?:\d(?:_\d)?)+)(?:[Ee][+-]?(?:\d(?:_\d)?)+)?/,operator:/--|\+\+|\*\*=?|=>|&&=?|\|\|=?|[!=]==|<<=?|>>>?=?|[-+*/%&|^!=<>]=?|\.{3}|\?\?=?|\?\.?|[~:]/}),Prism.languages.javascript["class-name"][0].pattern=/(\b(?:class|interface|extends|implements|instanceof|new)\s+)[\w.\\]+/,Prism.languages.insertBefore("javascript","keyword",{regex:{pattern:/((?:^|[^$\w\xA0-\uFFFF."'\])\s]|\b(?:return|yield))\s*)\/(?:\[(?:[^\]\\\r\n]|\\.)*]|\\.|[^/\\\[\r\n])+\/[gimyus]{0,6}(?=(?:\s|\/\*(?:[^*]|\*(?!\/))*\*\/)*(?:$|[\r\n,.;:})\]]|\/\/))/,lookbehind:!0,greedy:!0,inside:{"regex-source":{pattern:/^(\/)[\s\S]+(?=\/[a-z]*$)/,lookbehind:!0,alias:"language-regex",inside:Prism.languages.regex},"regex-flags":/[a-z]+$/,"regex-delimiter":/^\/|\/$/}},"function-variable":{pattern:/#?(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*[=:]\s*(?:async\s*)?(?:\bfunction\b|(?:\((?:[^()]|\([^()]*\))*\)|(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*)\s*=>))/,alias:"function"},parameter:[{pattern:/(function(?:\s+(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*)?\s*\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\))/,lookbehind:!0,inside:Prism.languages.javascript},{pattern:/(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*=>)/i,inside:Prism.languages.javascript},{pattern:/(\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\)\s*=>)/,lookbehind:!0,inside:Prism.languages.javascript},{pattern:/((?:\b|\s|^)(?!(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)(?![$\w\xA0-\uFFFF]))(?:(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*\s*)\(\s*|\]\s*\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\)\s*\{)/,lookbehind:!0,inside:Prism.languages.javascript}],constant:/\b[A-Z](?:[A-Z_]|\dx?)*\b/}),Prism.languages.insertBefore("javascript","string",{hashbang:{pattern:/^#!.*/,greedy:!0,alias:"comment"},"template-string":{pattern:/`(?:\\[\s\S]|\${(?:[^{}]|{(?:[^{}]|{[^}]*})*})+}|(?!\${)[^\\`])*`/,greedy:!0,inside:{"template-punctuation":{pattern:/^`|`$/,alias:"string"},interpolation:{pattern:/((?:^|[^\\])(?:\\{2})*)\${(?:[^{}]|{(?:[^{}]|{[^}]*})*})+}/,lookbehind:!0,inside:{"interpolation-punctuation":{pattern:/^\${|}$/,alias:"punctuation"},rest:Prism.languages.javascript}},string:/[\s\S]+/}}}),Prism.languages.markup&&(Prism.languages.markup.tag.addInlined("script","javascript"),Prism.languages.markup.tag.addAttribute("on(?:abort|blur|change|click|composition(?:end|start|update)|dblclick|error|focus(?:in|out)?|key(?:down|up)|load|mouse(?:down|enter|leave|move|out|over|up)|reset|resize|scroll|select|slotchange|submit|unload|wheel)","javascript")),Prism.languages.js=Prism.languages.javascript;
+!function(e){var a,n=/("|')(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/;e.languages.css.selector={pattern:e.languages.css.selector,inside:a={"pseudo-element":/:(?:after|before|first-letter|first-line|selection)|::[-\w]+/,"pseudo-class":/:[-\w]+/,class:/\.[-\w]+/,id:/#[-\w]+/,attribute:{pattern:RegExp("\\[(?:[^[\\]\"']|"+n.source+")*\\]"),greedy:!0,inside:{punctuation:/^\[|\]$/,"case-sensitivity":{pattern:/(\s)[si]$/i,lookbehind:!0,alias:"keyword"},namespace:{pattern:/^(\s*)(?:(?!\s)[-*\w\xA0-\uFFFF])*\|(?!=)/,lookbehind:!0,inside:{punctuation:/\|$/}},"attr-name":{pattern:/^(\s*)(?:(?!\s)[-\w\xA0-\uFFFF])+/,lookbehind:!0},"attr-value":[n,{pattern:/(=\s*)(?:(?!\s)[-\w\xA0-\uFFFF])+(?=\s*$)/,lookbehind:!0}],operator:/[|~*^$]?=/}},"n-th":[{pattern:/(\(\s*)[+-]?\d*[\dn](?:\s*[+-]\s*\d+)?(?=\s*\))/,lookbehind:!0,inside:{number:/[\dn]+/,operator:/[+-]/}},{pattern:/(\(\s*)(?:even|odd)(?=\s*\))/i,lookbehind:!0}],combinator:/>|\+|~|\|\|/,punctuation:/[(),]/}},e.languages.css.atrule.inside["selector-function-argument"].inside=a,e.languages.insertBefore("css","property",{variable:{pattern:/(^|[^-\w\xA0-\uFFFF])--(?!\s)[-_a-z\xA0-\uFFFF](?:(?!\s)[-\w\xA0-\uFFFF])*/i,lookbehind:!0}});var r={pattern:/(\b\d+)(?:%|[a-z]+\b)/,lookbehind:!0},i={pattern:/(^|[^\w.-])-?(?:\d+(?:\.\d+)?|\.\d+)/,lookbehind:!0};e.languages.insertBefore("css","function",{operator:{pattern:/(\s)[+\-*\/](?=\s)/,lookbehind:!0},hexcode:{pattern:/\B#(?:[\da-f]{1,2}){3,4}\b/i,alias:"color"},color:[/\b(?:AliceBlue|AntiqueWhite|Aqua|Aquamarine|Azure|Beige|Bisque|Black|BlanchedAlmond|Blue|BlueViolet|Brown|BurlyWood|CadetBlue|Chartreuse|Chocolate|Coral|CornflowerBlue|Cornsilk|Crimson|Cyan|DarkBlue|DarkCyan|DarkGoldenRod|DarkGr[ae]y|DarkGreen|DarkKhaki|DarkMagenta|DarkOliveGreen|DarkOrange|DarkOrchid|DarkRed|DarkSalmon|DarkSeaGreen|DarkSlateBlue|DarkSlateGr[ae]y|DarkTurquoise|DarkViolet|DeepPink|DeepSkyBlue|DimGr[ae]y|DodgerBlue|FireBrick|FloralWhite|ForestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|IndianRed|Indigo|Ivory|Khaki|Lavender|LavenderBlush|LawnGreen|LemonChiffon|LightBlue|LightCoral|LightCyan|LightGoldenRodYellow|LightGr[ae]y|LightGreen|LightPink|LightSalmon|LightSeaGreen|LightSkyBlue|LightSlateGr[ae]y|LightSteelBlue|LightYellow|Lime|LimeGreen|Linen|Magenta|Maroon|MediumAquaMarine|MediumBlue|MediumOrchid|MediumPurple|MediumSeaGreen|MediumSlateBlue|MediumSpringGreen|MediumTurquoise|MediumVioletRed|MidnightBlue|MintCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGoldenRod|PaleGreen|PaleTurquoise|PaleVioletRed|PapayaWhip|PeachPuff|Peru|Pink|Plum|PowderBlue|Purple|Red|RosyBrown|RoyalBlue|SaddleBrown|Salmon|SandyBrown|SeaGreen|SeaShell|Sienna|Silver|SkyBlue|SlateBlue|SlateGr[ae]y|Snow|SpringGreen|SteelBlue|Tan|Teal|Thistle|Tomato|Transparent|Turquoise|Violet|Wheat|White|WhiteSmoke|Yellow|YellowGreen)\b/i,{pattern:/\b(?:rgb|hsl)\(\s*\d{1,3}\s*,\s*\d{1,3}%?\s*,\s*\d{1,3}%?\s*\)\B|\b(?:rgb|hsl)a\(\s*\d{1,3}\s*,\s*\d{1,3}%?\s*,\s*\d{1,3}%?\s*,\s*(?:0|0?\.\d+|1)\s*\)\B/i,inside:{unit:r,number:i,function:/[\w-]+(?=\()/,punctuation:/[(),]/}}],entity:/\\[\da-f]{1,8}/i,unit:r,number:i})}(Prism);
+Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-interpolation":{pattern:/(?:f|rf|fr)(?:("""|''')[\s\S]*?\1|("|')(?:\\.|(?!\2)[^\\\r\n])*\2)/i,greedy:!0,inside:{interpolation:{pattern:/((?:^|[^{])(?:{{)*){(?!{)(?:[^{}]|{(?!{)(?:[^{}]|{(?!{)(?:[^{}])+})+})+}/,lookbehind:!0,inside:{"format-spec":{pattern:/(:)[^:(){}]+(?=}$)/,lookbehind:!0},"conversion-option":{pattern:/![sra](?=[:}]$)/,alias:"punctuation"},rest:null}},string:/[\s\S]+/}},"triple-quoted-string":{pattern:/(?:[rub]|rb|br)?("""|''')[\s\S]*?\1/i,greedy:!0,alias:"string"},string:{pattern:/(?:[rub]|rb|br)?("|')(?:\\.|(?!\1)[^\\\r\n])*\1/i,greedy:!0},function:{pattern:/((?:^|\s)def[ \t]+)[a-zA-Z_]\w*(?=\s*\()/g,lookbehind:!0},"class-name":{pattern:/(\bclass\s+)\w+/i,lookbehind:!0},decorator:{pattern:/(^\s*)@\w+(?:\.\w+)*/im,lookbehind:!0,alias:["annotation","punctuation"],inside:{punctuation:/\./}},keyword:/\b(?:and|as|assert|async|await|break|class|continue|def|del|elif|else|except|exec|finally|for|from|global|if|import|in|is|lambda|nonlocal|not|or|pass|print|raise|return|try|while|with|yield)\b/,builtin:/\b(?:__import__|abs|all|any|apply|ascii|basestring|bin|bool|buffer|bytearray|bytes|callable|chr|classmethod|cmp|coerce|compile|complex|delattr|dict|dir|divmod|enumerate|eval|execfile|file|filter|float|format|frozenset|getattr|globals|hasattr|hash|help|hex|id|input|int|intern|isinstance|issubclass|iter|len|list|locals|long|map|max|memoryview|min|next|object|oct|open|ord|pow|property|range|raw_input|reduce|reload|repr|reversed|round|set|setattr|slice|sorted|staticmethod|str|sum|super|tuple|type|unichr|unicode|vars|xrange|zip)\b/,boolean:/\b(?:True|False|None)\b/,number:/(?:\b(?=\d)|\B(?=\.))(?:0[bo])?(?:(?:\d|0x[\da-f])[\da-f]*(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?j?\b/i,operator:/[-+%=]=?|!=|\*\*?=?|\/\/?=?|<[<=>]?|>[=>]?|[&|^~]/,punctuation:/[{}[\];(),.:]/},Prism.languages.python["string-interpolation"].inside.interpolation.inside.rest=Prism.languages.python,Prism.languages.py=Prism.languages.python;
+!function(){if("undefined"!=typeof Prism&&"undefined"!=typeof document){var o="line-numbers",a=/\n(?!$)/g,e=Prism.plugins.lineNumbers={getLine:function(e,n){if("PRE"===e.tagName&&e.classList.contains(o)){var t=e.querySelector(".line-numbers-rows");if(t){var i=parseInt(e.getAttribute("data-start"),10)||1,r=i+(t.children.length-1);n<i&&(n=i),r<n&&(n=r);var s=n-i;return t.children[s]}}},resize:function(e){u([e])},assumeViewportIndependence:!0},n=void 0;window.addEventListener("resize",function(){e.assumeViewportIndependence&&n===window.innerWidth||(n=window.innerWidth,u(Array.prototype.slice.call(document.querySelectorAll("pre."+o))))}),Prism.hooks.add("complete",function(e){if(e.code){var n=e.element,t=n.parentNode;if(t&&/pre/i.test(t.nodeName)&&!n.querySelector(".line-numbers-rows")&&Prism.util.isActive(n,o)){n.classList.remove(o),t.classList.add(o);var i,r=e.code.match(a),s=r?r.length+1:1,l=new Array(s+1).join("<span></span>");(i=document.createElement("span")).setAttribute("aria-hidden","true"),i.className="line-numbers-rows",i.innerHTML=l,t.hasAttribute("data-start")&&(t.style.counterReset="linenumber "+(parseInt(t.getAttribute("data-start"),10)-1)),e.element.appendChild(i),u([t]),Prism.hooks.run("line-numbers",e)}}}),Prism.hooks.add("line-numbers",function(e){e.plugins=e.plugins||{},e.plugins.lineNumbers=!0})}function u(e){if(0!=(e=e.filter(function(e){var n=function(e){return e?window.getComputedStyle?getComputedStyle(e):e.currentStyle||null:null}(e)["white-space"];return"pre-wrap"===n||"pre-line"===n})).length){var n=e.map(function(e){var n=e.querySelector("code"),t=e.querySelector(".line-numbers-rows");if(n&&t){var i=e.querySelector(".line-numbers-sizer"),r=n.textContent.split(a);i||((i=document.createElement("span")).className="line-numbers-sizer",n.appendChild(i)),i.innerHTML="0",i.style.display="block";var s=i.getBoundingClientRect().height;return i.innerHTML="",{element:e,lines:r,lineHeights:[],oneLinerHeight:s,sizer:i}}}).filter(Boolean);n.forEach(function(e){var i=e.sizer,n=e.lines,r=e.lineHeights,s=e.oneLinerHeight;r[n.length-1]=void 0,n.forEach(function(e,n){if(e&&1<e.length){var t=i.appendChild(document.createElement("span"));t.style.display="block",t.textContent=e}else r[n]=s})}),n.forEach(function(e){for(var n=e.sizer,t=e.lineHeights,i=0,r=0;r<t.length;r++)void 0===t[r]&&(t[r]=n.children[i++].getBoundingClientRect().height)}),n.forEach(function(e){var n=e.sizer,t=e.element.querySelector(".line-numbers-rows");n.style.display="none",n.innerHTML="",e.lineHeights.forEach(function(e,n){t.children[n].style.height=e+"px"})})}}}();
+!function(){if("undefined"!=typeof Prism&&"undefined"!=typeof document){var a=/<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/g,c=/^#?((?:[\da-f]){3,4}|(?:[\da-f]{2}){3,4})$/i,l=[function(n){var r=c.exec(n);if(r){for(var o=6<=(n=r[1]).length?2:1,s=n.length/o,e=1==o?1/15:1/255,t=[],i=0;i<s;i++){var a=parseInt(n.substr(i*o,o),16);t.push(a*e)}return 3==s&&t.push(1),"rgba("+t.slice(0,3).map(function(n){return String(Math.round(255*n))}).join(",")+","+String(Number(t[3].toFixed(3)))+")"}},function(n){var r=(new Option).style;return r.color=n,r.color?n:void 0}];Prism.hooks.add("wrap",function(n){if("color"===n.type||0<=n.classes.indexOf("color")){for(var r,o=n.content,s=o.split(a).join(""),e=0,t=l.length;e<t&&!r;e++)r=l[e](s);if(!r)return;var i='<span class="inline-color-wrapper"><span class="inline-color" style="background-color:'+r+';"></span></span>';n.content=i+o}})}}();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>book</title>
+    <meta name="description" content="learn python the right way">
+
+    <style type="text/css">
+        figure {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 90%;
+            text-align: center;
+            font-size: 80%;
+        }
+
+        img {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+	</style>
+<style type="text/css">
+	:root{--background-body:#fff;--background:#efefef;--background-alt:#f7f7f7;--selection:#9e9e9e;--text-main:#363636;--text-bright:#000;--text-muted:#70777f;--links:#0076d1;--focus:rgba(0,150,191,0.67);--border:#dbdbdb;--code:#000;--animation-duration:0.1s;--button-hover:#ddd;--scrollbar-thumb:#d5d5d5;--scrollbar-thumb-hover:#c4c4c4;--form-placeholder:#949494;--form-text:#000;--variable:#39a33c;--highlight:#ff0;--select-arrow:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23161f27'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E")}@media (prefers-color-scheme:dark){:root{--background-body:#202b38;--background:#161f27;--background-alt:#1a242f;--selection:#1c76c5;--text-main:#dbdbdb;--text-bright:#fff;--text-muted:#a9b1ba;--links:#41adff;--focus:rgba(0,150,191,0.67);--border:#526980;--code:#ffbe85;--animation-duration:0.1s;--button-hover:#324759;--scrollbar-thumb:var(--button-hover);--scrollbar-thumb-hover:#141414;--form-placeholder:#a9a9a9;--form-text:#fff;--variable:#d941e2;--highlight:#efdb43;--select-arrow:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23efefef'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E")}}html{scrollbar-color:#d5d5d5 #fff;scrollbar-color:var(--scrollbar-thumb) var(--background-body);scrollbar-width:thin}@media (prefers-color-scheme:dark){html{scrollbar-color:#324759 #202b38;scrollbar-color:var(--scrollbar-thumb) var(--background-body)}}body{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Segoe UI Emoji,Apple Color Emoji,Noto Color Emoji,sans-serif;line-height:1.4;max-width:800px;margin:20px auto;padding:0 10px;word-wrap:break-word;color:#363636;color:var(--text-main);background:#fff;background:var(--background-body);text-rendering:optimizeLegibility}@media (prefers-color-scheme:dark){body{background:#202b38;background:var(--background-body);color:#dbdbdb;color:var(--text-main)}}button{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}@media (prefers-color-scheme:dark){button{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}}input{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}@media (prefers-color-scheme:dark){input{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}}textarea{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}@media (prefers-color-scheme:dark){textarea{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}}h1{font-size:2.2em;margin-top:0}h1,h2,h3,h4,h5,h6{margin-bottom:12px;margin-top:24px}h1{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h1{color:#fff;color:var(--text-bright)}}h2{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h2{color:#fff;color:var(--text-bright)}}h3{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h3{color:#fff;color:var(--text-bright)}}h4{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h4{color:#fff;color:var(--text-bright)}}h5{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h5{color:#fff;color:var(--text-bright)}}h6{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h6{color:#fff;color:var(--text-bright)}}strong{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){strong{color:#fff;color:var(--text-bright)}}b,h1,h2,h3,h4,h5,h6,strong,th{font-weight:600}q:after,q:before{content:none}blockquote{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus);margin:1.5em 0;padding:.5em 1em;font-style:italic}@media (prefers-color-scheme:dark){blockquote{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus)}}q{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus);margin:1.5em 0;padding:.5em 1em;font-style:italic}@media (prefers-color-scheme:dark){q{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus)}}blockquote>footer{font-style:normal;border:0}address,blockquote cite{font-style:normal}a[href^=mailto\:]:before{content:"📧 "}a[href^=tel\:]:before{content:"📞 "}a[href^=sms\:]:before{content:"💬 "}mark{background-color:#ff0;background-color:var(--highlight);border-radius:2px;padding:0 2px;color:#000}@media (prefers-color-scheme:dark){mark{background-color:#efdb43;background-color:var(--highlight)}}button,input[type=button],input[type=checkbox],input[type=radio],input[type=range],input[type=submit],select{cursor:pointer}input:not([type=checkbox]):not([type=radio]),select{display:block}input{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){input{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}button{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){button{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}textarea{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){textarea{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}select{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){select{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}input[type=checkbox],input[type=radio]{height:1em;width:1em}input[type=radio]{border-radius:100%}input{vertical-align:top}label{vertical-align:middle;margin-bottom:4px;display:inline-block}button,input:not([type=checkbox]):not([type=radio]),input[type=range],select,textarea{-webkit-appearance:none}textarea{display:block;margin-right:0;box-sizing:border-box;resize:vertical}textarea:not([cols]){width:100%}textarea:not([rows]){min-height:40px;height:140px}select{background:#efefef url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23161f27'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E") calc(100% - 12px) 50%/12px no-repeat;background:var(--background) var(--select-arrow) calc(100% - 12px) 50%/12px no-repeat;padding-right:35px}@media (prefers-color-scheme:dark){select{background:#161f27 url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23efefef'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E") calc(100% - 12px) 50%/12px no-repeat;background:var(--background) var(--select-arrow) calc(100% - 12px) 50%/12px no-repeat}}select::-ms-expand{display:none}select[multiple]{padding-right:10px;background-image:none;overflow-y:auto}button,input[type=button],input[type=submit]{padding-right:30px;padding-left:30px}button:hover{background:#ddd;background:var(--button-hover)}@media (prefers-color-scheme:dark){button:hover{background:#324759;background:var(--button-hover)}}input[type=submit]:hover{background:#ddd;background:var(--button-hover)}@media (prefers-color-scheme:dark){input[type=submit]:hover{background:#324759;background:var(--button-hover)}}input[type=button]:hover{background:#ddd;background:var(--button-hover)}@media (prefers-color-scheme:dark){input[type=button]:hover{background:#324759;background:var(--button-hover)}}input:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){input:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}select:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){select:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}button:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){button:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}textarea:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){textarea:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}button:active,input[type=button]:active,input[type=checkbox]:active,input[type=radio]:active,input[type=range]:active,input[type=submit]:active{transform:translateY(2px)}button:disabled,input:disabled,select:disabled,textarea:disabled{cursor:not-allowed;opacity:.5}::-moz-placeholder{color:#949494;color:var(--form-placeholder)}:-ms-input-placeholder{color:#949494;color:var(--form-placeholder)}::-ms-input-placeholder{color:#949494;color:var(--form-placeholder)}::placeholder{color:#949494;color:var(--form-placeholder)}@media (prefers-color-scheme:dark){::-moz-placeholder{color:#a9a9a9;color:var(--form-placeholder)}:-ms-input-placeholder{color:#a9a9a9;color:var(--form-placeholder)}::-ms-input-placeholder{color:#a9a9a9;color:var(--form-placeholder)}::placeholder{color:#a9a9a9;color:var(--form-placeholder)}}fieldset{border:1px solid rgba(0,150,191,.67);border:1px solid var(--focus);border-radius:6px;margin:0 0 12px;padding:10px}@media (prefers-color-scheme:dark){fieldset{border:1px solid rgba(0,150,191,.67);border:1px solid var(--focus)}}legend{font-size:.9em;font-weight:600}input[type=range]{margin:10px 0;padding:10px 0;background:transparent}input[type=range]:focus{outline:none}input[type=range]::-webkit-slider-runnable-track{width:100%;height:9.5px;-webkit-transition:.2s;transition:.2s;background:#efefef;background:var(--background);border-radius:3px}@media (prefers-color-scheme:dark){input[type=range]::-webkit-slider-runnable-track{background:#161f27;background:var(--background)}}input[type=range]::-webkit-slider-thumb{box-shadow:0 1px 1px #000,0 0 1px #0d0d0d;height:20px;width:20px;border-radius:50%;background:#dbdbdb;background:var(--border);-webkit-appearance:none;margin-top:-7px}@media (prefers-color-scheme:dark){input[type=range]::-webkit-slider-thumb{background:#526980;background:var(--border)}}input[type=range]:focus::-webkit-slider-runnable-track{background:#efefef;background:var(--background)}@media (prefers-color-scheme:dark){input[type=range]:focus::-webkit-slider-runnable-track{background:#161f27;background:var(--background)}}input[type=range]::-moz-range-track{width:100%;height:9.5px;-moz-transition:.2s;transition:.2s;background:#efefef;background:var(--background);border-radius:3px}@media (prefers-color-scheme:dark){input[type=range]::-moz-range-track{background:#161f27;background:var(--background)}}input[type=range]::-moz-range-thumb{box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d;height:20px;width:20px;border-radius:50%;background:#dbdbdb;background:var(--border)}@media (prefers-color-scheme:dark){input[type=range]::-moz-range-thumb{background:#526980;background:var(--border)}}input[type=range]::-ms-track{width:100%;height:9.5px;background:transparent;border-color:transparent;border-width:16px 0;color:transparent}input[type=range]::-ms-fill-lower{background:#efefef;background:var(--background);border:.2px solid #010101;border-radius:3px;box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d}@media (prefers-color-scheme:dark){input[type=range]::-ms-fill-lower{background:#161f27;background:var(--background)}}input[type=range]::-ms-fill-upper{background:#efefef;background:var(--background);border:.2px solid #010101;border-radius:3px;box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d}@media (prefers-color-scheme:dark){input[type=range]::-ms-fill-upper{background:#161f27;background:var(--background)}}input[type=range]::-ms-thumb{box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d;border:1px solid #000;height:20px;width:20px;border-radius:50%;background:#dbdbdb;background:var(--border)}@media (prefers-color-scheme:dark){input[type=range]::-ms-thumb{background:#526980;background:var(--border)}}input[type=range]:focus::-ms-fill-lower{background:#efefef;background:var(--background)}@media (prefers-color-scheme:dark){input[type=range]:focus::-ms-fill-lower{background:#161f27;background:var(--background)}}input[type=range]:focus::-ms-fill-upper{background:#efefef;background:var(--background)}@media (prefers-color-scheme:dark){input[type=range]:focus::-ms-fill-upper{background:#161f27;background:var(--background)}}a{text-decoration:none;color:#0076d1;color:var(--links)}@media (prefers-color-scheme:dark){a{color:#41adff;color:var(--links)}}a:hover{text-decoration:underline}code{background:#efefef;background:var(--background);color:#000;color:var(--code);padding:2.5px 5px;border-radius:6px;font-size:1em}@media (prefers-color-scheme:dark){code{color:#ffbe85;color:var(--code);background:#161f27;background:var(--background)}}samp{background:#efefef;background:var(--background);color:#000;color:var(--code);padding:2.5px 5px;border-radius:6px;font-size:1em}@media (prefers-color-scheme:dark){samp{color:#ffbe85;color:var(--code);background:#161f27;background:var(--background)}}time{background:#efefef;background:var(--background);color:#000;color:var(--code);padding:2.5px 5px;border-radius:6px;font-size:1em}@media (prefers-color-scheme:dark){time{color:#ffbe85;color:var(--code);background:#161f27;background:var(--background)}}pre>code{padding:10px;display:block;overflow-x:auto}var{color:#39a33c;color:var(--variable);font-style:normal;font-family:monospace}@media (prefers-color-scheme:dark){var{color:#d941e2;color:var(--variable)}}kbd{background:#efefef;background:var(--background);border:1px solid #dbdbdb;border:1px solid var(--border);border-radius:2px;color:#363636;color:var(--text-main);padding:2px 4px}@media (prefers-color-scheme:dark){kbd{color:#dbdbdb;color:var(--text-main);border:1px solid #526980;border:1px solid var(--border);background:#161f27;background:var(--background)}}img,video{max-width:100%;height:auto}hr{border:none;border-top:1px solid #dbdbdb;border-top:1px solid var(--border)}@media (prefers-color-scheme:dark){hr{border-top:1px solid #526980;border-top:1px solid var(--border)}}table{border-collapse:collapse;margin-bottom:10px;width:100%;table-layout:fixed}table caption,td,th{text-align:left}td,th{padding:6px;vertical-align:top;word-wrap:break-word}thead{border-bottom:1px solid #dbdbdb;border-bottom:1px solid var(--border)}@media (prefers-color-scheme:dark){thead{border-bottom:1px solid #526980;border-bottom:1px solid var(--border)}}tfoot{border-top:1px solid #dbdbdb;border-top:1px solid var(--border)}@media (prefers-color-scheme:dark){tfoot{border-top:1px solid #526980;border-top:1px solid var(--border)}}tbody tr:nth-child(2n){background-color:#f7f7f7;background-color:var(--background-alt)}@media (prefers-color-scheme:dark){tbody tr:nth-child(2n){background-color:#1a242f;background-color:var(--background-alt)}}::-webkit-scrollbar{height:10px;width:10px}::-webkit-scrollbar-track{background:#efefef;background:var(--background);border-radius:6px}@media (prefers-color-scheme:dark){::-webkit-scrollbar-track{background:#161f27;background:var(--background)}}::-webkit-scrollbar-thumb{background:#d5d5d5;background:var(--scrollbar-thumb);border-radius:6px}@media (prefers-color-scheme:dark){::-webkit-scrollbar-thumb{background:#324759;background:var(--scrollbar-thumb)}}::-webkit-scrollbar-thumb:hover{background:#c4c4c4;background:var(--scrollbar-thumb-hover)}@media (prefers-color-scheme:dark){::-webkit-scrollbar-thumb:hover{background:#141414;background:var(--scrollbar-thumb-hover)}}::-moz-selection{background-color:#9e9e9e;background-color:var(--selection);color:#000;color:var(--text-bright)}::selection{background-color:#9e9e9e;background-color:var(--selection);color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){::-moz-selection{color:#fff;color:var(--text-bright)}::selection{color:#fff;color:var(--text-bright)}}@media (prefers-color-scheme:dark){::-moz-selection{background-color:#1c76c5;background-color:var(--selection)}::selection{background-color:#1c76c5;background-color:var(--selection)}}details{display:flex;flex-direction:column;align-items:flex-start;background-color:#f7f7f7;background-color:var(--background-alt);padding:10px 10px 0;margin:1em 0;border-radius:6px;overflow:hidden}@media (prefers-color-scheme:dark){details{background-color:#1a242f;background-color:var(--background-alt)}}details[open]{padding:10px}details>:last-child{margin-bottom:0}details[open] summary{margin-bottom:10px}summary{display:list-item;background-color:#efefef;background-color:var(--background);padding:10px;margin:-10px -10px 0;cursor:pointer;outline:none}@media (prefers-color-scheme:dark){summary{background-color:#161f27;background-color:var(--background)}}summary:focus,summary:hover{text-decoration:underline}details>:not(summary){margin-top:0}summary::-webkit-details-marker{color:#363636;color:var(--text-main)}@media (prefers-color-scheme:dark){summary::-webkit-details-marker{color:#dbdbdb;color:var(--text-main)}}footer{border-top:1px solid #dbdbdb;border-top:1px solid var(--border);padding-top:10px;color:#70777f;color:var(--text-muted)}@media (prefers-color-scheme:dark){footer{color:#a9b1ba;color:var(--text-muted);border-top:1px solid #526980;border-top:1px solid var(--border)}}body>footer{margin-top:40px}@media print{body,button,code,details,input,pre,summary,textarea{background-color:#fff}button,input,textarea{border:1px solid #000}body,button,code,footer,h1,h2,h3,h4,h5,h6,input,pre,strong,summary,textarea{color:#000}summary::marker{color:#000}summary::-webkit-details-marker{color:#000}tbody tr:nth-child(2n){background-color:#f2f2f2}a{color:#00f;text-decoration:underline}}
+/*# sourceMappingURL=water.min.css.map */
+	</style>
+
+    <style type="text/css">
+    code[class*="language-"],pre[class*="language-"]{border-radius: 7px;color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*="language-"]::-moz-selection,pre[class*="language-"] ::-moz-selection,code[class*="language-"]::-moz-selection,code[class*="language-"] ::-moz-selection{text-shadow:none;background:#b3d4fc}pre[class*="language-"]::selection,pre[class*="language-"] ::selection,code[class*="language-"]::selection,code[class*="language-"] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*="language-"],pre[class*="language-"]{text-shadow:none}}pre[class*="language-"]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*="language-"],pre[class*="language-"]{background:#f5f2f0}:not(pre)>code[class*="language-"]{padding:.1em;border-radius:.3em;white-space:normal}.token.comment,.token.prolog,.token.doctype,.token.cdata{color:slategray}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.property,.token.tag,.token.boolean,.token.number,.token.constant,.token.symbol,.token.deleted{color:#905}.token.selector,.token.attr-name,.token.string,.token.char,.token.builtin,.token.inserted{color:#690}.token.operator,.token.entity,.token.url,.language-css .token.string,.style .token.string{color:#9a6e3a}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.function,.token.class-name{color:#DD4A68}.token.regex,.token.important,.token.variable{color:#e90}.token.important,.token.bold{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}pre[class*="language-"].line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}pre[class*="language-"].line-numbers>code{position:relative;white-space:inherit}.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:0;font-size:100%;left:-3.8em;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.line-numbers-rows>span{display:block;counter-increment:linenumber}.line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}span.inline-color-wrapper{background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyIDIiPjxwYXRoIGZpbGw9ImdyYXkiIGQ9Ik0wIDBoMnYySDB6Ii8+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0wIDBoMXYxSDB6TTEgMWgxdjFIMXoiLz48L3N2Zz4=);background-position:center;background-size:110%;display:inline-block;height:1.333ch;width:1.333ch;margin:0 .333ch;box-sizing:border-box;border:1px solid #fff;outline:1px solid rgba(0,0,0,.5);overflow:hidden}span.inline-color{display:block;height:120%;width:120%}
+    </style>
+    <style type="text/css">
+    @import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap);:root{--background-body:#fff;--background:#eee;--background-alt:#1a242f;--selection:#9abfdf;--text-main:#1a242f;--text-bright:#1e426f;--text-muted:#a9b1ba;--links:#2496ee;--focus:rgba(0,150,191,.67);--border:#526980;--code:#d20577;--animation-duration:0.1s;--button-hover:#324759;--scrollbar-thumb:var(--button-hover);--scrollbar-thumb-hover:#141414;--form-placeholder:#a9a9a9;--form-text:#fff;--variable:#d941e2;--highlight:#efdb43;--select-arrow:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23efefef'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E")}body{font-family:"IBM Plex Sans",sans-serif;font-size:16px;line-height: 1.6;}
+    </style>
+ 
+
+</head>
+
+<body>
+    <header><h1></h1>
+
+        <nav>
+        </nav>
+
+    </header><h1>Chapter 11: Lists</h1>
+<p>A <strong>list</strong> is an ordered collection of values. The values that make up a list are called its <strong>elements</strong>, or its <strong>items</strong>. We will use the term element or item to mean the same thing. Lists are similar to strings, which are ordered collections of characters, except that the elements of a list can be of any type. Lists and strings — and other collections that maintain the order of their items — are called <strong>sequences</strong>.</p>
+<pre><code class="language-python">nested list, list; nested</code></pre>
+<h2>11.1. List values</h2>
+<p>There are several ways to create a new list; the simplest is to enclose the elements in square brackets (<code>[</code> and <code>]</code>):</p>
+<pre><code class="language-python">ps = [10, 20, 30, 40]
+qs = [&quot;spam&quot;, &quot;bungee&quot;, &quot;swallow&quot;]</code></pre>
+<p>The first example is a list of four integers. The second is a list of three strings. The elements of a list don’t have to be the same type. The following list contains a string, a float, an integer, and (amazingly) another list:</p>
+<pre><code class="language-python">zs = [&quot;hello&quot;, 2.0, 5, [10, 20]]</code></pre>
+<p>A list within another list is said to be <strong>nested</strong>.</p>
+<p>Finally, a list with no elements is called an empty list, and is denoted <code>[]</code>.</p>
+<p>We have already seen that we can assign list values to variables or pass lists as parameters to functions:</p>
+<pre><code class="language-python">&gt;&gt;&gt; vocabulary = [&quot;apple&quot;, &quot;cheese&quot;, &quot;dog&quot;]
+&gt;&gt;&gt; numbers = [17, 123]
+&gt;&gt;&gt; an_empty_list = []
+&gt;&gt;&gt; print(vocabulary, numbers, an_empty_list)
+[&quot;apple&quot;, &quot;cheese&quot;, &quot;dog&quot;] [17, 123] []</code></pre>
+<pre><code class="language-python">.. index:: list index, index, list traversal</code></pre>
+<h2>11.2. Accessing elements</h2>
+<p>The syntax for accessing the elements of a list is the same as the syntax for accessing the characters of a string — the index operator: <code>[]</code> (not to be confused with an empty list). The expression inside the brackets specifies the index. Remember that the indices start at 0:</p>
+<pre><code class="language-python">&gt;&gt;&gt; numbers[0]
+17</code></pre>
+<p>Any expression evaluating to an integer can be used as an index:</p>
+<pre><code class="language-python">&gt;&gt;&gt; numbers[9-8]
+5
+&gt;&gt;&gt; numbers[1.0]
+Traceback (most recent call last):
+  File &quot;&lt;interactive input&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: list indices must be integers, not float</code></pre>
+<p>If you try to access or assign to an element that does not exist, you get a runtime error:</p>
+<pre><code class="language-python">&gt;&gt;&gt; numbers[2]
+Traceback (most recent call last):
+  File &quot;&lt;interactive input&gt;&quot;, line 1, in &lt;module&gt;
+IndexError: list index out of range</code></pre>
+<p>It is common to use a loop variable as a list index.</p>
+<pre><code class="language-python">horsemen = [&quot;war&quot;, &quot;famine&quot;, &quot;pestilence&quot;, &quot;death&quot;]
+
+for i in [0, 1, 2, 3]:
+    print(horsemen[i])</code></pre>
+<p>Each time through the loop, the variable <code>i</code> is used as an index into the list, printing the <code>i</code>’th element. This pattern of computation is called a <strong>list traversal</strong>.</p>
+<p>The above sample doesn’t need or use the index <code>i</code> for anything besides getting the items from the list, so this more direct version — where the <code>for</code> loop gets the items — might be preferred:</p>
+<pre><code class="language-python">horsemen = [&quot;war&quot;, &quot;famine&quot;, &quot;pestilence&quot;, &quot;death&quot;]
+
+for h in horsemen:
+    print(h)</code></pre>
+<h2>11.3. List length</h2>
+<p>The function <code>len</code> returns the length of a list, which is equal to the number of its elements. If you are going to use an integer index to access the list, it is a good idea to use this value as the upper bound of a loop instead of a constant. That way, if the size of the list changes, you won’t have to go through the program changing all the loops; they will work correctly for any size list:</p>
+<pre><code class="language-python">horsemen = [&quot;war&quot;, &quot;famine&quot;, &quot;pestilence&quot;, &quot;death&quot;]
+
+for i in range(len(horsemen)):
+    print(horsemen[i])</code></pre>
+<p>The last time the body of the loop is executed, <code>i</code> is <code>len(horsemen) - 1</code>, which is the index of the last element. (But the version without the index looks even better now!)</p>
+<p>Although a list can contain another list, the nested list still counts as a single element in its parent list. The length of this list is 4:</p>
+<pre><code class="language-python">&gt;&gt;&gt; len([&quot;car makers&quot;, 1, [&quot;Ford&quot;, &quot;Toyota&quot;, &quot;BMW&quot;], [1, 2, 3]])
+4</code></pre>
+<h2>11.4. List membership</h2>
+<p><code>in</code> and <code>not in</code> are Boolean operators that test membership in a sequence. We used them previously with strings, but they also work with lists and other sequences:</p>
+<pre><code class="language-python">&gt;&gt;&gt; horsemen = [&quot;war&quot;, &quot;famine&quot;, &quot;pestilence&quot;, &quot;death&quot;]
+&gt;&gt;&gt; &quot;pestilence&quot; in horsemen
+True
+&gt;&gt;&gt; &quot;debauchery&quot; in horsemen
+False
+&gt;&gt;&gt; &quot;debauchery&quot; not in horsemen
+True</code></pre>
+<p>Using this produces a more elegant version of the nested loop program we previously used to count the number of students doing Computer Science in the section <code>nested_data</code>:</p>
+<pre><code class="language-python">students = [
+    (&quot;John&quot;, [&quot;CompSci&quot;, &quot;Physics&quot;]),
+    (&quot;Vusi&quot;, [&quot;Maths&quot;, &quot;CompSci&quot;, &quot;Stats&quot;]),
+    (&quot;Jess&quot;, [&quot;CompSci&quot;, &quot;Accounting&quot;, &quot;Economics&quot;, &quot;Management&quot;]),
+    (&quot;Sarah&quot;, [&quot;InfSys&quot;, &quot;Accounting&quot;, &quot;Economics&quot;, &quot;CommLaw&quot;]),
+    (&quot;Zuki&quot;, [&quot;Sociology&quot;, &quot;Economics&quot;, &quot;Law&quot;, &quot;Stats&quot;, &quot;Music&quot;])]
+
+# Count how many students are taking CompSci
+counter = 0
+for (name, subjects) in students:
+    if &quot;CompSci&quot; in subjects:            
+           counter += 1
+
+print(&quot;The number of students taking CompSci is&quot;, counter)</code></pre>
+<h2>11.5. List operations</h2>
+<p>The <code>+</code> operator concatenates lists:</p>
+<pre><code class="language-python">&gt;&gt;&gt; a = [1, 2, 3]
+&gt;&gt;&gt; b = [4, 5, 6]
+&gt;&gt;&gt; c = a + b
+&gt;&gt;&gt; c
+[1, 2, 3, 4, 5, 6]</code></pre>
+<p>Similarly, the <code>*</code> operator repeats a list a given number of times:</p>
+<pre><code class="language-python">&gt;&gt;&gt; [0] * 4
+[0, 0, 0, 0]
+&gt;&gt;&gt; [1, 2, 3] * 3
+[1, 2, 3, 1, 2, 3, 1, 2, 3]</code></pre>
+<p>The first example repeats <code>[0]</code> four times. The second example repeats the list <code>[1, 2, 3]</code> three times.</p>
+<pre><code class="language-python">.. index:: slice, sublist</code></pre>
+<h2>11.6. List slices</h2>
+<p>The slice operations we saw previously with strings let us work with sublists:</p>
+<pre><code class="language-python">&gt;&gt;&gt; a_list = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;]
+&gt;&gt;&gt; a_list[1:3]
+[&#39;b&#39;, &#39;c&#39;]
+&gt;&gt;&gt; a_list[:4]
+[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;]
+&gt;&gt;&gt; a_list[3:]
+[&#39;d&#39;, &#39;e&#39;, &#39;f&#39;]
+&gt;&gt;&gt; a_list[:]
+[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;]</code></pre>
+<pre><code class="language-python">.. index:: mutable, item assignment, immutable</code></pre>
+<h2>11.7. Lists are mutable</h2>
+<p>Unlike strings, lists are <strong>mutable</strong>, which means we can change their elements. Using the index operator on the left side of an assignment, we can update one of the elements:</p>
+<pre><code class="language-python">&gt;&gt;&gt; fruit = [&quot;banana&quot;, &quot;apple&quot;, &quot;quince&quot;]
+&gt;&gt;&gt; fruit[0] = &quot;pear&quot;
+&gt;&gt;&gt; fruit[2] = &quot;orange&quot;
+&gt;&gt;&gt; fruit
+[&#39;pear&#39;, &#39;apple&#39;, &#39;orange&#39;]</code></pre>
+<p>The bracket operator applied to a list can appear anywhere in an expression. When it appears on the left side of an assignment, it changes one of the elements in the list, so the first element of <code>fruit</code> has been changed from <code>"banana"</code> to <code>"pear"</code>, and the last from <code>"quince"</code> to <code>"orange"</code>. An assignment to an element of a list is called <strong>item assignment</strong>. Item assignment does not work for strings:</p>
+<pre><code class="language-python">&gt;&gt;&gt; my_string = &quot;TEST&quot;
+&gt;&gt;&gt; my_string[2] = &quot;X&quot;
+Traceback (most recent call last):
+  File &quot;&lt;interactive input&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: &#39;str&#39; object does not support item assignment</code></pre>
+<p>but it does for lists:</p>
+<pre><code class="language-python">&gt;&gt;&gt; my_list = [&quot;T&quot;, &quot;E&quot;, &quot;S&quot;, &quot;T&quot;]
+&gt;&gt;&gt; my_list[2] = &quot;X&quot;
+&gt;&gt;&gt; my_list
+[&#39;T&#39;, &#39;E&#39;, &#39;X&#39;, &#39;T&#39;]</code></pre>
+<p>With the slice operator we can update a whole sublist at once:</p>
+<pre><code class="language-python">&gt;&gt;&gt; a_list = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;]
+&gt;&gt;&gt; a_list[1:3] = [&quot;x&quot;, &quot;y&quot;]
+&gt;&gt;&gt; a_list
+[&#39;a&#39;, &#39;x&#39;, &#39;y&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;]</code></pre>
+<p>We can also remove elements from a list by assigning an empty list to them:</p>
+<pre><code class="language-python">&gt;&gt;&gt; a_list = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;]
+&gt;&gt;&gt; a_list[1:3] = []
+&gt;&gt;&gt; a_list
+[&#39;a&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;]</code></pre>
+<p>And we can add elements to a list by squeezing them into an empty slice at the desired location:</p>
+<pre><code class="language-python">&gt;&gt;&gt; a_list = [&quot;a&quot;, &quot;d&quot;, &quot;f&quot;]
+&gt;&gt;&gt; a_list[1:1] = [&quot;b&quot;, &quot;c&quot;]
+&gt;&gt;&gt; a_list
+[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;f&#39;]
+&gt;&gt;&gt; a_list[4:4] = [&quot;e&quot;]
+&gt;&gt;&gt; a_list
+[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;]</code></pre>
+<pre><code class="language-python">.. index:: del statement, statement; del</code></pre>
+<h2>11.8. List deletion</h2>
+<p>Using slices to delete list elements can be error-prone. Python provides an alternative that is more readable. The <code>del</code> statement removes an element from a list:</p>
+<pre><code class="language-python">&gt;&gt;&gt; a = [&quot;one&quot;, &quot;two&quot;, &quot;three&quot;]
+&gt;&gt;&gt; del a[1]
+&gt;&gt;&gt; a
+[&#39;one&#39;, &#39;three&#39;]</code></pre>
+<p>As you might expect, <code>del</code> causes a runtime error if the index is out of range.</p>
+<p>You can also use <code>del</code> with a slice to delete a sublist:</p>
+<pre><code class="language-python">&gt;&gt;&gt; a_list = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;]
+&gt;&gt;&gt; del a_list[1:5]
+&gt;&gt;&gt; a_list
+[&#39;a&#39;, &#39;f&#39;]</code></pre>
+<p>As usual, the sublist selected by slice contains all the elements up to, but not including, the second index.</p>
+<pre><code class="language-python">.. index:: is operator, objects and values</code></pre>
+<h2>11.9. Objects and references</h2>
+<p>After we execute these assignment statements</p>
+<pre><code class="language-python">a = &quot;banana&quot;
+b = &quot;banana&quot;</code></pre>
+<p>we know that <code>a</code> and <code>b</code> will refer to a string object with the letters <code>"banana"</code>. But we don’t know yet whether they point to the <em>same</em> string object.</p>
+<p>There are two possible ways the Python interpreter could arrange its memory:</p>
+<p><img src="Chapter-11/list1.png" /></p>
+<p>In one case, <code>a</code> and <code>b</code> refer to two different objects that have the same value. In the second case, they refer to the same object.</p>
+<p>We can test whether two names refer to the same object using the <code>is</code> operator:</p>
+<pre><code class="language-python">&gt;&gt;&gt; a is b
+True</code></pre>
+<p>This tells us that both <code>a</code> and <code>b</code> refer to the same object, and that it is the second of the two state snapshots that accurately describes the relationship.</p>
+<p>Since strings are <em>immutable</em>, Python optimizes resources by making two names that refer to the same string value refer to the same object.</p>
+<p>This is not the case with lists:</p>
+<pre><code class="language-python">&gt;&gt;&gt; a = [1, 2, 3]
+&gt;&gt;&gt; b = [1, 2, 3]
+&gt;&gt;&gt; a == b
+True
+&gt;&gt;&gt; a is b
+False   </code></pre>
+<p>The state snapshot here looks like this:</p>
+<p><img src="Chapter-11/mult_references2.png" /></p>
+<p><code>a</code> and <code>b</code> have the same value but do not refer to the same object.</p>
+<pre><code>.. index:: aliases</code></pre>
+<h2>11.10. Aliasing</h2>
+<p>Since variables refer to objects, if we assign one variable to another, both variables refer to the same object:</p>
+<pre><code class="language-python">&gt;&gt;&gt; a = [1, 2, 3]
+&gt;&gt;&gt; b = a
+&gt;&gt;&gt; a is b
+True</code></pre>
+<p>In this case, the state snapshot looks like this:</p>
+<p><img src="Chapter-11/mult_references3.png" /></p>
+<p>Because the same list has two different names, <code>a</code> and <code>b</code>, we say that it is <strong>aliased</strong>. Changes made with one alias affect the other:</p>
+<pre><code class="language-python">&gt;&gt;&gt; b[0] = 5
+&gt;&gt;&gt; a
+[5, 2, 3]</code></pre>
+<p>Although this behavior can be useful, it is sometimes unexpected or undesirable. In general, it is safer to avoid aliasing when you are working with mutable objects (i.e. lists at this point in our textbook, but we’ll meet more mutable objects as we cover classes and objects, dictionaries and sets). Of course, for immutable objects (i.e. strings, tuples), there’s no problem — it is just not possible to change something and get a surprise when you access an alias name. That’s why Python is free to alias strings (and any other immutable kinds of data) when it sees an opportunity to economize.</p>
+<pre><code>.. index:: clone</code></pre>
+<h2>11.11. Cloning lists</h2>
+<p>If we want to modify a list and also keep a copy of the original, we need to be able to make a copy of the list itself, not just the reference. This process is sometimes called <strong>cloning</strong>, to avoid the ambiguity of the word copy.</p>
+<p>The easiest way to clone a list is to use the slice operator:</p>
+<pre><code class="language-python">&gt;&gt;&gt; a = [1, 2, 3]
+&gt;&gt;&gt; b = a[:]
+&gt;&gt;&gt; b
+[1, 2, 3]</code></pre>
+<p>Taking any slice of <code>a</code> creates a new list. In this case the slice happens to consist of the whole list. So now the relationship is like this:</p>
+<p><img src="Chapter-11/mult_references2.png" /></p>
+<p>Now we are free to make changes to <code>b</code> without worrying that we’ll inadvertently be changing <code>a</code>:</p>
+<pre><code class="language-python">&gt;&gt;&gt; b[0] = 5
+&gt;&gt;&gt; a
+[1, 2, 3]</code></pre>
+<pre><code>.. index:: for loop, enumerate</code></pre>
+<h2>11.12. Lists and <code>for</code> loops</h2>
+<p>The <code>for</code> loop also works with lists, as we’ve already seen. The generalized syntax of a <code>for</code> loop is:</p>
+<pre><code class="language-python">for VARIABLE in LIST:
+    BODY</code></pre>
+<p>So, as we’ve seen</p>
+<pre><code class="language-python">friends = [&quot;Joe&quot;, &quot;Zoe&quot;, &quot;Brad&quot;, &quot;Angelina&quot;, &quot;Zuki&quot;, &quot;Thandi&quot;, &quot;Paris&quot;]
+for friend in friends:
+    print(friend)</code></pre>
+<p>It almost reads like English: For (every) friend in (the list of) friends, print (the name of the) friend.</p>
+<p>Any list expression can be used in a <code>for</code> loop:</p>
+<pre><code class="language-python">for number in range(20):
+    if number % 3 == 0:
+        print(number)
+
+for fruit in [&quot;banana&quot;, &quot;apple&quot;, &quot;quince&quot;]:
+    print(&quot;I like to eat &quot; + fruit + &quot;s!&quot;)</code></pre>
+<p>The first example prints all the multiples of 3 between 0 and 19. The second example expresses enthusiasm for various fruits.</p>
+<p>Since lists are mutable, we often want to traverse a list, changing each of its elements. The following squares all the numbers in the list <code>xs</code>:</p>
+<pre><code class="language-python">xs = [1, 2, 3, 4, 5]
+
+for i in range(len(xs)):
+    xs[i] = xs[i]**2</code></pre>
+<p>Take a moment to think about <code>range(len(xs))</code> until you understand how it works.</p>
+<p>In this example we are interested in both the <em>value</em> of an item, (we want to square that value), and its <em>index</em> (so that we can assign the new value to that position). This pattern is common enough that Python provides a nicer way to implement it:</p>
+<pre><code class="language-python">xs = [1, 2, 3, 4, 5]
+
+for (i, val) in enumerate(xs):
+    xs[i] = val**2</code></pre>
+<p><code>enumerate</code> generates pairs of both (index, value) during the list traversal. Try this next example to see more clearly how <code>enumerate</code> works:</p>
+<pre><code class="language-python">for (i, v) in enumerate([&quot;banana&quot;, &quot;apple&quot;, &quot;pear&quot;, &quot;lemon&quot;]):
+     print(i, v)</code></pre>
+<pre><code class="language-python">0 banana
+1 apple
+2 pear
+3 lemon</code></pre>
+<pre><code>.. index:: parameter</code></pre>
+<h2>11.13. List parameters</h2>
+<p>Passing a list as an argument actually passes a reference to the list, not a copy or clone of the list. So parameter passing creates an alias for you: the caller has one variable referencing the list, and the called function has an alias, but there is only one underlying list object. For example, the function below takes a list as an argument and multiplies each element in the list by 2:</p>
+<pre><code class="language-python">def double_stuff(a_list):
+    &quot;&quot;&quot; Overwrite each element in a_list with double its value. &quot;&quot;&quot;
+    for (idx, val) in enumerate(a_list):
+        a_list[idx] = 2 * val</code></pre>
+<p>If we add the following onto our script:</p>
+<pre><code class="language-python">things = [2, 5, 9]
+double_stuff(things)
+print(things)</code></pre>
+<p>When we run it we’ll get:</p>
+<pre><code class="language-python">[4, 10, 18]</code></pre>
+<p>In the function above, the parameter <code>a_list</code> and the variable <code>things</code> are aliases for the same object. So before any changes to the elements in the list, the state snapshot looks like this:</p>
+<p><img src="Chapter-11/mult_references4.png" /></p>
+<p>Since the list object is shared by two frames, we drew it between them.</p>
+<p>If a function modifies the items of a list parameter, the caller sees the change.</p>
+<p>Use the Python visualizer!</p>
+<p>We’ve already mentioned the Python visualizer at http://pythontutor.com. It is a very useful tool for building a good understanding of references, aliases, assignments, and passing arguments to functions. Pay special attention to cases where you clone a list or have two separate lists, and cases where there is only one underlying list, but more than one variable is aliased to reference the list.</p>
+<pre><code class="language-python">.. index:: list; append</code></pre>
+<h2>11.14. List methods</h2>
+<p>The dot operator can also be used to access built-in methods of list objects. We’ll start with the most useful method for adding something onto the end of an existing list:</p>
+<pre><code class="language-python">&gt;&gt;&gt; mylist = []
+&gt;&gt;&gt; mylist.append(5)
+&gt;&gt;&gt; mylist.append(27)
+&gt;&gt;&gt; mylist.append(3)
+&gt;&gt;&gt; mylist.append(12)
+&gt;&gt;&gt; mylist
+[5, 27, 3, 12]</code></pre>
+<p><code>append</code> is a list method which adds the argument passed to it to the end of the list. We’ll use it heavily when we’re creating new lists. Continuing with this example, we show several other list methods:</p>
+<pre><code class="language-python">&gt;&gt;&gt; mylist.insert(1, 12)  # Insert 12 at pos 1, shift other items up
+&gt;&gt;&gt; mylist
+[5, 12, 27, 3, 12]
+&gt;&gt;&gt; mylist.count(12)       # How many times is 12 in mylist?
+2
+&gt;&gt;&gt; mylist.extend([5, 9, 5, 11])   # Put whole list onto end of mylist
+&gt;&gt;&gt; mylist
+[5, 12, 27, 3, 12, 5, 9, 5, 11])
+&gt;&gt;&gt; mylist.index(9)                # Find index of first 9 in mylist
+6
+&gt;&gt;&gt; mylist.reverse()
+&gt;&gt;&gt; mylist
+[11, 5, 9, 5, 12, 3, 27, 12, 5]
+&gt;&gt;&gt; mylist.sort()
+&gt;&gt;&gt; mylist
+[3, 5, 5, 5, 9, 11, 12, 12, 27]   
+&gt;&gt;&gt; mylist.remove(12)             # Remove the first 12 in the list
+&gt;&gt;&gt; mylist
+[3, 5, 5, 5, 9, 11, 12, 27]</code></pre>
+<p>Experiment and play with the list methods shown here, and read their documentation until you feel confident that you understand how they work.</p>
+<pre><code class="language-python">.. index:: side effect, modifier</code></pre>
+<h2>11.15. Pure functions and modifiers</h2>
+<p>Functions which take lists as arguments and change them during execution are called <strong>modifiers</strong> and the changes they make are called <strong>side effects</strong>.</p>
+<p>A <strong>pure function</strong> does not produce side effects. It communicates with the calling program only through parameters, which it does not modify, and a return value. Here is <code>double_stuff</code> written as a pure function:</p>
+<pre><code class="language-python">def double_stuff(a_list):
+    &quot;&quot;&quot; Return a new list which contains 
+        doubles of the elements in a_list. 
+    &quot;&quot;&quot;
+    new_list = []
+    for value in a_list:
+        new_elem = 2 * value
+        new_list.append(new_elem)
+
+    return new_list</code></pre>
+<p>This version of <code>double_stuff</code> does not change its arguments:</p>
+<pre><code class="language-python">&gt;&gt;&gt; things = [2, 5, 9]
+&gt;&gt;&gt; xs = double_stuff(things)
+&gt;&gt;&gt; things
+[2, 5, 9]
+&gt;&gt;&gt; xs
+[4, 10, 18]</code></pre>
+<p>An early rule we saw for assignment said “first evaluate the right hand side, then assign the resulting value to the variable”. So it is quite safe to assign the function result to the same variable that was passed to the function:</p>
+<pre><code class="language-python">&gt;&gt;&gt; things = [2, 5, 9]
+&gt;&gt;&gt; things = double_stuff(things)
+&gt;&gt;&gt; things
+[4, 10, 18]      </code></pre>
+<p>Which style is better?</p>
+<p>Anything that can be done with modifiers can also be done with pure functions. In fact, some programming languages only allow pure functions. There is some evidence that programs that use pure functions are faster to develop and less error-prone than programs that use modifiers. Nevertheless, modifiers are convenient at times, and in some cases, functional programs are less efficient.</p>
+<p>In general, we recommend that you write pure functions whenever it is reasonable to do so and resort to modifiers only if there is a compelling advantage. This approach might be called a <em>functional programming style</em>.</p>
+<h2>11.16. Functions that produce lists</h2>
+<p>The pure version of <code>double_stuff</code> above made use of an important <strong>pattern</strong> for your toolbox. Whenever you need to write a function that creates and returns a list, the pattern is usually:</p>
+<pre><code class="language-python">initialize a result variable to be an empty list
+loop
+   create a new element 
+   append it to result
+return the result</code></pre>
+<p>Let us show another use of this pattern. Assume you already have a function <code>is_prime(x)</code> that can test if x is prime. Write a function to return a list of all prime numbers less than n:</p>
+<pre><code class="language-python">def primes_lessthan(n):
+    &quot;&quot;&quot; Return a list of all prime numbers less than n. &quot;&quot;&quot;
+    result = []
+    for i in range(2, n):
+        if is_prime(i):
+           result.append(i)
+    return result</code></pre>
+<pre><code class="language-python">.. index:: strings and lists, split, join</code></pre>
+<h2>11.17. Strings and lists</h2>
+<p>Two of the most useful methods on strings involve conversion to and from lists of substrings. The <code>split</code> method (which we’ve already seen) breaks a string into a list of words. By default, any number of whitespace characters is considered a word boundary:</p>
+<pre><code class="language-python">&gt;&gt;&gt; song = &quot;The rain in Spain...&quot;
+&gt;&gt;&gt; wds = song.split()
+&gt;&gt;&gt; wds
+[&#39;The&#39;, &#39;rain&#39;, &#39;in&#39;, &#39;Spain...&#39;]</code></pre>
+<p>An optional argument called a <strong>delimiter</strong> can be used to specify which string to use as the boundary marker between substrings. The following example uses the string <code>ai</code> as the delimiter:</p>
+<pre><code class="language-python">&gt;&gt;&gt; song.split(&quot;ai&quot;)
+[&#39;The r&#39;, &#39;n in Sp&#39;, &#39;n...&#39;]</code></pre>
+<p>Notice that the delimiter doesn’t appear in the result.</p>
+<p>The inverse of the <code>split</code> method is <code>join</code>. You choose a desired <strong>separator</strong> string, (often called the <em>glue</em>) and join the list with the glue between each of the elements:</p>
+<pre><code class="language-python">&gt;&gt;&gt; glue = &quot;;&quot;
+&gt;&gt;&gt; s = glue.join(wds)
+&gt;&gt;&gt; s
+&#39;The;rain;in;Spain...&#39;</code></pre>
+<p>The list that you glue together (<code>wds</code> in this example) is not modified. Also, as these next examples show, you can use empty glue or multi-character strings as glue:</p>
+<pre><code class="language-python">&gt;&gt;&gt; &quot; --- &quot;.join(wds)
+&#39;The --- rain --- in --- Spain...&#39;
+&gt;&gt;&gt; &quot;&quot;.join(wds)
+&#39;TheraininSpain...&#39;</code></pre>
+<pre><code>.. index:: promise, range function</code></pre>
+<h2>11.18. <code>list</code> and <code>range</code></h2>
+<p>Python has a built-in type conversion function called <code>list</code> that tries to turn whatever you give it into a list.</p>
+<pre><code class="language-python">&gt;&gt;&gt; xs = list(&quot;Crunchy Frog&quot;)
+&gt;&gt;&gt; xs
+[&quot;C&quot;, &quot;r&quot;, &quot;u&quot;, &quot;n&quot;, &quot;c&quot;, &quot;h&quot;, &quot;y&quot;, &quot; &quot;, &quot;F&quot;, &quot;r&quot;, &quot;o&quot;, &quot;g&quot;]
+&gt;&gt;&gt; &quot;&quot;.join(xs)
+&#39;Crunchy Frog&#39;</code></pre>
+<p>One particular feature of <code>range</code> is that it doesn’t instantly compute all its values: it “puts off” the computation, and does it on demand, or “lazily”. We’ll say that it gives a <strong>promise</strong> to produce the values when they are needed. This is very convenient if your computation short-circuits a search and returns early, as in this case:</p>
+<pre><code class="language-python">def f(n):
+    &quot;&quot;&quot; Find the first positive integer between 101 and less 
+        than n that is divisible by 21 
+    &quot;&quot;&quot;
+    for i in range(101, n):
+       if (i % 21 == 0):
+           return i
+
+
+test(f(110) == 105)
+test(f(1000000000) == 105)</code></pre>
+<p>In the second test, if range were to eagerly go about building a list with all those elements, you would soon exhaust your computer’s available memory and crash the program. But it is cleverer than that! This computation works just fine, because the <code>range</code> object is just a promise to produce the elements if and when they are needed. Once the condition in the <code>if</code> becomes true, no further elements are generated, and the function returns. (Note: Before Python 3, <code>range</code> was not lazy. If you use an earlier versions of Python, YMMV!)</p>
+<p>YMMV: Your Mileage May Vary</p>
+<p>The acronym YMMV stands for <em>your mileage may vary</em>. American car advertisements often quoted fuel consumption figures for cars, e.g. that they would get 28 miles per gallon. But this always had to be accompanied by legal small-print warning the reader that they might not get the same. The term YMMV is now used idiomatically to mean “your results may differ”, e.g. <em>The battery life on this phone is 3 days, but YMMV.</em></p>
+<p>You’ll sometimes find the lazy <code>range</code> wrapped in a call to <code>list</code>. This forces Python to turn the lazy promise into an actual list:</p>
+<pre><code class="language-python">&gt;&gt;&gt; range(10)           # Create a lazy promise 
+range(0, 10)
+&gt;&gt;&gt; list(range(10))     # Call in the promise, to produce a list.
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code></pre>
+<pre><code class="language-python">.. index:: nested list, list; nested</code></pre>
+<h2>11.19. Nested lists</h2>
+<p>A nested list is a list that appears as an element in another list. In this list, the element with index 3 is a nested list:</p>
+<pre><code class="language-python">&gt;&gt;&gt; nested = [&quot;hello&quot;, 2.0, 5, [10, 20]]</code></pre>
+<p>If we output the element at index 3, we get:</p>
+<pre><code class="language-python">&gt;&gt;&gt; print(nested[3]) 
+[10, 20]</code></pre>
+<p>To extract an element from the nested list, we can proceed in two steps:</p>
+<pre><code class="language-python">&gt;&gt;&gt; elem = nested[3]
+&gt;&gt;&gt; elem[0]
+10</code></pre>
+<p>Or we can combine them:</p>
+<pre><code class="language-python">&gt;&gt;&gt; nested[3][1]
+20</code></pre>
+<p>Bracket operators evaluate from left to right, so this expression gets the 3’th element of <code>nested</code> and extracts the 1’th element from it.</p>
+<pre><code class="language-python">.. index:: matrix</code></pre>
+<h2>11.20. Matrices</h2>
+<p>Nested lists are often used to represent matrices. For example, the matrix:</p>
+<p><img src="Chapter-11/matrix2.png" /></p>
+<p>might be represented as:</p>
+<pre><code class="language-python">&gt;&gt;&gt; mx = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code></pre>
+<p><code>mx</code> is a list with three elements, where each element is a row of the matrix. We can select an entire row from the matrix in the usual way:</p>
+<pre><code class="language-python">&gt;&gt;&gt; mx[1]
+[4, 5, 6]</code></pre>
+<p>Or we can extract a single element from the matrix using the double-index form:</p>
+<pre><code class="language-python">&gt;&gt;&gt; mx[1][2]
+6</code></pre>
+<p>The first index selects the row, and the second index selects the column. Although this way of representing matrices is common, it is not the only possibility. A small variation is to use a list of columns instead of a list of rows. Later we will see a more radical alternative using a dictionary.</p>
+<h2>11.21. Glossary</h2>
+<pre><code class="language-python">aliases  
+    Multiple variables that contain references to the same object.
+
+clone  
+    To create a new object that has the same value as an existing object.
+    Copying a reference to an object creates an alias but doesn&#39;t clone the
+    object.
+
+delimiter  
+    A character or string used to indicate where a string should be split.
+
+element  
+    One of the values in a list (or other sequence). The bracket operator
+    selects elements of a list. Also called *item*.
+
+immutable data value  
+    A data value which cannot be modified. Assignments to elements or slices
+    (sub-parts) of immutable values cause a runtime error.
+
+index  
+    An integer value that indicates the position of an item in a list.
+    Indexes start from 0.
+
+item  
+    See *element*.
+
+list  
+    A collection of values, each in a fixed position within the list. Like
+    other types `str`, `int`, `float`, etc. there is also a `list`
+    type-converter function that tries to turn whatever argument you give it
+    into a list.
+
+list traversal  
+    The sequential accessing of each element in a list.
+
+modifier  
+    A function which changes its arguments inside the function body. Only
+    mutable types can be changed by modifiers.
+
+mutable data value  
+    A data value which can be modified. The types of all mutable values are
+    compound types. Lists and dictionaries are mutable; strings and tuples
+    are not.
+
+nested list  
+    A list that is an element of another list.
+
+object  
+    A thing to which a variable can refer.
+
+pattern  
+    A sequence of statements, or a style of coding something that has
+    general applicability in a number of different situations. Part of
+    becoming a mature Computer Scientist is to learn and establish the
+    patterns and algorithms that form your toolkit. Patterns often
+    correspond to your &quot;mental chunking&quot;.
+
+promise  
+    An object that promises to do some work or deliver some values if
+    they&#39;re eventually needed, but it lazily puts off doing the work
+    immediately. Calling `range` produces a promise.
+
+pure function  
+    A function which has no side effects. Pure functions only make changes
+    to the calling program through their return values.
+
+sequence  
+    Any of the data types that consist of an ordered collection of elements,
+    with each element identified by an index.
+
+side effect  
+    A change in the state of a program made by calling a function. Side
+    effects can only be produced by modifiers.
+
+step size  
+    The interval between successive elements of a linear sequence. The third
+    (and optional argument) to the `range` function is called the step size.
+    If not specified, it defaults to 1.
+</code></pre>
+<h2>11.22. Exercises</h2>
+<ol type="1">
+<li><p>What is the Python interpreter’s response to the following?</p>
+<pre><code class="language-python">&gt;&gt;&gt; list(range(10, 0, -2))</code></pre>
+<p>The three arguments to the <em>range</em> function are <em>start</em>, <em>stop</em>, and <em>step</em>, respectively. In this example, <code>start</code> is greater than <code>stop</code>. What happens if <code>start &lt; stop</code> and <code>step &lt; 0</code>? Write a rule for the relationships among <code>start</code>, <code>stop</code>, and <code>step</code>.</p></li>
+<li><p>Consider this fragment of code:</p>
+<pre><code class="language-python">import turtle
+
+tess = turtle.Turtle()
+alex = tess
+alex.color(&quot;hotpink&quot;)</code></pre>
+<p>Does this fragment create one or two turtle instances? Does setting the color of <code>alex</code> also change the color of <code>tess</code>? Explain in detail.</p></li>
+<li><p>Draw a state snapshot for <code>a</code> and <code>b</code> before and after the third line of the following Python code is<br />
+executed:</p>
+<pre><code class="language-python">a = [1, 2, 3]
+b = a[:]
+b[0] = 5</code></pre></li>
+<li><p>What will be the output of the following program?</p>
+<pre><code class="language-python">this = [&quot;I&quot;, &quot;am&quot;, &quot;not&quot;, &quot;a&quot;, &quot;crook&quot;]
+that = [&quot;I&quot;, &quot;am&quot;, &quot;not&quot;, &quot;a&quot;, &quot;crook&quot;]
+print(&quot;Test 1: {0}&quot;.format(this is that))
+that = this
+print(&quot;Test 2: {0}&quot;.format(this is that))</code></pre>
+<p>Provide a <em>detailed</em> explanation of the results.</p></li>
+<li><p>Lists can be used to represent mathematical <em>vectors</em>. In this exercise and several that follow you will write functions to perform standard operations on vectors. Create a script named <code>vectors.py</code> and write Python code to pass the tests in each case.</p>
+<p>Write a function <code>add_vectors(u, v)</code> that takes two lists of numbers of the same length, and returns a new list containing the sums of the corresponding elements of each:</p>
+<pre><code class="language-python">test(add_vectors([1, 1], [1, 1]) == [2, 2])
+test(add_vectors([1, 2], [1, 4]) == [2, 6])
+test(add_vectors([1, 2, 1], [1, 4, 3]) == [2, 6, 4])</code></pre></li>
+<li><p>Write a function <code>scalar_mult(s, v)</code> that takes a number, <code>s</code>, and a list, <code>v</code> and returns the <a href="http://en.wikipedia.org/wiki/Scalar_multiple">scalar multiple</a> of <code>v</code> by <code>s</code>. :</p>
+<pre><code class="language-python">test(scalar_mult(5, [1, 2]) == [5, 10])
+test(scalar_mult(3, [1, 0, -1]) == [3, 0, -3])
+test(scalar_mult(7, [3, 0, 5, 11, 2]) == [21, 0, 35, 77, 14])</code></pre></li>
+<li><p>Write a function <code>dot_product(u, v)</code> that takes two lists of numbers of the same length, and returns the sum of the products of the corresponding elements of each (the <a href="http://en.wikipedia.org/wiki/Dot_product">dot_product</a>).</p>
+<pre><code class="language-python">test(dot_product([1, 1], [1, 1]) ==  2)
+test(dot_product([1, 2], [1, 4]) ==  9)
+test(dot_product([1, 2, 1], [1, 4, 3]) == 12)</code></pre></li>
+<li><p><em>Extra challenge for the mathematically inclined</em>: Write a function <code>cross_product(u, v)</code> that takes two lists of numbers of length 3 and returns their <a href="http://en.wikipedia.org/wiki/Cross_product">cross product</a>. You should write your own tests.</p></li>
+<li><p>Describe the relationship between <code>" ".join(song.split())</code> and <code>song</code> in the fragment of code below. Are they the same for all strings assigned to <code>song</code>? When would they be different?</p>
+<pre><code class="language-python">song = &quot;The rain in Spain...&quot;</code></pre></li>
+<li><p>Write a function <code>replace(s, old, new)</code> that replaces all occurrences of <code>old</code> with <code>new</code> in a string <code>s</code>:</p>
+<pre><code class="language-python">test(replace(&quot;Mississippi&quot;, &quot;i&quot;, &quot;I&quot;) == &quot;MIssIssIppI&quot;)
+
+s = &quot;I love spom! Spom is my favorite food. Spom, spom, yum!&quot;
+test(replace(s, &quot;om&quot;, &quot;am&quot;) ==
+    &quot;I love spam! Spam is my favorite food. Spam, spam, yum!&quot;)
+
+test(replace(s, &quot;o&quot;, &quot;a&quot;) ==
+    &quot;I lave spam! Spam is my favarite faad. Spam, spam, yum!&quot;)</code></pre>
+<p><em>Hint</em>: use the <code>split</code> and <code>join</code> methods.</p></li>
+<li><p>Suppose you want to swap around the values in two variables. You decide to factor this out into a reusable function, and write this code:</p>
+<pre><code class="language-python">def swap(x, y):      # Incorrect version
+    print(&quot;before swap statement: x:&quot;, x, &quot;y:&quot;, y)
+    (x, y) = (y, x)
+    print(&quot;after swap statement: x:&quot;, x, &quot;y:&quot;, y)
+
+a = [&quot;This&quot;, &quot;is&quot;, &quot;fun&quot;]
+b = [2,3,4] 
+print(&quot;before swap function call: a:&quot;, a, &quot;b:&quot;, b)
+swap(a, b)
+print(&quot;after swap function call: a:&quot;, a, &quot;b:&quot;, b)</code></pre>
+<p>Run this program and describe the results. Oops! So it didn’t do what you intended! Explain why not. Using a Python visualizer like the one at http://pythontutor.com may help you build a good conceptual model of what is going on. What will be the values of <code>a</code> and <code>b</code> after the call to <code>swap</code>?</p></li>
+</ol>
+<script type="text/javascript">
+/* PrismJS 1.23.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+css-extras+python&plugins=line-numbers+inline-color */
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(u){var c=/\blang(?:uage)?-([\w-]+)\b/i,n=0,e={},M={manual:u.Prism&&u.Prism.manual,disableWorkerMessageHandler:u.Prism&&u.Prism.disableWorkerMessageHandler,util:{encode:function e(n){return n instanceof W?new W(n.type,e(n.content),n.alias):Array.isArray(n)?n.map(e):n.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).slice(8,-1)},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++n}),e.__id},clone:function t(e,r){var a,n;switch(r=r||{},M.util.type(e)){case"Object":if(n=M.util.objId(e),r[n])return r[n];for(var i in a={},r[n]=a,e)e.hasOwnProperty(i)&&(a[i]=t(e[i],r));return a;case"Array":return n=M.util.objId(e),r[n]?r[n]:(a=[],r[n]=a,e.forEach(function(e,n){a[n]=t(e,r)}),a);default:return e}},getLanguage:function(e){for(;e&&!c.test(e.className);)e=e.parentElement;return e?(e.className.match(c)||[,"none"])[1].toLowerCase():"none"},currentScript:function(){if("undefined"==typeof document)return null;if("currentScript"in document)return document.currentScript;try{throw new Error}catch(e){var n=(/at [^(\r\n]*\((.*):.+:.+\)$/i.exec(e.stack)||[])[1];if(n){var t=document.getElementsByTagName("script");for(var r in t)if(t[r].src==n)return t[r]}return null}},isActive:function(e,n,t){for(var r="no-"+n;e;){var a=e.classList;if(a.contains(n))return!0;if(a.contains(r))return!1;e=e.parentElement}return!!t}},languages:{plain:e,plaintext:e,text:e,txt:e,extend:function(e,n){var t=M.util.clone(M.languages[e]);for(var r in n)t[r]=n[r];return t},insertBefore:function(t,e,n,r){var a=(r=r||M.languages)[t],i={};for(var l in a)if(a.hasOwnProperty(l)){if(l==e)for(var o in n)n.hasOwnProperty(o)&&(i[o]=n[o]);n.hasOwnProperty(l)||(i[l]=a[l])}var s=r[t];return r[t]=i,M.languages.DFS(M.languages,function(e,n){n===s&&e!=t&&(this[e]=i)}),i},DFS:function e(n,t,r,a){a=a||{};var i=M.util.objId;for(var l in n)if(n.hasOwnProperty(l)){t.call(n,l,n[l],r||l);var o=n[l],s=M.util.type(o);"Object"!==s||a[i(o)]?"Array"!==s||a[i(o)]||(a[i(o)]=!0,e(o,t,l,a)):(a[i(o)]=!0,e(o,t,null,a))}}},plugins:{},highlightAll:function(e,n){M.highlightAllUnder(document,e,n)},highlightAllUnder:function(e,n,t){var r={callback:t,container:e,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};M.hooks.run("before-highlightall",r),r.elements=Array.prototype.slice.apply(r.container.querySelectorAll(r.selector)),M.hooks.run("before-all-elements-highlight",r);for(var a,i=0;a=r.elements[i++];)M.highlightElement(a,!0===n,r.callback)},highlightElement:function(e,n,t){var r=M.util.getLanguage(e),a=M.languages[r];e.className=e.className.replace(c,"").replace(/\s+/g," ")+" language-"+r;var i=e.parentElement;i&&"pre"===i.nodeName.toLowerCase()&&(i.className=i.className.replace(c,"").replace(/\s+/g," ")+" language-"+r);var l={element:e,language:r,grammar:a,code:e.textContent};function o(e){l.highlightedCode=e,M.hooks.run("before-insert",l),l.element.innerHTML=l.highlightedCode,M.hooks.run("after-highlight",l),M.hooks.run("complete",l),t&&t.call(l.element)}if(M.hooks.run("before-sanity-check",l),(i=l.element.parentElement)&&"pre"===i.nodeName.toLowerCase()&&!i.hasAttribute("tabindex")&&i.setAttribute("tabindex","0"),!l.code)return M.hooks.run("complete",l),void(t&&t.call(l.element));if(M.hooks.run("before-highlight",l),l.grammar)if(n&&u.Worker){var s=new Worker(M.filename);s.onmessage=function(e){o(e.data)},s.postMessage(JSON.stringify({language:l.language,code:l.code,immediateClose:!0}))}else o(M.highlight(l.code,l.grammar,l.language));else o(M.util.encode(l.code))},highlight:function(e,n,t){var r={code:e,grammar:n,language:t};return M.hooks.run("before-tokenize",r),r.tokens=M.tokenize(r.code,r.grammar),M.hooks.run("after-tokenize",r),W.stringify(M.util.encode(r.tokens),r.language)},tokenize:function(e,n){var t=n.rest;if(t){for(var r in t)n[r]=t[r];delete n.rest}var a=new i;return I(a,a.head,e),function e(n,t,r,a,i,l){for(var o in r)if(r.hasOwnProperty(o)&&r[o]){var s=r[o];s=Array.isArray(s)?s:[s];for(var u=0;u<s.length;++u){if(l&&l.cause==o+","+u)return;var c=s[u],g=c.inside,f=!!c.lookbehind,h=!!c.greedy,d=c.alias;if(h&&!c.pattern.global){var p=c.pattern.toString().match(/[imsuy]*$/)[0];c.pattern=RegExp(c.pattern.source,p+"g")}for(var v=c.pattern||c,m=a.next,y=i;m!==t.tail&&!(l&&y>=l.reach);y+=m.value.length,m=m.next){var b=m.value;if(t.length>n.length)return;if(!(b instanceof W)){var k,x=1;if(h){if(!(k=z(v,y,n,f)))break;var w=k.index,A=k.index+k[0].length,P=y;for(P+=m.value.length;P<=w;)m=m.next,P+=m.value.length;if(P-=m.value.length,y=P,m.value instanceof W)continue;for(var E=m;E!==t.tail&&(P<A||"string"==typeof E.value);E=E.next)x++,P+=E.value.length;x--,b=n.slice(y,P),k.index-=y}else if(!(k=z(v,0,b,f)))continue;var w=k.index,S=k[0],O=b.slice(0,w),L=b.slice(w+S.length),N=y+b.length;l&&N>l.reach&&(l.reach=N);var j=m.prev;O&&(j=I(t,j,O),y+=O.length),q(t,j,x);var C=new W(o,g?M.tokenize(S,g):S,d,S);if(m=I(t,j,C),L&&I(t,m,L),1<x){var _={cause:o+","+u,reach:N};e(n,t,r,m.prev,y,_),l&&_.reach>l.reach&&(l.reach=_.reach)}}}}}}(e,a,n,a.head,0),function(e){var n=[],t=e.head.next;for(;t!==e.tail;)n.push(t.value),t=t.next;return n}(a)},hooks:{all:{},add:function(e,n){var t=M.hooks.all;t[e]=t[e]||[],t[e].push(n)},run:function(e,n){var t=M.hooks.all[e];if(t&&t.length)for(var r,a=0;r=t[a++];)r(n)}},Token:W};function W(e,n,t,r){this.type=e,this.content=n,this.alias=t,this.length=0|(r||"").length}function z(e,n,t,r){e.lastIndex=n;var a=e.exec(t);if(a&&r&&a[1]){var i=a[1].length;a.index+=i,a[0]=a[0].slice(i)}return a}function i(){var e={value:null,prev:null,next:null},n={value:null,prev:e,next:null};e.next=n,this.head=e,this.tail=n,this.length=0}function I(e,n,t){var r=n.next,a={value:t,prev:n,next:r};return n.next=a,r.prev=a,e.length++,a}function q(e,n,t){for(var r=n.next,a=0;a<t&&r!==e.tail;a++)r=r.next;(n.next=r).prev=n,e.length-=a}if(u.Prism=M,W.stringify=function n(e,t){if("string"==typeof e)return e;if(Array.isArray(e)){var r="";return e.forEach(function(e){r+=n(e,t)}),r}var a={type:e.type,content:n(e.content,t),tag:"span",classes:["token",e.type],attributes:{},language:t},i=e.alias;i&&(Array.isArray(i)?Array.prototype.push.apply(a.classes,i):a.classes.push(i)),M.hooks.run("wrap",a);var l="";for(var o in a.attributes)l+=" "+o+'="'+(a.attributes[o]||"").replace(/"/g,"&quot;")+'"';return"<"+a.tag+' class="'+a.classes.join(" ")+'"'+l+">"+a.content+"</"+a.tag+">"},!u.document)return u.addEventListener&&(M.disableWorkerMessageHandler||u.addEventListener("message",function(e){var n=JSON.parse(e.data),t=n.language,r=n.code,a=n.immediateClose;u.postMessage(M.highlight(r,M.languages[t],t)),a&&u.close()},!1)),M;var t=M.util.currentScript();function r(){M.manual||M.highlightAll()}if(t&&(M.filename=t.src,t.hasAttribute("data-manual")&&(M.manual=!0)),!M.manual){var a=document.readyState;"loading"===a||"interactive"===a&&t&&t.defer?document.addEventListener("DOMContentLoaded",r):window.requestAnimationFrame?window.requestAnimationFrame(r):window.setTimeout(r,16)}return M}(_self);"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+Prism.languages.markup={comment:/<!--[\s\S]*?-->/,prolog:/<\?[\s\S]+?\?>/,doctype:{pattern:/<!DOCTYPE(?:[^>"'[\]]|"[^"]*"|'[^']*')+(?:\[(?:[^<"'\]]|"[^"]*"|'[^']*'|<(?!!--)|<!--(?:[^-]|-(?!->))*-->)*\]\s*)?>/i,greedy:!0,inside:{"internal-subset":{pattern:/(\[)[\s\S]+(?=\]>$)/,lookbehind:!0,greedy:!0,inside:null},string:{pattern:/"[^"]*"|'[^']*'/,greedy:!0},punctuation:/^<!|>$|[[\]]/,"doctype-tag":/^DOCTYPE/,name:/[^\s<>'"]+/}},cdata:/<!\[CDATA\[[\s\S]*?]]>/i,tag:{pattern:/<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/,greedy:!0,inside:{tag:{pattern:/^<\/?[^\s>\/]+/,inside:{punctuation:/^<\/?/,namespace:/^[^\s>\/:]+:/}},"special-attr":[],"attr-value":{pattern:/=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+)/,inside:{punctuation:[{pattern:/^=/,alias:"attr-equals"},/"|'/]}},punctuation:/\/?>/,"attr-name":{pattern:/[^\s>\/]+/,inside:{namespace:/^[^\s>\/:]+:/}}}},entity:[{pattern:/&[\da-z]{1,8};/i,alias:"named-entity"},/&#x?[\da-f]{1,8};/i]},Prism.languages.markup.tag.inside["attr-value"].inside.entity=Prism.languages.markup.entity,Prism.languages.markup.doctype.inside["internal-subset"].inside=Prism.languages.markup,Prism.hooks.add("wrap",function(a){"entity"===a.type&&(a.attributes.title=a.content.replace(/&amp;/,"&"))}),Object.defineProperty(Prism.languages.markup.tag,"addInlined",{value:function(a,e){var s={};s["language-"+e]={pattern:/(^<!\[CDATA\[)[\s\S]+?(?=\]\]>$)/i,lookbehind:!0,inside:Prism.languages[e]},s.cdata=/^<!\[CDATA\[|\]\]>$/i;var t={"included-cdata":{pattern:/<!\[CDATA\[[\s\S]*?\]\]>/i,inside:s}};t["language-"+e]={pattern:/[\s\S]+/,inside:Prism.languages[e]};var n={};n[a]={pattern:RegExp("(<__[^>]*>)(?:<!\\[CDATA\\[(?:[^\\]]|\\](?!\\]>))*\\]\\]>|(?!<!\\[CDATA\\[)[^])*?(?=</__>)".replace(/__/g,function(){return a}),"i"),lookbehind:!0,greedy:!0,inside:t},Prism.languages.insertBefore("markup","cdata",n)}}),Object.defineProperty(Prism.languages.markup.tag,"addAttribute",{value:function(a,e){Prism.languages.markup.tag.inside["special-attr"].push({pattern:RegExp("(^|[\"'\\s])(?:"+a+")\\s*=\\s*(?:\"[^\"]*\"|'[^']*'|[^\\s'\">=]+(?=[\\s>]))","i"),lookbehind:!0,inside:{"attr-name":/^[^\s=]+/,"attr-value":{pattern:/=[\s\S]+/,inside:{value:{pattern:/(=\s*(["']|(?!["'])))\S[\s\S]*(?=\2$)/,lookbehind:!0,alias:[e,"language-"+e],inside:Prism.languages[e]},punctuation:[{pattern:/^=/,alias:"attr-equals"},/"|'/]}}}})}}),Prism.languages.html=Prism.languages.markup,Prism.languages.mathml=Prism.languages.markup,Prism.languages.svg=Prism.languages.markup,Prism.languages.xml=Prism.languages.extend("markup",{}),Prism.languages.ssml=Prism.languages.xml,Prism.languages.atom=Prism.languages.xml,Prism.languages.rss=Prism.languages.xml;
+!function(s){var e=/("|')(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/;s.languages.css={comment:/\/\*[\s\S]*?\*\//,atrule:{pattern:/@[\w-](?:[^;{\s]|\s+(?![\s{]))*(?:;|(?=\s*\{))/,inside:{rule:/^@[\w-]+/,"selector-function-argument":{pattern:/(\bselector\s*\(\s*(?![\s)]))(?:[^()\s]|\s+(?![\s)])|\((?:[^()]|\([^()]*\))*\))+(?=\s*\))/,lookbehind:!0,alias:"selector"},keyword:{pattern:/(^|[^\w-])(?:and|not|only|or)(?![\w-])/,lookbehind:!0}}},url:{pattern:RegExp("\\burl\\((?:"+e.source+"|(?:[^\\\\\r\n()\"']|\\\\[^])*)\\)","i"),greedy:!0,inside:{function:/^url/i,punctuation:/^\(|\)$/,string:{pattern:RegExp("^"+e.source+"$"),alias:"url"}}},selector:RegExp("[^{}\\s](?:[^{};\"'\\s]|\\s+(?![\\s{])|"+e.source+")*(?=\\s*\\{)"),string:{pattern:e,greedy:!0},property:/(?!\s)[-_a-z\xA0-\uFFFF](?:(?!\s)[-\w\xA0-\uFFFF])*(?=\s*:)/i,important:/!important\b/i,function:/[-a-z0-9]+(?=\()/i,punctuation:/[(){};:,]/},s.languages.css.atrule.inside.rest=s.languages.css;var t=s.languages.markup;t&&(t.tag.addInlined("style","css"),t.tag.addAttribute("style","css"))}(Prism);
+Prism.languages.clike={comment:[{pattern:/(^|[^\\])\/\*[\s\S]*?(?:\*\/|$)/,lookbehind:!0,greedy:!0},{pattern:/(^|[^\\:])\/\/.*/,lookbehind:!0,greedy:!0}],string:{pattern:/(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,greedy:!0},"class-name":{pattern:/(\b(?:class|interface|extends|implements|trait|instanceof|new)\s+|\bcatch\s+\()[\w.\\]+/i,lookbehind:!0,inside:{punctuation:/[.\\]/}},keyword:/\b(?:if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,boolean:/\b(?:true|false)\b/,function:/\w+(?=\()/,number:/\b0x[\da-f]+\b|(?:\b\d+(?:\.\d*)?|\B\.\d+)(?:e[+-]?\d+)?/i,operator:/[<>]=?|[!=]=?=?|--?|\+\+?|&&?|\|\|?|[?*/~^%]/,punctuation:/[{}[\];(),.:]/};
+Prism.languages.javascript=Prism.languages.extend("clike",{"class-name":[Prism.languages.clike["class-name"],{pattern:/(^|[^$\w\xA0-\uFFFF])(?!\s)[_$A-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\.(?:prototype|constructor))/,lookbehind:!0}],keyword:[{pattern:/((?:^|})\s*)catch\b/,lookbehind:!0},{pattern:/(^|[^.]|\.\.\.\s*)\b(?:as|async(?=\s*(?:function\b|\(|[$\w\xA0-\uFFFF]|$))|await|break|case|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally(?=\s*(?:\{|$))|for|from(?=\s*(?:['"]|$))|function|(?:get|set)(?=\s*(?:[#\[$\w\xA0-\uFFFF]|$))|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)\b/,lookbehind:!0}],function:/#?(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*(?:\.\s*(?:apply|bind|call)\s*)?\()/,number:/\b(?:(?:0[xX](?:[\dA-Fa-f](?:_[\dA-Fa-f])?)+|0[bB](?:[01](?:_[01])?)+|0[oO](?:[0-7](?:_[0-7])?)+)n?|(?:\d(?:_\d)?)+n|NaN|Infinity)\b|(?:\b(?:\d(?:_\d)?)+\.?(?:\d(?:_\d)?)*|\B\.(?:\d(?:_\d)?)+)(?:[Ee][+-]?(?:\d(?:_\d)?)+)?/,operator:/--|\+\+|\*\*=?|=>|&&=?|\|\|=?|[!=]==|<<=?|>>>?=?|[-+*/%&|^!=<>]=?|\.{3}|\?\?=?|\?\.?|[~:]/}),Prism.languages.javascript["class-name"][0].pattern=/(\b(?:class|interface|extends|implements|instanceof|new)\s+)[\w.\\]+/,Prism.languages.insertBefore("javascript","keyword",{regex:{pattern:/((?:^|[^$\w\xA0-\uFFFF."'\])\s]|\b(?:return|yield))\s*)\/(?:\[(?:[^\]\\\r\n]|\\.)*]|\\.|[^/\\\[\r\n])+\/[gimyus]{0,6}(?=(?:\s|\/\*(?:[^*]|\*(?!\/))*\*\/)*(?:$|[\r\n,.;:})\]]|\/\/))/,lookbehind:!0,greedy:!0,inside:{"regex-source":{pattern:/^(\/)[\s\S]+(?=\/[a-z]*$)/,lookbehind:!0,alias:"language-regex",inside:Prism.languages.regex},"regex-flags":/[a-z]+$/,"regex-delimiter":/^\/|\/$/}},"function-variable":{pattern:/#?(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*[=:]\s*(?:async\s*)?(?:\bfunction\b|(?:\((?:[^()]|\([^()]*\))*\)|(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*)\s*=>))/,alias:"function"},parameter:[{pattern:/(function(?:\s+(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*)?\s*\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\))/,lookbehind:!0,inside:Prism.languages.javascript},{pattern:/(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*=>)/i,inside:Prism.languages.javascript},{pattern:/(\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\)\s*=>)/,lookbehind:!0,inside:Prism.languages.javascript},{pattern:/((?:\b|\s|^)(?!(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)(?![$\w\xA0-\uFFFF]))(?:(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*\s*)\(\s*|\]\s*\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\)\s*\{)/,lookbehind:!0,inside:Prism.languages.javascript}],constant:/\b[A-Z](?:[A-Z_]|\dx?)*\b/}),Prism.languages.insertBefore("javascript","string",{hashbang:{pattern:/^#!.*/,greedy:!0,alias:"comment"},"template-string":{pattern:/`(?:\\[\s\S]|\${(?:[^{}]|{(?:[^{}]|{[^}]*})*})+}|(?!\${)[^\\`])*`/,greedy:!0,inside:{"template-punctuation":{pattern:/^`|`$/,alias:"string"},interpolation:{pattern:/((?:^|[^\\])(?:\\{2})*)\${(?:[^{}]|{(?:[^{}]|{[^}]*})*})+}/,lookbehind:!0,inside:{"interpolation-punctuation":{pattern:/^\${|}$/,alias:"punctuation"},rest:Prism.languages.javascript}},string:/[\s\S]+/}}}),Prism.languages.markup&&(Prism.languages.markup.tag.addInlined("script","javascript"),Prism.languages.markup.tag.addAttribute("on(?:abort|blur|change|click|composition(?:end|start|update)|dblclick|error|focus(?:in|out)?|key(?:down|up)|load|mouse(?:down|enter|leave|move|out|over|up)|reset|resize|scroll|select|slotchange|submit|unload|wheel)","javascript")),Prism.languages.js=Prism.languages.javascript;
+!function(e){var a,n=/("|')(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/;e.languages.css.selector={pattern:e.languages.css.selector,inside:a={"pseudo-element":/:(?:after|before|first-letter|first-line|selection)|::[-\w]+/,"pseudo-class":/:[-\w]+/,class:/\.[-\w]+/,id:/#[-\w]+/,attribute:{pattern:RegExp("\\[(?:[^[\\]\"']|"+n.source+")*\\]"),greedy:!0,inside:{punctuation:/^\[|\]$/,"case-sensitivity":{pattern:/(\s)[si]$/i,lookbehind:!0,alias:"keyword"},namespace:{pattern:/^(\s*)(?:(?!\s)[-*\w\xA0-\uFFFF])*\|(?!=)/,lookbehind:!0,inside:{punctuation:/\|$/}},"attr-name":{pattern:/^(\s*)(?:(?!\s)[-\w\xA0-\uFFFF])+/,lookbehind:!0},"attr-value":[n,{pattern:/(=\s*)(?:(?!\s)[-\w\xA0-\uFFFF])+(?=\s*$)/,lookbehind:!0}],operator:/[|~*^$]?=/}},"n-th":[{pattern:/(\(\s*)[+-]?\d*[\dn](?:\s*[+-]\s*\d+)?(?=\s*\))/,lookbehind:!0,inside:{number:/[\dn]+/,operator:/[+-]/}},{pattern:/(\(\s*)(?:even|odd)(?=\s*\))/i,lookbehind:!0}],combinator:/>|\+|~|\|\|/,punctuation:/[(),]/}},e.languages.css.atrule.inside["selector-function-argument"].inside=a,e.languages.insertBefore("css","property",{variable:{pattern:/(^|[^-\w\xA0-\uFFFF])--(?!\s)[-_a-z\xA0-\uFFFF](?:(?!\s)[-\w\xA0-\uFFFF])*/i,lookbehind:!0}});var r={pattern:/(\b\d+)(?:%|[a-z]+\b)/,lookbehind:!0},i={pattern:/(^|[^\w.-])-?(?:\d+(?:\.\d+)?|\.\d+)/,lookbehind:!0};e.languages.insertBefore("css","function",{operator:{pattern:/(\s)[+\-*\/](?=\s)/,lookbehind:!0},hexcode:{pattern:/\B#(?:[\da-f]{1,2}){3,4}\b/i,alias:"color"},color:[/\b(?:AliceBlue|AntiqueWhite|Aqua|Aquamarine|Azure|Beige|Bisque|Black|BlanchedAlmond|Blue|BlueViolet|Brown|BurlyWood|CadetBlue|Chartreuse|Chocolate|Coral|CornflowerBlue|Cornsilk|Crimson|Cyan|DarkBlue|DarkCyan|DarkGoldenRod|DarkGr[ae]y|DarkGreen|DarkKhaki|DarkMagenta|DarkOliveGreen|DarkOrange|DarkOrchid|DarkRed|DarkSalmon|DarkSeaGreen|DarkSlateBlue|DarkSlateGr[ae]y|DarkTurquoise|DarkViolet|DeepPink|DeepSkyBlue|DimGr[ae]y|DodgerBlue|FireBrick|FloralWhite|ForestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|IndianRed|Indigo|Ivory|Khaki|Lavender|LavenderBlush|LawnGreen|LemonChiffon|LightBlue|LightCoral|LightCyan|LightGoldenRodYellow|LightGr[ae]y|LightGreen|LightPink|LightSalmon|LightSeaGreen|LightSkyBlue|LightSlateGr[ae]y|LightSteelBlue|LightYellow|Lime|LimeGreen|Linen|Magenta|Maroon|MediumAquaMarine|MediumBlue|MediumOrchid|MediumPurple|MediumSeaGreen|MediumSlateBlue|MediumSpringGreen|MediumTurquoise|MediumVioletRed|MidnightBlue|MintCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGoldenRod|PaleGreen|PaleTurquoise|PaleVioletRed|PapayaWhip|PeachPuff|Peru|Pink|Plum|PowderBlue|Purple|Red|RosyBrown|RoyalBlue|SaddleBrown|Salmon|SandyBrown|SeaGreen|SeaShell|Sienna|Silver|SkyBlue|SlateBlue|SlateGr[ae]y|Snow|SpringGreen|SteelBlue|Tan|Teal|Thistle|Tomato|Transparent|Turquoise|Violet|Wheat|White|WhiteSmoke|Yellow|YellowGreen)\b/i,{pattern:/\b(?:rgb|hsl)\(\s*\d{1,3}\s*,\s*\d{1,3}%?\s*,\s*\d{1,3}%?\s*\)\B|\b(?:rgb|hsl)a\(\s*\d{1,3}\s*,\s*\d{1,3}%?\s*,\s*\d{1,3}%?\s*,\s*(?:0|0?\.\d+|1)\s*\)\B/i,inside:{unit:r,number:i,function:/[\w-]+(?=\()/,punctuation:/[(),]/}}],entity:/\\[\da-f]{1,8}/i,unit:r,number:i})}(Prism);
+Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-interpolation":{pattern:/(?:f|rf|fr)(?:("""|''')[\s\S]*?\1|("|')(?:\\.|(?!\2)[^\\\r\n])*\2)/i,greedy:!0,inside:{interpolation:{pattern:/((?:^|[^{])(?:{{)*){(?!{)(?:[^{}]|{(?!{)(?:[^{}]|{(?!{)(?:[^{}])+})+})+}/,lookbehind:!0,inside:{"format-spec":{pattern:/(:)[^:(){}]+(?=}$)/,lookbehind:!0},"conversion-option":{pattern:/![sra](?=[:}]$)/,alias:"punctuation"},rest:null}},string:/[\s\S]+/}},"triple-quoted-string":{pattern:/(?:[rub]|rb|br)?("""|''')[\s\S]*?\1/i,greedy:!0,alias:"string"},string:{pattern:/(?:[rub]|rb|br)?("|')(?:\\.|(?!\1)[^\\\r\n])*\1/i,greedy:!0},function:{pattern:/((?:^|\s)def[ \t]+)[a-zA-Z_]\w*(?=\s*\()/g,lookbehind:!0},"class-name":{pattern:/(\bclass\s+)\w+/i,lookbehind:!0},decorator:{pattern:/(^\s*)@\w+(?:\.\w+)*/im,lookbehind:!0,alias:["annotation","punctuation"],inside:{punctuation:/\./}},keyword:/\b(?:and|as|assert|async|await|break|class|continue|def|del|elif|else|except|exec|finally|for|from|global|if|import|in|is|lambda|nonlocal|not|or|pass|print|raise|return|try|while|with|yield)\b/,builtin:/\b(?:__import__|abs|all|any|apply|ascii|basestring|bin|bool|buffer|bytearray|bytes|callable|chr|classmethod|cmp|coerce|compile|complex|delattr|dict|dir|divmod|enumerate|eval|execfile|file|filter|float|format|frozenset|getattr|globals|hasattr|hash|help|hex|id|input|int|intern|isinstance|issubclass|iter|len|list|locals|long|map|max|memoryview|min|next|object|oct|open|ord|pow|property|range|raw_input|reduce|reload|repr|reversed|round|set|setattr|slice|sorted|staticmethod|str|sum|super|tuple|type|unichr|unicode|vars|xrange|zip)\b/,boolean:/\b(?:True|False|None)\b/,number:/(?:\b(?=\d)|\B(?=\.))(?:0[bo])?(?:(?:\d|0x[\da-f])[\da-f]*(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?j?\b/i,operator:/[-+%=]=?|!=|\*\*?=?|\/\/?=?|<[<=>]?|>[=>]?|[&|^~]/,punctuation:/[{}[\];(),.:]/},Prism.languages.python["string-interpolation"].inside.interpolation.inside.rest=Prism.languages.python,Prism.languages.py=Prism.languages.python;
+!function(){if("undefined"!=typeof Prism&&"undefined"!=typeof document){var o="line-numbers",a=/\n(?!$)/g,e=Prism.plugins.lineNumbers={getLine:function(e,n){if("PRE"===e.tagName&&e.classList.contains(o)){var t=e.querySelector(".line-numbers-rows");if(t){var i=parseInt(e.getAttribute("data-start"),10)||1,r=i+(t.children.length-1);n<i&&(n=i),r<n&&(n=r);var s=n-i;return t.children[s]}}},resize:function(e){u([e])},assumeViewportIndependence:!0},n=void 0;window.addEventListener("resize",function(){e.assumeViewportIndependence&&n===window.innerWidth||(n=window.innerWidth,u(Array.prototype.slice.call(document.querySelectorAll("pre."+o))))}),Prism.hooks.add("complete",function(e){if(e.code){var n=e.element,t=n.parentNode;if(t&&/pre/i.test(t.nodeName)&&!n.querySelector(".line-numbers-rows")&&Prism.util.isActive(n,o)){n.classList.remove(o),t.classList.add(o);var i,r=e.code.match(a),s=r?r.length+1:1,l=new Array(s+1).join("<span></span>");(i=document.createElement("span")).setAttribute("aria-hidden","true"),i.className="line-numbers-rows",i.innerHTML=l,t.hasAttribute("data-start")&&(t.style.counterReset="linenumber "+(parseInt(t.getAttribute("data-start"),10)-1)),e.element.appendChild(i),u([t]),Prism.hooks.run("line-numbers",e)}}}),Prism.hooks.add("line-numbers",function(e){e.plugins=e.plugins||{},e.plugins.lineNumbers=!0})}function u(e){if(0!=(e=e.filter(function(e){var n=function(e){return e?window.getComputedStyle?getComputedStyle(e):e.currentStyle||null:null}(e)["white-space"];return"pre-wrap"===n||"pre-line"===n})).length){var n=e.map(function(e){var n=e.querySelector("code"),t=e.querySelector(".line-numbers-rows");if(n&&t){var i=e.querySelector(".line-numbers-sizer"),r=n.textContent.split(a);i||((i=document.createElement("span")).className="line-numbers-sizer",n.appendChild(i)),i.innerHTML="0",i.style.display="block";var s=i.getBoundingClientRect().height;return i.innerHTML="",{element:e,lines:r,lineHeights:[],oneLinerHeight:s,sizer:i}}}).filter(Boolean);n.forEach(function(e){var i=e.sizer,n=e.lines,r=e.lineHeights,s=e.oneLinerHeight;r[n.length-1]=void 0,n.forEach(function(e,n){if(e&&1<e.length){var t=i.appendChild(document.createElement("span"));t.style.display="block",t.textContent=e}else r[n]=s})}),n.forEach(function(e){for(var n=e.sizer,t=e.lineHeights,i=0,r=0;r<t.length;r++)void 0===t[r]&&(t[r]=n.children[i++].getBoundingClientRect().height)}),n.forEach(function(e){var n=e.sizer,t=e.element.querySelector(".line-numbers-rows");n.style.display="none",n.innerHTML="",e.lineHeights.forEach(function(e,n){t.children[n].style.height=e+"px"})})}}}();
+!function(){if("undefined"!=typeof Prism&&"undefined"!=typeof document){var a=/<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/g,c=/^#?((?:[\da-f]){3,4}|(?:[\da-f]{2}){3,4})$/i,l=[function(n){var r=c.exec(n);if(r){for(var o=6<=(n=r[1]).length?2:1,s=n.length/o,e=1==o?1/15:1/255,t=[],i=0;i<s;i++){var a=parseInt(n.substr(i*o,o),16);t.push(a*e)}return 3==s&&t.push(1),"rgba("+t.slice(0,3).map(function(n){return String(Math.round(255*n))}).join(",")+","+String(Number(t[3].toFixed(3)))+")"}},function(n){var r=(new Option).style;return r.color=n,r.color?n:void 0}];Prism.hooks.add("wrap",function(n){if("color"===n.type||0<=n.classes.indexOf("color")){for(var r,o=n.content,s=o.split(a).join(""),e=0,t=l.length;e<t&&!r;e++)r=l[e](s);if(!r)return;var i='<span class="inline-color-wrapper"><span class="inline-color" style="background-color:'+r+';"></span></span>';n.content=i+o}})}}();
+
+</script>
+
+</body>
+</html>

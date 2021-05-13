@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>book</title>
+    <meta name="description" content="learn python the right way">
+
+    <style type="text/css">
+        figure {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 90%;
+            text-align: center;
+            font-size: 80%;
+        }
+
+        img {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+	</style>
+<style type="text/css">
+	:root{--background-body:#fff;--background:#efefef;--background-alt:#f7f7f7;--selection:#9e9e9e;--text-main:#363636;--text-bright:#000;--text-muted:#70777f;--links:#0076d1;--focus:rgba(0,150,191,0.67);--border:#dbdbdb;--code:#000;--animation-duration:0.1s;--button-hover:#ddd;--scrollbar-thumb:#d5d5d5;--scrollbar-thumb-hover:#c4c4c4;--form-placeholder:#949494;--form-text:#000;--variable:#39a33c;--highlight:#ff0;--select-arrow:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23161f27'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E")}@media (prefers-color-scheme:dark){:root{--background-body:#202b38;--background:#161f27;--background-alt:#1a242f;--selection:#1c76c5;--text-main:#dbdbdb;--text-bright:#fff;--text-muted:#a9b1ba;--links:#41adff;--focus:rgba(0,150,191,0.67);--border:#526980;--code:#ffbe85;--animation-duration:0.1s;--button-hover:#324759;--scrollbar-thumb:var(--button-hover);--scrollbar-thumb-hover:#141414;--form-placeholder:#a9a9a9;--form-text:#fff;--variable:#d941e2;--highlight:#efdb43;--select-arrow:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23efefef'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E")}}html{scrollbar-color:#d5d5d5 #fff;scrollbar-color:var(--scrollbar-thumb) var(--background-body);scrollbar-width:thin}@media (prefers-color-scheme:dark){html{scrollbar-color:#324759 #202b38;scrollbar-color:var(--scrollbar-thumb) var(--background-body)}}body{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Segoe UI Emoji,Apple Color Emoji,Noto Color Emoji,sans-serif;line-height:1.4;max-width:800px;margin:20px auto;padding:0 10px;word-wrap:break-word;color:#363636;color:var(--text-main);background:#fff;background:var(--background-body);text-rendering:optimizeLegibility}@media (prefers-color-scheme:dark){body{background:#202b38;background:var(--background-body);color:#dbdbdb;color:var(--text-main)}}button{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}@media (prefers-color-scheme:dark){button{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}}input{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}@media (prefers-color-scheme:dark){input{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}}textarea{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}@media (prefers-color-scheme:dark){textarea{transition:background-color .1s linear,border-color .1s linear,color .1s linear,box-shadow .1s linear,transform .1s ease;transition:background-color var(--animation-duration) linear,border-color var(--animation-duration) linear,color var(--animation-duration) linear,box-shadow var(--animation-duration) linear,transform var(--animation-duration) ease}}h1{font-size:2.2em;margin-top:0}h1,h2,h3,h4,h5,h6{margin-bottom:12px;margin-top:24px}h1{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h1{color:#fff;color:var(--text-bright)}}h2{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h2{color:#fff;color:var(--text-bright)}}h3{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h3{color:#fff;color:var(--text-bright)}}h4{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h4{color:#fff;color:var(--text-bright)}}h5{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h5{color:#fff;color:var(--text-bright)}}h6{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){h6{color:#fff;color:var(--text-bright)}}strong{color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){strong{color:#fff;color:var(--text-bright)}}b,h1,h2,h3,h4,h5,h6,strong,th{font-weight:600}q:after,q:before{content:none}blockquote{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus);margin:1.5em 0;padding:.5em 1em;font-style:italic}@media (prefers-color-scheme:dark){blockquote{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus)}}q{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus);margin:1.5em 0;padding:.5em 1em;font-style:italic}@media (prefers-color-scheme:dark){q{border-left:4px solid rgba(0,150,191,.67);border-left:4px solid var(--focus)}}blockquote>footer{font-style:normal;border:0}address,blockquote cite{font-style:normal}a[href^=mailto\:]:before{content:"📧 "}a[href^=tel\:]:before{content:"📞 "}a[href^=sms\:]:before{content:"💬 "}mark{background-color:#ff0;background-color:var(--highlight);border-radius:2px;padding:0 2px;color:#000}@media (prefers-color-scheme:dark){mark{background-color:#efdb43;background-color:var(--highlight)}}button,input[type=button],input[type=checkbox],input[type=radio],input[type=range],input[type=submit],select{cursor:pointer}input:not([type=checkbox]):not([type=radio]),select{display:block}input{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){input{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}button{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){button{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}textarea{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){textarea{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}select{color:#000;color:var(--form-text);background-color:#efefef;background-color:var(--background);font-family:inherit;font-size:inherit;margin-right:6px;margin-bottom:6px;padding:10px;border:none;border-radius:6px;outline:none}@media (prefers-color-scheme:dark){select{background-color:#161f27;background-color:var(--background);color:#fff;color:var(--form-text)}}input[type=checkbox],input[type=radio]{height:1em;width:1em}input[type=radio]{border-radius:100%}input{vertical-align:top}label{vertical-align:middle;margin-bottom:4px;display:inline-block}button,input:not([type=checkbox]):not([type=radio]),input[type=range],select,textarea{-webkit-appearance:none}textarea{display:block;margin-right:0;box-sizing:border-box;resize:vertical}textarea:not([cols]){width:100%}textarea:not([rows]){min-height:40px;height:140px}select{background:#efefef url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23161f27'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E") calc(100% - 12px) 50%/12px no-repeat;background:var(--background) var(--select-arrow) calc(100% - 12px) 50%/12px no-repeat;padding-right:35px}@media (prefers-color-scheme:dark){select{background:#161f27 url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23efefef'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E") calc(100% - 12px) 50%/12px no-repeat;background:var(--background) var(--select-arrow) calc(100% - 12px) 50%/12px no-repeat}}select::-ms-expand{display:none}select[multiple]{padding-right:10px;background-image:none;overflow-y:auto}button,input[type=button],input[type=submit]{padding-right:30px;padding-left:30px}button:hover{background:#ddd;background:var(--button-hover)}@media (prefers-color-scheme:dark){button:hover{background:#324759;background:var(--button-hover)}}input[type=submit]:hover{background:#ddd;background:var(--button-hover)}@media (prefers-color-scheme:dark){input[type=submit]:hover{background:#324759;background:var(--button-hover)}}input[type=button]:hover{background:#ddd;background:var(--button-hover)}@media (prefers-color-scheme:dark){input[type=button]:hover{background:#324759;background:var(--button-hover)}}input:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){input:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}select:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){select:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}button:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){button:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}textarea:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}@media (prefers-color-scheme:dark){textarea:focus{box-shadow:0 0 0 2px rgba(0,150,191,.67);box-shadow:0 0 0 2px var(--focus)}}button:active,input[type=button]:active,input[type=checkbox]:active,input[type=radio]:active,input[type=range]:active,input[type=submit]:active{transform:translateY(2px)}button:disabled,input:disabled,select:disabled,textarea:disabled{cursor:not-allowed;opacity:.5}::-moz-placeholder{color:#949494;color:var(--form-placeholder)}:-ms-input-placeholder{color:#949494;color:var(--form-placeholder)}::-ms-input-placeholder{color:#949494;color:var(--form-placeholder)}::placeholder{color:#949494;color:var(--form-placeholder)}@media (prefers-color-scheme:dark){::-moz-placeholder{color:#a9a9a9;color:var(--form-placeholder)}:-ms-input-placeholder{color:#a9a9a9;color:var(--form-placeholder)}::-ms-input-placeholder{color:#a9a9a9;color:var(--form-placeholder)}::placeholder{color:#a9a9a9;color:var(--form-placeholder)}}fieldset{border:1px solid rgba(0,150,191,.67);border:1px solid var(--focus);border-radius:6px;margin:0 0 12px;padding:10px}@media (prefers-color-scheme:dark){fieldset{border:1px solid rgba(0,150,191,.67);border:1px solid var(--focus)}}legend{font-size:.9em;font-weight:600}input[type=range]{margin:10px 0;padding:10px 0;background:transparent}input[type=range]:focus{outline:none}input[type=range]::-webkit-slider-runnable-track{width:100%;height:9.5px;-webkit-transition:.2s;transition:.2s;background:#efefef;background:var(--background);border-radius:3px}@media (prefers-color-scheme:dark){input[type=range]::-webkit-slider-runnable-track{background:#161f27;background:var(--background)}}input[type=range]::-webkit-slider-thumb{box-shadow:0 1px 1px #000,0 0 1px #0d0d0d;height:20px;width:20px;border-radius:50%;background:#dbdbdb;background:var(--border);-webkit-appearance:none;margin-top:-7px}@media (prefers-color-scheme:dark){input[type=range]::-webkit-slider-thumb{background:#526980;background:var(--border)}}input[type=range]:focus::-webkit-slider-runnable-track{background:#efefef;background:var(--background)}@media (prefers-color-scheme:dark){input[type=range]:focus::-webkit-slider-runnable-track{background:#161f27;background:var(--background)}}input[type=range]::-moz-range-track{width:100%;height:9.5px;-moz-transition:.2s;transition:.2s;background:#efefef;background:var(--background);border-radius:3px}@media (prefers-color-scheme:dark){input[type=range]::-moz-range-track{background:#161f27;background:var(--background)}}input[type=range]::-moz-range-thumb{box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d;height:20px;width:20px;border-radius:50%;background:#dbdbdb;background:var(--border)}@media (prefers-color-scheme:dark){input[type=range]::-moz-range-thumb{background:#526980;background:var(--border)}}input[type=range]::-ms-track{width:100%;height:9.5px;background:transparent;border-color:transparent;border-width:16px 0;color:transparent}input[type=range]::-ms-fill-lower{background:#efefef;background:var(--background);border:.2px solid #010101;border-radius:3px;box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d}@media (prefers-color-scheme:dark){input[type=range]::-ms-fill-lower{background:#161f27;background:var(--background)}}input[type=range]::-ms-fill-upper{background:#efefef;background:var(--background);border:.2px solid #010101;border-radius:3px;box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d}@media (prefers-color-scheme:dark){input[type=range]::-ms-fill-upper{background:#161f27;background:var(--background)}}input[type=range]::-ms-thumb{box-shadow:1px 1px 1px #000,0 0 1px #0d0d0d;border:1px solid #000;height:20px;width:20px;border-radius:50%;background:#dbdbdb;background:var(--border)}@media (prefers-color-scheme:dark){input[type=range]::-ms-thumb{background:#526980;background:var(--border)}}input[type=range]:focus::-ms-fill-lower{background:#efefef;background:var(--background)}@media (prefers-color-scheme:dark){input[type=range]:focus::-ms-fill-lower{background:#161f27;background:var(--background)}}input[type=range]:focus::-ms-fill-upper{background:#efefef;background:var(--background)}@media (prefers-color-scheme:dark){input[type=range]:focus::-ms-fill-upper{background:#161f27;background:var(--background)}}a{text-decoration:none;color:#0076d1;color:var(--links)}@media (prefers-color-scheme:dark){a{color:#41adff;color:var(--links)}}a:hover{text-decoration:underline}code{background:#efefef;background:var(--background);color:#000;color:var(--code);padding:2.5px 5px;border-radius:6px;font-size:1em}@media (prefers-color-scheme:dark){code{color:#ffbe85;color:var(--code);background:#161f27;background:var(--background)}}samp{background:#efefef;background:var(--background);color:#000;color:var(--code);padding:2.5px 5px;border-radius:6px;font-size:1em}@media (prefers-color-scheme:dark){samp{color:#ffbe85;color:var(--code);background:#161f27;background:var(--background)}}time{background:#efefef;background:var(--background);color:#000;color:var(--code);padding:2.5px 5px;border-radius:6px;font-size:1em}@media (prefers-color-scheme:dark){time{color:#ffbe85;color:var(--code);background:#161f27;background:var(--background)}}pre>code{padding:10px;display:block;overflow-x:auto}var{color:#39a33c;color:var(--variable);font-style:normal;font-family:monospace}@media (prefers-color-scheme:dark){var{color:#d941e2;color:var(--variable)}}kbd{background:#efefef;background:var(--background);border:1px solid #dbdbdb;border:1px solid var(--border);border-radius:2px;color:#363636;color:var(--text-main);padding:2px 4px}@media (prefers-color-scheme:dark){kbd{color:#dbdbdb;color:var(--text-main);border:1px solid #526980;border:1px solid var(--border);background:#161f27;background:var(--background)}}img,video{max-width:100%;height:auto}hr{border:none;border-top:1px solid #dbdbdb;border-top:1px solid var(--border)}@media (prefers-color-scheme:dark){hr{border-top:1px solid #526980;border-top:1px solid var(--border)}}table{border-collapse:collapse;margin-bottom:10px;width:100%;table-layout:fixed}table caption,td,th{text-align:left}td,th{padding:6px;vertical-align:top;word-wrap:break-word}thead{border-bottom:1px solid #dbdbdb;border-bottom:1px solid var(--border)}@media (prefers-color-scheme:dark){thead{border-bottom:1px solid #526980;border-bottom:1px solid var(--border)}}tfoot{border-top:1px solid #dbdbdb;border-top:1px solid var(--border)}@media (prefers-color-scheme:dark){tfoot{border-top:1px solid #526980;border-top:1px solid var(--border)}}tbody tr:nth-child(2n){background-color:#f7f7f7;background-color:var(--background-alt)}@media (prefers-color-scheme:dark){tbody tr:nth-child(2n){background-color:#1a242f;background-color:var(--background-alt)}}::-webkit-scrollbar{height:10px;width:10px}::-webkit-scrollbar-track{background:#efefef;background:var(--background);border-radius:6px}@media (prefers-color-scheme:dark){::-webkit-scrollbar-track{background:#161f27;background:var(--background)}}::-webkit-scrollbar-thumb{background:#d5d5d5;background:var(--scrollbar-thumb);border-radius:6px}@media (prefers-color-scheme:dark){::-webkit-scrollbar-thumb{background:#324759;background:var(--scrollbar-thumb)}}::-webkit-scrollbar-thumb:hover{background:#c4c4c4;background:var(--scrollbar-thumb-hover)}@media (prefers-color-scheme:dark){::-webkit-scrollbar-thumb:hover{background:#141414;background:var(--scrollbar-thumb-hover)}}::-moz-selection{background-color:#9e9e9e;background-color:var(--selection);color:#000;color:var(--text-bright)}::selection{background-color:#9e9e9e;background-color:var(--selection);color:#000;color:var(--text-bright)}@media (prefers-color-scheme:dark){::-moz-selection{color:#fff;color:var(--text-bright)}::selection{color:#fff;color:var(--text-bright)}}@media (prefers-color-scheme:dark){::-moz-selection{background-color:#1c76c5;background-color:var(--selection)}::selection{background-color:#1c76c5;background-color:var(--selection)}}details{display:flex;flex-direction:column;align-items:flex-start;background-color:#f7f7f7;background-color:var(--background-alt);padding:10px 10px 0;margin:1em 0;border-radius:6px;overflow:hidden}@media (prefers-color-scheme:dark){details{background-color:#1a242f;background-color:var(--background-alt)}}details[open]{padding:10px}details>:last-child{margin-bottom:0}details[open] summary{margin-bottom:10px}summary{display:list-item;background-color:#efefef;background-color:var(--background);padding:10px;margin:-10px -10px 0;cursor:pointer;outline:none}@media (prefers-color-scheme:dark){summary{background-color:#161f27;background-color:var(--background)}}summary:focus,summary:hover{text-decoration:underline}details>:not(summary){margin-top:0}summary::-webkit-details-marker{color:#363636;color:var(--text-main)}@media (prefers-color-scheme:dark){summary::-webkit-details-marker{color:#dbdbdb;color:var(--text-main)}}footer{border-top:1px solid #dbdbdb;border-top:1px solid var(--border);padding-top:10px;color:#70777f;color:var(--text-muted)}@media (prefers-color-scheme:dark){footer{color:#a9b1ba;color:var(--text-muted);border-top:1px solid #526980;border-top:1px solid var(--border)}}body>footer{margin-top:40px}@media print{body,button,code,details,input,pre,summary,textarea{background-color:#fff}button,input,textarea{border:1px solid #000}body,button,code,footer,h1,h2,h3,h4,h5,h6,input,pre,strong,summary,textarea{color:#000}summary::marker{color:#000}summary::-webkit-details-marker{color:#000}tbody tr:nth-child(2n){background-color:#f2f2f2}a{color:#00f;text-decoration:underline}}
+/*# sourceMappingURL=water.min.css.map */
+	</style>
+
+    <style type="text/css">
+    code[class*="language-"],pre[class*="language-"]{border-radius: 7px;color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*="language-"]::-moz-selection,pre[class*="language-"] ::-moz-selection,code[class*="language-"]::-moz-selection,code[class*="language-"] ::-moz-selection{text-shadow:none;background:#b3d4fc}pre[class*="language-"]::selection,pre[class*="language-"] ::selection,code[class*="language-"]::selection,code[class*="language-"] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*="language-"],pre[class*="language-"]{text-shadow:none}}pre[class*="language-"]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*="language-"],pre[class*="language-"]{background:#f5f2f0}:not(pre)>code[class*="language-"]{padding:.1em;border-radius:.3em;white-space:normal}.token.comment,.token.prolog,.token.doctype,.token.cdata{color:slategray}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.property,.token.tag,.token.boolean,.token.number,.token.constant,.token.symbol,.token.deleted{color:#905}.token.selector,.token.attr-name,.token.string,.token.char,.token.builtin,.token.inserted{color:#690}.token.operator,.token.entity,.token.url,.language-css .token.string,.style .token.string{color:#9a6e3a}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.function,.token.class-name{color:#DD4A68}.token.regex,.token.important,.token.variable{color:#e90}.token.important,.token.bold{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}pre[class*="language-"].line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}pre[class*="language-"].line-numbers>code{position:relative;white-space:inherit}.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:0;font-size:100%;left:-3.8em;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.line-numbers-rows>span{display:block;counter-increment:linenumber}.line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}span.inline-color-wrapper{background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyIDIiPjxwYXRoIGZpbGw9ImdyYXkiIGQ9Ik0wIDBoMnYySDB6Ii8+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0wIDBoMXYxSDB6TTEgMWgxdjFIMXoiLz48L3N2Zz4=);background-position:center;background-size:110%;display:inline-block;height:1.333ch;width:1.333ch;margin:0 .333ch;box-sizing:border-box;border:1px solid #fff;outline:1px solid rgba(0,0,0,.5);overflow:hidden}span.inline-color{display:block;height:120%;width:120%}
+    </style>
+    <style type="text/css">
+    @import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap);:root{--background-body:#fff;--background:#eee;--background-alt:#1a242f;--selection:#9abfdf;--text-main:#1a242f;--text-bright:#1e426f;--text-muted:#a9b1ba;--links:#2496ee;--focus:rgba(0,150,191,.67);--border:#526980;--code:#d20577;--animation-duration:0.1s;--button-hover:#324759;--scrollbar-thumb:var(--button-hover);--scrollbar-thumb-hover:#141414;--form-placeholder:#a9a9a9;--form-text:#fff;--variable:#d941e2;--highlight:#efdb43;--select-arrow:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='63' width='117' fill='%23efefef'%3E%3Cpath d='M115 2c-1-2-4-2-5 0L59 53 7 2a4 4 0 00-5 5l54 54 2 2 3-2 54-54c2-1 2-4 0-5z'/%3E%3C/svg%3E")}body{font-family:"IBM Plex Sans",sans-serif;font-size:16px;line-height: 1.6;}
+    </style>
+ 
+
+</head>
+
+<body>
+    <header><h1></h1>
+
+        <nav>
+        </nav>
+
+    </header><h1>Chapter 7: Iteration</h1>
+<p>Computers are often used to automate repetitive tasks. Repeating identical or similar tasks without making errors is something that computers do well and people do poorly.</p>
+<p>Repeated execution of a set of statements is called <strong>iteration</strong>. Because iteration is so common, Python provides several language features to make it easier. We’ve already seen the <code>for</code> statement in chapter 3. This the the form of iteration you’ll likely be using most often. But in this chapter we’ve going to look at the <code>while</code> statement — another way to have your program do iteration, useful in slightly different circumstances.</p>
+<p>Before we do that, let’s just review a few ideas…</p>
+<h2>7.1. Assignment</h2>
+<p>As we have mentioned previously, it is legal to make more than one assignment to the same variable. A new assignment makes an existing variable refer to a new value (and stop referring to the old value).</p>
+<pre><code class="language-python">airtime_remaining = 15
+print(airtime_remaining)
+airtime_remaining = 7
+print(airtime_remaining)</code></pre>
+<p>The output of this program is:</p>
+<pre><code class="language-python">15
+7</code></pre>
+<p>because the first time <code>airtime_remaining</code> is printed, its value is <code>15</code>, and the second time, its value is <code>7</code>.</p>
+<p>It is especially important to distinguish between an assignment statement and a Boolean expression that tests for equality. Because Python uses the equal token (<code>=</code>) for assignment, it is tempting to interpret a statement like <code>a = b</code> as a Boolean test. Unlike mathematics, it is not! Remember that the Python token for the equality operator is <code>==</code>.</p>
+<p>Note too that an equality test is symmetric, but assignment is not. For example, if <code>a == 7</code> then <code>7 == a</code>. But in Python, the statement <code>a = 7</code> is legal and <code>7 = a</code> is not.</p>
+<p>In Python, an assignment statement can make two variables equal, but because further assignments can change either of them, they don’t have to stay that way:</p>
+<pre><code class="language-python">a = 5
+b = a    # After executing this line, a and b are now equal
+a = 3    # After executing this line, a and b are no longer equal</code></pre>
+<p>The third line changes the value of <code>a</code> but does not change the value of <code>b</code>, so they are no longer equal. (In some programming languages, a different symbol is used for assignment, such as <code>&lt;-</code> or <code>:=</code>, to avoid confusion. Some people also think that variable was an unfortunate word to choose, and instead we should have called them assignables. Python chooses to follow common terminology and token usage, also found in languages like C, C++, Java, and C#, so we use the tokens <code>=</code> for assignment, <code>==</code> for equality, and we talk of variables.</p>
+<h2>7.2. Updating variables</h2>
+<p>When an assignment statement is executed, the right-hand side expression (i.e. the expression that comes after the assignment token) is evaluated first. This produces a value. Then the assignment is made, so that the variable on the left-hand side now refers to the new value.</p>
+<p>One of the most common forms of assignment is an update, where the new value of the variable depends on its old value. Deduct 40 cents from my airtime balance, or add one run to the scoreboard.</p>
+<pre><code class="language-python">n = 5
+n = 3 * n + 1</code></pre>
+<p>Line 2 means <em>get the current value of <code>n</code>, multiply it by three and add one, and assign the answer to <code>n</code>, thus making <code>n</code> refer to the value</em>. So after executing the two lines above, <code>n</code> will point/refer to the integer <code>16</code>.</p>
+<p>If you try to get the value of a variable that has never been assigned to, you’ll get an error:</p>
+<pre><code class="language-python">&gt;&gt;&gt; w = x + 1
+Traceback (most recent call last):
+  File &quot;&lt;interactive input&gt;&quot;, line 1, in
+NameError: name &#39;x&#39; is not defined</code></pre>
+<p>Before you can update a variable, you have to <strong>initialize</strong> it to some starting value, usually with a simple assignment:</p>
+<pre><code class="language-python">runs_scored = 0
+...
+runs_scored = runs_scored + 1</code></pre>
+<p>Line 3 — updating a variable by adding <code>1</code> to it — is very common. It is called an <strong>increment</strong> of the variable; subtracting <code>1</code> is called a <strong>decrement</strong>. Sometimes programmers also talk about bumping a variable, which means the same as incrementing it by <code>1</code>.</p>
+<h2>7.3. The <code>for</code> loop revisited</h2>
+<p>Recall that the for loop processes each item in a list. Each item in turn is (re-)assigned to the loop variable, and the body of the loop is executed. We saw this example in an earlier chapter:</p>
+<pre><code class="language-python">for f in [&quot;Joe&quot;, &quot;Zoe&quot;, &quot;Brad&quot;, &quot;Angelina&quot;, &quot;Zuki&quot;, &quot;Thandi&quot;, &quot;Paris&quot;]:
+    invitation = &quot;Hi &quot; + f + &quot;.  Please come to my party on Saturday!&quot;
+    print(invitation)</code></pre>
+<p>Running through all the items in a list is called <strong>traversing</strong> the list, or <strong>traversal</strong>.</p>
+<p>Let us write a function now to sum up all the elements in a list of numbers. Do this by hand first, and try to isolate exactly what steps you take. You’ll find you need to keep some “running total” of the sum so far, either on a piece of paper, in your head, or in your calculator. Remembering things from one step to the next is precisely why we have variables in a program: so we’ll need some variable to remember the “running total”. It should be initialized with a value of zero, and then we need to traverse the items in the list. For each item, we’ll want to update the running total by adding the next number to it.</p>
+<pre><code class="language-python">def mysum(xs):
+    &quot;&quot;&quot; Sum all the numbers in the list xs, and return the total. &quot;&quot;&quot;
+    running_total = 0
+    for x in xs:
+        running_total = running_total + x
+    return running_total
+
+# Add tests like these to your test suite ...
+test(mysum([1, 2, 3, 4]) == 10)
+test(mysum([1.25, 2.5, 1.75]) == 5.5)
+test(mysum([1, -2, 3]) == 2)
+test(mysum([ ]) == 0)
+test(mysum(range(11)) == 55)  # 11 is not included in the list.</code></pre>
+<h2>7.4. The <code>while</code> statement</h2>
+<p>Here is a fragment of code that demonstrates the use of the while statement:</p>
+<pre><code class="language-python">def sum_to(n):
+    &quot;&quot;&quot; Return the sum of 1+2+3 ... n &quot;&quot;&quot;
+    ss  = 0
+    v = 1
+    while v &lt;= n:
+        ss = ss + v
+        v = v + 1
+    return ss
+
+# For your test suite
+test(sum_to(4) == 10)
+test(sum_to(1000) == 500500)</code></pre>
+<p>You can almost read the <code>while</code> statement as if it were English. It means, while <code>v</code> is less than or equal to <code>n</code>, continue executing the body of the loop. Within the body, each time, increment <code>v</code>. When <code>v</code> passes n, return your accumulated sum.</p>
+<p>More formally, here is precise flow of execution for a <code>while</code> statement:</p>
+<ul>
+<li><p>Evaluate the condition at line 5, yielding a value which is either False or True.</p></li>
+<li><p>If the value is False, exit the while statement and continue execution at the next statement (line 8 in this case).</p></li>
+<li><p>If the value is True, execute each of the statements in the body (lines 6 and 7) and then go back to the <code>while</code> statement at line 5.</p></li>
+</ul>
+<p>The body consists of all of the statements indented below the while keyword.</p>
+<p>Notice that if the loop condition is False the first time we get loop, the statements in the body of the loop are never executed.</p>
+<p>The body of the loop should change the value of one or more variables so that eventually the condition becomes false and the loop terminates. Otherwise the loop will repeat forever, which is called an <strong>infinite loop</strong>. An endless source of amusement for computer scientists is the observation that the directions on shampoo, “lather, rinse, repeat”, are an infinite loop.</p>
+<p>In the case here, we can prove that the loop terminates because we know that the value of <code>n</code> is finite, and we can see that the value of <code>v</code> increments each time through the loop, so eventually it will have to exceed <code>n</code>. In other cases, it is not so easy, even impossible in some cases, to tell if the loop will ever terminate.</p>
+<p>What you will notice here is that the <code>while</code> loop is more work for you — the programmer — than the equivalent <code>for</code> loop. When using a <code>while</code> loop one has to manage the loop variable yourself: give it an initial value, test for completion, and then make sure you change something in the body so that the loop terminates. By comparison, here is an equivalent function that uses <code>for</code> instead:</p>
+<pre><code class="language-python">def sum_to(n):
+    &quot;&quot;&quot; Return the sum of 1+2+3 ... n &quot;&quot;&quot;
+    ss  = 0
+    for v in range(n+1):
+        ss = ss + v
+    return ss</code></pre>
+<p>Notice the slightly tricky call to the <code>range</code> function — we had to add one onto <code>n</code>, because <code>range</code> generates its list up to but excluding the value you give it. It would be easy to make a programming mistake and overlook this, but because we’ve made the investment of writing some unit tests, our test suite would have caught our error.</p>
+<p>So why have two kinds of loop if <code>for</code> looks easier? This next example shows a case where we need the extra power that we get from the <code>while</code> loop.</p>
+<h2>7.5. The Collatz 3n + 1 sequence</h2>
+<p>Let’s look at a simple sequence that has fascinated and foxed mathematicians for many years. They still cannot answer even quite simple questions about this.</p>
+<p>The “computational rule” for creating the sequence is to start from some given <code>n</code>, and to generate the next term of the sequence from <code>n</code>, either by halving <code>n</code>, (whenever <code>n</code> is even), or else by multiplying it by three and adding 1. The sequence terminates when <code>n</code> reaches <code>1</code>.</p>
+<p>This Python function captures that algorithm:</p>
+<pre><code class="language-python">def seq3np1(n):
+    &quot;&quot;&quot; Print the 3n+1 sequence from n,
+        terminating when it reaches 1.
+    &quot;&quot;&quot;
+    while n != 1:
+        print(n, end=&quot;, &quot;)
+        if n % 2 == 0:        # n is even
+            n = n // 2
+        else:                 # n is odd
+            n = n * 3 + 1
+    print(n, end=&quot;.\n&quot;)</code></pre>
+<p>Notice first that the <code>print</code> function on line 6 has an extra argument <code>end=", "</code>. This tells the <code>print</code> function to follow the printed string with whatever the programmer chooses (in this case, a comma followed by a space), instead of ending the line. So each time something is printed in the loop, it is printed on the same output line, with the numbers separated by commas. The call to <code>print(n, end=".\n")</code> at line 11 after the loop terminates will then print the final value of <code>n</code> followed by a period and a newline character. (You’ll cover the <code>\n</code> (newline character) in the next chapter).</p>
+<p>The condition for continuing with this loop is <code>n != 1</code>, so the loop will continue running until it reaches its termination condition, (i.e. <code>n == 1</code>).</p>
+<p>Each time through the loop, the program outputs the value of <code>n</code> and then checks whether it is even or odd. If it is even, the value of <code>n</code> is divided by <code>2</code> using integer division. If it is odd, the value is replaced by <code>n * 3 + 1</code>. Here are some examples:</p>
+<pre><code class="language-python">&gt;&gt;&gt; seq3np1(3)
+3, 10, 5, 16, 8, 4, 2, 1.
+&gt;&gt;&gt; seq3np1(19)
+19, 58, 29, 88, 44, 22, 11, 34, 17, 52, 26, 13,
+                    40, 20, 10, 5, 16, 8, 4, 2, 1.
+&gt;&gt;&gt; seq3np1(21)
+21, 64, 32, 16, 8, 4, 2, 1.
+&gt;&gt;&gt; seq3np1(16)
+16, 8, 4, 2, 1.
+&gt;&gt;&gt;</code></pre>
+<p>Since <code>n</code> sometimes increases and sometimes decreases, there is no obvious proof that <code>n</code> will ever reach <code>1</code>, or that the program terminates. For some particular values of <code>n</code>, we can prove termination. For example, if the starting value is a power of two, then the value of <code>n</code> will be even each time through the loop until it reaches 1. The previous example ends with such a sequence, starting with <code>16</code>.</p>
+<p>See if you can find a small starting number that needs more than a hundred steps before it terminates.</p>
+<p>Particular values aside, the interesting question was first posed by a German mathematician called Lothar Collatz: the <em>Collatz conjecture</em> (also known as the <em>3n + 1 conjecture</em>), is that this sequence terminates for all positive values of <code>n</code>. So far, no one has been able to prove it or disprove it! (A conjecture is a statement that might be true, but nobody knows for sure.)</p>
+<p>Think carefully about what would be needed for a proof or disproof of the conjecture “All positive integers will eventually converge to <code>1</code> using the Collatz rules”. With fast computers we have been able to test every integer up to very large values, and so far, they have all eventually ended up at <code>1</code>. But who knows? Perhaps there is some as-yet untested number which does not reduce to <code>1</code>.</p>
+<p>You’ll notice that if you don’t stop when you reach <code>1</code>, the sequence gets into its own cyclic loop: 1, 4, 2, 1, 4, 2, 1, 4 … So one possibility is that there might be other cycles that we just haven’t found yet.</p>
+<p>Wikipedia has an informative article about the Collatz conjecture. The sequence also goes under other names (Hailstone sequence, Wonderous numbers, etc.), and you’ll find out just how many integers have already been tested by computer, and found to converge!</p>
+<p>A&gt; <strong>Choosing between for and while</strong> A&gt; A&gt; Use a <code>for</code> loop if you know, before you start looping, the maximum number of times that you’ll need to execute the body. For example, if you’re traversing a list of elements, you know that the maximum number of loop iterations you can possibly need is “all the elements in the list”. Or if you need to print the 12 times table, we know right away how many times the loop will need to run. A&gt; A&gt; So any problem like “iterate this weather model for 1000 cycles”, or “search this list of words”, “find all prime numbers up to 10000” suggest that a <code>for</code> loop is best. A&gt; A&gt; By contrast, if you are required to repeat some computation until some condition is met, and you cannot calculate in advance when (or if) this will happen, as we did in this <code>3n + 1</code> problem, you’ll need a <code>while</code> loop. A&gt; A&gt; We call the first case <strong>definite iteration</strong> — we know ahead of time some definite bounds for what is needed. The latter case is called <strong>indefinite iteration</strong> — we’re not sure how many iterations we’ll need — we cannot even establish an upper bound!</p>
+<h2>7.6. Tracing a program</h2>
+<p>To write effective computer programs, and to build a good conceptual model of program execution, a programmer needs to develop the ability to <strong>trace</strong> the execution of a computer program. Tracing involves becoming the computer and following the flow of execution through a sample program run, recording the state of all variables and any output the program generates after each instruction is executed.</p>
+<p>To understand this process, let’s trace the call to <code>seq3np1(3)</code> from the previous section. At the start of the trace, we have a variable, <code>n</code> (the parameter), with an initial value of <code>3</code>. Since <code>3</code> is not equal to <code>1</code>, the <code>while</code> loop body is executed. <code>3</code> is printed and <code>3 % 2 == 0</code> is evaluated. Since it evaluates to <code>False</code>, the <code>else</code> branch is executed and <code>3 * 3 + 1</code> is evaluated and assigned to <code>n</code>.</p>
+<p>To keep track of all this as you hand trace a program, make a column heading on a piece of paper for each variable created as the program runs and another one for output. Our trace so far would look something like this:</p>
+<pre><code>n               output printed so far
+--              ---------------------
+3               3,
+10</code></pre>
+<p>Since <code>10 != 1</code> evaluates to <code>True</code>, the loop body is again executed, and <code>10</code> is printed. <code>10 % 2 == 0</code> is <code>True</code>, so the <code>if</code> branch is executed and <code>n</code> becomes <code>5</code>. By the end of the trace we have:</p>
+<pre><code>n               output printed so far
+--              ---------------------
+3               3,
+10              3, 10,
+5               3, 10, 5,
+16              3, 10, 5, 16,
+8               3, 10, 5, 16, 8,
+4               3, 10, 5, 16, 8, 4,
+2               3, 10, 5, 16, 8, 4, 2,
+1               3, 10, 5, 16, 8, 4, 2, 1.</code></pre>
+<p>Tracing can be a bit tedious and error prone (that’s why we get computers to do this stuff in the first place!), but it is an essential skill for a programmer to have. From this trace we can learn a lot about the way our code works. We can observe that as soon as <code>n</code> becomes a power of <code>2</code>, for example, the program will require <code>log2(n)</code> executions of the loop body to complete. We can also see that the final <code>1</code> will not be printed as output within the body of the loop, which is why we put the special <code>print</code> function at the end.</p>
+<p>Tracing a program is, of course, related to single-stepping through your code and being able to inspect the variables. Using the computer to <strong>single-step</strong> for you is less error prone and more convenient. Also, as your programs get more complex, they might execute many millions of steps before they get to the code that you’re really interested in, so manual tracing becomes impossible. Being able to set a <strong>breakpoint</strong> where you need one is far more powerful. So we strongly encourage you to invest time in learning using to use your programming environment to full effect.</p>
+<p>There are also some great visualization tools becoming available to help you trace and understand small fragments of Python code. The one we recommend is at http://pythontutor.com/</p>
+<p>We’ve cautioned against chatterbox functions, but used them here. As we learn a bit more Python, we’ll be able to show you how to generate a list of values to hold the sequence, rather than having the function print them. Doing this would remove the need to have all these pesky print functions in the middle of our logic, and will make the function more useful.</p>
+<h2>7.7. Counting digits</h2>
+<p>The following function counts the number of decimal digits in a positive integer:</p>
+<pre><code class="language-python">def num_digits(n):
+    count = 0
+    while n != 0:
+        count = count + 1
+        n = n // 10
+    return count</code></pre>
+<p>A call to <code>print(num_digits(710))</code> will print <code>3</code>. Trace the execution of this function call (perhaps using the single step function in PyScripter, or the Python visualizer, or on some paper) to convince yourself that it works.</p>
+<p>This function demonstrates an important pattern of computation called a <strong>counter</strong>. The variable <code>count</code> is initialized to <code>0</code> and then incremented each time the loop body is executed. When the loop exits, <code>count</code> contains the result — the total number of times the loop body was executed, which is the same as the number of digits.</p>
+<p>If we wanted to only count digits that are either 0 or 5, adding a conditional before incrementing the counter will do the trick:</p>
+<pre><code class="language-python">def num_zero_and_five_digits(n):
+    count = 0
+    while n &gt; 0:
+        digit = n % 10
+        if digit == 0 or digit == 5:
+            count = count + 1
+        n = n // 10
+    return count</code></pre>
+<p>Confirm that <code>test(num_zero_and_five_digits(1055030250) == 7)</code> passes.</p>
+<p>Notice, however, that <code>test(num_digits(0) == 1)</code> fails. Explain why. Do you think this is a bug in the code, or a bug in the specifications, or our expectations, or the tests?</p>
+<h2>7.8. Abbreviated assignment</h2>
+<p>Incrementing a variable is so common that Python provides an abbreviated syntax for it:</p>
+<pre><code class="language-python">&gt;&gt;&gt; count = 0
+&gt;&gt;&gt; count += 1
+&gt;&gt;&gt; count
+1
+&gt;&gt;&gt; count += 1
+&gt;&gt;&gt; count
+2</code></pre>
+<p><code>count += 1</code> is an abbreviation for <code>count = count + 1</code>. We pronounce the operator as “plus-equals”. The increment value does not have to be <code>1</code>:</p>
+<pre><code class="language-python">&gt;&gt;&gt; n = 2
+&gt;&gt;&gt; n += 5
+&gt;&gt;&gt; n
+7</code></pre>
+<p>There are similar abbreviations for <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>//=</code> and <code>%=</code>:</p>
+<pre><code class="language-python">&gt;&gt;&gt; n = 2
+&gt;&gt;&gt; n *= 5
+&gt;&gt;&gt; n
+10
+&gt;&gt;&gt; n -= 4
+&gt;&gt;&gt; n
+6
+&gt;&gt;&gt; n //= 2
+&gt;&gt;&gt; n
+3
+&gt;&gt;&gt; n %= 2
+&gt;&gt;&gt; n
+1</code></pre>
+<h2>7.9. Help and meta-notation</h2>
+<p>Python comes with extensive documentation for all its built-in functions, and its libraries. Different systems have different ways of accessing this help. In PyScripter, click on the Help menu item, and select Python Manuals. Then search for help on the built-in function <code>range</code>. You’ll get something like this:</p>
+<figure>
+<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-7/07-01-help_range.png" alt="_images/help_range.png" /><figcaption aria-hidden="true">_images/help_range.png</figcaption>
+</figure>
+<p>Notice the square brackets in the description of the arguments. These are examples of <strong>meta-notation</strong> — notation that describes Python syntax, but is not part of it. The square brackets in this documentation mean that the argument is optional — the programmer can omit it. So what this first line of help tells us is that <code>range</code> must always have a <code>stop</code> argument, but it may have an optional <code>start</code> argument (which must be followed by a comma if it is present), and it can also have an optional <code>step</code> argument, preceded by a comma if it is present.</p>
+<p>The examples from help show that <code>range</code> can have either 1, 2 or 3 arguments. The list can start at any starting value, and go up or down in increments other than 1. The documentation here also says that the arguments must be integers.</p>
+<p>Other meta-notation you’ll frequently encounter is the use of bold and italics. The bold means that these are tokens — keywords or symbols — typed into your Python code exactly as they are, whereas the italic terms stand for “something of this type”. So the syntax description</p>
+<p><strong>for</strong> <em>variable</em> <strong>in</strong> <em>list</em>:</p>
+<p>means you can substitute any legal variable and any legal list when you write your Python code.</p>
+<p>This (simplified) description of the <code>print</code> function, shows another example of meta-notation in which the ellipses (…) mean that you can have as many objects as you like (even zero), separated by commas:</p>
+<p><strong>print( [<strong><em>object, …</em></strong>] )</strong></p>
+<p>Meta-notation gives us a concise and powerful way to describe the pattern of some syntax or feature.</p>
+<h2>7.10. Tables</h2>
+<p>One of the things loops are good for is generating tables. Before computers were readily available, people had to calculate logarithms, sines and cosines, and other mathematical functions by hand. To make that easier, mathematics books contained long tables listing the values of these functions. Creating the tables was slow and boring, and they tended to be full of errors.</p>
+<p>When computers appeared on the scene, one of the initial reactions was, “<em>This is great! We can use the computers to generate the tables, so there will be no errors.</em>” That turned out to be true (mostly) but shortsighted. Soon thereafter, computers and calculators were so pervasive that the tables became obsolete.</p>
+<p>Well, almost. For some operations, computers use tables of values to get an approximate answer and then perform computations to improve the approximation. In some cases, there have been errors in the underlying tables, most famously in the table the Intel Pentium processor chip used to perform floating-point division.</p>
+<p>Although a log table is not as useful as it once was, it still makes a good example of iteration. The following program outputs a sequence of values in the left column and 2 raised to the power of that value in the right column:</p>
+<pre><code class="language-python">for x in range(13):   # Generate numbers 0 to 12
+    print(x, &quot;\t&quot;, 2**x)</code></pre>
+<p>The string <code>"\t"</code> represents a <strong>tab character</strong>. The backslash character in <code>"\t"</code> indicates the beginning of an <strong>escape sequence</strong>. Escape sequences are used to represent invisible characters like tabs and newlines. The sequence <code>\n</code> represents a <strong>newline</strong>.</p>
+<p>An escape sequence can appear anywhere in a string; in this example, the tab escape sequence is the only thing in the string. How do you think you represent a backslash in a string?</p>
+<p>As characters and strings are displayed on the screen, an invisible marker called the cursor keeps track of where the next character will go. After a <code>print</code> function, the cursor normally goes to the beginning of the next line.</p>
+<p>The tab character shifts the cursor to the right until it reaches one of the tab stops. Tabs are useful for making columns of text line up, as in the output of the previous program:</p>
+<pre><code class="language-python">0       1
+1       2
+2       4
+3       8
+4       16
+5       32
+6       64
+7       128
+8       256
+9       512
+10      1024
+11      2048
+12      4096</code></pre>
+<p>Because of the tab characters between the columns, the position of the second column does not depend on the number of digits in the first column.</p>
+<h2>7.11. Two-dimensional tables</h2>
+<p>A two-dimensional table is a table where you read the value at the intersection of a row and a column. A multiplication table is a good example. Let’s say you want to print a multiplication table for the values from <code>1</code> to <code>6</code>.</p>
+<p>A good way to start is to write a loop that prints the multiples of <code>2</code>, all on one line:</p>
+<pre><code class="language-python">for i in range(1, 7):
+    print(2 * i, end=&quot;   &quot;)
+print()</code></pre>
+<p>Here we’ve used the <code>range</code> function, but made it start its sequence at <code>1</code>. As the loop executes, the value of <code>i</code> changes from <code>1</code> to <code>6</code>. When all the elements of the range have been assigned to <code>i</code>, the loop terminates. Each time through the loop, it displays the value of <code>2 * i</code>, followed by three spaces.</p>
+<p>Again, the extra <code>end="   "</code> argument in the <code>print</code> function suppresses the newline, and uses three spaces instead. After the loop completes, the call to <code>print</code> at line 3 finishes the current line, and starts a new line.</p>
+<p>The output of the program is:</p>
+<pre><code>2      4      6      8      10     12</code></pre>
+<p>So far, so good. The next step is to <strong>encapsulate</strong> and <strong>generalize</strong>.</p>
+<h2>7.12. Encapsulation and generalization</h2>
+<p>Encapsulation is the process of wrapping a piece of code in a function, allowing you to take advantage of all the things functions are good for. You have already seen some examples of encapsulation, including <code>is_divisible</code> in a previous chapter.</p>
+<p>Generalization means taking something specific, such as printing the multiples of <code>2</code>, and making it more general, such as printing the multiples of any integer.</p>
+<p>This function encapsulates the previous loop and generalizes it to print multiples of <code>n</code>:</p>
+<pre><code class="language-python">def print_multiples(n):
+    for i in range(1, 7):
+        print(n * i, end=&quot;   &quot;)
+    print()</code></pre>
+<p>To encapsulate, all we had to do was add the first line, which declares the name of the function and the parameter list. To generalize, all we had to do was replace the value 2 with the parameter <code>n</code>.</p>
+<p>If we call this function with the argument <code>2</code>, we get the same output as before. With the argument <code>3</code>, the output is:</p>
+<pre><code>3      6      9      12     15     18</code></pre>
+<p>With the argument <code>4</code>, the output is:</p>
+<pre><code>4      8      12     16     20     24</code></pre>
+<p>By now you can probably guess how to print a multiplication table — by calling <code>print_multiples</code> repeatedly with different arguments. In fact, we can use another loop:</p>
+<pre><code class="language-python">for i in range(1, 7):
+    print_multiples(i)</code></pre>
+<p>Notice how similar this loop is to the one inside <code>print_multiples</code>. All we did was replace the print function with a function call.</p>
+<p>The output of this program is a multiplication table:</p>
+<pre><code>1      2      3      4      5      6
+2      4      6      8      10     12
+3      6      9      12     15     18
+4      8      12     16     20     24
+5      10     15     20     25     30
+6      12     18     24     30     36</code></pre>
+<h2>7.13. More encapsulation</h2>
+<p>To demonstrate encapsulation again, let’s take the code from the last section and wrap it up in a function:</p>
+<pre><code class="language-python">def print_mult_table():
+    for i in range(1, 7):
+        print_multiples(i)</code></pre>
+<p>This process is a common <strong>development plan</strong>. We develop code by writing lines of code outside any function, or typing them in to the interpreter. When we get the code working, we extract it and wrap it up in a function.</p>
+<p>This development plan is particularly useful if you don’t know how to divide the program into functions when you start writing. This approach lets you design as you go along.</p>
+<h2>7.14. Local variables</h2>
+<p>You might be wondering how we can use the same variable, <code>i</code>, in both <code>print_multiples</code> and <code>print_mult_table</code>. Doesn’t it cause problems when one of the functions changes the value of the variable?</p>
+<p>The answer is no, because the <code>i</code> in <code>print_multiples</code> and the <code>i</code> in <code>print_mult_table</code> are not the same variable.</p>
+<p>Variables created inside a function definition are local; you can’t access a local variable from outside its home function. That means you are free to have multiple variables with the same name as long as they are not in the same function.</p>
+<p>Python examines all the statements in a function — if any of them assign a value to a variable, that is the clue that Python uses to make the variable a local variable.</p>
+<p>The stack diagram for this program shows that the two variables named <code>i</code> are not the same variable. They can refer to different values, and changing one does not affect the other.</p>
+<figure>
+<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-7/07-02-stack2.png" alt="Stack 2 diagram" /><figcaption aria-hidden="true">Stack 2 diagram</figcaption>
+</figure>
+<p>The value of <code>i</code> in <code>print_mult_table</code> goes from <code>1</code> to <code>6</code>. In the diagram it happens to be <code>3</code>. The next time through the loop it will be <code>4</code>. Each time through the loop, <code>print_mult_table</code> calls <code>print_multiples</code> with the current value of <code>i</code> as an argument. That value gets assigned to the parameter <code>n</code>.</p>
+<p>Inside <code>print_multiples</code>, the value of <code>i</code> goes from <code>1</code> to <code>6</code>. In the diagram, it happens to be <code>2</code>. Changing this variable has no effect on the value of <code>i</code> in <code>print_mult_table</code>.</p>
+<p>It is common and perfectly legal to have different local variables with the same name. In particular, names like <code>i</code> and <code>j</code> are used frequently as loop variables. If you avoid using them in one function just because you used them somewhere else, you will probably make the program harder to read.</p>
+<p>The visualizer at http://pythontutor.com/ shows very clearly how the two variables <code>i</code> are distinct variables, and how they have independent values.</p>
+<h2>7.15. The break statement</h2>
+<p>The <em>break</em> statement is used to immediately leave the body of its loop. The next statement to be executed is the first one after the body:</p>
+<pre><code class="language-python">for i in [12, 16, 17, 24, 29]:
+    if i % 2 == 1:  # If the number is odd
+       break        #  ... immediately exit the loop
+    print(i)
+print(&quot;done&quot;)</code></pre>
+<p>This prints:</p>
+<pre><code>12
+16
+done</code></pre>
+<p>A&gt; <strong>The pre-test loop — standard loop behaviour</strong> A&gt; A&gt; <code>for</code> and <code>while</code> loops do their tests at the start, before executing any part of the body. They’re called <strong>pre-test</strong> loops, because the test happens before (pre) the body. <code>break</code> and <code>return</code> are our tools for adapting this standard behaviour. A&gt; A&gt; <img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-7/07-03-pre_test_loop.png" alt="_images/pre_test_loop.png" /></p>
+<h2>7.16. Other flavours of loops</h2>
+<p>Sometimes we’d like to have the <strong>middle-test</strong> loop with the exit test in the middle of the body, rather than at the beginning or at the end. Or a <strong>post-test</strong> loop that puts its exit test as the last thing in the body. Other languages have different syntax and keywords for these different flavours, but Python just uses a combination of <code>while</code> and <code>if condition: break</code> to get the job done.</p>
+<p>A typical example is a problem where the user has to input numbers to be summed. To indicate that there are no more inputs, the user enters a special value, often the value <code>-1</code>, or the empty string. This needs a middle-exit loop pattern: input the next number, then test whether to exit, or else process the number:</p>
+<p>A&gt; The middle-test loop flowchart A&gt; A&gt; <img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-7/07-04-mid_test_loop.png" alt="_images/mid_test_loop.png" /></p>
+<pre><code class="language-python">total = 0
+while True:
+    response = input(&quot;Enter the next number. (Leave blank to end)&quot;)
+    if response == &quot;&quot;:
+        break
+    total += int(response)
+print(&quot;The total of the numbers you entered is &quot;, total)</code></pre>
+<p>Convince yourself that this fits the middle-exit loop flowchart: line 3 does some useful work, lines 4 and 5 can exit the loop, and if they don’t line 6 does more useful work before the next iteration starts.</p>
+<p>The <code>while bool-expr</code>: uses the Boolean expression to determine whether to iterate again. <code>True</code> is a trivial Boolean expression, so <code>while True:</code> means always do the loop body again. This is a language idiom — a convention that most programmers will recognize immediately. Since the expression on line 2 will never terminate the loop, (it is a dummy test) the programmer must arrange to break (or return) out of the loop body elsewhere, in some other way (i.e. in lines 4 and 5 in this sample). A clever compiler or interpreter will understand that line 2 is a fake test that must always succeed, so it won’t even generate a test, and our flowchart never even put the diamond-shape dummy test box at the top of the loop!</p>
+<p>Similarly, by just moving the <code>if condition: break</code> to the end of the loop body we create a pattern for a post-test loop. Post-test loops are used when you want to be sure that the loop body always executes at least once (because the first test only happens at the end of the execution of the first loop body). This is useful, for example, if we want to play an interactive game against the user — we always want to play at least one game:</p>
+<pre><code class="language-python">while True:
+    play_the_game_once()
+    response = input(&quot;Play again? (yes or no)&quot;)
+    if response != &quot;yes&quot;:
+        break
+print(&quot;Goodbye!&quot;)</code></pre>
+<p>A&gt; <strong>Hint: Think about where you want the exit test to happen.</strong> A&gt; A&gt; Once you’ve recognized that you need a loop to repeat something, think about its terminating condition — when will I want to stop iterating? Then figure out whether you need to do the test before starting the first (and every other) iteration, or at the end of the first (and every other) iteration, or perhaps in the middle of each iteration. Interactive programs that require input from the user or read from files often need to exit their loops in the middle or at the end of an iteration, when it becomes clear that there is no more data to process, or the user doesn’t want to play our game anymore.</p>
+<h2>7.17. An example</h2>
+<p>The following program implements a simple guessing game:</p>
+<pre><code class="language-python">import random                   # We cover random numbers in the
+rng = random.Random()           #  modules chapter, so peek ahead.
+number = rng.randrange(1, 1000) # Get random number between [1 and 1000).
+
+guesses = 0
+msg = &quot;&quot;
+
+while True:
+    guess = int(input(msg + &quot;\nGuess my number between 1 and 1000: &quot;))
+    guesses += 1
+    if guess &gt; number:
+        msg += str(guess) + &quot; is too high.\n&quot;
+    elif guess &lt; number:
+        msg += str(guess) + &quot; is too low.\n&quot;
+    else:
+        break
+
+input(&quot;\n\nGreat, you got it in {0} guesses!\n\n&quot;.format(guesses))</code></pre>
+<p>This program makes use of the mathematical law of <strong>trichotomy</strong> (given real numbers <code>a</code> and <code>b</code>, exactly one of these three must be true: <code>a &gt; b</code>, <code>a &lt; b</code>, or <code>a == b</code>).</p>
+<p>At line 18 there is a call to the <code>input</code> function, but we don’t do anything with the result, not even assign it to a variable. This is legal in Python. Here it has the effect of popping up the input dialog window and waiting for the user to respond before the program terminates. Programmers often use the trick of doing some extra input at the end of a script, just to keep the window open.</p>
+<p>Also notice the use of the <code>msg</code> variable, initially an empty string, on lines 6, 12 and 14. Each time through the loop we extend the message being displayed: this allows us to display the program’s feedback right at the same place as we’re asking for the next guess.</p>
+<figure>
+<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-7/07-05-python_input.png" alt="_images/python_input.png" /><figcaption aria-hidden="true">_images/python_input.png</figcaption>
+</figure>
+<h2>7.18. The continue statement</h2>
+<p>This is a control flow statement that causes the program to immediately skip the processing of the rest of the body of the loop, for the current iteration. But the loop still carries on running for its remaining iterations:</p>
+<pre><code class="language-python">for i in [12, 16, 17, 24, 29, 30]:
+    if i % 2 == 1:      # If the number is odd
+       continue         # Don&#39;t process it
+    print(i)
+print(&quot;done&quot;)</code></pre>
+<p>This prints:</p>
+<pre><code>12
+16
+24
+30
+done</code></pre>
+<h2>7.19. More generalization</h2>
+<p>As another example of generalization, imagine you wanted a program that would print a multiplication table of any size, not just the six-by-six table. You could add a parameter to <code>print_mult_table</code>:</p>
+<pre><code class="language-python">def print_mult_table(high):
+    for i in range(1, high+1):
+        print_multiples(i)</code></pre>
+<p>We replaced the value 7 with the expression high+1. If we call <code>print_mult_table</code> with the argument 7, it displays:</p>
+<pre><code>1      2      3      4      5      6
+2      4      6      8      10     12
+3      6      9      12     15     18
+4      8      12     16     20     24
+5      10     15     20     25     30
+6      12     18     24     30     36
+7      14     21     28     35     42</code></pre>
+<p>This is fine, except that we probably want the table to be square — with the same number of rows and columns. To do that, we add another parameter to <code>print_multiples</code> to specify how many columns the table should have.</p>
+<p>Just to be annoying, we call this parameter high, demonstrating that different functions can have parameters with the same name (just like local variables). Here’s the whole program:</p>
+<pre><code class="language-python">def print_multiples(n, high):
+    for i in range(1, high+1):
+        print(n * i, end=&quot;   &quot;)
+    print()
+
+def print_mult_table(high):
+    for i in range(1, high+1):
+        print_multiples(i, high)</code></pre>
+<p>Notice that when we added a new parameter, we had to change the first line of the function (the function heading), and we also had to change the place where the function is called in <code>print_mult_table</code>.</p>
+<p>Now, when we call <code>print_mult_table(7)</code>:</p>
+<pre><code>1      2      3      4      5      6      7
+2      4      6      8      10     12     14
+3      6      9      12     15     18     21
+4      8      12     16     20     24     28
+5      10     15     20     25     30     35
+6      12     18     24     30     36     42
+7      14     21     28     35     42     49</code></pre>
+<p>When you generalize a function appropriately, you often get a program with capabilities you didn’t plan. For example, you might notice that, because <code>ab = ba</code>, all the entries in the table appear twice. You could save ink by printing only half the table. To do that, you only have to change one line of <code>print_mult_table</code>. Change</p>
+<pre><code class="language-python">print_multiples(i, high+1)</code></pre>
+<p>to</p>
+<pre><code class="language-python">print_multiples(i, i+1)</code></pre>
+<p>and you get:</p>
+<pre><code>1
+2      4
+3      6      9
+4      8      12     16
+5      10     15     20     25
+6      12     18     24     30     36
+7      14     21     28     35     42     49</code></pre>
+<h2>7.20. Functions</h2>
+<p>A few times now, we have mentioned all the things functions are good for. By now, you might be wondering what exactly those things are. Here are some of them:</p>
+<ol type="1">
+<li>Capturing your mental chunking. Breaking your complex tasks into sub-tasks, and giving the sub-tasks a meaningful name is a powerful mental technique. Look back at the example that illustrated the post-test loop: we assumed that we had a function called <code>play_the_game_once</code>. This chunking allowed us to put aside the details of the particular game — is it a card game, or noughts and crosses, or a role playing game — and simply focus on one isolated part of our program logic — letting the player choose whether they want to play again.</li>
+<li>Dividing a long program into functions allows you to separate parts of the program, debug them in isolation, and then compose them into a whole.</li>
+<li>Functions facilitate the use of iteration.</li>
+<li>Well-designed functions are often useful for many programs. Once you write and debug one, you can reuse it.</li>
+</ol>
+<h2>7.21. Paired Data</h2>
+<p>We’ve already seen lists of names and lists of numbers in Python. We’re going to peek ahead in the textbook a little, and show a more advanced way of representing our data. Making a pair of things in Python is as simple as putting them into parentheses, like this:</p>
+<pre><code class="language-python">year_born = (&quot;Paris Hilton&quot;, 1981)</code></pre>
+<p>We can put many pairs into a list of pairs:</p>
+<pre><code class="language-python">celebs = [(&quot;Brad Pitt&quot;, 1963), (&quot;Jack Nicholson&quot;, 1937),
+                                (&quot;Justin Bieber&quot;, 1994)]</code></pre>
+<p>Here is a quick sample of things we can do with structured data like this. First, print all the celebs:</p>
+<pre><code class="language-python">print(celebs)
+print(len(celebs))
+[(&quot;Brad Pitt&quot;, 1963), (&quot;Jack Nicholson&quot;, 1937), (&quot;Justin Bieber&quot;, 1994)]
+3</code></pre>
+<p>Notice that the celebs list has just 3 elements, each of them pairs.</p>
+<p>Now we print the names of those celebrities born before 1980:</p>
+<pre><code class="language-python">for (nm, yr) in celebs:
+   if yr &lt; 1980:
+        print(nm)</code></pre>
+<pre><code class="language-python">Brad Pitt
+Jack Nicholson</code></pre>
+<p>This demonstrates something we have not seen yet in the <code>for</code> loop: instead of using a single loop control variable, we’ve used a pair of variable names, <code>(nm, yr)</code>, instead. The loop is executed three times — once for each pair in the list, and on each iteration both the variables are assigned values from the pair of data that is being handled.</p>
+<h2>7.22. Nested Loops for Nested Data</h2>
+<p>Now we’ll come up with an even more adventurous list of structured data. In this case, we have a list of students. Each student has a name which is paired up with another list of subjects that they are enrolled for:</p>
+<pre><code class="language-python">students = [
+    (&quot;John&quot;, [&quot;CompSci&quot;, &quot;Physics&quot;]),
+    (&quot;Vusi&quot;, [&quot;Maths&quot;, &quot;CompSci&quot;, &quot;Stats&quot;]),
+    (&quot;Jess&quot;, [&quot;CompSci&quot;, &quot;Accounting&quot;, &quot;Economics&quot;, &quot;Management&quot;]),
+    (&quot;Sarah&quot;, [&quot;InfSys&quot;, &quot;Accounting&quot;, &quot;Economics&quot;, &quot;CommLaw&quot;]),
+    (&quot;Zuki&quot;, [&quot;Sociology&quot;, &quot;Economics&quot;, &quot;Law&quot;, &quot;Stats&quot;, &quot;Music&quot;])]</code></pre>
+<p>Here we’ve assigned a list of five elements to the variable <code>students</code>. Let’s print out each student name, and the number of subjects they are enrolled for:</p>
+<pre><code class="language-python"># Print all students with a count of their courses.
+for (name, subjects) in students:
+    print(name, &quot;takes&quot;, len(subjects), &quot;courses&quot;)</code></pre>
+<p>Python agreeably responds with the following output:</p>
+<pre><code class="language-python">John takes 2 courses
+Vusi takes 3 courses
+Jess takes 4 courses
+Sarah takes 4 courses
+Zuki takes 5 courses</code></pre>
+<p>Now we’d like to ask how many students are taking CompSci. This needs a counter, and for each student we need a second loop that tests each of the subjects in turn:</p>
+<pre><code class="language-python"># Count how many students are taking CompSci
+counter = 0
+for (name, subjects) in students:
+    for s in subjects:                 # A nested loop!
+        if s == &quot;CompSci&quot;:
+           counter += 1
+
+print(&quot;The number of students taking CompSci is&quot;, counter)</code></pre>
+<pre><code>The number of students taking CompSci is 3</code></pre>
+<p>You should set up a list of your own data that interests you — perhaps a list of your CDs, each containing a list of song titles on the CD, or a list of movie titles, each with a list of movie stars who acted in the movie. You could then ask questions like “Which movies starred Angelina Jolie?”</p>
+<h2>7.23. Newton’s method for finding square roots</h2>
+<p>Loops are often used in programs that compute numerical results by starting with an approximate answer and iteratively improving it.</p>
+<p>For example, before we had calculators or computers, people needed to calculate square roots manually. Newton used a particularly good method (there is some evidence that this method was known many years before). Suppose that you want to know the square root of <code>n</code>. If you start with almost any approximation, you can compute a better approximation (closer to the actual answer) with the following formula:</p>
+<pre><code class="language-python">better = (approx + n/approx)/2</code></pre>
+<p>Repeat this calculation a few times using your calculator. Can you see why each iteration brings your estimate a little closer? One of the amazing properties of this particular algorithm is how quickly it converges to an accurate answer — a great advantage for doing it manually.</p>
+<p>By using a loop and repeating this formula until the better approximation gets close enough to the previous one, we can write a function for computing the square root. (In fact, this is how your calculator finds square roots — it may have a slightly different formula and method, but it is also based on repeatedly improving its guesses.)</p>
+<p>This is an example of an indefinite iteration problem: we cannot predict in advance how many times we’ll want to improve our guess — we just want to keep getting closer and closer. Our stopping condition for the loop will be when our old guess and our improved guess are “close enough” to each other.</p>
+<p>Ideally, we’d like the old and new guess to be exactly equal to each other when we stop. But exact equality is a tricky notion in computer arithmetic when real numbers are involved. Because real numbers are not represented absolutely accurately (after all, a number like <code>pi</code> or the square root of two has an infinite number of decimal places because it is irrational), we need to formulate the stopping test for the loop by asking “is <code>a</code> close enough to <code>b”</code>? This stopping condition can be coded like this:</p>
+<pre><code class="language-python">if abs(a-b) &lt; 0.001:  # Make this smaller for better accuracy
+      break</code></pre>
+<p>Notice that we take the absolute value of the difference between <code>a</code> and <code>b</code>!</p>
+<p>This problem is also a good example of when a middle-exit loop is appropriate:</p>
+<pre><code class="language-python">def sqrt(n):
+    approx = n/2.0     # Start with some or other guess at the answer
+    while True:
+        better = (approx + n/approx)/2.0
+        if abs(approx - better) &lt; 0.001:
+            return better
+        approx = better
+
+# Test cases
+print(sqrt(25.0))
+print(sqrt(49.0))
+print(sqrt(81.0))</code></pre>
+<p>The output is:</p>
+<pre><code>5.00000000002
+7.0
+9.0</code></pre>
+<p>See if you can improve the approximations by changing the stopping condition. Also, step through the algorithm (perhaps by hand, using your calculator) to see how many iterations were needed before it achieved this level of accuracy for sqrt(25).</p>
+<h2>7.24. Algorithms</h2>
+<p>Newton’s method is an example of an algorithm: it is a mechanical process for solving a category of problems (in this case, computing square roots).</p>
+<p>Some kinds of knowledge are not algorithmic. For example, learning dates from history or your multiplication tables involves memorization of specific solutions.</p>
+<p>But the techniques you learned for addition with carrying, subtraction with borrowing, and long division are all algorithms. Or if you are an avid Sudoku puzzle solver, you might have some specific set of steps that you always follow.</p>
+<p>One of the characteristics of algorithms is that they do not require any intelligence to carry out. They are mechanical processes in which each step follows from the last according to a simple set of rules. And they’re designed to solve a general class or category of problems, not just a single problem.</p>
+<p>Understanding that hard problems can be solved by step-by-step algorithmic processes (and having technology to execute these algorithms for us) is one of the major breakthroughs that has had enormous benefits. So while the execution of the algorithm may be boring and may require no intelligence, algorithmic or computational thinking — i.e. using algorithms and automation as the basis for approaching problems — is rapidly transforming our society. Some claim that this shift towards algorithmic thinking and processes is going to have even more impact on our society than the invention of the printing press. And the process of designing algorithms is interesting, intellectually challenging, and a central part of what we call programming.</p>
+<p>Some of the things that people do naturally, without difficulty or conscious thought, are the hardest to express algorithmically. Understanding natural language is a good example. We all do it, but so far no one has been able to explain how we do it, at least not in the form of a step-by-step mechanical algorithm.</p>
+<h2>7.25. Glossary</h2>
+<p><strong>algorithm</strong></p>
+<p>A step-by-step process for solving a category of problems.</p>
+<p><strong>body</strong></p>
+<p>The statements inside a loop.</p>
+<p><strong>breakpoint</strong></p>
+<p>A place in your program code where program execution will pause (or break), allowing you to inspect the state of the program’s variables, or single-step through individual statements, executing them one at a time.</p>
+<p><strong>bump</strong></p>
+<p>Programmer slang. Synonym for increment.</p>
+<p><strong>continue statement</strong></p>
+<p>A statement that causes the remainder of the current iteration of a loop to be skipped. The flow of execution goes back to the top of the loop, evaluates the condition, and if this is true the next iteration of the loop will begin.</p>
+<p><strong>counter</strong></p>
+<p>A variable used to count something, usually initialized to zero and incremented in the body of a loop.</p>
+<p><strong>cursor</strong></p>
+<p>An invisible marker that keeps track of where the next character will be printed.</p>
+<p><strong>decrement</strong></p>
+<p>Decrease by 1.</p>
+<p><strong>definite iteration</strong></p>
+<p>A loop where we have an upper bound on the number of times the body will be executed. Definite iteration is usually best coded as a <code>for</code> loop.</p>
+<p><strong>development plan</strong></p>
+<p>A process for developing a program. In this chapter, we demonstrated a style of development based on developing code to do simple, specific things and then encapsulating and generalizing.</p>
+<p><strong>encapsulate</strong></p>
+<p>To divide a large complex program into components (like functions) and isolate the components from each other (by using local variables, for example).</p>
+<p><strong>escape sequence</strong></p>
+<p>An escape character,<code>\</code>, followed by one or more printable characters used to designate a non printable character.</p>
+<p><strong>generalize</strong></p>
+<p>To replace something unnecessarily specific (like a constant value) with something appropriately general (like a variable or parameter). Generalization makes code more versatile, more likely to be reused, and sometimes even easier to write.</p>
+<p><strong>increment</strong></p>
+<p>Both as a noun and as a verb, increment means to increase by <code>1</code>.</p>
+<p><strong>infinite loop</strong></p>
+<p>A loop in which the terminating condition is never satisfied.</p>
+<p><strong>indefinite iteration</strong></p>
+<p>A loop where we just need to keep going until some condition is met. A <code>while</code> statement is used for this case.</p>
+<p><strong>initialization (of a variable)</strong></p>
+<p>To initialize a variable is to give it an initial value. Since in Python, variables don’t exist until they are assigned values, they are initialized when they are created. In other programming languages this is not the case, and variables can be created without being initialized, in which case they have either default or garbage values.</p>
+<p><strong>iteration</strong></p>
+<p>Repeated execution of a set of programming statements.</p>
+<p><strong>loop</strong></p>
+<p>The construct that allows allows us to repeatedly execute a statement or a group of statements until a terminating condition is satisfied.</p>
+<p><strong>loop variable</strong></p>
+<p>A variable used as part of the terminating condition of a loop.</p>
+<p><strong>meta-notation</strong></p>
+<p>Extra symbols or notation that helps describe other notation. Here we introduced square brackets, ellipses, italics, and bold as meta-notation to help describe optional, repeatable, substitutable and fixed parts of the Python syntax.</p>
+<p><strong>middle-test loop</strong></p>
+<p>A loop that executes some of the body, then tests for the exit condition, and then may execute some more of the body. We don’t have a special Python construct for this case, but can use <code>while</code> and <code>break</code> together.</p>
+<p><strong>nested loop</strong></p>
+<p>A loop inside the body of another loop.</p>
+<p><strong>newline</strong></p>
+<p>A special character that causes the cursor to move to the beginning of the next line.</p>
+<p><strong>post-test loop</strong></p>
+<p>A loop that executes the body, then tests for the exit condition. We don’t have a special Python construct for this, but can use <code>while</code> and <code>break</code> together.</p>
+<p><strong>pre-test loop</strong></p>
+<p>A loop that tests before deciding whether the execute its body. <code>for</code> and <code>while</code> are both pre-test loops.</p>
+<p><strong>single-step</strong></p>
+<p>A mode of interpreter execution where you are able to execute your program one step at a time, and inspect the consequences of that step. Useful for debugging and building your internal mental model of what is going on.</p>
+<p><strong>tab</strong></p>
+<p>A special character that causes the cursor to move to the next tab stop on the current line.</p>
+<p><strong>trichotomy</strong></p>
+<p>Given any real numbers <code>a</code> and <code>b</code>, exactly one of the following relations holds: <code>a &lt; b</code>, <code>a &gt; b</code>, or <code>a == b</code>. Thus when you can establish that two of the relations are false, you can assume the remaining one is true.</p>
+<p><strong>trace</strong></p>
+<p>To follow the flow of execution of a program by hand, recording the change of state of the variables and any output produced.</p>
+<h2>7.26. Exercises</h2>
+<p>This chapter showed us how to sum a list of items, and how to count items. The counting example also had an <code>if</code> statement that let us only count some selected items. In the previous chapter we also showed a function <code>find_first_2_letter_word</code> that allowed us an “early exit” from inside a loop by using <code>return</code> when some condition occurred. We now also have <code>break</code> to exit a loop but not the enclosing function, and <code>continue</code> to abandon the current iteration of the loop without ending the loop.</p>
+<p>Composition of list traversal, summing, counting, testing conditions and early exit is a rich collection of building blocks that can be combined in powerful ways to create many functions that are all slightly different.</p>
+<p>The first six questions are typical functions you should be able to write using only these building blocks.</p>
+<ol type="1">
+<li><p>Write a function to count how many odd numbers are in a list.</p></li>
+<li><p>Sum up all the even numbers in a list.</p></li>
+<li><p>Sum up all the negative numbers in a list.</p></li>
+<li><p>Count how many words in a list have length 5.</p></li>
+<li><p>Sum all the elements in a list up to but not including the first even number. (Write your unit tests. What if there is no even number?)</p></li>
+<li><p>Count how many words occur in a list up to and including the first occurrence of the word “sam”. (Write your unit tests for this case too. What if “sam” does not occur?)</p></li>
+<li><p>Add a print function to Newton’s sqrt function that prints out better each time it is calculated. Call your modified function with 25 as an argument and record the results.</p></li>
+<li><p>Trace the execution of the last version of print_mult_table and figure out how it works.</p></li>
+<li><p>Write a function print_triangular_numbers(n) that prints out the first n triangular numbers. A call to print_triangular_numbers(5) would produce the following output:</p>
+<pre><code>1       1
+2       3
+3       6
+4       10
+5       15</code></pre>
+<p><em>(hint: use a web search to find out what a triangular number is.)</em></p></li>
+<li><p>Write a function, is_prime, which takes a single integer argument and returns True when the argument is a prime number and False otherwise. Add tests for cases like this:</p>
+<pre><code class="language-python">test(is_prime(11))
+test(not is_prime(35))
+test(is_prime(19911121))</code></pre>
+<p>The last case could represent your birth date. Were you born on a prime day? In a class of 100 students, how many do you think would have prime birth dates?</p></li>
+<li><p>Revisit the drunk pirate problem from the exercises in chapter 3. This time, the drunk pirate makes a turn, and then takes some steps forward, and repeats this. Our social science student now records pairs of data: the angle of each turn, and the number of steps taken after the turn. Her experimental data is [(160, 20), (-43, 10), (270, 8), (-43, 12)]. Use a turtle to draw the path taken by our drunk friend.</p></li>
+<li><p>Many interesting shapes can be drawn by the turtle by giving a list of pairs like we did above, where the first item of the pair is the angle to turn, and the second item is the distance to move forward. Set up a list of pairs so that the turtle draws a house with a cross through the centre, as show here. This should be done without going over any of the lines / edges more than once, and without lifting your pen.</p>
+<figure>
+<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-7/07-06-tess_house.png" alt="_images/tess_house.png" /><figcaption aria-hidden="true">_images/tess_house.png</figcaption>
+</figure></li>
+<li><p>Not all shapes like the one above can be drawn without lifting your pen, or going over an edge more than once. Which of these can be drawn?</p>
+<figure>
+<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-7/07-07-tess_more_houses.png" alt="_images/tess_more_houses.png" /><figcaption aria-hidden="true">_images/tess_more_houses.png</figcaption>
+</figure>
+<p>Now read Wikipedia’s article(http://en.wikipedia.org/wiki/Eulerian_path) about Eulerian paths. Learn how to tell immediately by inspection whether it is possible to find a solution or not. If the path is possible, you’ll also know where to put your pen to start drawing, and where you should end up!</p></li>
+<li><p>What will num_digits(0) return? Modify it to return 1 for this case. Why does a call to num_digits(-24) result in an infinite loop? (hint: -1//10 evaluates to -1) Modify num_digits so that it works correctly with any integer value. Add these tests:</p>
+<pre><code class="language-python">test(num_digits(0) == 1)
+test(num_digits(-12345) == 5)</code></pre></li>
+<li><p>Write a function num_even_digits(n) that counts the number of even digits in n. These tests should pass:</p>
+<pre><code class="language-python">test(num_even_digits(123456) == 3)
+test(num_even_digits(2468) == 4)
+test(num_even_digits(1357) == 0)
+test(num_even_digits(0) == 1)</code></pre></li>
+<li><p>Write a function sum_of_squares(xs) that computes the sum of the squares of the numbers in the list xs. For example, sum_of_squares([2, 3, 4]) should return 4+9+16 which is 29:</p>
+<pre><code class="language-python">test(sum_of_squares([2, 3, 4]) == 29)
+test(sum_of_squares([ ]) == 0)
+test(sum_of_squares([2, -3, 4]) == 29)</code></pre></li>
+<li><p>You and your friend are in a team to write a two-player game, human against computer, such as Tic-Tac-Toe / Noughts and Crosses. Your friend will write the logic to play one round of the game, while you will write the logic to allow many rounds of play, keep score, decide who plays, first, etc. The two of you negotiate on how the two parts of the program will fit together, and you come up with this simple scaffolding (which your friend will improve later):</p>
+<pre><code class="language-python"># Your friend will complete this function
+def play_once(human_plays_first):
+    &quot;&quot;&quot;
+    Must play one round of the game. If the parameter
+    is True, the human gets to play first, else the
+    computer gets to play first.  When the round ends,
+    the return value of the function is one of
+    -1 (human wins),  0 (game drawn),   1 (computer wins).
+    &quot;&quot;&quot;
+    # This is all dummy scaffolding code right at the moment...
+    import random                  # See Modules chapter ...
+    rng = random.Random()
+    # Pick a random result between -1 and 1.
+    result = rng.randrange(-1,2)
+    print(&quot;Human plays first={0},  winner={1} &quot;
+                    .format(human_plays_first, result))
+    return result</code></pre>
+<ol type="a">
+<li><p>Write the main program which repeatedly calls this function to play the game, and after each round it announces the outcome as “I win!”, “You win!”, or “Game drawn!”. It then asks the player “Do you want to play again?” and either plays again, or says “Goodbye”, and terminates.</p></li>
+<li><p>Keep score of how many wins each player has had, and how many draws there have been. After each round of play, also announce the scores.</p></li>
+<li><p>Add logic so that the players take turns to play first.</p></li>
+<li><p>Compute the percentage of wins for the human, out of all games played. Also announce this at the end of each round.</p></li>
+<li><p>Draw a flowchart of your logic.</p></li>
+</ol></li>
+</ol>
+<script type="text/javascript">
+/* PrismJS 1.23.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+css-extras+python&plugins=line-numbers+inline-color */
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(u){var c=/\blang(?:uage)?-([\w-]+)\b/i,n=0,e={},M={manual:u.Prism&&u.Prism.manual,disableWorkerMessageHandler:u.Prism&&u.Prism.disableWorkerMessageHandler,util:{encode:function e(n){return n instanceof W?new W(n.type,e(n.content),n.alias):Array.isArray(n)?n.map(e):n.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).slice(8,-1)},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++n}),e.__id},clone:function t(e,r){var a,n;switch(r=r||{},M.util.type(e)){case"Object":if(n=M.util.objId(e),r[n])return r[n];for(var i in a={},r[n]=a,e)e.hasOwnProperty(i)&&(a[i]=t(e[i],r));return a;case"Array":return n=M.util.objId(e),r[n]?r[n]:(a=[],r[n]=a,e.forEach(function(e,n){a[n]=t(e,r)}),a);default:return e}},getLanguage:function(e){for(;e&&!c.test(e.className);)e=e.parentElement;return e?(e.className.match(c)||[,"none"])[1].toLowerCase():"none"},currentScript:function(){if("undefined"==typeof document)return null;if("currentScript"in document)return document.currentScript;try{throw new Error}catch(e){var n=(/at [^(\r\n]*\((.*):.+:.+\)$/i.exec(e.stack)||[])[1];if(n){var t=document.getElementsByTagName("script");for(var r in t)if(t[r].src==n)return t[r]}return null}},isActive:function(e,n,t){for(var r="no-"+n;e;){var a=e.classList;if(a.contains(n))return!0;if(a.contains(r))return!1;e=e.parentElement}return!!t}},languages:{plain:e,plaintext:e,text:e,txt:e,extend:function(e,n){var t=M.util.clone(M.languages[e]);for(var r in n)t[r]=n[r];return t},insertBefore:function(t,e,n,r){var a=(r=r||M.languages)[t],i={};for(var l in a)if(a.hasOwnProperty(l)){if(l==e)for(var o in n)n.hasOwnProperty(o)&&(i[o]=n[o]);n.hasOwnProperty(l)||(i[l]=a[l])}var s=r[t];return r[t]=i,M.languages.DFS(M.languages,function(e,n){n===s&&e!=t&&(this[e]=i)}),i},DFS:function e(n,t,r,a){a=a||{};var i=M.util.objId;for(var l in n)if(n.hasOwnProperty(l)){t.call(n,l,n[l],r||l);var o=n[l],s=M.util.type(o);"Object"!==s||a[i(o)]?"Array"!==s||a[i(o)]||(a[i(o)]=!0,e(o,t,l,a)):(a[i(o)]=!0,e(o,t,null,a))}}},plugins:{},highlightAll:function(e,n){M.highlightAllUnder(document,e,n)},highlightAllUnder:function(e,n,t){var r={callback:t,container:e,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};M.hooks.run("before-highlightall",r),r.elements=Array.prototype.slice.apply(r.container.querySelectorAll(r.selector)),M.hooks.run("before-all-elements-highlight",r);for(var a,i=0;a=r.elements[i++];)M.highlightElement(a,!0===n,r.callback)},highlightElement:function(e,n,t){var r=M.util.getLanguage(e),a=M.languages[r];e.className=e.className.replace(c,"").replace(/\s+/g," ")+" language-"+r;var i=e.parentElement;i&&"pre"===i.nodeName.toLowerCase()&&(i.className=i.className.replace(c,"").replace(/\s+/g," ")+" language-"+r);var l={element:e,language:r,grammar:a,code:e.textContent};function o(e){l.highlightedCode=e,M.hooks.run("before-insert",l),l.element.innerHTML=l.highlightedCode,M.hooks.run("after-highlight",l),M.hooks.run("complete",l),t&&t.call(l.element)}if(M.hooks.run("before-sanity-check",l),(i=l.element.parentElement)&&"pre"===i.nodeName.toLowerCase()&&!i.hasAttribute("tabindex")&&i.setAttribute("tabindex","0"),!l.code)return M.hooks.run("complete",l),void(t&&t.call(l.element));if(M.hooks.run("before-highlight",l),l.grammar)if(n&&u.Worker){var s=new Worker(M.filename);s.onmessage=function(e){o(e.data)},s.postMessage(JSON.stringify({language:l.language,code:l.code,immediateClose:!0}))}else o(M.highlight(l.code,l.grammar,l.language));else o(M.util.encode(l.code))},highlight:function(e,n,t){var r={code:e,grammar:n,language:t};return M.hooks.run("before-tokenize",r),r.tokens=M.tokenize(r.code,r.grammar),M.hooks.run("after-tokenize",r),W.stringify(M.util.encode(r.tokens),r.language)},tokenize:function(e,n){var t=n.rest;if(t){for(var r in t)n[r]=t[r];delete n.rest}var a=new i;return I(a,a.head,e),function e(n,t,r,a,i,l){for(var o in r)if(r.hasOwnProperty(o)&&r[o]){var s=r[o];s=Array.isArray(s)?s:[s];for(var u=0;u<s.length;++u){if(l&&l.cause==o+","+u)return;var c=s[u],g=c.inside,f=!!c.lookbehind,h=!!c.greedy,d=c.alias;if(h&&!c.pattern.global){var p=c.pattern.toString().match(/[imsuy]*$/)[0];c.pattern=RegExp(c.pattern.source,p+"g")}for(var v=c.pattern||c,m=a.next,y=i;m!==t.tail&&!(l&&y>=l.reach);y+=m.value.length,m=m.next){var b=m.value;if(t.length>n.length)return;if(!(b instanceof W)){var k,x=1;if(h){if(!(k=z(v,y,n,f)))break;var w=k.index,A=k.index+k[0].length,P=y;for(P+=m.value.length;P<=w;)m=m.next,P+=m.value.length;if(P-=m.value.length,y=P,m.value instanceof W)continue;for(var E=m;E!==t.tail&&(P<A||"string"==typeof E.value);E=E.next)x++,P+=E.value.length;x--,b=n.slice(y,P),k.index-=y}else if(!(k=z(v,0,b,f)))continue;var w=k.index,S=k[0],O=b.slice(0,w),L=b.slice(w+S.length),N=y+b.length;l&&N>l.reach&&(l.reach=N);var j=m.prev;O&&(j=I(t,j,O),y+=O.length),q(t,j,x);var C=new W(o,g?M.tokenize(S,g):S,d,S);if(m=I(t,j,C),L&&I(t,m,L),1<x){var _={cause:o+","+u,reach:N};e(n,t,r,m.prev,y,_),l&&_.reach>l.reach&&(l.reach=_.reach)}}}}}}(e,a,n,a.head,0),function(e){var n=[],t=e.head.next;for(;t!==e.tail;)n.push(t.value),t=t.next;return n}(a)},hooks:{all:{},add:function(e,n){var t=M.hooks.all;t[e]=t[e]||[],t[e].push(n)},run:function(e,n){var t=M.hooks.all[e];if(t&&t.length)for(var r,a=0;r=t[a++];)r(n)}},Token:W};function W(e,n,t,r){this.type=e,this.content=n,this.alias=t,this.length=0|(r||"").length}function z(e,n,t,r){e.lastIndex=n;var a=e.exec(t);if(a&&r&&a[1]){var i=a[1].length;a.index+=i,a[0]=a[0].slice(i)}return a}function i(){var e={value:null,prev:null,next:null},n={value:null,prev:e,next:null};e.next=n,this.head=e,this.tail=n,this.length=0}function I(e,n,t){var r=n.next,a={value:t,prev:n,next:r};return n.next=a,r.prev=a,e.length++,a}function q(e,n,t){for(var r=n.next,a=0;a<t&&r!==e.tail;a++)r=r.next;(n.next=r).prev=n,e.length-=a}if(u.Prism=M,W.stringify=function n(e,t){if("string"==typeof e)return e;if(Array.isArray(e)){var r="";return e.forEach(function(e){r+=n(e,t)}),r}var a={type:e.type,content:n(e.content,t),tag:"span",classes:["token",e.type],attributes:{},language:t},i=e.alias;i&&(Array.isArray(i)?Array.prototype.push.apply(a.classes,i):a.classes.push(i)),M.hooks.run("wrap",a);var l="";for(var o in a.attributes)l+=" "+o+'="'+(a.attributes[o]||"").replace(/"/g,"&quot;")+'"';return"<"+a.tag+' class="'+a.classes.join(" ")+'"'+l+">"+a.content+"</"+a.tag+">"},!u.document)return u.addEventListener&&(M.disableWorkerMessageHandler||u.addEventListener("message",function(e){var n=JSON.parse(e.data),t=n.language,r=n.code,a=n.immediateClose;u.postMessage(M.highlight(r,M.languages[t],t)),a&&u.close()},!1)),M;var t=M.util.currentScript();function r(){M.manual||M.highlightAll()}if(t&&(M.filename=t.src,t.hasAttribute("data-manual")&&(M.manual=!0)),!M.manual){var a=document.readyState;"loading"===a||"interactive"===a&&t&&t.defer?document.addEventListener("DOMContentLoaded",r):window.requestAnimationFrame?window.requestAnimationFrame(r):window.setTimeout(r,16)}return M}(_self);"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+Prism.languages.markup={comment:/<!--[\s\S]*?-->/,prolog:/<\?[\s\S]+?\?>/,doctype:{pattern:/<!DOCTYPE(?:[^>"'[\]]|"[^"]*"|'[^']*')+(?:\[(?:[^<"'\]]|"[^"]*"|'[^']*'|<(?!!--)|<!--(?:[^-]|-(?!->))*-->)*\]\s*)?>/i,greedy:!0,inside:{"internal-subset":{pattern:/(\[)[\s\S]+(?=\]>$)/,lookbehind:!0,greedy:!0,inside:null},string:{pattern:/"[^"]*"|'[^']*'/,greedy:!0},punctuation:/^<!|>$|[[\]]/,"doctype-tag":/^DOCTYPE/,name:/[^\s<>'"]+/}},cdata:/<!\[CDATA\[[\s\S]*?]]>/i,tag:{pattern:/<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/,greedy:!0,inside:{tag:{pattern:/^<\/?[^\s>\/]+/,inside:{punctuation:/^<\/?/,namespace:/^[^\s>\/:]+:/}},"special-attr":[],"attr-value":{pattern:/=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+)/,inside:{punctuation:[{pattern:/^=/,alias:"attr-equals"},/"|'/]}},punctuation:/\/?>/,"attr-name":{pattern:/[^\s>\/]+/,inside:{namespace:/^[^\s>\/:]+:/}}}},entity:[{pattern:/&[\da-z]{1,8};/i,alias:"named-entity"},/&#x?[\da-f]{1,8};/i]},Prism.languages.markup.tag.inside["attr-value"].inside.entity=Prism.languages.markup.entity,Prism.languages.markup.doctype.inside["internal-subset"].inside=Prism.languages.markup,Prism.hooks.add("wrap",function(a){"entity"===a.type&&(a.attributes.title=a.content.replace(/&amp;/,"&"))}),Object.defineProperty(Prism.languages.markup.tag,"addInlined",{value:function(a,e){var s={};s["language-"+e]={pattern:/(^<!\[CDATA\[)[\s\S]+?(?=\]\]>$)/i,lookbehind:!0,inside:Prism.languages[e]},s.cdata=/^<!\[CDATA\[|\]\]>$/i;var t={"included-cdata":{pattern:/<!\[CDATA\[[\s\S]*?\]\]>/i,inside:s}};t["language-"+e]={pattern:/[\s\S]+/,inside:Prism.languages[e]};var n={};n[a]={pattern:RegExp("(<__[^>]*>)(?:<!\\[CDATA\\[(?:[^\\]]|\\](?!\\]>))*\\]\\]>|(?!<!\\[CDATA\\[)[^])*?(?=</__>)".replace(/__/g,function(){return a}),"i"),lookbehind:!0,greedy:!0,inside:t},Prism.languages.insertBefore("markup","cdata",n)}}),Object.defineProperty(Prism.languages.markup.tag,"addAttribute",{value:function(a,e){Prism.languages.markup.tag.inside["special-attr"].push({pattern:RegExp("(^|[\"'\\s])(?:"+a+")\\s*=\\s*(?:\"[^\"]*\"|'[^']*'|[^\\s'\">=]+(?=[\\s>]))","i"),lookbehind:!0,inside:{"attr-name":/^[^\s=]+/,"attr-value":{pattern:/=[\s\S]+/,inside:{value:{pattern:/(=\s*(["']|(?!["'])))\S[\s\S]*(?=\2$)/,lookbehind:!0,alias:[e,"language-"+e],inside:Prism.languages[e]},punctuation:[{pattern:/^=/,alias:"attr-equals"},/"|'/]}}}})}}),Prism.languages.html=Prism.languages.markup,Prism.languages.mathml=Prism.languages.markup,Prism.languages.svg=Prism.languages.markup,Prism.languages.xml=Prism.languages.extend("markup",{}),Prism.languages.ssml=Prism.languages.xml,Prism.languages.atom=Prism.languages.xml,Prism.languages.rss=Prism.languages.xml;
+!function(s){var e=/("|')(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/;s.languages.css={comment:/\/\*[\s\S]*?\*\//,atrule:{pattern:/@[\w-](?:[^;{\s]|\s+(?![\s{]))*(?:;|(?=\s*\{))/,inside:{rule:/^@[\w-]+/,"selector-function-argument":{pattern:/(\bselector\s*\(\s*(?![\s)]))(?:[^()\s]|\s+(?![\s)])|\((?:[^()]|\([^()]*\))*\))+(?=\s*\))/,lookbehind:!0,alias:"selector"},keyword:{pattern:/(^|[^\w-])(?:and|not|only|or)(?![\w-])/,lookbehind:!0}}},url:{pattern:RegExp("\\burl\\((?:"+e.source+"|(?:[^\\\\\r\n()\"']|\\\\[^])*)\\)","i"),greedy:!0,inside:{function:/^url/i,punctuation:/^\(|\)$/,string:{pattern:RegExp("^"+e.source+"$"),alias:"url"}}},selector:RegExp("[^{}\\s](?:[^{};\"'\\s]|\\s+(?![\\s{])|"+e.source+")*(?=\\s*\\{)"),string:{pattern:e,greedy:!0},property:/(?!\s)[-_a-z\xA0-\uFFFF](?:(?!\s)[-\w\xA0-\uFFFF])*(?=\s*:)/i,important:/!important\b/i,function:/[-a-z0-9]+(?=\()/i,punctuation:/[(){};:,]/},s.languages.css.atrule.inside.rest=s.languages.css;var t=s.languages.markup;t&&(t.tag.addInlined("style","css"),t.tag.addAttribute("style","css"))}(Prism);
+Prism.languages.clike={comment:[{pattern:/(^|[^\\])\/\*[\s\S]*?(?:\*\/|$)/,lookbehind:!0,greedy:!0},{pattern:/(^|[^\\:])\/\/.*/,lookbehind:!0,greedy:!0}],string:{pattern:/(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,greedy:!0},"class-name":{pattern:/(\b(?:class|interface|extends|implements|trait|instanceof|new)\s+|\bcatch\s+\()[\w.\\]+/i,lookbehind:!0,inside:{punctuation:/[.\\]/}},keyword:/\b(?:if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,boolean:/\b(?:true|false)\b/,function:/\w+(?=\()/,number:/\b0x[\da-f]+\b|(?:\b\d+(?:\.\d*)?|\B\.\d+)(?:e[+-]?\d+)?/i,operator:/[<>]=?|[!=]=?=?|--?|\+\+?|&&?|\|\|?|[?*/~^%]/,punctuation:/[{}[\];(),.:]/};
+Prism.languages.javascript=Prism.languages.extend("clike",{"class-name":[Prism.languages.clike["class-name"],{pattern:/(^|[^$\w\xA0-\uFFFF])(?!\s)[_$A-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\.(?:prototype|constructor))/,lookbehind:!0}],keyword:[{pattern:/((?:^|})\s*)catch\b/,lookbehind:!0},{pattern:/(^|[^.]|\.\.\.\s*)\b(?:as|async(?=\s*(?:function\b|\(|[$\w\xA0-\uFFFF]|$))|await|break|case|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally(?=\s*(?:\{|$))|for|from(?=\s*(?:['"]|$))|function|(?:get|set)(?=\s*(?:[#\[$\w\xA0-\uFFFF]|$))|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)\b/,lookbehind:!0}],function:/#?(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*(?:\.\s*(?:apply|bind|call)\s*)?\()/,number:/\b(?:(?:0[xX](?:[\dA-Fa-f](?:_[\dA-Fa-f])?)+|0[bB](?:[01](?:_[01])?)+|0[oO](?:[0-7](?:_[0-7])?)+)n?|(?:\d(?:_\d)?)+n|NaN|Infinity)\b|(?:\b(?:\d(?:_\d)?)+\.?(?:\d(?:_\d)?)*|\B\.(?:\d(?:_\d)?)+)(?:[Ee][+-]?(?:\d(?:_\d)?)+)?/,operator:/--|\+\+|\*\*=?|=>|&&=?|\|\|=?|[!=]==|<<=?|>>>?=?|[-+*/%&|^!=<>]=?|\.{3}|\?\?=?|\?\.?|[~:]/}),Prism.languages.javascript["class-name"][0].pattern=/(\b(?:class|interface|extends|implements|instanceof|new)\s+)[\w.\\]+/,Prism.languages.insertBefore("javascript","keyword",{regex:{pattern:/((?:^|[^$\w\xA0-\uFFFF."'\])\s]|\b(?:return|yield))\s*)\/(?:\[(?:[^\]\\\r\n]|\\.)*]|\\.|[^/\\\[\r\n])+\/[gimyus]{0,6}(?=(?:\s|\/\*(?:[^*]|\*(?!\/))*\*\/)*(?:$|[\r\n,.;:})\]]|\/\/))/,lookbehind:!0,greedy:!0,inside:{"regex-source":{pattern:/^(\/)[\s\S]+(?=\/[a-z]*$)/,lookbehind:!0,alias:"language-regex",inside:Prism.languages.regex},"regex-flags":/[a-z]+$/,"regex-delimiter":/^\/|\/$/}},"function-variable":{pattern:/#?(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*[=:]\s*(?:async\s*)?(?:\bfunction\b|(?:\((?:[^()]|\([^()]*\))*\)|(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*)\s*=>))/,alias:"function"},parameter:[{pattern:/(function(?:\s+(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*)?\s*\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\))/,lookbehind:!0,inside:Prism.languages.javascript},{pattern:/(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*=>)/i,inside:Prism.languages.javascript},{pattern:/(\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\)\s*=>)/,lookbehind:!0,inside:Prism.languages.javascript},{pattern:/((?:\b|\s|^)(?!(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)(?![$\w\xA0-\uFFFF]))(?:(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*\s*)\(\s*|\]\s*\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\)\s*\{)/,lookbehind:!0,inside:Prism.languages.javascript}],constant:/\b[A-Z](?:[A-Z_]|\dx?)*\b/}),Prism.languages.insertBefore("javascript","string",{hashbang:{pattern:/^#!.*/,greedy:!0,alias:"comment"},"template-string":{pattern:/`(?:\\[\s\S]|\${(?:[^{}]|{(?:[^{}]|{[^}]*})*})+}|(?!\${)[^\\`])*`/,greedy:!0,inside:{"template-punctuation":{pattern:/^`|`$/,alias:"string"},interpolation:{pattern:/((?:^|[^\\])(?:\\{2})*)\${(?:[^{}]|{(?:[^{}]|{[^}]*})*})+}/,lookbehind:!0,inside:{"interpolation-punctuation":{pattern:/^\${|}$/,alias:"punctuation"},rest:Prism.languages.javascript}},string:/[\s\S]+/}}}),Prism.languages.markup&&(Prism.languages.markup.tag.addInlined("script","javascript"),Prism.languages.markup.tag.addAttribute("on(?:abort|blur|change|click|composition(?:end|start|update)|dblclick|error|focus(?:in|out)?|key(?:down|up)|load|mouse(?:down|enter|leave|move|out|over|up)|reset|resize|scroll|select|slotchange|submit|unload|wheel)","javascript")),Prism.languages.js=Prism.languages.javascript;
+!function(e){var a,n=/("|')(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/;e.languages.css.selector={pattern:e.languages.css.selector,inside:a={"pseudo-element":/:(?:after|before|first-letter|first-line|selection)|::[-\w]+/,"pseudo-class":/:[-\w]+/,class:/\.[-\w]+/,id:/#[-\w]+/,attribute:{pattern:RegExp("\\[(?:[^[\\]\"']|"+n.source+")*\\]"),greedy:!0,inside:{punctuation:/^\[|\]$/,"case-sensitivity":{pattern:/(\s)[si]$/i,lookbehind:!0,alias:"keyword"},namespace:{pattern:/^(\s*)(?:(?!\s)[-*\w\xA0-\uFFFF])*\|(?!=)/,lookbehind:!0,inside:{punctuation:/\|$/}},"attr-name":{pattern:/^(\s*)(?:(?!\s)[-\w\xA0-\uFFFF])+/,lookbehind:!0},"attr-value":[n,{pattern:/(=\s*)(?:(?!\s)[-\w\xA0-\uFFFF])+(?=\s*$)/,lookbehind:!0}],operator:/[|~*^$]?=/}},"n-th":[{pattern:/(\(\s*)[+-]?\d*[\dn](?:\s*[+-]\s*\d+)?(?=\s*\))/,lookbehind:!0,inside:{number:/[\dn]+/,operator:/[+-]/}},{pattern:/(\(\s*)(?:even|odd)(?=\s*\))/i,lookbehind:!0}],combinator:/>|\+|~|\|\|/,punctuation:/[(),]/}},e.languages.css.atrule.inside["selector-function-argument"].inside=a,e.languages.insertBefore("css","property",{variable:{pattern:/(^|[^-\w\xA0-\uFFFF])--(?!\s)[-_a-z\xA0-\uFFFF](?:(?!\s)[-\w\xA0-\uFFFF])*/i,lookbehind:!0}});var r={pattern:/(\b\d+)(?:%|[a-z]+\b)/,lookbehind:!0},i={pattern:/(^|[^\w.-])-?(?:\d+(?:\.\d+)?|\.\d+)/,lookbehind:!0};e.languages.insertBefore("css","function",{operator:{pattern:/(\s)[+\-*\/](?=\s)/,lookbehind:!0},hexcode:{pattern:/\B#(?:[\da-f]{1,2}){3,4}\b/i,alias:"color"},color:[/\b(?:AliceBlue|AntiqueWhite|Aqua|Aquamarine|Azure|Beige|Bisque|Black|BlanchedAlmond|Blue|BlueViolet|Brown|BurlyWood|CadetBlue|Chartreuse|Chocolate|Coral|CornflowerBlue|Cornsilk|Crimson|Cyan|DarkBlue|DarkCyan|DarkGoldenRod|DarkGr[ae]y|DarkGreen|DarkKhaki|DarkMagenta|DarkOliveGreen|DarkOrange|DarkOrchid|DarkRed|DarkSalmon|DarkSeaGreen|DarkSlateBlue|DarkSlateGr[ae]y|DarkTurquoise|DarkViolet|DeepPink|DeepSkyBlue|DimGr[ae]y|DodgerBlue|FireBrick|FloralWhite|ForestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|IndianRed|Indigo|Ivory|Khaki|Lavender|LavenderBlush|LawnGreen|LemonChiffon|LightBlue|LightCoral|LightCyan|LightGoldenRodYellow|LightGr[ae]y|LightGreen|LightPink|LightSalmon|LightSeaGreen|LightSkyBlue|LightSlateGr[ae]y|LightSteelBlue|LightYellow|Lime|LimeGreen|Linen|Magenta|Maroon|MediumAquaMarine|MediumBlue|MediumOrchid|MediumPurple|MediumSeaGreen|MediumSlateBlue|MediumSpringGreen|MediumTurquoise|MediumVioletRed|MidnightBlue|MintCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGoldenRod|PaleGreen|PaleTurquoise|PaleVioletRed|PapayaWhip|PeachPuff|Peru|Pink|Plum|PowderBlue|Purple|Red|RosyBrown|RoyalBlue|SaddleBrown|Salmon|SandyBrown|SeaGreen|SeaShell|Sienna|Silver|SkyBlue|SlateBlue|SlateGr[ae]y|Snow|SpringGreen|SteelBlue|Tan|Teal|Thistle|Tomato|Transparent|Turquoise|Violet|Wheat|White|WhiteSmoke|Yellow|YellowGreen)\b/i,{pattern:/\b(?:rgb|hsl)\(\s*\d{1,3}\s*,\s*\d{1,3}%?\s*,\s*\d{1,3}%?\s*\)\B|\b(?:rgb|hsl)a\(\s*\d{1,3}\s*,\s*\d{1,3}%?\s*,\s*\d{1,3}%?\s*,\s*(?:0|0?\.\d+|1)\s*\)\B/i,inside:{unit:r,number:i,function:/[\w-]+(?=\()/,punctuation:/[(),]/}}],entity:/\\[\da-f]{1,8}/i,unit:r,number:i})}(Prism);
+Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-interpolation":{pattern:/(?:f|rf|fr)(?:("""|''')[\s\S]*?\1|("|')(?:\\.|(?!\2)[^\\\r\n])*\2)/i,greedy:!0,inside:{interpolation:{pattern:/((?:^|[^{])(?:{{)*){(?!{)(?:[^{}]|{(?!{)(?:[^{}]|{(?!{)(?:[^{}])+})+})+}/,lookbehind:!0,inside:{"format-spec":{pattern:/(:)[^:(){}]+(?=}$)/,lookbehind:!0},"conversion-option":{pattern:/![sra](?=[:}]$)/,alias:"punctuation"},rest:null}},string:/[\s\S]+/}},"triple-quoted-string":{pattern:/(?:[rub]|rb|br)?("""|''')[\s\S]*?\1/i,greedy:!0,alias:"string"},string:{pattern:/(?:[rub]|rb|br)?("|')(?:\\.|(?!\1)[^\\\r\n])*\1/i,greedy:!0},function:{pattern:/((?:^|\s)def[ \t]+)[a-zA-Z_]\w*(?=\s*\()/g,lookbehind:!0},"class-name":{pattern:/(\bclass\s+)\w+/i,lookbehind:!0},decorator:{pattern:/(^\s*)@\w+(?:\.\w+)*/im,lookbehind:!0,alias:["annotation","punctuation"],inside:{punctuation:/\./}},keyword:/\b(?:and|as|assert|async|await|break|class|continue|def|del|elif|else|except|exec|finally|for|from|global|if|import|in|is|lambda|nonlocal|not|or|pass|print|raise|return|try|while|with|yield)\b/,builtin:/\b(?:__import__|abs|all|any|apply|ascii|basestring|bin|bool|buffer|bytearray|bytes|callable|chr|classmethod|cmp|coerce|compile|complex|delattr|dict|dir|divmod|enumerate|eval|execfile|file|filter|float|format|frozenset|getattr|globals|hasattr|hash|help|hex|id|input|int|intern|isinstance|issubclass|iter|len|list|locals|long|map|max|memoryview|min|next|object|oct|open|ord|pow|property|range|raw_input|reduce|reload|repr|reversed|round|set|setattr|slice|sorted|staticmethod|str|sum|super|tuple|type|unichr|unicode|vars|xrange|zip)\b/,boolean:/\b(?:True|False|None)\b/,number:/(?:\b(?=\d)|\B(?=\.))(?:0[bo])?(?:(?:\d|0x[\da-f])[\da-f]*(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?j?\b/i,operator:/[-+%=]=?|!=|\*\*?=?|\/\/?=?|<[<=>]?|>[=>]?|[&|^~]/,punctuation:/[{}[\];(),.:]/},Prism.languages.python["string-interpolation"].inside.interpolation.inside.rest=Prism.languages.python,Prism.languages.py=Prism.languages.python;
+!function(){if("undefined"!=typeof Prism&&"undefined"!=typeof document){var o="line-numbers",a=/\n(?!$)/g,e=Prism.plugins.lineNumbers={getLine:function(e,n){if("PRE"===e.tagName&&e.classList.contains(o)){var t=e.querySelector(".line-numbers-rows");if(t){var i=parseInt(e.getAttribute("data-start"),10)||1,r=i+(t.children.length-1);n<i&&(n=i),r<n&&(n=r);var s=n-i;return t.children[s]}}},resize:function(e){u([e])},assumeViewportIndependence:!0},n=void 0;window.addEventListener("resize",function(){e.assumeViewportIndependence&&n===window.innerWidth||(n=window.innerWidth,u(Array.prototype.slice.call(document.querySelectorAll("pre."+o))))}),Prism.hooks.add("complete",function(e){if(e.code){var n=e.element,t=n.parentNode;if(t&&/pre/i.test(t.nodeName)&&!n.querySelector(".line-numbers-rows")&&Prism.util.isActive(n,o)){n.classList.remove(o),t.classList.add(o);var i,r=e.code.match(a),s=r?r.length+1:1,l=new Array(s+1).join("<span></span>");(i=document.createElement("span")).setAttribute("aria-hidden","true"),i.className="line-numbers-rows",i.innerHTML=l,t.hasAttribute("data-start")&&(t.style.counterReset="linenumber "+(parseInt(t.getAttribute("data-start"),10)-1)),e.element.appendChild(i),u([t]),Prism.hooks.run("line-numbers",e)}}}),Prism.hooks.add("line-numbers",function(e){e.plugins=e.plugins||{},e.plugins.lineNumbers=!0})}function u(e){if(0!=(e=e.filter(function(e){var n=function(e){return e?window.getComputedStyle?getComputedStyle(e):e.currentStyle||null:null}(e)["white-space"];return"pre-wrap"===n||"pre-line"===n})).length){var n=e.map(function(e){var n=e.querySelector("code"),t=e.querySelector(".line-numbers-rows");if(n&&t){var i=e.querySelector(".line-numbers-sizer"),r=n.textContent.split(a);i||((i=document.createElement("span")).className="line-numbers-sizer",n.appendChild(i)),i.innerHTML="0",i.style.display="block";var s=i.getBoundingClientRect().height;return i.innerHTML="",{element:e,lines:r,lineHeights:[],oneLinerHeight:s,sizer:i}}}).filter(Boolean);n.forEach(function(e){var i=e.sizer,n=e.lines,r=e.lineHeights,s=e.oneLinerHeight;r[n.length-1]=void 0,n.forEach(function(e,n){if(e&&1<e.length){var t=i.appendChild(document.createElement("span"));t.style.display="block",t.textContent=e}else r[n]=s})}),n.forEach(function(e){for(var n=e.sizer,t=e.lineHeights,i=0,r=0;r<t.length;r++)void 0===t[r]&&(t[r]=n.children[i++].getBoundingClientRect().height)}),n.forEach(function(e){var n=e.sizer,t=e.element.querySelector(".line-numbers-rows");n.style.display="none",n.innerHTML="",e.lineHeights.forEach(function(e,n){t.children[n].style.height=e+"px"})})}}}();
+!function(){if("undefined"!=typeof Prism&&"undefined"!=typeof document){var a=/<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/g,c=/^#?((?:[\da-f]){3,4}|(?:[\da-f]{2}){3,4})$/i,l=[function(n){var r=c.exec(n);if(r){for(var o=6<=(n=r[1]).length?2:1,s=n.length/o,e=1==o?1/15:1/255,t=[],i=0;i<s;i++){var a=parseInt(n.substr(i*o,o),16);t.push(a*e)}return 3==s&&t.push(1),"rgba("+t.slice(0,3).map(function(n){return String(Math.round(255*n))}).join(",")+","+String(Number(t[3].toFixed(3)))+")"}},function(n){var r=(new Option).style;return r.color=n,r.color?n:void 0}];Prism.hooks.add("wrap",function(n){if("color"===n.type||0<=n.classes.indexOf("color")){for(var r,o=n.content,s=o.split(a).join(""),e=0,t=l.length;e<t&&!r;e++)r=l[e](s);if(!r)return;var i='<span class="inline-color-wrapper"><span class="inline-color" style="background-color:'+r+';"></span></span>';n.content=i+o}})}}();
+
+</script>
+
+</body>
+</html>
