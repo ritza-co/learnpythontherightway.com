@@ -1,1 +1,1 @@
-# Lean Python the Right Way
+# Learn Python the Right Way
