@@ -35,14 +35,7 @@
  
 
 </head>
-
-<body>
-    <header><h1></h1>
-
-        <nav>
-        </nav>
-
-    </header><h1>Chapter 8: Strings</h1>
+<h1>Chapter 8: Strings</h1>
 <h2>8.1. A compound data type</h2>
 <p>So far we have seen built-in types like <code>int</code>, <code>float</code>, <code>bool</code>, <code>str</code> and we’ve seen lists and pairs. Strings, lists, and pairs are qualitatively different from the others because they are made up of smaller pieces. In the case of strings, they’re made up of smaller strings each containing one <strong>character</strong></p>
 <p>Types that comprise smaller pieces are called <strong>compound data types</strong>. Depending on what we are doing, we may want to treat a compound data type as a single thing, or we may want to access its parts. This ambiguity is useful.</p>
@@ -87,12 +80,6 @@ b</code></pre>
 &gt;&gt;&gt; friends = [&quot;Joe&quot;, &quot;Zoe&quot;, &quot;Brad&quot;, &quot;Angelina&quot;, &quot;Zuki&quot;, &quot;Thandi&quot;, &quot;Paris&quot;]
 &gt;&gt;&gt; friends[3]
 &#39;Angelina&#39;</code></pre>
-<pre><code>.. index::
-    single: len function
-    single: function; len
-    single: runtime error
-    single: negative index
-    single: index; negative</code></pre>
 <h2>8.4. Length</h2>
 <p>The <code>len</code> function, when applied to a string, returns the number of characters in a string:</p>
 <pre><code class="language-python">&gt;&gt;&gt; fruit = &quot;banana&quot;
@@ -103,10 +90,6 @@ b</code></pre>
 <p>Alternatively, we can use negative indices, which count backward from the end of the string. The expression <code>fruit[-1]</code> yields the last letter, <code>fruit[-2]</code> yields the second to last, and so on.</p>
 <p>As you might have guessed, indexing with a negative index also works like this for lists.</p>
 <p>We won’t use negative indexes in the rest of these notes — not many computer languages use this idiom, and you’ll probably be better off avoiding it. But there is plenty of Python code out on the Internet that will use this trick, so it is best to know that it exists.</p>
-<pre><code class="language-python">.. index:: traversal, for loop, concatenation, abecedarian series</code></pre>
-<pre><code class="language-python">.. index::
-    single: McCloskey, Robert
-    single: Make Way for Ducklings</code></pre>
 <h2>8.5. Traversal and the <code>for</code> loop</h2>
 <p>A lot of computations involve processing a string one character at a time. Often they start at the beginning, select each character in turn, do something to it, and continue until the end. This pattern of processing is called a <strong>traversal</strong>. One way to encode a traversal is with a <code>while</code> statement:</p>
 <p>This loop traverses the string and displays each letter on a line by itself. The loop condition is <code>ix &lt; len(fruit)</code>, so when <code>ix</code> is equal to the length of the string, the condition is false, and the body of the loop is not executed. The last character accessed is the one with the index <code>len(fruit)-1</code>, which is the last character in the string.</p>
@@ -123,7 +106,6 @@ Oack
 Pack
 Qack</code></pre>
 <p>Of course, that’s not quite right because Ouack and Quack are misspelled. You’ll fix this as an exercise below.</p>
-<pre><code class="language-python">.. index:: slice, string slice, substring, sublist</code></pre>
 <h2>8.6. Slices</h2>
 <p>A <em>substring</em> of a string is obtained by taking a <strong>slice</strong>. Similarly, we can slice a list to refer to some sublist of the items in the list:</p>
 <pre><code class="language-python">&gt;&gt;&gt; s = &quot;Pirates of the Caribbean&quot;
@@ -148,22 +130,17 @@ Caribbean
 &gt;&gt;&gt; fruit[3:999]
 &#39;ana&#39;</code></pre>
 <p>What do you think <code>s[:]</code> means? What about <code>friends[4:]</code>?</p>
-<pre><code class="language-python">.. index:: string comparison, comparison of strings</code></pre>
 <h2>8.7. String comparison</h2>
 <p>The comparison operators work on strings. To see if two strings are equal:</p>
 <p>Other comparison operations are useful for putting words in lexicographical order:</p>
 <p>This is similar to the alphabetical order you would use with a dictionary, except that all the uppercase letters come before all the lowercase letters. As a result:</p>
 <pre><code class="language-python">Your word, Zebra, comes before banana.</code></pre>
 <p>A common way to address this problem is to convert strings to a standard format, such as all lowercase, before performing the comparison. A more difficult problem is making the program realize that zebras are not fruit.</p>
-<pre><code class="language-python">.. index:: mutable, immutable, runtime error</code></pre>
 <h2>8.8. Strings are immutable</h2>
 <p>It is tempting to use the <code>[]</code> operator on the left side of an assignment, with the intention of changing a character in a string. For example:</p>
 <p>Instead of producing the output <code>Jello, world!</code>, this code produces the runtime error <code>TypeError: 'str' object does not support item assignment</code>.</p>
 <p>Strings are <strong>immutable</strong>, which means you can’t change an existing string. The best you can do is create a new string that is a variation on the original:</p>
 <p>The solution here is to concatenate a new first letter onto a slice of <code>greeting</code>. This operation has no effect on the original string.</p>
-<pre><code class="language-python">.. index::
-    single: in operator
-    single: operator; in</code></pre>
 <h2>8.9. The <code>in</code> and <code>not in</code> operators</h2>
 <p>The <code>in</code> operator tests for membership. When both of the arguments to <code>in</code> are strings, <code>in</code> checks whether the left argument is a substring of the right argument.</p>
 <pre><code class="language-python">&gt;&gt;&gt; &quot;p&quot; in &quot;apple&quot;
@@ -187,18 +164,14 @@ True</code></pre>
 <pre><code class="language-python">&gt;&gt;&gt; &quot;x&quot; not in &quot;apple&quot;
 True</code></pre>
 <p>Combining the <code>in</code> operator with string concatenation using <code>+</code>, we can write a function that removes all the vowels from a string:</p>
-<pre><code class="language-python">.. index:: traversal, eureka traversal, short-circuit evaluation, pattern of computation,
-           computation pattern</code></pre>
 <h2>8.10. A <code>find</code> function</h2>
 <p>What does the following function do?</p>
 <p>In a sense, <code>find</code> is the opposite of the indexing operator. Instead of taking an index and extracting the corresponding character, it takes a character and finds the index where that character appears. If the character is not found, the function returns <code>-1</code>.</p>
 <p>This is another example where we see a <code>return</code> statement inside a loop. If <code>strng[ix] == ch</code>, the function returns immediately, breaking out of the loop prematurely.</p>
 <p>If the character doesn’t appear in the string, then the program exits the loop normally and returns <code>-1</code>.</p>
 <p>This pattern of computation is sometimes called a <strong>eureka traversal</strong> or <strong>short-circuit evaluation</strong>, because as soon as we find what we are looking for, we can cry “Eureka!”, take the short-circuit, and stop looking.</p>
-<pre><code class="language-python">.. index:: counting pattern</code></pre>
 <h2>8.11. Looping and counting</h2>
 <p>The following program counts the number of times the letter <code>a</code> appears in a string, and is another example of the counter pattern introduced in counting.</p>
-<pre><code class="language-python">.. index:: optional parameter, default value, parameter; optional</code></pre>
 <h2>8.12. Optional parameters</h2>
 <p>To find the locations of the second or third occurrence of a character in a string, we can modify the <code>find</code> function, adding a third parameter for the starting position in the search string:</p>
 <p>The call <code>find2("banana", "a", 2)</code> now returns <code>3</code>, the index of the first occurrence of “a” in “banana” starting the search at index 2. What does <code>find2("banana", "n", 3)</code> return? If you said, 4, there is a good chance you understand how <code>find2</code> works.</p>
@@ -209,8 +182,6 @@ True</code></pre>
 <p>The optional value for <code>end</code> is interesting: we give it a default value <code>None</code> if the caller does not supply any argument. In the body of the function we test what <code>end</code> is, and if the caller did not supply any argument, we reassign <code>end</code> to be the length of the string. If the caller has supplied an argument for <code>end</code>, however, the caller’s value will be used in the loop.</p>
 <p>The semantics of <code>start</code> and <code>end</code> in this function are precisely the same as they are in the <code>range</code> function.</p>
 <p>Here are some test cases that should pass:</p>
-<pre><code class="language-python">.. index:: module, string module, dir function, dot notation, function type,
-           docstring</code></pre>
 <h2>8.13. The built-in <code>find</code> method</h2>
 <p>Now that we’ve done all this work to write a powerful <code>find</code> function, we can reveal that strings already have their own built-in <code>find</code> method. It can do everything that our code can do, and more!</p>
 <p>The built-in <code>find</code> method is more general than our version. It can find substrings, not just single characters:</p>
@@ -233,7 +204,6 @@ True</code></pre>
 <p>The output:</p>
 <pre><code class="language-python">[&#39;Pythons&#39;, &#39;are&#39;, &#39;constrictors&#39;, ... , &#39;it&#39;, &#39;snake&#39;, &#39;POOP&#39;]</code></pre>
 <p>There are other useful string methods, but this book isn’t intended to be a reference manual. On the other hand, the <em>Python Library Reference</em> is. Along with a wealth of other documentation, it is available at the <a href="https://www.python.org/">Python website</a>.</p>
-<pre><code class="language-python">.. index:: string formatting, operations on strings, formatting; strings, justification, field width</code></pre>
 <h2>8.16. The string format method</h2>
 <p>The easiest and most powerful way to format a string in Python 3 is to use the <code>format</code> method. To see how this works, let’s start with a few examples:</p>
 <p>Running the script produces:</p>
@@ -298,104 +268,28 @@ IndexError: tuple index out of range</code></pre>
 10   100  1000  100000  10000000000   100000000000000000000</code></pre>
 <h2>8.17. Summary</h2>
 <p>This chapter introduced a lot of new ideas. The following summary may prove helpful in remembering what you learned.</p>
-<pre><code class="language-python">.. glossary::
-
-    indexing (``[]``)
-        Access a single character in a string using its position (starting from
-        0).  Example: ``&quot;This&quot;[2]`` evaluates to ``&quot;i&quot;``.
-
-    length function (``len``)
-        Returns the number of characters in a string.  Example:
-        ``len(&quot;happy&quot;)`` evaluates to ``5``.
-
-    for loop traversal (``for``)
-        *Traversing* a string means accessing each character in the string, one
-        at a time.  For example, the following for loop:
-
-            .. sourcecode:: python3
-
-                for ch in &quot;Example&quot;:
-                    ...
-
-        executes the body of the loop 7 times with different values of ``ch`` each time.
-
-    slicing (``[:]``)
-        A *slice* is a substring of a string. Example: ``&#39;bananas and
-        cream&#39;[3:6]`` evaluates to ``ana`` (so does ``&#39;bananas and
-        cream&#39;[1:4]``).
-
-    string comparison (``&gt;, &lt;, &gt;=, &lt;=, ==, !=``)
-        The six common comparison operators work with strings, evaluating according to
-        `lexicographical` order.  Examples:
-        ``&quot;apple&quot; &lt; &quot;banana&quot;`` evaluates to ``True``.  ``&quot;Zeta&quot; &lt; &quot;Appricot&quot;``
-        evaluates to ``False``.  ``&quot;Zebra&quot; &lt;= &quot;aardvark&quot;`` evaluates to
-        ``True`` because all upper case letters precede lower case letters.
-
-    in and not in operator (``in``, ``not in``)
-        The ``in`` operator tests for membership. In the case of
-        strings, it tests whether one string is contained inside another
-        string.  Examples: ``&quot;heck&quot; in &quot;I&#39;ll be checking for you.&quot;``
-        evaluates to ``True``.  ``&quot;cheese&quot; in &quot;I&#39;ll be checking for
-        you.&quot;`` evaluates to ``False``.</code></pre>
+<p><strong>indexing (<code>[]</code>)</strong> Access a single character in a string using its position (starting from 0). Example: <code>"This"[2]</code> evaluates to <code>"i"</code>.</p>
+<p><strong>length function (<code>len</code>)</strong> Returns the number of characters in a string. Example: <code>len("happy")</code> evaluates to <code>5</code>.</p>
+<p><strong>for loop traversal (<code>for</code>)</strong> <em>Traversing</em> a string means accessing each character in the string, one at a time. For example, the following for loop:</p>
+<pre><code class="language-python">for ch in &quot;Example&quot;:
+    ...</code></pre>
+<p>executes the body of the loop 7 times with different values of <code>ch</code> each time.</p>
+<p><strong>slicing (<code>[:]</code>)</strong> A <em>slice</em> is a substring of a string. Example: <code>'bananas and cream'[3:6]</code> evaluates to <code>ana</code> (so does <code>'bananas and cream'[1:4]</code>).</p>
+<p><strong>string comparison (<code>&gt;, &lt;, &gt;=, &lt;=, ==, !=</code>)</strong> The six common comparison operators work with strings, evaluating according to <code>lexicographical</code> order. Examples: <code>"apple" &lt; "banana"</code> evaluates to <code>True</code>. <code>"Zeta" &lt; "Appricot"</code> evaluates to <code>False</code>. <code>"Zebra" &lt;= "aardvark"</code> evaluates to <code>True</code> because all upper case letters precede lower case letters.</p>
+<p><strong>in and not in operator (<code>in</code>, <code>not in</code>)</strong> The <code>in</code> operator tests for membership. In the case of strings, it tests whether one string is contained inside another string. Examples: <code>"heck" in "I'll be checking for you."</code> evaluates to <code>True</code>. <code>"cheese" in "I'll be checking for you."</code> evaluates to <code>False</code>.</p>
 <h2>8.18. Glossary</h2>
-<pre><code class="language-python">.. glossary::
-
-    compound data type
-        A data type in which the values are made up of components, or elements,
-        that are themselves values.
-
-    default value
-        The value given to an optional parameter if no argument for it is
-        provided in the function call.
-
-    docstring
-        A string constant on the first line of a function or module definition
-        (and as we will see later, in class and method definitions as well).
-        Docstrings provide a convenient way to associate documentation with
-        code. Docstrings are also used by programming tools to provide interactive help.
-
-    dot notation
-        Use of the **dot operator**, ``.``, to access methods and attributes of an object.
-
-    immutable data value
-        A data value which cannot be modified.  Assignments to elements or
-        slices (sub-parts) of immutable values cause a runtime error.
-
-    index
-        A variable or value used to select a member of an ordered collection, such as
-        a character from a string, or an element from a list.
-
-    mutable data value
-        A data value which can be modified. The types of all mutable values
-        are compound types.  Lists and dictionaries are mutable; strings
-        and tuples are not.
-
-    optional parameter
-        A parameter written in a function header with an assignment to a
-        default value which it will receive if no corresponding argument is
-        given for it in the function call.
-
-    short-circuit evaluation
-        A style of programming that shortcuts extra work as soon as the
-        outcome is know with certainty. In this chapter our ``find``
-        function returned as soon as it found what it was looking for; it
-        didn&#39;t traverse all the rest of the items in the string.
-
-    slice
-        A part of a string (substring) specified by a range of indices. More
-        generally, a subsequence of any sequence type in Python can be created
-        using the slice operator (``sequence[start:stop]``).
-
-    traverse
-        To iterate through the elements of a collection, performing a similar
-        operation on each.
-
-    whitespace
-        Any of the characters that move the cursor without printing visible
-        characters. The constant ``string.whitespace`` contains all the
-        white-space characters.
-        
-        </code></pre>
+<p><strong>compound data type</strong> A data type in which the values are made up of components, or elements, that are themselves values.</p>
+<p><strong>default value</strong> The value given to an optional parameter if no argument for it is provided in the function call.</p>
+<p><strong>docstring</strong> A string constant on the first line of a function or module definition (and as we will see later, in class and method definitions as well). Docstrings provide a convenient way to associate documentation with code. Docstrings are also used by programming tools to provide interactive help.</p>
+<p><strong>dot notation</strong> Use of the <strong>dot operator</strong>, <code>.</code>, to access methods and attributes of an object.</p>
+<p><strong>immutable data value</strong> A data value which cannot be modified. Assignments to elements or slices (sub-parts) of immutable values cause a runtime error.</p>
+<p><strong>index</strong> A variable or value used to select a member of an ordered collection, such as a character from a string, or an element from a list.</p>
+<p><strong>mutable data value</strong> A data value which can be modified. The types of all mutable values are compound types. Lists and dictionaries are mutable; strings and tuples are not.</p>
+<p><strong>optional parameter</strong> A parameter written in a function header with an assignment to a default value which it will receive if no corresponding argument is given for it in the function call.</p>
+<p><strong>short-circuit evaluation</strong> A style of programming that shortcuts extra work as soon as the outcome is know with certainty. In this chapter our <code>find</code> function returned as soon as it found what it was looking for; it didn’t traverse all the rest of the items in the string.</p>
+<p><strong>slice</strong> A part of a string (substring) specified by a range of indices. More generally, a subsequence of any sequence type in Python can be created using the slice operator (<code>sequence[start:stop]</code>).</p>
+<p><strong>traverse</strong> To iterate through the elements of a collection, performing a similar operation on each.</p>
+<p><strong>whitespace</strong> Any of the characters that move the cursor without printing visible characters. The constant <code>string.whitespace</code> contains all the white-space characters.</p>
 <h2>8.19. Exercises</h2>
 <p>We suggest you create a single file containing the test scaffolding from our previous chapters, and put all functions that require tests into that file.</p>
 <ol type="1">
@@ -411,21 +305,103 @@ IndexError: tuple index out of range</code></pre>
 &gt;&gt;&gt; &quot;apple&quot; &gt; &quot;pineapple&quot;
 &gt;&gt;&gt; &quot;pineapple&quot; &lt; &quot;Peach&quot;</code></pre>
 <ol start="2" type="1">
-<li><p>Modify: so that <code>Ouack</code> and <code>Quack</code> are spelled correctly.</p></li>
-<li><p>Encapsulate in a function named <code>count_letters</code>, and generalize it so that it accepts the string and the letter as arguments. Make the function return the number of characters, rather than print the answer. The caller should do the printing.</p></li>
+<li>Modify:</li>
+</ol>
+<pre><code class="language-python">prefixes = &quot;JKLMNOPQ&quot;
+suffix = &quot;ack&quot;
+
+for letter in prefixes:
+    print(letter + suffix)</code></pre>
+<p>so that <code>Ouack</code> and <code>Quack</code> are spelled correctly.</p>
+<ol start="3" type="1">
+<li>Encapsulate</li>
+</ol>
+<pre><code>fruit = &quot;banana&quot;
+count = 0
+for char in fruit:
+    if char == &quot;a&quot;:
+        count += 1
+print(count)</code></pre>
+<p>in a function named <code>count_letters</code>, and generalize it so that it accepts the string and the letter as arguments. Make the function return the number of characters, rather than print the answer. The caller should do the printing.</p>
+<ol start="4" type="1">
 <li><p>Now rewrite the count_letters function so that instead of traversing the string, it repeatedly calls the find method, with the optional third parameter to locate new occurrences of the letter being counted.</p></li>
 <li><p>Assign to a variable in your program a triple-quoted string that contains your favourite paragraph of text — perhaps a poem, a speech, instructions to bake a cake, some inspirational verses, etc.</p>
-<p>Write a function which removes all punctuation from the string, breaks the string into a list of words, and counts the number of words in your text that contain the letter “e”. Your program should print an analysis of the text like this:</p>
-<pre><code class="language-python">Your text contains 243 words, of which 109 (44.8%) contain an &quot;e&quot;.</code></pre></li>
-<li><p>Print a neat looking multiplication table like this: <code>python            1   2   3   4   5   6   7   8   9  10  11  12       :--------------------------------------------------      1:     1   2   3   4   5   6   7   8   9  10  11  12      2:     2   4   6   8  10  12  14  16  18  20  22  24      3:     3   6   9  12  15  18  21  24  27  30  33  36      4:     4   8  12  16  20  24  28  32  36  40  44  48      5:     5  10  15  20  25  30  35  40  45  50  55  60      6:     6  12  18  24  30  36  42  48  54  60  66  72      7:     7  14  21  28  35  42  49  56  63  70  77  84      8:     8  16  24  32  40  48  56  64  72  80  88  96      9:     9  18  27  36  45  54  63  72  81  90  99 108     10:    10  20  30  40  50  60  70  80  90 100 110 120     11:    11  22  33  44  55  66  77  88  99 110 121 132     12:    12  24  36  48  60  72  84  96 108 120 132 144</code></p></li>
-<li><p>Write a function that reverses its string argument, and satisfies these tests:</p></li>
-<li><p>Write a function that mirrors its argument:</p></li>
-<li><p>Write a function that removes all occurrences of a given letter from a string:</p></li>
-<li><p>Write a function that recognizes palindromes. (Hint: use your <code>reverse</code> function to make this easy!):</p></li>
-<li><p>Write a function that counts how many times a substring occurs in a string:</p></li>
-<li><p>Write a function that removes the first occurrence of a string from another string:</p></li>
-<li><p>Write a function that removes all occurrences of a string from another string:</p></li>
+<p>Write a function which removes all punctuation from the string, breaks the string into a list of words, and counts the number of words in your text that contain the letter “e”. Your program should print an analysis of the text like this:</p></li>
 </ol>
+<pre><code class="language-python">Your text contains 243 words, of which 109 (44.8%) contain an &quot;e&quot;.</code></pre>
+<ol start="6" type="1">
+<li>Print a neat looking multiplication table like this:</li>
+</ol>
+<pre><code>           1   2   3   4   5   6   7   8   9  10  11  12
+      :--------------------------------------------------
+     1:     1   2   3   4   5   6   7   8   9  10  11  12
+     2:     2   4   6   8  10  12  14  16  18  20  22  24
+     3:     3   6   9  12  15  18  21  24  27  30  33  36
+     4:     4   8  12  16  20  24  28  32  36  40  44  48
+     5:     5  10  15  20  25  30  35  40  45  50  55  60
+     6:     6  12  18  24  30  36  42  48  54  60  66  72
+     7:     7  14  21  28  35  42  49  56  63  70  77  84
+     8:     8  16  24  32  40  48  56  64  72  80  88  96
+     9:     9  18  27  36  45  54  63  72  81  90  99 108
+    10:    10  20  30  40  50  60  70  80  90 100 110 120
+    11:    11  22  33  44  55  66  77  88  99 110 121 132
+    12:    12  24  36  48  60  72  84  96 108 120 132 144</code></pre>
+<ol start="7" type="1">
+<li>Write a function that reverses its string argument, and satisfies these tests:</li>
+</ol>
+<pre><code class="language-python">test(reverse(&quot;happy&quot;) == &quot;yppah&quot;)
+test(reverse(&quot;Python&quot;) == &quot;nohtyP&quot;)
+test(reverse(&quot;&quot;) == &quot;&quot;)
+test(reverse(&quot;a&quot;) == &quot;a&quot;)</code></pre>
+<ol start="8" type="1">
+<li>Write a function that mirrors its argument:</li>
+</ol>
+<pre><code class="language-python">test(mirror(&quot;good&quot;) == &quot;gooddoog&quot;)
+test(mirror(&quot;Python&quot;) == &quot;PythonnohtyP&quot;)
+test(mirror(&quot;&quot;) == &quot;&quot;)
+test(mirror(&quot;a&quot;) == &quot;aa&quot;)</code></pre>
+<ol start="9" type="1">
+<li>Write a function that removes all occurrences of a given letter from a string:</li>
+</ol>
+<pre><code class="language-python">test(remove_letter(&quot;a&quot;, &quot;apple&quot;) == &quot;pple&quot;)
+test(remove_letter(&quot;a&quot;, &quot;banana&quot;) == &quot;bnn&quot;)
+test(remove_letter(&quot;z&quot;, &quot;banana&quot;) == &quot;banana&quot;)
+test(remove_letter(&quot;i&quot;, &quot;Mississippi&quot;) == &quot;Msssspp&quot;)
+test(remove_letter(&quot;b&quot;, &quot;&quot;) = &quot;&quot;)
+test(remove_letter(&quot;b&quot;, &quot;c&quot;) = &quot;c&quot;)</code></pre>
+<ol start="10" type="1">
+<li>Write a function that recognizes palindromes. (Hint: use your <code>reverse</code> function to make this easy!):</li>
+</ol>
+<pre><code class="language-python">test(is_palindrome(&quot;abba&quot;))
+test(not is_palindrome(&quot;abab&quot;))
+test(is_palindrome(&quot;tenet&quot;))
+test(not is_palindrome(&quot;banana&quot;))
+test(is_palindrome(&quot;straw warts&quot;))
+test(is_palindrome(&quot;a&quot;))
+# test(is_palindrome(&quot;&quot;))    # Is an empty string a palindrome?</code></pre>
+<ol start="11" type="1">
+<li>Write a function that counts how many times a substring occurs in a string:</li>
+</ol>
+<pre><code class="language-python">test(count(&quot;is&quot;, &quot;Mississippi&quot;) == 2)
+test(count(&quot;an&quot;, &quot;banana&quot;) == 2)
+test(count(&quot;ana&quot;, &quot;banana&quot;) == 2)
+test(count(&quot;nana&quot;, &quot;banana&quot;) == 1)
+test(count(&quot;nanan&quot;, &quot;banana&quot;) == 0)
+test(count(&quot;aaa&quot;, &quot;aaaaaa&quot;) == 4)</code></pre>
+<ol start="12" type="1">
+<li>Write a function that removes the first occurrence of a string from another string:</li>
+</ol>
+<pre><code class="language-python">test(remove(&quot;an&quot;, &quot;banana&quot;) == &quot;bana&quot;)
+test(remove(&quot;cyc&quot;, &quot;bicycle&quot;) == &quot;bile&quot;)
+test(remove(&quot;iss&quot;, &quot;Mississippi&quot;) == &quot;Missippi&quot;)
+test(remove(&quot;eggs&quot;, &quot;bicycle&quot;) == &quot;bicycle&quot;)</code></pre>
+<ol start="13" type="1">
+<li>Write a function that removes all occurrences of a string from another string:</li>
+</ol>
+<pre><code class="language-python">test(remove_all(&quot;an&quot;, &quot;banana&quot;) == &quot;ba&quot;)
+test(remove_all(&quot;cyc&quot;, &quot;bicycle&quot;) == &quot;bile&quot;)
+test(remove_all(&quot;iss&quot;, &quot;Mississippi&quot;) == &quot;Mippi&quot;)
+test(remove_all(&quot;eggs&quot;, &quot;bicycle&quot;) == &quot;bicycle&quot;)</code></pre>
 <script type="text/javascript">
 /* PrismJS 1.23.0
 https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+css-extras+python&plugins=line-numbers+inline-color */
@@ -443,3 +419,4 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-i
 
 </body>
 </html>
+
