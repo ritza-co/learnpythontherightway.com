@@ -239,7 +239,7 @@ test(sum_to(1000) == 500500)</code></pre>
 1</code></pre>
 <h2>7.9. Help and meta-notation</h2>
 <p>Python comes with extensive documentation for all its built-in functions, and its libraries. Different systems have different ways of accessing this help. In PyScripter, click on the Help menu item, and select Python Manuals. Then search for help on the built-in function <code>range</code>. You’ll get something like this:</p>
-<p><img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-7/07-01-help_range.png" /></p>
+<p><img src="Chapter-7/07-01-help_range.png" /></p>
 <p>Notice the square brackets in the description of the arguments. These are examples of <strong>meta-notation</strong> — notation that describes Python syntax, but is not part of it. The square brackets in this documentation mean that the argument is optional — the programmer can omit it. So what this first line of help tells us is that <code>range</code> must always have a <code>stop</code> argument, but it may have an optional <code>start</code> argument (which must be followed by a comma if it is present), and it can also have an optional <code>step</code> argument, preceded by a comma if it is present.</p>
 <p>The examples from help show that <code>range</code> can have either 1, 2 or 3 arguments. The list can start at any starting value, and go up or down in increments other than 1. The documentation here also says that the arguments must be integers.</p>
 <p>Other meta-notation you’ll frequently encounter is the use of bold and italics. The bold means that these are tokens — keywords or symbols — typed into your Python code exactly as they are, whereas the italic terms stand for “something of this type”. So the syntax description</p>
@@ -322,7 +322,7 @@ print()</code></pre>
 <p>Python examines all the statements in a function — if any of them assign a value to a variable, that is the clue that Python uses to make the variable a local variable.</p>
 <p>The stack diagram for this program shows that the two variables named <code>i</code> are not the same variable. They can refer to different values, and changing one does not affect the other.</p>
 <figure>
-<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-7/07-02-stack2.png" alt="Stack 2 diagram" /><figcaption aria-hidden="true">Stack 2 diagram</figcaption>
+<img src="Chapter-7/07-02-stack2.png" alt="Stack 2 diagram" /><figcaption aria-hidden="true">Stack 2 diagram</figcaption>
 </figure>
 <p>The value of <code>i</code> in <code>print_mult_table</code> goes from <code>1</code> to <code>6</code>. In the diagram it happens to be <code>3</code>. The next time through the loop it will be <code>4</code>. Each time through the loop, <code>print_mult_table</code> calls <code>print_multiples</code> with the current value of <code>i</code> as an argument. That value gets assigned to the parameter <code>n</code>.</p>
 <p>Inside <code>print_multiples</code>, the value of <code>i</code> goes from <code>1</code> to <code>6</code>. In the diagram, it happens to be <code>2</code>. Changing this variable has no effect on the value of <code>i</code> in <code>print_mult_table</code>.</p>
@@ -341,12 +341,12 @@ print(&quot;done&quot;)</code></pre>
 done</code></pre>
 <p><strong>The pre-test loop — standard loop behaviour</strong></p>
 <p><code>for</code> and <code>while</code> loops do their tests at the start, before executing any part of the body. They’re called <strong>pre-test</strong> loops, because the test happens before (pre) the body. <code>break</code> and <code>return</code> are our tools for adapting this standard behaviour.</p>
-<p><img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-7/07-03-pre_test_loop.png" /></p>
+<p><img src="Chapter-7/07-03-pre_test_loop.png" /></p>
 <h2>7.16. Other flavours of loops</h2>
 <p>Sometimes we’d like to have the <strong>middle-test</strong> loop with the exit test in the middle of the body, rather than at the beginning or at the end. Or a <strong>post-test</strong> loop that puts its exit test as the last thing in the body. Other languages have different syntax and keywords for these different flavours, but Python just uses a combination of <code>while</code> and <code>if condition: break</code> to get the job done.</p>
 <p>A typical example is a problem where the user has to input numbers to be summed. To indicate that there are no more inputs, the user enters a special value, often the value <code>-1</code>, or the empty string. This needs a middle-exit loop pattern: input the next number, then test whether to exit, or else process the number:</p>
 <p>The middle-test loop flowchart</p>
-<p><img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-7/07-04-mid_test_loop.png" /></p>
+<p><img src="Chapter-7/07-04-mid_test_loop.png" /></p>
 <pre><code class="language-python">total = 0
 while True:
     response = input(&quot;Enter the next number. (Leave blank to end)&quot;)
@@ -388,7 +388,7 @@ input(&quot;\n\nGreat, you got it in {0} guesses!\n\n&quot;.format(guesses))</co
 <p>This program makes use of the mathematical law of <strong>trichotomy</strong> (given real numbers <code>a</code> and <code>b</code>, exactly one of these three must be true: <code>a &gt; b</code>, <code>a &lt; b</code>, or <code>a == b</code>).</p>
 <p>At line 18 there is a call to the <code>input</code> function, but we don’t do anything with the result, not even assign it to a variable. This is legal in Python. Here it has the effect of popping up the input dialog window and waiting for the user to respond before the program terminates. Programmers often use the trick of doing some extra input at the end of a script, just to keep the window open.</p>
 <p>Also notice the use of the <code>msg</code> variable, initially an empty string, on lines 6, 12 and 14. Each time through the loop we extend the message being displayed: this allows us to display the program’s feedback right at the same place as we’re asking for the next guess.</p>
-<p><img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-7/07-05-python_input.png" /></p>
+<p><img src="Chapter-7/07-05-python_input.png" /></p>
 <h2>7.18. The continue statement</h2>
 <p>This is a control flow statement that causes the program to immediately skip the processing of the rest of the body of the loop, for the current iteration. But the loop still carries on running for its remaining iterations:</p>
 <pre><code class="language-python">for i in [12, 16, 17, 24, 29, 30]:
@@ -629,11 +629,11 @@ test(is_prime(19911121))</code></pre></li>
 <li><p>Revisit the drunk pirate problem from the exercises in chapter 3. This time, the drunk pirate makes a turn, and then takes some steps forward, and repeats this. Our social science student now records pairs of data: the angle of each turn, and the number of steps taken after the turn. Her experimental data is [(160, 20), (-43, 10), (270, 8), (-43, 12)]. Use a turtle to draw the path taken by our drunk friend.</p></li>
 <li><p>Many interesting shapes can be drawn by the turtle by giving a list of pairs like we did above, where the first item of the pair is the angle to turn, and the second item is the distance to move forward. Set up a list of pairs so that the turtle draws a house with a cross through the centre, as show here. This should be done without going over any of the lines / edges more than once, and without lifting your pen.</p></li>
 </ol>
-<p><img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-7/07-06-tess_house.png" /></p>
+<p><img src="Chapter-7/07-06-tess_house.png" /></p>
 <ol start="13" type="1">
 <li>Not all shapes like the one above can be drawn without lifting your pen, or going over an edge more than once. Which of these can be drawn?</li>
 </ol>
-<p><img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-7/07-07-tess_more_houses.png" /></p>
+<p><img src="Chapter-7/07-07-tess_more_houses.png" /></p>
 <p>Now read Wikipedia’s article(http://en.wikipedia.org/wiki/Eulerian_path) about Eulerian paths. Learn how to tell immediately by inspection whether it is possible to find a solution or not. If the path is possible, you’ll also know where to put your pen to start drawing, and where you should end up!</p>
 <ol start="14" type="1">
 <li><p>What will num_digits(0) return? Modify it to return 1 for this case. Why does a call to num_digits(-24) result in an infinite loop? (hint: -1//10 evaluates to -1) Modify num_digits so that it works correctly with any integer value. Add these tests:</p>

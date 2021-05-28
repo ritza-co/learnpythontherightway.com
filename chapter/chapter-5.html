@@ -192,7 +192,7 @@ else:
 <p>The Boolean expression after the <code>if</code> statement is called the <strong>condition</strong>. If it is true, then all the indented statements get executed. If not, then all the statements indented under the <code>else</code> clause get executed.</p>
 <p><strong>Flowchart of an <code>if</code> statement with an <code>else</code> clause</strong></p>
 <figure>
-<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-5/05-01-flowchart_if_else.png" alt="Flowchart - if else" /><figcaption aria-hidden="true">Flowchart - if else</figcaption>
+<img src="Chapter-5/05-01-flowchart_if_else.png" alt="Flowchart - if else" /><figcaption aria-hidden="true">Flowchart - if else</figcaption>
 </figure>
 <p>The syntax for an if statement looks like this:</p>
 <pre><code class="language-python">if BOOLEAN EXPRESSION:
@@ -210,7 +210,7 @@ else:
 <h2>5.6. Omitting the else clause</h2>
 <p><strong>Flowchart of an <code>if</code> statement with no <code>else</code> clause</strong></p>
 <figure>
-<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-5/05-02-flowchart_if_only.png" alt="Flowchart - if only" /><figcaption aria-hidden="true">Flowchart - if only</figcaption>
+<img src="Chapter-5/05-02-flowchart_if_only.png" alt="Flowchart - if only" /><figcaption aria-hidden="true">Flowchart - if only</figcaption>
 </figure>
 <p>Another form of the <code>if</code> statement is one in which the <code>else</code> clause is omitted entirely. In this case, when the condition evaluates to <code>True</code>, the statements are executed, otherwise the flow of execution continues to the statement after the <code>if</code>.</p>
 <pre><code class="language-python">if x &lt; 0:
@@ -233,7 +233,7 @@ else:
     STATEMENTS_C</code></pre>
 <p><strong>Flowchart of this chained conditional</strong></p>
 <figure>
-<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-5/05-03-flowchart_chained_conditional.png" alt="Flowchart - chained conditional" /><figcaption aria-hidden="true">Flowchart - chained conditional</figcaption>
+<img src="Chapter-5/05-03-flowchart_chained_conditional.png" alt="Flowchart - chained conditional" /><figcaption aria-hidden="true">Flowchart - chained conditional</figcaption>
 </figure>
 <p><code>elif</code> is an abbreviation of else if. Again, exactly one branch will be executed. There is no limit of the number of <code>elif</code> statements but only a single (and optional) final <code>else</code> statement is allowed and it must be the last branch in the statement:</p>
 <pre><code class="language-python">if choice == &quot;a&quot;:
@@ -249,7 +249,7 @@ else:
 <p>One conditional can also be <strong>nested</strong> within another. (It is the same theme of composability, again!) We could have written the previous example as follows:</p>
 <p><strong>Flowchart of this nested conditional</strong></p>
 <figure>
-<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-5/05-04-flowchart_nested_conditional.png" alt="Flowchart - nested conditional" /><figcaption aria-hidden="true">Flowchart - nested conditional</figcaption>
+<img src="Chapter-5/05-04-flowchart_nested_conditional.png" alt="Flowchart - nested conditional" /><figcaption aria-hidden="true">Flowchart - nested conditional</figcaption>
 </figure>
 <pre><code class="language-python">if x &lt; y:
     STATEMENTS_A
@@ -406,12 +406,12 @@ NameError: name &#39;true&#39; is not defined</code></pre>
 for v in xs:              # Assume xs and tess are ready
     draw_bar(tess, v)</code></pre>
 <figure>
-<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-5/05-05-tess_bar_1.png" alt="Simple bar chart" /><figcaption aria-hidden="true">Simple bar chart</figcaption>
+<img src="Chapter-5/05-05-tess_bar_1.png" alt="Simple bar chart" /><figcaption aria-hidden="true">Simple bar chart</figcaption>
 </figure>
 <p>Ok, not fantastically impressive, but it is a nice start! The important thing here was the mental chunking, or how we broke the problem into smaller pieces. Our chunk is to draw one bar, and we wrote a function to do that. Then, for the whole chart, we repeatedly called our function.</p>
 <p>Next, at the top of each bar, we’ll print the value of the data. We’ll do this in the body of <code>draw_bar</code>, by adding <code>t.write('  ' + str(height))</code> as the new third line of the body. We’ve put a little space in front of the number, and turned the number into a string. Without this extra space we tend to cramp our text awkwardly against the bar to the left. The result looks a lot better now:</p>
 <figure>
-<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-5/05-06-tess_bar_2.png" alt="Numbered bar chart" /><figcaption aria-hidden="true">Numbered bar chart</figcaption>
+<img src="Chapter-5/05-06-tess_bar_2.png" alt="Numbered bar chart" /><figcaption aria-hidden="true">Numbered bar chart</figcaption>
 </figure>
 <p>And now we’ll add two lines to fill each bar. Our final program now looks like this:</p>
 <pre><code class="language-python">import turtle
@@ -445,7 +445,7 @@ for a in xs:
 wn.mainloop()</code></pre>
 <p>It produces the following, which is more satisfying:</p>
 <figure>
-<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-5/05-07-tess_bar_3.png" alt="Filled bar chart" /><figcaption aria-hidden="true">Filled bar chart</figcaption>
+<img src="Chapter-5/05-07-tess_bar_3.png" alt="Filled bar chart" /><figcaption aria-hidden="true">Filled bar chart</figcaption>
 </figure>
 <p>Mmm. Perhaps the bars should not be joined to each other at the bottom. We’ll need to pick up the pen while making the gap between the bars. We’ll leave that (and a few more tweaks) as exercises for you!</p>
 <h2>5.13. Glossary</h2>

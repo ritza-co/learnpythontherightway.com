@@ -67,7 +67,7 @@
  draw_square(alex, 50)       # Call the function to draw the square
  wn.mainloop()</code></pre>
 <figure>
-<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-4/04-01-alex-function.png" alt="alex function" /><figcaption aria-hidden="true">alex function</figcaption>
+<img src="Chapter-4/04-01-alex-function.png" alt="alex function" /><figcaption aria-hidden="true">alex function</figcaption>
 </figure>
 <p>This function is named <code>draw_square</code>. It has two parameters: one to tell the function which turtle to move around, and the other to tell it the size of the square we want drawn. Make sure you know where the body of the function ends — it depends on the indentation, and the blank lines don’t count for this purpose!</p>
 <p><strong>Docstrings for documentation</strong></p>
@@ -101,7 +101,7 @@ for i in range(15):
 
 wn.mainloop()</code></pre>
 <figure>
-<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-4/04-02-tess05.png" alt="Draw multicolor square" /><figcaption aria-hidden="true">Draw multicolor square</figcaption>
+<img src="Chapter-4/04-02-tess05.png" alt="Draw multicolor square" /><figcaption aria-hidden="true">Draw multicolor square</figcaption>
 </figure>
 <h2>4.2. Functions can call other functions</h2>
 <p>Let’s assume now we want a function to draw a rectangle. We need to be able to call the function with different arguments for width and height. And, unlike the case of the square, we cannot repeat the same thing 4 times, because the four sides are not equal.</p>
@@ -150,7 +150,7 @@ wn.mainloop()</code></pre>
 __import__(&quot;turtle&quot;).__traceable__ = False</code></pre>
 <p>Now we’re ready to begin. Put the mouse cursor on the line of the program where we create the turtle screen, and press the F4 key. This will run the Python program up to, but not including, the line where we have the cursor. Our program will “break” now, and provide a highlight on the next line to be executed, something like this:</p>
 <figure>
-<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-4/pyscripter.png" alt="PyScripter Breakpoint" /><figcaption aria-hidden="true">PyScripter Breakpoint</figcaption>
+<img src="Chapter-4/pyscripter.png" alt="PyScripter Breakpoint" /><figcaption aria-hidden="true">PyScripter Breakpoint</figcaption>
 </figure>
 <p>At this point we can press the <code>F7</code> key (<em>step into</em>) repeatedly to single step through the code. Observe as we execute lines 10, 11, 12, … how the turtle window gets created, how its canvas color is changed, how the title gets changed, how the turtle is created on the canvas, and then how the flow of execution gets into the loop, and from there into the function, and into the function’s loop, and then repeatedly through the body of that loop.</p>
 <p>While we do this, we can also hover our mouse over some of the variables in the program, and confirm that their values match our conceptual model of what is happening.</p>
@@ -182,7 +182,7 @@ __import__(&quot;turtle&quot;).__traceable__ = False</code></pre>
 <p>A function that returns a value is called a <strong>fruitful function</strong> in this book. The opposite of a fruitful function is <strong>void function</strong> — one that is not executed for its resulting value, but is executed because it does something useful. (Languages like Java, C#, C and C++ use the term “void function”, other languages like Pascal call it a <strong>procedure</strong>.) Even though void functions are not executed for their resulting value, Python always wants to return something. So if the programmer doesn’t arrange to return a value, Python will automatically return the value <code>None</code>.</p>
 <p>How do we write our own fruitful function? In the exercises at the end of chapter 2 we saw the standard formula for compound interest, which we’ll now write as a fruitful function:</p>
 <figure>
-<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-4/04-03-compoundInterest.png" alt="Compound interest" /><figcaption aria-hidden="true">Compound interest</figcaption>
+<img src="Chapter-4/04-03-compoundInterest.png" alt="Compound interest" /><figcaption aria-hidden="true">Compound interest</figcaption>
 </figure>
 <pre><code class="language-python">def final_amt(p, r, n, t):
     &quot;&quot;&quot;
@@ -314,25 +314,25 @@ dave = make_turtle(&quot;yellow&quot;, 2)</code></pre>
 <li>Write a void (non-fruitful) function to draw a square. Use it in a program to draw the image shown below. Assume each side is 20 units. (<em>Hint: notice that the turtle has already moved away from the ending point of the last square when the program ends.</em>)</li>
 </ol>
 <figure>
-<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-4/04-04-five_squares.png" alt="Five Squares" /><figcaption aria-hidden="true">Five Squares</figcaption>
+<img src="Chapter-4/04-04-five_squares.png" alt="Five Squares" /><figcaption aria-hidden="true">Five Squares</figcaption>
 </figure>
 <ol start="2" type="1">
 <li>Write a program to draw this. Assume the innermost square is 20 units per side, and each successive square is 20 units bigger, per side, than the one inside it.</li>
 </ol>
 <figure>
-<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-4/04-05-nested_squares.png" alt="Nested Squares" /><figcaption aria-hidden="true">Nested Squares</figcaption>
+<img src="Chapter-4/04-05-nested_squares.png" alt="Nested Squares" /><figcaption aria-hidden="true">Nested Squares</figcaption>
 </figure>
 <ol start="3" type="1">
 <li>Write a void function <code>draw_poly(t, n, sz)</code> which makes a turtle draw a regular polygon. When called with <code>draw_poly(tess, 8, 50)</code>, it will draw a shape like this:</li>
 </ol>
 <figure>
-<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-4/04-07-pretty-pattern.png" alt="Regular Polygon" /><figcaption aria-hidden="true">Regular Polygon</figcaption>
+<img src="Chapter-4/04-07-pretty-pattern.png" alt="Regular Polygon" /><figcaption aria-hidden="true">Regular Polygon</figcaption>
 </figure>
 <ol start="5" type="1">
 <li>The two spirals in this picture differ only by the turn angle. Draw both.</li>
 </ol>
 <figure>
-<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-4/04-08-tess_spirals.png" alt="Spirals" /><figcaption aria-hidden="true">Spirals</figcaption>
+<img src="Chapter-4/04-08-tess_spirals.png" alt="Spirals" /><figcaption aria-hidden="true">Spirals</figcaption>
 </figure>
 <ol start="6" type="1">
 <li><p>Write a void function <code>draw_equitriangle(t, sz)</code> which calls <code>draw_poly</code> from the previous question to have its turtle draw a equilateral triangle.</p></li>
@@ -341,13 +341,13 @@ dave = make_turtle(&quot;yellow&quot;, 2)</code></pre>
 <li><p>Write a void function to draw a star, where the length of each side is 100 units. (<em>Hint: You should turn the turtle by 144 degrees at each point.</em>)</p></li>
 </ol>
 <figure>
-<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-4/04-09-star.png" alt="Star" /><figcaption aria-hidden="true">Star</figcaption>
+<img src="Chapter-4/04-09-star.png" alt="Star" /><figcaption aria-hidden="true">Star</figcaption>
 </figure>
 <ol start="10" type="1">
 <li>Extend your program above. Draw five stars, but between each, pick up the pen, move forward by 350 units, turn right by 144, put the pen down, and draw the next star. You’ll get something like this:</li>
 </ol>
 <figure>
-<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-4/04-10-five_stars.png" alt="Five Stars" /><figcaption aria-hidden="true">Five Stars</figcaption>
+<img src="Chapter-4/04-10-five_stars.png" alt="Five Stars" /><figcaption aria-hidden="true">Five Stars</figcaption>
 </figure>
 <p>What would it look like if you didn’t pick up the pen?</p>
 <script type="text/javascript">

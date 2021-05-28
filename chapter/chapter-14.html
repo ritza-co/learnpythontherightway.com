@@ -214,7 +214,7 @@ ROI[10328:10329](size=1), probed=&#39;magic&#39;, target=&#39;magic&#39;
 <p>With 1 probe, we can only search a list of size 1. With two probes we could cope with lists up to size 3 - (test the middle item with the first probe, then test either the left or right sublist with the second probe). With one more probe, we could cope with 7 items (the middle item, and two sublists of size 3). With four probes, we can search 15 items, and 5 probes lets us search up to 31 items. So the general relationship is given by the formula</p>
 <pre><code class="language-python">N = 2 ** k - 1</code></pre>
 <p>where k is the number of probes we’re allowed to make, and N is the maximum size of the list that can be searched in that many probes. This function is <em>exponential</em> in k (because k occurs in the exponent part). If we wanted to turn the formula around and solve for k in terms of N, we need to move the constant 1 to the other side, and take a log (base 2) on each side. (The log is the inverse of an exponent.) So the formula for k in terms of N is now:</p>
-<p><img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-14/log2np1.png" /></p>
+<p><img src="Chapter-14/log2np1.png" /></p>
 <p>The square-only-on-top brackets are called <em>ceiling brackets</em>: this means that you must round the number up to the next whole integer.</p>
 <p>Let us try this on a calculator, or in Python, which is the mother of all calculators: suppose I have 1000 elements to be searched, what is the maximum number of probes I’ll need? (There is a pesky +1 in the formula, so let us not forget to add it on…):</p>
 <pre><code class="language-python">&gt;&gt;&gt; from math import log
@@ -374,7 +374,7 @@ That took 0.0410 seconds.    </code></pre>
 <p>That is what we can call a good day at the office!</p>
 <h2>14.8. Eight Queens puzzle, part 1</h2>
 <p>As told by Wikipedia, <em>“The eight queens puzzle is the problem of placing eight chess queens on an 8x8 chessboard so that no two queens attack each other. Thus, a solution requires that no two queens share the same row, column, or diagonal.”</em></p>
-<p><img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-14/eight_queens_01.png" /></p>
+<p><img src="Chapter-14/eight_queens_01.png" /></p>
 <p>Please try this yourself, and find a few more solutions by hand.</p>
 <p>We’d like to write a program to find solutions to this puzzle. In fact, the puzzle generalizes to placing N queens on an NxN board, so we’re going to think about the general case, not just the 8x8 case. Perhaps we can find solutions for 12 queens on a 12x12 board, or 20 queens on a 20x20 board.</p>
 <p>How do we approach a complex problem like this? A good starting point is to think about our <em>data structures</em> — how exactly do we plan to represent the state of the chessboard and its queens in our program? Once we have some handle on what our puzzle is going to look like in memory, we can begin to think about the functions and logic we’ll need to solve the puzzle, i.e. how do we put another queen onto the board somewhere, and to check whether it clashes with any of the queens already on the board.</p>

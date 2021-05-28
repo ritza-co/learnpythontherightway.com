@@ -51,7 +51,7 @@ alex.forward(30)          # Complete the second side of a rectangle
 wn.mainloop()             # Wait for user to close window</code></pre>
 <p>When we run this program, a new window pops up:</p>
 <figure>
-<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-3/03-01-turtle-window.png" alt="Turtle Window" /><figcaption aria-hidden="true">Turtle Window</figcaption>
+<img src="Chapter-3/03-01-turtle-window.png" alt="Turtle Window" /><figcaption aria-hidden="true">Turtle Window</figcaption>
 </figure>
 <p>Here are a couple of things we’ll need to understand about this program.</p>
 <p>The first line tells Python to load a module named <code>turtle</code>. That module brings us two new types that we can use: the <code>Turtle</code> type, and the <code>Screen</code> type. The dot notation <code>turtle.Turtle</code> means “<em>The Turtle type that is defined within the turtle module</em>”. (Remember that Python is case sensitive, so the module name, with a lowercase <code>t</code>, is different from the type <code>Turtle</code>.)</p>
@@ -79,7 +79,7 @@ tess.forward(50)
 wn.mainloop()</code></pre>
 <p>When we run this program, this new window pops up, and will remain on the screen until we close it.</p>
 <figure>
-<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-3/03-02-turtle-green.png" alt="tess mainloop" /><figcaption aria-hidden="true">tess mainloop</figcaption>
+<img src="Chapter-3/03-02-turtle-green.png" alt="tess mainloop" /><figcaption aria-hidden="true">tess mainloop</figcaption>
 </figure>
 <p><strong>Extend this program …</strong></p>
 <ol type="1">
@@ -122,7 +122,7 @@ alex.left(90)
 wn.mainloop()</code></pre>
 <p>Here is what happens when <code>alex</code> completes his rectangle, and <code>tess</code> completes her triangle:</p>
 <figure>
-<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-3/03-03-tess-alex.png" alt="Alex and Tess" /><figcaption aria-hidden="true">Alex and Tess</figcaption>
+<img src="Chapter-3/03-03-tess-alex.png" alt="Alex and Tess" /><figcaption aria-hidden="true">Alex and Tess</figcaption>
 </figure>
 <p>Here are some <em>How to think like a computer scientist</em> observations:</p>
 <ul>
@@ -160,7 +160,7 @@ Hi Paris.  Please come to my party on Saturday!</code></pre>
 <p><strong>Flowchart of a for loop</strong></p>
 <p>Control flow is often easy to visualize and understand if we draw a flowchart. This shows the exact steps and logic of how the for statement executes.</p>
 <figure>
-<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-3/03-04-flowchart_for.png" alt="For loop flowchart" /><figcaption aria-hidden="true">For loop flowchart</figcaption>
+<img src="Chapter-3/03-04-flowchart_for.png" alt="For loop flowchart" /><figcaption aria-hidden="true">For loop flowchart</figcaption>
 </figure>
 <h2>3.5. The loop simplifies our turtle program</h2>
 <p>To draw a square we’d like to do the same thing four times — move the turtle, and turn. We previously used 8 lines to have alex draw the four sides of a square. This does exactly the same, but using just three lines:</p>
@@ -209,7 +209,7 @@ alex.pendown()</code></pre>
 <p>Every turtle can have its own shape. The ones available “out of the box” are <code>arrow</code>, <code>blank</code>, <code>circle</code>, <code>classic</code>, <code>square</code>, <code>triangle</code>, <code>turtle</code>.</p>
 <pre><code class="language-python">alex.shape(&quot;turtle&quot;)</code></pre>
 <figure>
-<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-3/03-05-turtle-shape.png" alt="Turtle Shape" /><figcaption aria-hidden="true">Turtle Shape</figcaption>
+<img src="Chapter-3/03-05-turtle-shape.png" alt="Turtle Shape" /><figcaption aria-hidden="true">Turtle Shape</figcaption>
 </figure>
 <p>We can speed up or slow down the turtle’s animation speed. (Animation controls how quickly the turtle turns and moves forward). Speed settings can be set between <code>1</code> (slowest) to <code>10</code> (fastest). But if we set the speed to <code>0</code>, it has a special meaning — turn off animation and go as fast as possible.</p>
 <pre><code class="language-python">alex.speed(10)</code></pre>
@@ -232,7 +232,7 @@ for i in range(30):
 
 wn.mainloop()</code></pre>
 <figure>
-<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-3/03-06-spiral.png" alt="Turtle Spiral" /><figcaption aria-hidden="true">Turtle Spiral</figcaption>
+<img src="Chapter-3/03-06-spiral.png" alt="Turtle Spiral" /><figcaption aria-hidden="true">Turtle Spiral</figcaption>
 </figure>
 <p>Be careful now! How many times was the body of the loop executed? How many turtle images do we see on the screen? All except one of the shapes we see on the screen here are footprints created by stamp. But the program still only has one turtle instance — can you figure out which one here is the real tess? (<em>Hint: if you’re not sure, write a new line of code after the for loop to change tess’ color, or to put her pen down and draw a line, or to change her shape, etc.</em>)</p>
 <h2>3.7. Glossary</h2>
@@ -305,7 +305,7 @@ One of the months of the year is February
 <li>Write a program to draw a shape like this:</li>
 </ol>
 <figure>
-<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-3/03-07-star.png" alt="Star" /><figcaption aria-hidden="true">Star</figcaption>
+<img src="Chapter-3/03-07-star.png" alt="Star" /><figcaption aria-hidden="true">Star</figcaption>
 </figure>
 <p>Hints:</p>
 <ul>
@@ -316,7 +316,7 @@ One of the months of the year is February
 <li>Write a program to draw a face of a clock that looks something like this:</li>
 </ol>
 <figure>
-<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-3/04-08-turtle-clock.png" alt="Clock face" /><figcaption aria-hidden="true">Clock face</figcaption>
+<img src="Chapter-3/04-08-turtle-clock.png" alt="Clock face" /><figcaption aria-hidden="true">Clock face</figcaption>
 </figure>
 <ol start="13" type="1">
 <li><p>Create a turtle, and assign it to a variable. When you ask for its type, what do you get?</p></li>

@@ -51,9 +51,9 @@
 <p>There are also methods such as <code>lower</code>, <code>capitalize</code>, and <code>swapcase</code> that do other interesting stuff.</p>
 <p>To learn what methods are available, you can consult the Help documentation, look for string methods, and read the documentation. Or, if you’re a bit lazier, simply type the following into a PyScripter script:</p>
 <p>When you type the period to select one of the methods of <code>ss</code>, PyScripter will pop up a selection window showing all the methods (there are around 70 of them — thank goodness we’ll only use a few of those!) that could be used on your string.</p>
-<p><img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-8/string_methods.png" /></p>
+<p><img src="Chapter-8/string_methods.png" /></p>
 <p>When you type the name of the method, some further help about its parameter and return type, and its docstring, will be displayed. This is a good example of a tool — PyScripter — using the meta-information — the docstrings — provided by the module programmers.</p>
-<p><img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-8/swapcase.png" /></p>
+<p><img src="Chapter-8/swapcase.png" /></p>
 <h2>8.3. Working with the parts of a string</h2>
 <p>The <strong>indexing operator</strong> (Python uses square brackets to enclose the index) selects a single character substring from a string:</p>
 <pre><code class="language-python">&gt;&gt;&gt; fruit = &quot;banana&quot;
@@ -119,7 +119,7 @@ Caribbean
 &gt;&gt;&gt; print(friends[2:4])
 [&#39;Brad&#39;, &#39;Angelina&#39;]</code></pre>
 <p>The operator <code>[n:m]</code> returns the part of the string from the n’th character to the m’th character, including the first but excluding the last. This behavior makes sense if you imagine the indices pointing <em>between</em> the characters, as in the following diagram:</p>
-<p><img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-8/banana.png" /></p>
+<p><img src="Chapter-8/banana.png" /></p>
 <p>If you imagine this as a piece of paper, the slice operator <code>[n:m]</code> copies out the part of the paper between the <code>n</code> and <code>m</code> positions. Provided <code>m</code> and <code>n</code> are both within the bounds of the string, your result will be of length (m-n).</p>
 <p>Three tricks are added to this: if you omit the first index (before the colon), the slice starts at the beginning of the string (or list). If you omit the second index, the slice extends to the end of the string (or list). Similarly, if you provide value for <code>n</code> that is bigger than the length of the string (or list), the slice will take all the values up to the end. (It won’t give an “out of range” error like the normal indexing operation does.) Thus:</p>
 <pre><code class="language-python">&gt;&gt;&gt; fruit = &quot;banana&quot;
