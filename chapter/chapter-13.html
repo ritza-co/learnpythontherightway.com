@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>book</title>
-    <meta name="description" content="learn python the right way">
+    <title>Chapter 13 | Learn Python the Right Way</title>
+    <meta name="description" content="Learn about file handling in Chapter 13 of Learn Python the Right Way">
 
     <style type="text/css">
         figure {
@@ -35,15 +35,7 @@
  
 
 </head>
-
-<body>
-    <header><h1></h1>
-
-        <nav>
-        </nav>
-
-    </header><h1>Chapter 13: Files</h1>
-<pre><code class="language-python">.. index:: file, handle, file handle</code></pre>
+<h1>Chapter 13: Files</h1>
 <h2>13.1. About files</h2>
 <p>While a program is running, its data is stored in <em>random access memory</em> (RAM). RAM is fast and inexpensive, but it is also <strong>volatile</strong>, which means that when the program ends, or the computer shuts down, data in RAM disappears. To make data available the next time the computer is turned on and the program is started, it has to be written to a <strong>non-volatile</strong> storage medium, such a hard drive, usb drive, or CD-RW.</p>
 <p>Data on non-volatile storage media is stored in named locations on the media called <strong>files</strong>. By reading and writing files, programs can save information between program runs.</p>
@@ -61,14 +53,24 @@ myfile.close()</code></pre>
 <p>With mode <code>"w"</code>, if there is no file named <code>test.txt</code> on the disk, it will be created. If there already is one, it will be replaced by the file we are writing.</p>
 <p>To put data in the file we invoke the <code>write</code> method on the handle, shown in lines 2, 3 and 4 above. In bigger programs, lines 2–4 will usually be replaced by a loop that writes many more lines into the file.</p>
 <p>Closing the file handle (line 5) tells the system that we are done writing and makes the disk file available for reading by other programs (or by our own program).</p>
-<p>A handle is somewhat like a TV remote control</p>
+<p><strong>A handle is somewhat like a TV remote control</strong></p>
 <p>We’re all familiar with a remote control for a TV. We perform operations on the remote control — switch channels, change the volume, etc. But the real action happens on the TV. So, by simple analogy, we’d call the remote control our handle to the underlying TV.</p>
 <p>Sometimes we want to emphasize the difference — the file handle is not the same as the file, and the remote control is not the same as the TV. But at other times we prefer to treat them as a single mental chunk, or abstraction, and we’ll just say “close the file”, or “flip the TV channel”.</p>
 <h2>13.3. Reading a file line-at-a-time</h2>
 <p>Now that the file exists on our disk, we can open it, this time for reading, and read all the lines in the file, one at a time. This time, the mode argument is <code>"r"</code> for reading:</p>
+<pre><code class="language-python">mynewhandle = open(&quot;test.txt&quot;, &quot;r&quot;)
+while True:                            # Keep reading forever
+    theline = mynewhandle.readline()   # Try to read next line
+    if len(theline) == 0:              # If there are no more lines
+        break                          #     leave the loop
+
+    # Now process the line we&#39;ve just read
+    print(theline, end=&quot;&quot;)
+
+mynewhandle.close()</code></pre>
 <p>This is a handy pattern for our toolbox. In bigger programs, we’d squeeze more extensive logic into the body of the loop at line 8 —for example, if each line of the file contained the name and email address of one of our friends, perhaps we’d split the line into some pieces and call a function to send the friend a party invitation.</p>
 <p>On line 8 we suppress the newline character that <code>print</code> usually appends to our strings. Why? This is because the string already has its own newline: the <code>readline</code> method in line 3 returns everything up to <em>and including</em> the newline character. This also explains the end-of-file detection logic: when there are no more lines to be read from the file, <code>readline</code> returns an empty string — one that does not even have a newline at the end, hence its length is 0.</p>
-<p>Fail first …</p>
+<p><strong>Fail first …</strong></p>
 <p>In our sample case here, we have three lines in the file, yet we enter the loop <em>four</em> times. In Python, you only learn that the file has no more lines by failure to read another line. In some other programming languages (e.g. Pascal), things are different: there you read three lines, but you have what is called <em>look ahead</em> — after reading the third line you already know that there are no more lines in the file. You’re not even allowed to try to read the fourth line.</p>
 <p>So the templates for working line-at-a-time in Pascal and Python are subtly different!</p>
 <p>When you transfer your Python skills to your next computer language, be sure to ask how you’ll know when the file has ended: is the style in the language “try, and after you fail you’ll know”, or is it “look ahead”?</p>
@@ -77,13 +79,29 @@ myfile.close()</code></pre>
 IOError: [Errno 2] No such file or directory: &quot;wharrah.txt&quot;</code></pre>
 <h2>13.4. Turning a file into a list of lines</h2>
 <p>It is often useful to fetch data from a disk file and turn it into a list of lines. Suppose we have a file containing our friends and their email addresses, one per line in the file. But we’d like the lines sorted into alphabetical order. A good plan is to read everything into a list of lines, then sort the list, and then write the sorted list back to another file:</p>
+<pre><code class="language-python">f = open(&quot;friends.txt&quot;, &quot;r&quot;)
+xs = f.readlines()
+f.close()
+
+xs.sort()
+
+g = open(&quot;sortedfriends.txt&quot;, &quot;w&quot;)
+for v in xs:
+    g.write(v)
+g.close()</code></pre>
 <p>The <code>readlines</code> method in line 2 reads all the lines and returns a list of the strings.</p>
 <p>We could have used the template from the previous section to read each line one-at-a-time, and to build up the list ourselves, but it is a lot easier to use the method that the Python implementors gave us!</p>
 <h2>13.5. Reading the whole file at once</h2>
 <p>Another way of working with text files is to read the complete contents of the file into a string, and then to use our string-processing skills to work with the contents.</p>
 <p>We’d normally use this method of processing files if we were not interested in the line structure of the file. For example, we’ve seen the <code>split</code> method on strings which can break a string into words. So here is how we might count the number of words in a file:</p>
+<pre><code class="language-python">f = open(&quot;somefile.txt&quot;)
+content = f.read()
+f.close()
+
+words = content.split()
+print(&quot;There are {0} words in the file.&quot;.format(len(words)))</code></pre>
 <p>Notice here that we left out the <code>"r"</code> mode in line 1. By default, if we don’t supply the mode, Python opens the file for reading.</p>
-<p>Your file paths may need to be explicitly named.</p>
+<p><strong>Your file paths may need to be explicitly named.</strong></p>
 <p>In the above example, we’re assuming that the file <code>somefile.txt</code> is in the same directory as your Python source code. If this is not the case, you may need to provide a full or a relative path to the file. On Windows, a full path could look like <code>"C:\\temp\\somefile.txt"</code>, while on a Unix system the full path could be <code>"/home/jimmy/somefile.txt"</code>.</p>
 <p>We’ll return to this later in this chapter.</p>
 <h2>13.6. Working with binary files</h2>
@@ -101,14 +119,27 @@ f.close()
 g.close()</code></pre>
 <p>There are a few new things here. In lines 1 and 2 we added a <code>"b"</code> to the mode to tell Python that the files are binary rather than text files. In line 5, we see <code>read</code> can take an argument which tells it how many bytes to attempt to read from the file. Here we chose to read and write up to 1024 bytes on each iteration of the loop. When we get back an empty buffer from our attempt to read, we know we can break out of the loop and close both the files.</p>
 <p>If we set a breakpoint at line 6, (or print <code>type(buf)</code> there) we’ll see that the type of <code>buf</code> is <code>bytes</code>. We don’t do any detailed work with <code>bytes</code> objects in this textbook.</p>
-<pre><code class="language-python">.. index:: file; text, text file</code></pre>
 <h2>13.7. An example</h2>
 <p>Many useful line-processing programs will read a text file line-at-a-time and do some minor processing as they write the lines to an output file. They might number the lines in the output file, or insert extra blank lines after every 60 lines to make it convenient for printing on sheets of paper, or extract some specific columns only from each line in the source file, or only print lines that contain a specific substring. We call this kind of program a <strong>filter</strong>.</p>
 <p>Here is a filter that copies one file to another, omitting any lines that begin with <code>#</code>:</p>
+<pre><code class="language-python"> def filter(oldfile, newfile):
+     infile = open(oldfile, &quot;r&quot;)
+     outfile = open(newfile, &quot;w&quot;)
+     while True:
+         text = infile.readline()
+         if len(text) == 0:
+            break
+         if text[0] == &quot;#&quot;:
+            continue
+
+         # Put any more processing logic here
+         outfile.write(text)
+
+     infile.close()
+     outfile.close()</code></pre>
 <p>The <code>continue</code> statement at line 9 skips over the remaining lines in the current iteration of the loop, but the loop will still iterate. This style looks a bit contrived here, but it is often useful to say <em>“get the lines we’re not concerned with out of the way early, so that we have cleaner more focused logic in the meaty part of the loop that might be written around line 11.”</em></p>
 <p>Thus, if <code>text</code> is the empty string, the loop exits. If the first character of <code>text</code> is a hash mark, the flow of execution goes to the top of the loop, ready to start processing the next line. Only if both conditions fail do we fall through to do the processing at line 11, in this example, writing the line into the new file.</p>
 <p>Let’s consider one more case: suppose our original file contained empty lines. At line 6 above, would this program find the first empty line in the file, and terminate immediately? No! Recall that <code>readline</code> always includes the newline character in the string it returns. It is only when we try to read <em>beyond</em> the end of the file that we get back the empty string of length 0.</p>
-<pre><code class="language-python">directory</code></pre>
 <h2>13.8. Directories</h2>
 <p>Files on non-volatile storage media are organized by a set of rules known as a <strong>file system</strong>. File systems are made up of files and <strong>directories</strong>, which are containers for both files and other directories.</p>
 <p>When we create a new file by opening it and writing, the new file goes in the current directory (wherever we were when we ran the program). Similarly, when we open a file for reading, Python looks for it in the current directory.</p>
@@ -125,7 +156,7 @@ g.close()</code></pre>
 <p>The Python libraries are pretty messy in places. But here is a very simple example that copies the contents at some web URL to a local file.</p>
 <pre><code class="language-python">import urllib.request
 
-url = &quot;http://xml.resource.org/public/rfc/txt/rfc793.txt&quot; 
+url = &quot;https://www.ietf.org/rfc/rfc793.txt&quot;
 destination_filename = &quot;rfc793.txt&quot;
 
 urllib.request.urlretrieve(url, destination_filename)</code></pre>
@@ -141,62 +172,25 @@ def retrieve_page(url):
         The contents is converted to a string before returning it.
     &quot;&quot;&quot;
     my_socket = urllib.request.urlopen(url)
-    dta = str(my_socket.readall())  
+    dta = str(my_socket.read())  
     my_socket.close()
     return dta        
 
-the_text = retrieve_page(&quot;http://xml.resource.org/public/rfc/txt/rfc793.txt&quot;)
+the_text = retrieve_page(&quot;https://www.ietf.org/rfc/rfc793.txt&quot;)
 print(the_text)</code></pre>
 <p>Opening the remote url returns what we call a <strong>socket</strong>. This is a handle to our end of the connection between our program and the remote web server. We can call read, write, and close methods on the socket object in much the same way as we can work with a file handle.</p>
 <h2>13.10. Glossary</h2>
-<pre><code>delimiter  
-    A sequence of one or more characters used to specify the boundary
-    between separate parts of text.
-
-directory  
-    A named collection of files, also called a folder. Directories can
-    contain files and other directories, which are referred to as
-    *subdirectories* of the directory that contains them.
-
-file  
-    A named entity, usually stored on a hard drive, floppy disk, or CD-ROM,
-    that contains a stream of characters.
-
-file system  
-    A method for naming, accessing, and organizing files and the data they
-    contain.
-
-handle  
-    An object in our program that is connected to an underlying resource
-    (e.g. a file). The file handle lets our program
-    manipulate/read/write/close the actual file that is on our disk.
-
-mode  
-    A distinct method of operation within a computer program. Files in
-    Python can be opened in one of four modes: read (`&quot;r&quot;`), write (`&quot;w&quot;`),
-    append (`&quot;a&quot;`), and read and write (`&quot;+&quot;`).
-
-non-volatile memory  
-    Memory that can maintain its state without power. Hard drives, flash
-    drives, and rewritable compact disks (CD-RW) are each examples of
-    non-volatile memory.
-
-path  
-    A sequence of directory names that specifies the exact location of a
-    file.
-
-text file  
-    A file that contains printable characters organized into lines separated
-    by newline characters.
-
-socket  
-    One end of a connection allowing one to read and write information to or
-    from another computer.
-
-volatile memory  
-    Memory which requires an electrical current to maintain state. The *main
-    memory* or RAM of a computer is volatile. Information stored in RAM is
-    lost when the computer is turned off.</code></pre>
+<p><strong>delimiter</strong> A sequence of one or more characters used to specify the boundary between separate parts of text.</p>
+<p><strong>directory</strong> A named collection of files, also called a folder. Directories can contain files and other directories, which are referred to as <em>subdirectories</em> of the directory that contains them.</p>
+<p><strong>file</strong> A named entity, usually stored on a hard drive, floppy disk, or CD-ROM, that contains a stream of characters.</p>
+<p><strong>file system</strong> A method for naming, accessing, and organizing files and the data they contain.</p>
+<p><strong>handle</strong> An object in our program that is connected to an underlying resource (e.g. a file). The file handle lets our program manipulate/read/write/close the actual file that is on our disk.</p>
+<p><strong>mode</strong> A distinct method of operation within a computer program. Files in Python can be opened in one of four modes: read (<code>"r"</code>), write (<code>"w"</code>), append (<code>"a"</code>), and read and write (<code>"+"</code>).</p>
+<p><strong>non-volatile memory</strong> Memory that can maintain its state without power. Hard drives, flash drives, and rewritable compact disks (CD-RW) are each examples of non-volatile memory.</p>
+<p><strong>path</strong> A sequence of directory names that specifies the exact location of a file.</p>
+<p><strong>text file</strong> A file that contains printable characters organized into lines separated by newline characters.</p>
+<p><strong>socket</strong> One end of a connection allowing one to read and write information to or from another computer.</p>
+<p><strong>volatile memory</strong> Memory which requires an electrical current to maintain state. The <em>main memory</em> or RAM of a computer is volatile. Information stored in RAM is lost when the computer is turned off.</p>
 <h2>13.11. Exercises</h2>
 <ol type="1">
 <li>Write a program that reads a file and writes out a new file with the lines in reversed order (i.e. the<br />
@@ -222,3 +216,4 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-i
 
 </body>
 </html>
+

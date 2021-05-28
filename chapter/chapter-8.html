@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>book</title>
-    <meta name="description" content="learn python the right way">
+    <title>Chapter 8 | Learn Python the Right Way</title>
+    <meta name="description" content="Learn about Python strings in Chapter 8 of Learn Python the Right Way">
 
     <style type="text/css">
         figure {
@@ -51,9 +51,9 @@
 <p>There are also methods such as <code>lower</code>, <code>capitalize</code>, and <code>swapcase</code> that do other interesting stuff.</p>
 <p>To learn what methods are available, you can consult the Help documentation, look for string methods, and read the documentation. Or, if you’re a bit lazier, simply type the following into a PyScripter script:</p>
 <p>When you type the period to select one of the methods of <code>ss</code>, PyScripter will pop up a selection window showing all the methods (there are around 70 of them — thank goodness we’ll only use a few of those!) that could be used on your string.</p>
-<p><img src="Chapter-8/string_methods.png" /></p>
+<p><img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-8/string_methods.png" /></p>
 <p>When you type the name of the method, some further help about its parameter and return type, and its docstring, will be displayed. This is a good example of a tool — PyScripter — using the meta-information — the docstrings — provided by the module programmers.</p>
-<p><img src="Chapter-8/swapcase.png" /></p>
+<p><img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-8/swapcase.png" /></p>
 <h2>8.3. Working with the parts of a string</h2>
 <p>The <strong>indexing operator</strong> (Python uses square brackets to enclose the index) selects a single character substring from a string:</p>
 <pre><code class="language-python">&gt;&gt;&gt; fruit = &quot;banana&quot;
@@ -119,7 +119,7 @@ Caribbean
 &gt;&gt;&gt; print(friends[2:4])
 [&#39;Brad&#39;, &#39;Angelina&#39;]</code></pre>
 <p>The operator <code>[n:m]</code> returns the part of the string from the n’th character to the m’th character, including the first but excluding the last. This behavior makes sense if you imagine the indices pointing <em>between</em> the characters, as in the following diagram:</p>
-<p><img src="Chapter-8/banana.png" /></p>
+<p><img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-8/banana.png" /></p>
 <p>If you imagine this as a piece of paper, the slice operator <code>[n:m]</code> copies out the part of the paper between the <code>n</code> and <code>m</code> positions. Provided <code>m</code> and <code>n</code> are both within the bounds of the string, your result will be of length (m-n).</p>
 <p>Three tricks are added to this: if you omit the first index (before the colon), the slice starts at the beginning of the string (or list). If you omit the second index, the slice extends to the end of the string (or list). Similarly, if you provide value for <code>n</code> that is bigger than the length of the string (or list), the slice will take all the values up to the end. (It won’t give an “out of range” error like the normal indexing operation does.) Thus:</p>
 <pre><code class="language-python">&gt;&gt;&gt; fruit = &quot;banana&quot;
@@ -164,29 +164,94 @@ True</code></pre>
 <pre><code class="language-python">&gt;&gt;&gt; &quot;x&quot; not in &quot;apple&quot;
 True</code></pre>
 <p>Combining the <code>in</code> operator with string concatenation using <code>+</code>, we can write a function that removes all the vowels from a string:</p>
+<pre><code class="language-python">def remove_vowels(s):
+    vowels = &quot;aeiouAEIOU&quot;
+    s_sans_vowels = &quot;&quot;
+    for x in s:
+        if x not in vowels:
+            s_sans_vowels += x
+    return s_sans_vowels
+
+test(remove_vowels(&quot;compsci&quot;) == &quot;cmpsc&quot;)
+test(remove_vowels(&quot;aAbEefIijOopUus&quot;) == &quot;bfjps&quot;)</code></pre>
 <h2>8.10. A <code>find</code> function</h2>
 <p>What does the following function do?</p>
+<pre><code class="language-python">def find(strng, ch):
+    &quot;&quot;&quot;
+      Find and return the index of ch in strng.
+      Return -1 if ch does not occur in strng.
+    &quot;&quot;&quot;
+    ix = 0
+    while ix &lt; len(strng):
+        if strng[ix] == ch:
+            return ix
+        ix += 1
+    return -1
+
+test(find(&quot;Compsci&quot;, &quot;p&quot;) == 3)
+test(find(&quot;Compsci&quot;, &quot;C&quot;) == 0)
+test(find(&quot;Compsci&quot;, &quot;i&quot;) == 6)
+test(find(&quot;Compsci&quot;, &quot;x&quot;) == -1)</code></pre>
 <p>In a sense, <code>find</code> is the opposite of the indexing operator. Instead of taking an index and extracting the corresponding character, it takes a character and finds the index where that character appears. If the character is not found, the function returns <code>-1</code>.</p>
 <p>This is another example where we see a <code>return</code> statement inside a loop. If <code>strng[ix] == ch</code>, the function returns immediately, breaking out of the loop prematurely.</p>
 <p>If the character doesn’t appear in the string, then the program exits the loop normally and returns <code>-1</code>.</p>
 <p>This pattern of computation is sometimes called a <strong>eureka traversal</strong> or <strong>short-circuit evaluation</strong>, because as soon as we find what we are looking for, we can cry “Eureka!”, take the short-circuit, and stop looking.</p>
 <h2>8.11. Looping and counting</h2>
 <p>The following program counts the number of times the letter <code>a</code> appears in a string, and is another example of the counter pattern introduced in counting.</p>
+<pre><code class="language-python">def count_a(text):
+    count = 0
+    for c in text:
+        if c == &quot;a&quot;:
+            count += 1
+    return(count)
+
+test(count_a(&quot;banana&quot;) == 3)</code></pre>
 <h2>8.12. Optional parameters</h2>
 <p>To find the locations of the second or third occurrence of a character in a string, we can modify the <code>find</code> function, adding a third parameter for the starting position in the search string:</p>
+<pre><code class="language-python">def find2(strng, ch, start):
+    ix = start
+    while ix &lt; len(strng):
+        if strng[ix] == ch:
+            return ix
+        ix += 1
+    return -1
+
+test(find2(&quot;banana&quot;, &quot;a&quot;, 2) == 3)</code></pre>
 <p>The call <code>find2("banana", "a", 2)</code> now returns <code>3</code>, the index of the first occurrence of “a” in “banana” starting the search at index 2. What does <code>find2("banana", "n", 3)</code> return? If you said, 4, there is a good chance you understand how <code>find2</code> works.</p>
 <p>Better still, we can combine <code>find</code> and <code>find2</code> using an <strong>optional parameter</strong>:</p>
+<pre><code class="language-python">def find(strng, ch, start=0):
+    ix = start
+    while ix &lt; len(strng):
+        if strng[ix] == ch:
+            return ix
+        ix += 1
+    return -1</code></pre>
 <p>When a function has an optional parameter, the caller may provide a matching argument. If the third argument is provided to <code>find</code>, it gets assigned to <code>start</code>. But if the caller leaves the argument out, then start is given a default value indicated by the assignment <code>start=0</code> in the function definition.</p>
 <p>So the call <code>find("banana", "a", 2)</code> to this version of <code>find</code> behaves just like <code>find2</code>, while in the call <code>find("banana", "a")</code>, <code>start</code> will be set to the <strong>default value</strong> of <code>0</code>.</p>
 <p>Adding another optional parameter to <code>find</code> makes it search from a starting position, up to but not including the end position:</p>
+<pre><code class="language-python">def find(strng, ch, start=0, end=None):
+    ix = start
+    if end is None:
+       end = len(strng)
+    while ix &lt; end:
+        if strng[ix] == ch:
+            return ix
+        ix += 1
+    return -1</code></pre>
 <p>The optional value for <code>end</code> is interesting: we give it a default value <code>None</code> if the caller does not supply any argument. In the body of the function we test what <code>end</code> is, and if the caller did not supply any argument, we reassign <code>end</code> to be the length of the string. If the caller has supplied an argument for <code>end</code>, however, the caller’s value will be used in the loop.</p>
 <p>The semantics of <code>start</code> and <code>end</code> in this function are precisely the same as they are in the <code>range</code> function.</p>
 <p>Here are some test cases that should pass:</p>
+<pre><code class="language-python">ss = &quot;Python strings have some interesting methods.&quot;
+test(find(ss, &quot;s&quot;) == 7)
+test(find(ss, &quot;s&quot;, 7) == 7)
+test(find(ss, &quot;s&quot;, 8) == 13)
+test(find(ss, &quot;s&quot;, 8, 13) == -1)
+test(find(ss, &quot;.&quot;) == len(ss)-1)</code></pre>
 <h2>8.13. The built-in <code>find</code> method</h2>
 <p>Now that we’ve done all this work to write a powerful <code>find</code> function, we can reveal that strings already have their own built-in <code>find</code> method. It can do everything that our code can do, and more!</p>
 <p>The built-in <code>find</code> method is more general than our version. It can find substrings, not just single characters:</p>
 <pre><code class="language-python">&gt;&gt;&gt; &quot;banana&quot;.find(&quot;nan&quot;)
-2
+
 &gt;&gt;&gt; &quot;banana&quot;.find(&quot;na&quot;, 3)
 4</code></pre>
 <p>Usually we’d prefer to use the methods that Python provides rather than reinvent our own equivalents. But many of the built-in functions and methods make good teaching exercises, and the underlying techniques you learn are your building blocks to becoming a proficient programmer.</p>
@@ -199,15 +264,60 @@ True</code></pre>
 <h2>8.15. Cleaning up your strings</h2>
 <p>We’ll often work with strings that contain punctuation, or tab and newline characters, especially, as we’ll see in a future chapter, when we read our text from files or from the Internet. But if we’re writing a program, say, to count word frequencies or check the spelling of each word, we’d prefer to strip off these unwanted characters.</p>
 <p>We’ll show just one example of how to strip punctuation from a string. Remember that strings are immutable, so we cannot change the string with the punctuation — we need to traverse the original string and create a new string, omitting any punctuation:</p>
+<pre><code class="language-python">punctuation = &quot;!\&quot;#$%&amp;&#39;()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~&quot;
+
+def remove_punctuation(s):
+    s_sans_punct = &quot;&quot;
+    for letter in s:
+        if letter not in punctuation:
+            s_sans_punct += letter
+    return s_sans_punct</code></pre>
 <p>Setting up that first assignment is messy and error-prone. Fortunately, the Python <code>string</code> module already does it for us. So we will make a slight improvement to this program — we’ll import the <code>string</code> module and use its definition:</p>
+<pre><code class="language-python">import string
+
+def remove_punctuation(s):
+    s_without_punct = &quot;&quot;
+    for letter in s:
+        if letter not in string.punctuation:
+            s_without_punct += letter
+    return s_without_punct
+
+test(remove_punctuation(&#39;&quot;Well, I never did!&quot;, said Alice.&#39;) ==
+                            &quot;Well I never did said Alice&quot;)
+test(remove_punctuation(&quot;Are you very, very, sure?&quot;) ==
+                             &quot;Are you very very sure&quot;)</code></pre>
 <p>Composing together this function and the <code>split</code> method from the previous section makes a useful combination — we’ll clean out the punctuation, and <code>split</code> will clean out the newlines and tabs while turning the string into a list of words:</p>
+<pre><code class="language-python">my_story = &quot;&quot;&quot;
+Pythons are constrictors, which means that they will &#39;squeeze&#39; the life
+out of their prey. They coil themselves around their prey and with
+each breath the creature takes the snake will squeeze a little tighter
+until they stop breathing completely. Once the heart stops the prey
+is swallowed whole. The entire animal is digested in the snake&#39;s
+stomach except for fur or feathers. What do you think happens to the fur,
+feathers, beaks, and eggshells? The &#39;extra stuff&#39; gets passed out as ---
+you guessed it --- snake POOP! &quot;&quot;&quot;
+
+wds = remove_punctuation(my_story).split()
+print(wds)</code></pre>
 <p>The output:</p>
 <pre><code class="language-python">[&#39;Pythons&#39;, &#39;are&#39;, &#39;constrictors&#39;, ... , &#39;it&#39;, &#39;snake&#39;, &#39;POOP&#39;]</code></pre>
 <p>There are other useful string methods, but this book isn’t intended to be a reference manual. On the other hand, the <em>Python Library Reference</em> is. Along with a wealth of other documentation, it is available at the <a href="https://www.python.org/">Python website</a>.</p>
 <h2>8.16. The string format method</h2>
 <p>The easiest and most powerful way to format a string in Python 3 is to use the <code>format</code> method. To see how this works, let’s start with a few examples:</p>
+<pre><code class="language-python">s1 = &quot;His name is {0}!&quot;.format(&quot;Arthur&quot;)
+print(s1)
+
+name = &quot;Alice&quot;
+age = 10
+s2 = &quot;I am {1} and I am {0} years old.&quot;.format(age, name)
+print(s2)
+
+n1 = 4
+n2 = 5
+s3 = &quot;2**10 = {0} and {1} * {2} = {3:f}&quot;.format(2**10, n1, n2, n1 * n2)
+print(s3)</code></pre>
 <p>Running the script produces:</p>
-<pre><code class="language-python">His name is Arthur!
+<pre><code>His name is Arthur!
 I am Alice and I am 10 years old.
 2**10 = 1024 and 4 * 5 = 20.000000</code></pre>
 <p>The template string contains place holders, <code>... {0} ... {1} ... {2} ...</code> etc. The <code>format</code> method substitutes its arguments into the place holders. The numbers in the place holders are indexes that determine which argument gets substituted — make sure you understand line 6 above!</p>
@@ -218,14 +328,33 @@ I am Alice and I am 10 years old.
 <li>the type of conversion (we’ll initially only force conversion to float, <code>f</code>, as we did in line 11 of the code above, or perhaps we’ll ask integer numbers to be converted to hexadecimal using <code>x</code>)</li>
 <li>if the type conversion is a float, you can also specify how many decimal places are wanted (typically, <code>.2f</code> is useful for working with currencies to two decimal places.) Let’s do a few simple and common examples that should be enough for most needs. If you need to do anything more esoteric, use help and read all the powerful, gory details.</li>
 </ul>
+<pre><code class="language-python">n1 = &quot;Paris&quot;
+n2 = &quot;Whitney&quot;
+n3 = &quot;Hilton&quot;
+
+print(&quot;Pi to three decimal places is {0:.3f}&quot;.format(3.1415926))
+print(&quot;123456789 123456789 123456789 123456789 123456789 123456789&quot;)
+print(&quot;|||{0:&lt;15}|||{1:^15}|||{2:&gt;15}|||Born in {3}|||&quot;
+        .format(n1,n2,n3,1981))
+print(&quot;The decimal value {0} converts to hex value {0:x}&quot;
+        .format(123456))</code></pre>
 <p>This script produces the output:</p>
 <pre><code class="language-python">Pi to three decimal places is 3.142
 123456789 123456789 123456789 123456789 123456789 123456789
 |||Paris          |||    Whitney    |||         Hilton|||Born in 1981|||
 The decimal value 123456 converts to hex value 1e240</code></pre>
 <p>You can have multiple placeholders indexing the same argument, or perhaps even have extra arguments that are not referenced at all:</p>
+<pre><code class="language-python">letter = &quot;&quot;&quot;
+Dear {0} {2}.
+ {0}, I have an interesting money-making proposition for you!
+ If you deposit $10 million into my bank account, I can
+ double your money ...
+&quot;&quot;&quot;
+
+print(letter.format(&quot;Paris&quot;, &quot;Whitney&quot;, &quot;Hilton&quot;))
+print(letter.format(&quot;Bill&quot;, &quot;Henry&quot;, &quot;Gates&quot;))</code></pre>
 <p>This produces the following:</p>
-<pre><code class="language-python">Dear Paris Hilton.
+<pre><code>Dear Paris Hilton.
  Paris, I have an interesting money-making proposition for you!
  If you deposit $10 million into my bank account, I can
  double your money ...
@@ -241,6 +370,10 @@ Traceback (most recent call last):
   File &quot;&lt;interactive input&gt;&quot;, line 1, in &lt;module&gt;
 IndexError: tuple index out of range</code></pre>
 <p>The following example illustrates the real utility of string formatting. First, we’ll try to print a table without using string formatting:</p>
+<pre><code class="language-python">print(&quot;i\ti**2\ti**3\ti**5\ti**10\ti**20&quot;)
+for i in range(1, 11):
+    print(i, &quot;\t&quot;, i**2, &quot;\t&quot;, i**3, &quot;\t&quot;, i**5, &quot;\t&quot;,
+                                            i**10, &quot;\t&quot;, i**20)</code></pre>
 <p>This program prints out a table of various powers of the numbers from 1 to 10. (This assumes that the tab width is 8. You might see something even worse than this if you tab width is set to 4.) In its current form it relies on the tab character ( <code>\t</code>) to align the columns of values, but this breaks down when the values in the table get larger than the tab width:</p>
 <pre><code class="language-python">i       i**2    i**3    i**5    i**10   i**20
 1       1       1       1       1       1
@@ -254,6 +387,11 @@ IndexError: tuple index out of range</code></pre>
 9       81      729     59049   3486784401      12157665459056928801
 10      100     1000    100000  10000000000     100000000000000000000</code></pre>
 <p>One possible solution would be to change the tab width, but the first column already has more space than it needs. The best solution would be to set the width of each column independently. As you may have guessed by now, string formatting provides a much nicer solution. We can also right-justify each field:</p>
+<pre><code class="language-python">layout = &quot;{0:&gt;4}{1:&gt;6}{2:&gt;6}{3:&gt;8}{4:&gt;13}{5:&gt;24}&quot;
+
+print(layout.format(&quot;i&quot;, &quot;i**2&quot;, &quot;i**3&quot;, &quot;i**5&quot;, &quot;i**10&quot;, &quot;i**20&quot;))
+for i in range(1, 11):
+    print(layout.format(i, i**2, i**3, i**5, i**10, i**20))</code></pre>
 <p>Running this version produces the following (much more satisfying) output:</p>
 <pre><code class="language-python">i  i**2  i**3    i**5        i**10                   i**20
  1     1     1       1            1                       1
@@ -316,7 +454,7 @@ for letter in prefixes:
 <ol start="3" type="1">
 <li>Encapsulate</li>
 </ol>
-<pre><code>fruit = &quot;banana&quot;
+<pre><code class="language-python">fruit = &quot;banana&quot;
 count = 0
 for char in fruit:
     if char == &quot;a&quot;:

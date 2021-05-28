@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>book</title>
-    <meta name="description" content="learn python the right way">
+    <title>Chapter 14 | Learn Python the Right Way</title>
+    <meta name="description" content="Learn about lists and list algorithms in Chapter 14 of Learn Python the Right Way">
 
     <style type="text/css">
         figure {
@@ -35,24 +35,15 @@
  
 
 </head>
-
-<body>
-    <header><h1></h1>
-
-        <nav>
-        </nav>
-
-    </header><h1>Chapter 14: List Algorithms</h1>
+<h1>Chapter 14: List Algorithms</h1>
 <p>This chapter is a bit different from what we’ve done so far: rather than introduce more new Python syntax and features, we’re going to focus on the program development process, and some algorithms that work with lists.</p>
 <p>As in all parts of this book, our expectation is that you, the reader, will copy our code into your Python environment, play and experiment, and work along with us.</p>
-<p>Part of this chapter works with the book <code>Alice in Wonderland</code> and a <code>vocabulary file</code>. Your browser should be able to download and save these files from these links.</p>
-<pre><code class="language-python">.. index:: Test-driven development, scaffolding</code></pre>
+<p>Part of this chapter works with the book <em>Alice in Wonderland</em> and a <em>vocabulary file</em>. Download these two files to your local machine at the following links. <a href="https://learnpythontherightway.com/_downloads/alice_in_wonderland.txt">https://learnpythontherightway.com/_downloads/alice_in_wonderland.txt</a> and <a href="https://learnpythontherightway.com/_downloads/vocab.txt">https://learnpythontherightway.com/_downloads/vocab.txt</a>.</p>
 <h2>14.1. Test-driven development</h2>
 <p>Early in our Fruitful functions chapter we introduced the idea of <em>incremental development</em>, where we added small fragments of code to slowly build up the whole, so that we could easily find problems early. Later in that same chapter we introduced unit testing and gave code for our testing framework so that we could capture, in code, appropriate tests for the functions we were writing.</p>
 <p><strong>Test-driven development (TDD)</strong> is a software development practice which takes these practices one step further. The key idea is that automated tests should be written <em>first</em>. This technique is called <em>test-driven</em> because — if we are to believe the extremists — non-testing code should only be written when there is a failing test to make pass.</p>
 <p>We can still retain our mode of working in small incremental steps, but now we’ll define and express those steps in terms of a sequence of increasingly sophisticated unit tests that demand more from our code at each stage.</p>
 <p>We’ll turn our attention to some standard algorithms that process lists now, but as we proceed through this chapter we’ll attempt to do so in the spirit envisaged by TDD.</p>
-<pre><code>.. index:: single: search: linear search</code></pre>
 <h2>14.2. The linear search algorithm</h2>
 <p>We’d like to know the index where a specific item occurs within in a list of items. Specifically, we’ll return the index of the item if it is found, or we’ll return -1 if the item doesn’t occur in the list. Let us start with some tests:</p>
 <pre><code class="language-python">friends = [&quot;Joe&quot;, &quot;Zoe&quot;, &quot;Brad&quot;, &quot;Angelina&quot;, &quot;Zuki&quot;, &quot;Thandi&quot;, &quot;Paris&quot;]
@@ -91,7 +82,9 @@ test(find_unknown_words(vocab, [&quot;the&quot;, &quot;boy&quot;, &quot;fell&quo
             result.append(w)
     return result</code></pre>
 <p>We can happily report now that the tests all pass.</p>
-<p>Now let us look at the scalability. We have more realistic vocabulary in the text file that could be downloaded at the beginning of this chapter, so let us read in the file (as a single string) and split it into a list of words. For convenience, we’ll create a function to do this for us, and test it on a file we happen to have available:</p>
+<p>Now let us look at the scalability. We have more realistic vocabulary in the text file that could be downloaded at the beginning of this chapter. Upload the <code>vocab.txt</code> file to a new repl so that you can access it from your code.</p>
+<p><img src="Chapter-14/upload-example.png" /></p>
+<p>Now let us read in the file (as a single string) and split it into a list of words. For convenience, we’ll create a function to do this for us, and test it on the vocab file.</p>
 <pre><code class="language-python">def load_words_from_file(filename):
     &quot;&quot;&quot; Read words from filename, return list of words. &quot;&quot;&quot;
     f = open(filename, &quot;r&quot;)
@@ -121,7 +114,7 @@ test(text_to_words(&#39;&quot;Well, I never!&quot;, said Alice.&#39;) ==
     wds = text_to_words(content)
     return wds
 
-book_words = get_words_in_book(&quot;AliceInWonderland.txt&quot;)
+book_words = get_words_in_book(&quot;alice_in_wonderland.txt&quot;)
 print(&quot;There are {0} words in the book, the first 100 are\n{1}&quot;.
            format(len(book_words), book_words[:100]))</code></pre>
 <p>Python prints the following (all on one line, we’ve cheated a bit for the textbook):</p>
@@ -152,7 +145,6 @@ print(&quot;That took {0:.4f} seconds.&quot;.format(t1-t0))</code></pre>
 <p>We get the results and some timing that we can refer back to later:</p>
 <pre><code class="language-python">There are 3398 unknown words.
 That took 49.8014 seconds. </code></pre>
-<pre><code>.. index:: single: search; binary search</code></pre>
 <h2>14.4. Binary Search</h2>
 <p>If you think about what we’ve just done, it is not how we work in real life. If you were given a vocabulary and asked to tell if some word was present, you’d probably start in the middle. You can do this because the vocabulary is ordered — so you can probe some word in the middle, and immediately realize that your target was before (or perhaps after) the one you had probed. Applying this principle repeatedly leads us to a very much better algorithm for searching in a list of items that are already ordered. (Note that if the items are not ordered, you have little choice other than to look through all of them. But, if we know the items are in order, we can improve our searching technique).</p>
 <p>Lets start with some tests. Remember, the list needs to be sorted:</p>
@@ -222,7 +214,7 @@ ROI[10328:10329](size=1), probed=&#39;magic&#39;, target=&#39;magic&#39;
 <p>With 1 probe, we can only search a list of size 1. With two probes we could cope with lists up to size 3 - (test the middle item with the first probe, then test either the left or right sublist with the second probe). With one more probe, we could cope with 7 items (the middle item, and two sublists of size 3). With four probes, we can search 15 items, and 5 probes lets us search up to 31 items. So the general relationship is given by the formula</p>
 <pre><code class="language-python">N = 2 ** k - 1</code></pre>
 <p>where k is the number of probes we’re allowed to make, and N is the maximum size of the list that can be searched in that many probes. This function is <em>exponential</em> in k (because k occurs in the exponent part). If we wanted to turn the formula around and solve for k in terms of N, we need to move the constant 1 to the other side, and take a log (base 2) on each side. (The log is the inverse of an exponent.) So the formula for k in terms of N is now:</p>
-<p><img src="Chapter-14/log2np1.png" /></p>
+<p><img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-14/log2np1.png" /></p>
 <p>The square-only-on-top brackets are called <em>ceiling brackets</em>: this means that you must round the number up to the next whole integer.</p>
 <p>Let us try this on a calculator, or in Python, which is the mother of all calculators: suppose I have 1000 elements to be searched, what is the maximum number of probes I’ll need? (There is a pesky +1 in the formula, so let us not forget to add it on…):</p>
 <pre><code class="language-python">&gt;&gt;&gt; from math import log
@@ -238,7 +230,6 @@ ROI[10328:10329](size=1), probed=&#39;magic&#39;, target=&#39;magic&#39;
 30 </code></pre>
 <p>This tells us that searching 1000 items needs 10 probes. (Well technically, with 10 probes we can search exactly 1023 items, but the easy and useful stuff to remember here is that “1000 items needs 10 probes, a million needs 20 probes, and a billion items only needs 30 probes”).</p>
 <p>You will rarely encounter algorithms that scale to large datasets as beautifully as binary search does!</p>
-<pre><code>.. index:: single: duplicate removal</code></pre>
 <h2>14.5. Removing adjacent duplicates from a list</h2>
 <p>We often want to get the unique elements in a list, i.e. produce a new list in which each different element occurs just once. Consider our case of looking for words in Alice in Wonderland that are not in our vocabulary. We had a report that there are 3398 such words, but there are duplicates in that list. In fact, the word “alice” occurs 398 times in the book, and it is not in our vocabulary! How should we remove these duplicates?</p>
 <p>A good approach is to sort the list, then remove all adjacent duplicates. Let us start with removing adjacent duplicates</p>
@@ -261,7 +252,7 @@ test(remove_adjacent_dups([&quot;a&quot;, &quot;big&quot;, &quot;big&quot;, &quo
     return result</code></pre>
 <p>The amount of work done in this algorithm is linear — each item in <code>xs</code> causes the loop to execute exactly once, and there are no nested loops. So doubling the number of elements in <code>xs</code> should cause this function to run twice as long: the relationship between the size of the list and the time to run will be graphed as a straight (linear) line.</p>
 <p>Let us go back now to our analysis of Alice in Wonderland. Before checking the words in the book against the vocabulary, we’ll sort those words into order, and eliminate duplicates. So our new code looks like this:</p>
-<pre><code class="language-python">all_words = get_words_in_book(&quot;AliceInWonderland.txt&quot;)
+<pre><code class="language-python">all_words = get_words_in_book(&quot;alice_in_wonderland.txt&quot;)
 all_words.sort()
 book_words = remove_adjacent_dups(all_words)
 print(&quot;There are {0} words in the book. Only {1} are unique.&quot;.
@@ -289,7 +280,6 @@ The first 100 words are
  &#39;appearance&#39;, &#39;appeared&#39;, &#39;appearing&#39;, &#39;applause&#39;, &#39;apple&#39;, 
  &#39;apples&#39;, &#39;arch&#39;]</code></pre>
 <p>Lewis Carroll was able to write a classic piece of literature using only 2570 different words!</p>
-<pre><code>.. index:: single: sort; merge sort</code></pre>
 <h2>14.6. Merging sorted lists</h2>
 <p>Suppose we have two sorted lists. Devise an algorithm to merge them together into a single sorted list.</p>
 <p>A simple but inefficient algorithm could be to simply append the two lists together, and sort the result:</p>
@@ -382,10 +372,9 @@ list?</li>
 That took 0.0410 seconds.    </code></pre>
 <p>Let’s review what we’ve done. We started with a word-by-word linear lookup in the vocabulary that ran in about 50 seconds. We implemented a clever binary search, and got that down to 0.22 seconds, more than 200 times faster. But then we did something even better: we sorted the words from the book, eliminated duplicates, and used a merging pattern to find words from the book that were not in the dictionary. This was about five times faster than even the binary lookup algorithm. At the end of the chapter our algorithm is more than a 1000 times faster than our first attempt!</p>
 <p>That is what we can call a good day at the office!</p>
-<pre><code>.. index:: Eight Queens puzzle, data representation, data structure</code></pre>
 <h2>14.8. Eight Queens puzzle, part 1</h2>
 <p>As told by Wikipedia, <em>“The eight queens puzzle is the problem of placing eight chess queens on an 8x8 chessboard so that no two queens attack each other. Thus, a solution requires that no two queens share the same row, column, or diagonal.”</em></p>
-<p><img src="Chapter-14/eight_queens_01.png" /></p>
+<p><img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-14/eight_queens_01.png" /></p>
 <p>Please try this yourself, and find a few more solutions by hand.</p>
 <p>We’d like to write a program to find solutions to this puzzle. In fact, the puzzle generalizes to placing N queens on an NxN board, so we’re going to think about the general case, not just the 8x8 case. Perhaps we can find solutions for 12 queens on a 12x12 board, or 20 queens on a 20x20 board.</p>
 <p>How do we approach a complex problem like this? A good starting point is to think about our <em>data structures</em> — how exactly do we plan to represent the state of the chessboard and its queens in our program? Once we have some handle on what our puzzle is going to look like in memory, we can begin to think about the functions and logic we’ll need to solve the puzzle, i.e. how do we put another queen onto the board somewhere, and to check whether it clashes with any of the queens already on the board.</p>
@@ -611,3 +600,4 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-i
 
 </body>
 </html>
+

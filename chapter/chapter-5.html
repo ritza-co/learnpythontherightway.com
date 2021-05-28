@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>book</title>
-    <meta name="description" content="learn python the right way">
+    <title>Chapter 5 | Learn Python the Right Way</title>
+    <meta name="description" content="An introduction to boolean logic and conditionals. Read Chapter 5 of Learn Python the Right">
 
     <style type="text/css">
         figure {
@@ -35,14 +35,7 @@
  
 
 </head>
-
-<body>
-    <header><h1></h1>
-
-        <nav>
-        </nav>
-
-    </header><h1>Chapter 5: Conditionals</h1>
+<h1>Chapter 5: Conditionals</h1>
 <p>Programs get really interesting when we can test conditions and change the program behaviour depending on the outcome of the tests. That’s what this chapter is about.</p>
 <h2>5.1. Boolean values and expressions</h2>
 <p>A Boolean value is either true or false. It is named after the British mathematician, George Boole, who first formulated Boolean algebra — some rules for reasoning about and combining these values. This is the basis of all modern computer logic.</p>
@@ -197,7 +190,10 @@ else:
     print(&quot;Did you know that multiplying two odd numbers &quot; +
                                          &quot;always gives an odd result?&quot;)</code></pre>
 <p>The Boolean expression after the <code>if</code> statement is called the <strong>condition</strong>. If it is true, then all the indented statements get executed. If not, then all the statements indented under the <code>else</code> clause get executed.</p>
-<p>A&gt; <strong>Flowchart of an <code>if</code> statement with an <code>else</code> clause</strong> A&gt; A&gt; <img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-5/05-01-flowchart_if_else.png" alt="Flowchart - if else" /></p>
+<p><strong>Flowchart of an <code>if</code> statement with an <code>else</code> clause</strong></p>
+<figure>
+<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-5/05-01-flowchart_if_else.png" alt="Flowchart - if else" /><figcaption aria-hidden="true">Flowchart - if else</figcaption>
+</figure>
 <p>The syntax for an if statement looks like this:</p>
 <pre><code class="language-python">if BOOLEAN EXPRESSION:
     STATEMENTS_1        # Executed if condition evaluates to True
@@ -212,7 +208,10 @@ else:
 else:
     pass</code></pre>
 <h2>5.6. Omitting the else clause</h2>
-<p>A&gt; <strong>Flowchart of an <code>if</code> statement with no <code>else</code> clause</strong> A&gt; A&gt; <img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-5/05-02-flowchart_if_only.png" alt="Flowchart - if only" /></p>
+<p><strong>Flowchart of an <code>if</code> statement with no <code>else</code> clause</strong></p>
+<figure>
+<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-5/05-02-flowchart_if_only.png" alt="Flowchart - if only" /><figcaption aria-hidden="true">Flowchart - if only</figcaption>
+</figure>
 <p>Another form of the <code>if</code> statement is one in which the <code>else</code> clause is omitted entirely. In this case, when the condition evaluates to <code>True</code>, the statements are executed, otherwise the flow of execution continues to the statement after the <code>if</code>.</p>
 <pre><code class="language-python">if x &lt; 0:
     print(&quot;The negative number &quot;,  x, &quot; is not valid here.&quot;)
@@ -221,7 +220,9 @@ else:
 
 print(&quot;The square root of &quot;, x, &quot;is&quot;, math.sqrt(x))</code></pre>
 <p>In this case, the <code>print</code> function that outputs the square root is the one after the <code>if</code> — not because we left a blank line, but because of the way the code is indented. Note too that the function call <code>math.sqrt(x)</code> will give an error unless we have an <code>import math</code> statement, usually placed near the top of our script.</p>
-<p>A&gt; <strong>Python terminology</strong> A&gt; A&gt; Python documentation sometimes uses the term <strong>suite</strong> of statements to mean what we have called a <em>block</em> here. They mean the same thing, and since most other languages and computer scientists use the word block, we’ll stick with that. A&gt; A&gt; Notice too that <code>else</code> is not a statement. The <code>if</code> statement has two clauses, one of which is the (optional) <code>else</code> clause.</p>
+<p><strong>Python terminology</strong></p>
+<p>Python documentation sometimes uses the term <strong>suite</strong> of statements to mean what we have called a <em>block</em> here. They mean the same thing, and since most other languages and computer scientists use the word block, we’ll stick with that.</p>
+<p>Notice too that <code>else</code> is not a statement. The <code>if</code> statement has two clauses, one of which is the (optional) <code>else</code> clause.</p>
 <h2>5.7. Chained conditionals</h2>
 <p>Sometimes there are more than two possibilities and we need more than two branches. One way to express a computation like that is a <strong>chained conditional</strong>:</p>
 <pre><code class="language-python">if x &lt; y:
@@ -230,7 +231,10 @@ elif x &gt; y:
     STATEMENTS_B
 else:
     STATEMENTS_C</code></pre>
-<p>A&gt; <strong>Flowchart of this chained conditional</strong> A&gt; A&gt; <img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-5/05-03-flowchart_chained_conditional.png" alt="Flowchart - chained conditional" /></p>
+<p><strong>Flowchart of this chained conditional</strong></p>
+<figure>
+<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-5/05-03-flowchart_chained_conditional.png" alt="Flowchart - chained conditional" /><figcaption aria-hidden="true">Flowchart - chained conditional</figcaption>
+</figure>
 <p><code>elif</code> is an abbreviation of else if. Again, exactly one branch will be executed. There is no limit of the number of <code>elif</code> statements but only a single (and optional) final <code>else</code> statement is allowed and it must be the last branch in the statement:</p>
 <pre><code class="language-python">if choice == &quot;a&quot;:
     function_one()
@@ -243,7 +247,10 @@ else:
 <p>Each condition is checked in order. If the first is false, the next is checked, and so on. If one of them is true, the corresponding branch executes, and the statement ends. Even if more than one condition is true, only the first true branch executes.</p>
 <h2>5.8. Nested conditionals</h2>
 <p>One conditional can also be <strong>nested</strong> within another. (It is the same theme of composability, again!) We could have written the previous example as follows:</p>
-<p>A&gt; <strong>Flowchart of this nested conditional</strong> A&gt; A&gt; <img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-5/05-04-flowchart_nested_conditional.png" alt="Flowchart - nested conditional" /></p>
+<p><strong>Flowchart of this nested conditional</strong></p>
+<figure>
+<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-5/05-04-flowchart_nested_conditional.png" alt="Flowchart - nested conditional" /><figcaption aria-hidden="true">Flowchart - nested conditional</figcaption>
+</figure>
 <pre><code class="language-python">if x &lt; y:
     STATEMENTS_A
 else:
@@ -334,7 +341,9 @@ else:
     print(&quot;Your attack has no effect, the dragon fries you to a crisp!&quot;)</code></pre>
 <p>This version is probably the best of the three, because it very closely matches the initial English statement. Clarity of our code (for other humans), and making it easy to see that the code does what was expected should always be a high priority.</p>
 <p>As our programming skills develop we’ll find we have more than one way to solve any problem. So good programs are <em>designed</em>. We make choices that favour clarity, simplicity, and elegance. The job title <em>software architect</em> says a lot about what we do — we are <em>architects</em> who engineer our products to balance beauty, functionality, simplicity and clarity in our creations.</p>
-<p>A&gt; <strong><em>Tip</em></strong> A&gt; A&gt; <em>Once our program works, we should play around a bit trying to polish it up. Write good comments. Think about whether the code would be clearer with different variable names. Could we have done it more elegantly? Should we rather use a function? Can we simplify the conditionals?</em> A&gt; A&gt; <em>We think of our code as our creation, our work of art! We make it great.</em></p>
+<p><strong><em>Tip</em></strong></p>
+<p><em>Once our program works, we should play around a bit trying to polish it up. Write good comments. Think about whether the code would be clearer with different variable names. Could we have done it more elegantly? Should we rather use a function? Can we simplify the conditionals?</em></p>
+<p><em>We think of our code as our creation, our work of art! We make it great.</em></p>
 <h2>5.11. Type conversion</h2>
 <p>We’ve had a first look at this in an earlier chapter. Seeing it again won’t hurt!</p>
 <p>Many Python types come with a built-in function that attempts to convert values of another type into its own type. The <code>int</code> function, for example, takes any value and converts it to an integer, if possible, or complains otherwise:</p>
@@ -397,12 +406,12 @@ NameError: name &#39;true&#39; is not defined</code></pre>
 for v in xs:              # Assume xs and tess are ready
     draw_bar(tess, v)</code></pre>
 <figure>
-<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-5/05-05-tess_bar_1.png" alt="Simple bar chart" /><figcaption aria-hidden="true">Simple bar chart</figcaption>
+<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-5/05-05-tess_bar_1.png" alt="Simple bar chart" /><figcaption aria-hidden="true">Simple bar chart</figcaption>
 </figure>
 <p>Ok, not fantastically impressive, but it is a nice start! The important thing here was the mental chunking, or how we broke the problem into smaller pieces. Our chunk is to draw one bar, and we wrote a function to do that. Then, for the whole chart, we repeatedly called our function.</p>
 <p>Next, at the top of each bar, we’ll print the value of the data. We’ll do this in the body of <code>draw_bar</code>, by adding <code>t.write('  ' + str(height))</code> as the new third line of the body. We’ve put a little space in front of the number, and turned the number into a string. Without this extra space we tend to cramp our text awkwardly against the bar to the left. The result looks a lot better now:</p>
 <figure>
-<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-5/05-06-tess_bar_2.png" alt="Numbered bar chart" /><figcaption aria-hidden="true">Numbered bar chart</figcaption>
+<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-5/05-06-tess_bar_2.png" alt="Numbered bar chart" /><figcaption aria-hidden="true">Numbered bar chart</figcaption>
 </figure>
 <p>And now we’ll add two lines to fill each bar. Our final program now looks like this:</p>
 <pre><code class="language-python">import turtle
@@ -436,7 +445,7 @@ for a in xs:
 wn.mainloop()</code></pre>
 <p>It produces the following, which is more satisfying:</p>
 <figure>
-<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-5/05-07-tess_bar_3.png" alt="Filled bar chart" /><figcaption aria-hidden="true">Filled bar chart</figcaption>
+<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-5/05-07-tess_bar_3.png" alt="Filled bar chart" /><figcaption aria-hidden="true">Filled bar chart</figcaption>
 </figure>
 <p>Mmm. Perhaps the bars should not be joined to each other at the bottom. We’ll need to pick up the pen while making the gap between the bars. We’ll leave that (and a few more tweaks) as exercises for you!</p>
 <h2>5.13. Glossary</h2>
@@ -622,3 +631,4 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-i
 
 </body>
 </html>
+

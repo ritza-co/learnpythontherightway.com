@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>book</title>
-    <meta name="description" content="learn python the right way">
+    <title>Chapter 9 | Learn Python the Right Way</title>
+    <meta name="description" content="Learn about Tuples in Python in Chapter 9 of Learn Python the Right Way.">
 
     <style type="text/css">
         figure {
@@ -35,14 +35,7 @@
  
 
 </head>
-
-<body>
-    <header><h1></h1>
-
-        <nav>
-        </nav>
-
-    </header><h1>Chapter 9: Tuples</h1>
+<h1>Chapter 9: Tuples</h1>
 <h2>9.1. Tuples are used for grouping data</h2>
 <p>We saw earlier that we could group together pairs of values by surrounding with parentheses. Recall this example:</p>
 <pre><code class="language-python"> &gt;&gt;&gt; year_born = (&quot;Paris Hilton&quot;, 1981) </code></pre>
@@ -68,9 +61,6 @@ TypeError: &#39;tuple&#39; object does not support item assignment</code></pre>
 &gt;&gt;&gt; x = (5)
 &gt;&gt;&gt; type(x)
 &lt;class &#39;int&#39;&gt;     </code></pre>
-<pre><code>.. index::
-    single: assignment; tuple
-    single: tuple; assignment</code></pre>
 <h2>9.2. Tuple assignment</h2>
 <p>Python has a very powerful <strong>tuple assignment</strong> feature that allows a tuple of variables on the left of an assignment to be assigned values from a tuple on the right of the assignment. (We already saw this used for pairs, but it generalizes.)</p>
 <pre><code class="language-python">(name, surname, b_year, movie, m_year, profession, b_place) = julia</code></pre>
@@ -88,17 +78,23 @@ TypeError: &#39;tuple&#39; object does not support item assignment</code></pre>
 &gt;&gt;&gt; studies
 &#39;CS&#39;</code></pre>
 <p>Once in a while, it is useful to swap the values of two variables. With conventional assignment statements, we have to use a temporary variable. For example, to swap <code>a</code> and <code>b</code>:</p>
+<pre><code class="language-python">temp = a
+a = b
+b = temp</code></pre>
 <p>Tuple assignment solves this problem neatly:</p>
+<pre><code class="language-python">(a, b) = (b, a)</code></pre>
 <p>The left side is a tuple of variables; the right side is a tuple of values. Each value is assigned to its respective variable. All the expressions on the right side are evaluated before any of the assignments. This feature makes tuple assignment quite versatile.</p>
 <p>Naturally, the number of variables on the left and the number of values on the right have to be the same:</p>
 <pre><code class="language-python">&gt;&gt;&gt; (a, b, c, d) = (1, 2, 3)
 ValueError: need more than 3 values to unpack </code></pre>
-<pre><code>.. index::
-    single: tuple; return value</code></pre>
-<pre><code>.. index:: return a tuple</code></pre>
 <h2>9.3. Tuples as return values</h2>
 <p>Functions can always only return a single value, but by making that value a tuple, we can effectively group together as many values as we like, and return them together. This is very useful --- we often want to know some batsman's highest and lowest score, or we want to find the mean and the standard deviation, or we want to know the year, the month, and the day, or if we're doing some some ecological modelling we may want to know the number of rabbits and the number of wolves on an island at a given time.</p>
 <p>For example, we could write a function that returns both the area and the circumference of a circle of radius r:</p>
+<pre><code class="language-python">def f(r):
+    &quot;&quot;&quot; Return (circumference, area) of a circle of radius r &quot;&quot;&quot;
+    c = 2 * math.pi * r
+    a = math.pi * r * r
+    return (c, a)</code></pre>
 <h2>9.4. Composability of Data Structures</h2>
 <p>We saw in an earlier chapter that we could make a list of pairs, and we had an example where one of the items in the tuple was itself a list:</p>
 <pre><code class="language-python"> students = [
@@ -119,33 +115,14 @@ ValueError: need more than 3 values to unpack </code></pre>
                         (&quot;Oceans Twelve&quot;, 2004) ])</code></pre>
 <p>Notice in this case that the tuple has just five elements --- but each of those in turn can be another tuple, a list, a string, or any other kind of Python value. This property is known as being <strong>heterogeneous</strong>, meaning that it can be composed of elements of different types.</p>
 <h2>9.5. Glossary</h2>
-<pre><code class="language-python">.. glossary::
-
-
-    data structure
-        An organization of data for the purpose of making it easier to use.
-
-    immutable data value
-        A data value which cannot be modified.  Assignments to elements or
-        slices (sub-parts) of immutable values cause a runtime error.
-
-    mutable data value
-        A data value which can be modified. The types of all mutable values
-        are compound types.  Lists and dictionaries are mutable; strings
-        and tuples are not.
-
-    tuple
-        An immutable data value that contains related elements. Tuples are used
-        to group together related data, such as a person&#39;s name, their age,
-        and their gender.
-
-    tuple assignment
-        An assignment to all of the elements in a tuple using a single
-        assignment statement. Tuple assignment occurs *simultaneously* rather than
-        in sequence, making it useful for swapping values.</code></pre>
+<p><strong>data structure</strong> An organization of data for the purpose of making it easier to use.</p>
+<p><strong>immutable data value</strong> A data value which cannot be modified. Assignments to elements or slices (sub-parts) of immutable values cause a runtime error.</p>
+<p><strong>mutable data value</strong> A data value which can be modified. The types of all mutable values are compound types. Lists and dictionaries are mutable; strings and tuples are not.</p>
+<p><strong>tuple</strong> An immutable data value that contains related elements. Tuples are used to group together related data, such as a person’s name, their age, and their gender.</p>
+<p><strong>tuple assignment</strong> An assignment to all of the elements in a tuple using a single assignment statement. Tuple assignment occurs <em>simultaneously</em> rather than in sequence, making it useful for swapping values.</p>
 <h2>9.6. Exercises</h2>
 <ol type="1">
-<li>We've said nothing in this chapter about whether you can pass tuples as arguments to a function. Construct a small Python example to test whether this is possible, and write up your findings.</li>
+<li>We’ve said nothing in this chapter about whether you can pass tuples as arguments to a function. Construct a small Python example to test whether this is possible, and write up your findings.</li>
 <li>Is a pair a generalization of a tuple, or is a tuple a generalization of a pair?</li>
 <li>Is a pair a kind of tuple, or is a tuple a kind of pair?</li>
 </ol>
@@ -166,3 +143,4 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-i
 
 </body>
 </html>
+

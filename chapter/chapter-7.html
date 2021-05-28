@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>book</title>
+    <title>Chapter 7 | Learn Python the Right Way</title>
     <meta name="description" content="learn python the right way">
 
     <style type="text/css">
@@ -35,14 +35,7 @@
  
 
 </head>
-
-<body>
-    <header><h1></h1>
-
-        <nav>
-        </nav>
-
-    </header><h1>Chapter 7: Iteration</h1>
+<h1>Chapter 7: Iteration</h1>
 <p>Computers are often used to automate repetitive tasks. Repeating identical or similar tasks without making errors is something that computers do well and people do poorly.</p>
 <p>Repeated execution of a set of statements is called <strong>iteration</strong>. Because iteration is so common, Python provides several language features to make it easier. We’ve already seen the <code>for</code> statement in chapter 3. This the the form of iteration you’ll likely be using most often. But in this chapter we’ve going to look at the <code>while</code> statement — another way to have your program do iteration, useful in slightly different circumstances.</p>
 <p>Before we do that, let’s just review a few ideas…</p>
@@ -167,7 +160,11 @@ test(sum_to(1000) == 500500)</code></pre>
 <p>Think carefully about what would be needed for a proof or disproof of the conjecture “All positive integers will eventually converge to <code>1</code> using the Collatz rules”. With fast computers we have been able to test every integer up to very large values, and so far, they have all eventually ended up at <code>1</code>. But who knows? Perhaps there is some as-yet untested number which does not reduce to <code>1</code>.</p>
 <p>You’ll notice that if you don’t stop when you reach <code>1</code>, the sequence gets into its own cyclic loop: 1, 4, 2, 1, 4, 2, 1, 4 … So one possibility is that there might be other cycles that we just haven’t found yet.</p>
 <p>Wikipedia has an informative article about the Collatz conjecture. The sequence also goes under other names (Hailstone sequence, Wonderous numbers, etc.), and you’ll find out just how many integers have already been tested by computer, and found to converge!</p>
-<p>A&gt; <strong>Choosing between for and while</strong> A&gt; A&gt; Use a <code>for</code> loop if you know, before you start looping, the maximum number of times that you’ll need to execute the body. For example, if you’re traversing a list of elements, you know that the maximum number of loop iterations you can possibly need is “all the elements in the list”. Or if you need to print the 12 times table, we know right away how many times the loop will need to run. A&gt; A&gt; So any problem like “iterate this weather model for 1000 cycles”, or “search this list of words”, “find all prime numbers up to 10000” suggest that a <code>for</code> loop is best. A&gt; A&gt; By contrast, if you are required to repeat some computation until some condition is met, and you cannot calculate in advance when (or if) this will happen, as we did in this <code>3n + 1</code> problem, you’ll need a <code>while</code> loop. A&gt; A&gt; We call the first case <strong>definite iteration</strong> — we know ahead of time some definite bounds for what is needed. The latter case is called <strong>indefinite iteration</strong> — we’re not sure how many iterations we’ll need — we cannot even establish an upper bound!</p>
+<p><strong>Choosing between for and while</strong></p>
+<p>Use a <code>for</code> loop if you know, before you start looping, the maximum number of times that you’ll need to execute the body. For example, if you’re traversing a list of elements, you know that the maximum number of loop iterations you can possibly need is “all the elements in the list”. Or if you need to print the 12 times table, we know right away how many times the loop will need to run.</p>
+<p>So any problem like “iterate this weather model for 1000 cycles”, or “search this list of words”, “find all prime numbers up to 10000” suggest that a <code>for</code> loop is best.</p>
+<p>By contrast, if you are required to repeat some computation until some condition is met, and you cannot calculate in advance when (or if) this will happen, as we did in this <code>3n + 1</code> problem, you’ll need a <code>while</code> loop.</p>
+<p>We call the first case <strong>definite iteration</strong> — we know ahead of time some definite bounds for what is needed. The latter case is called <strong>indefinite iteration</strong> — we’re not sure how many iterations we’ll need — we cannot even establish an upper bound!</p>
 <h2>7.6. Tracing a program</h2>
 <p>To write effective computer programs, and to build a good conceptual model of program execution, a programmer needs to develop the ability to <strong>trace</strong> the execution of a computer program. Tracing involves becoming the computer and following the flow of execution through a sample program run, recording the state of all variables and any output the program generates after each instruction is executed.</p>
 <p>To understand this process, let’s trace the call to <code>seq3np1(3)</code> from the previous section. At the start of the trace, we have a variable, <code>n</code> (the parameter), with an initial value of <code>3</code>. Since <code>3</code> is not equal to <code>1</code>, the <code>while</code> loop body is executed. <code>3</code> is printed and <code>3 % 2 == 0</code> is evaluated. Since it evaluates to <code>False</code>, the <code>else</code> branch is executed and <code>3 * 3 + 1</code> is evaluated and assigned to <code>n</code>.</p>
@@ -242,9 +239,7 @@ test(sum_to(1000) == 500500)</code></pre>
 1</code></pre>
 <h2>7.9. Help and meta-notation</h2>
 <p>Python comes with extensive documentation for all its built-in functions, and its libraries. Different systems have different ways of accessing this help. In PyScripter, click on the Help menu item, and select Python Manuals. Then search for help on the built-in function <code>range</code>. You’ll get something like this:</p>
-<figure>
-<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-7/07-01-help_range.png" alt="_images/help_range.png" /><figcaption aria-hidden="true">_images/help_range.png</figcaption>
-</figure>
+<p><img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-7/07-01-help_range.png" /></p>
 <p>Notice the square brackets in the description of the arguments. These are examples of <strong>meta-notation</strong> — notation that describes Python syntax, but is not part of it. The square brackets in this documentation mean that the argument is optional — the programmer can omit it. So what this first line of help tells us is that <code>range</code> must always have a <code>stop</code> argument, but it may have an optional <code>start</code> argument (which must be followed by a comma if it is present), and it can also have an optional <code>step</code> argument, preceded by a comma if it is present.</p>
 <p>The examples from help show that <code>range</code> can have either 1, 2 or 3 arguments. The list can start at any starting value, and go up or down in increments other than 1. The documentation here also says that the arguments must be integers.</p>
 <p>Other meta-notation you’ll frequently encounter is the use of bold and italics. The bold means that these are tokens — keywords or symbols — typed into your Python code exactly as they are, whereas the italic terms stand for “something of this type”. So the syntax description</p>
@@ -327,7 +322,7 @@ print()</code></pre>
 <p>Python examines all the statements in a function — if any of them assign a value to a variable, that is the clue that Python uses to make the variable a local variable.</p>
 <p>The stack diagram for this program shows that the two variables named <code>i</code> are not the same variable. They can refer to different values, and changing one does not affect the other.</p>
 <figure>
-<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-7/07-02-stack2.png" alt="Stack 2 diagram" /><figcaption aria-hidden="true">Stack 2 diagram</figcaption>
+<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-7/07-02-stack2.png" alt="Stack 2 diagram" /><figcaption aria-hidden="true">Stack 2 diagram</figcaption>
 </figure>
 <p>The value of <code>i</code> in <code>print_mult_table</code> goes from <code>1</code> to <code>6</code>. In the diagram it happens to be <code>3</code>. The next time through the loop it will be <code>4</code>. Each time through the loop, <code>print_mult_table</code> calls <code>print_multiples</code> with the current value of <code>i</code> as an argument. That value gets assigned to the parameter <code>n</code>.</p>
 <p>Inside <code>print_multiples</code>, the value of <code>i</code> goes from <code>1</code> to <code>6</code>. In the diagram, it happens to be <code>2</code>. Changing this variable has no effect on the value of <code>i</code> in <code>print_mult_table</code>.</p>
@@ -344,11 +339,14 @@ print(&quot;done&quot;)</code></pre>
 <pre><code>12
 16
 done</code></pre>
-<p>A&gt; <strong>The pre-test loop — standard loop behaviour</strong> A&gt; A&gt; <code>for</code> and <code>while</code> loops do their tests at the start, before executing any part of the body. They’re called <strong>pre-test</strong> loops, because the test happens before (pre) the body. <code>break</code> and <code>return</code> are our tools for adapting this standard behaviour. A&gt; A&gt; <img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-7/07-03-pre_test_loop.png" alt="_images/pre_test_loop.png" /></p>
+<p><strong>The pre-test loop — standard loop behaviour</strong></p>
+<p><code>for</code> and <code>while</code> loops do their tests at the start, before executing any part of the body. They’re called <strong>pre-test</strong> loops, because the test happens before (pre) the body. <code>break</code> and <code>return</code> are our tools for adapting this standard behaviour.</p>
+<p><img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-7/07-03-pre_test_loop.png" /></p>
 <h2>7.16. Other flavours of loops</h2>
 <p>Sometimes we’d like to have the <strong>middle-test</strong> loop with the exit test in the middle of the body, rather than at the beginning or at the end. Or a <strong>post-test</strong> loop that puts its exit test as the last thing in the body. Other languages have different syntax and keywords for these different flavours, but Python just uses a combination of <code>while</code> and <code>if condition: break</code> to get the job done.</p>
 <p>A typical example is a problem where the user has to input numbers to be summed. To indicate that there are no more inputs, the user enters a special value, often the value <code>-1</code>, or the empty string. This needs a middle-exit loop pattern: input the next number, then test whether to exit, or else process the number:</p>
-<p>A&gt; The middle-test loop flowchart A&gt; A&gt; <img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-7/07-04-mid_test_loop.png" alt="_images/mid_test_loop.png" /></p>
+<p>The middle-test loop flowchart</p>
+<p><img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-7/07-04-mid_test_loop.png" /></p>
 <pre><code class="language-python">total = 0
 while True:
     response = input(&quot;Enter the next number. (Leave blank to end)&quot;)
@@ -365,7 +363,8 @@ print(&quot;The total of the numbers you entered is &quot;, total)</code></pre>
     if response != &quot;yes&quot;:
         break
 print(&quot;Goodbye!&quot;)</code></pre>
-<p>A&gt; <strong>Hint: Think about where you want the exit test to happen.</strong> A&gt; A&gt; Once you’ve recognized that you need a loop to repeat something, think about its terminating condition — when will I want to stop iterating? Then figure out whether you need to do the test before starting the first (and every other) iteration, or at the end of the first (and every other) iteration, or perhaps in the middle of each iteration. Interactive programs that require input from the user or read from files often need to exit their loops in the middle or at the end of an iteration, when it becomes clear that there is no more data to process, or the user doesn’t want to play our game anymore.</p>
+<p><strong>Hint: Think about where you want the exit test to happen.</strong></p>
+<p>Once you’ve recognized that you need a loop to repeat something, think about its terminating condition — when will I want to stop iterating? Then figure out whether you need to do the test before starting the first (and every other) iteration, or at the end of the first (and every other) iteration, or perhaps in the middle of each iteration. Interactive programs that require input from the user or read from files often need to exit their loops in the middle or at the end of an iteration, when it becomes clear that there is no more data to process, or the user doesn’t want to play our game anymore.</p>
 <h2>7.17. An example</h2>
 <p>The following program implements a simple guessing game:</p>
 <pre><code class="language-python">import random                   # We cover random numbers in the
@@ -389,9 +388,7 @@ input(&quot;\n\nGreat, you got it in {0} guesses!\n\n&quot;.format(guesses))</co
 <p>This program makes use of the mathematical law of <strong>trichotomy</strong> (given real numbers <code>a</code> and <code>b</code>, exactly one of these three must be true: <code>a &gt; b</code>, <code>a &lt; b</code>, or <code>a == b</code>).</p>
 <p>At line 18 there is a call to the <code>input</code> function, but we don’t do anything with the result, not even assign it to a variable. This is legal in Python. Here it has the effect of popping up the input dialog window and waiting for the user to respond before the program terminates. Programmers often use the trick of doing some extra input at the end of a script, just to keep the window open.</p>
 <p>Also notice the use of the <code>msg</code> variable, initially an empty string, on lines 6, 12 and 14. Each time through the loop we extend the message being displayed: this allows us to display the program’s feedback right at the same place as we’re asking for the next guess.</p>
-<figure>
-<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-7/07-05-python_input.png" alt="_images/python_input.png" /><figcaption aria-hidden="true">_images/python_input.png</figcaption>
-</figure>
+<p><img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-7/07-05-python_input.png" /></p>
 <h2>7.18. The continue statement</h2>
 <p>This is a control flow statement that causes the program to immediately skip the processing of the rest of the body of the loop, for the current iteration. But the loop still carries on running for its remaining iterations:</p>
 <pre><code class="language-python">for i in [12, 16, 17, 24, 29, 30]:
@@ -625,18 +622,20 @@ print(sqrt(81.0))</code></pre>
 <li><p>Write a function, is_prime, which takes a single integer argument and returns True when the argument is a prime number and False otherwise. Add tests for cases like this:</p>
 <pre><code class="language-python">test(is_prime(11))
 test(not is_prime(35))
-test(is_prime(19911121))</code></pre>
-<p>The last case could represent your birth date. Were you born on a prime day? In a class of 100 students, how many do you think would have prime birth dates?</p></li>
+test(is_prime(19911121))</code></pre></li>
+</ol>
+<p>The last case could represent your birth date. Were you born on a prime day? In a class of 100 students, how many do you think would have prime birth dates?</p>
+<ol start="11" type="1">
 <li><p>Revisit the drunk pirate problem from the exercises in chapter 3. This time, the drunk pirate makes a turn, and then takes some steps forward, and repeats this. Our social science student now records pairs of data: the angle of each turn, and the number of steps taken after the turn. Her experimental data is [(160, 20), (-43, 10), (270, 8), (-43, 12)]. Use a turtle to draw the path taken by our drunk friend.</p></li>
-<li><p>Many interesting shapes can be drawn by the turtle by giving a list of pairs like we did above, where the first item of the pair is the angle to turn, and the second item is the distance to move forward. Set up a list of pairs so that the turtle draws a house with a cross through the centre, as show here. This should be done without going over any of the lines / edges more than once, and without lifting your pen.</p>
-<figure>
-<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-7/07-06-tess_house.png" alt="_images/tess_house.png" /><figcaption aria-hidden="true">_images/tess_house.png</figcaption>
-</figure></li>
-<li><p>Not all shapes like the one above can be drawn without lifting your pen, or going over an edge more than once. Which of these can be drawn?</p>
-<figure>
-<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-7/07-07-tess_more_houses.png" alt="_images/tess_more_houses.png" /><figcaption aria-hidden="true">_images/tess_more_houses.png</figcaption>
-</figure>
-<p>Now read Wikipedia’s article(http://en.wikipedia.org/wiki/Eulerian_path) about Eulerian paths. Learn how to tell immediately by inspection whether it is possible to find a solution or not. If the path is possible, you’ll also know where to put your pen to start drawing, and where you should end up!</p></li>
+<li><p>Many interesting shapes can be drawn by the turtle by giving a list of pairs like we did above, where the first item of the pair is the angle to turn, and the second item is the distance to move forward. Set up a list of pairs so that the turtle draws a house with a cross through the centre, as show here. This should be done without going over any of the lines / edges more than once, and without lifting your pen.</p></li>
+</ol>
+<p><img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-7/07-06-tess_house.png" /></p>
+<ol start="13" type="1">
+<li>Not all shapes like the one above can be drawn without lifting your pen, or going over an edge more than once. Which of these can be drawn?</li>
+</ol>
+<p><img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-7/07-07-tess_more_houses.png" /></p>
+<p>Now read Wikipedia’s article(http://en.wikipedia.org/wiki/Eulerian_path) about Eulerian paths. Learn how to tell immediately by inspection whether it is possible to find a solution or not. If the path is possible, you’ll also know where to put your pen to start drawing, and where you should end up!</p>
+<ol start="14" type="1">
 <li><p>What will num_digits(0) return? Modify it to return 1 for this case. Why does a call to num_digits(-24) result in an infinite loop? (hint: -1//10 evaluates to -1) Modify num_digits so that it works correctly with any integer value. Add these tests:</p>
 <pre><code class="language-python">test(num_digits(0) == 1)
 test(num_digits(-12345) == 5)</code></pre></li>
@@ -692,3 +691,4 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-i
 
 </body>
 </html>
+

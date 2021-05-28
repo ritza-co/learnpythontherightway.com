@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>book</title>
+    <title>Chapter 3 | Learn Python the Right Way</title>
     <meta name="description" content="learn python the right way">
 
     <style type="text/css">
@@ -35,30 +35,23 @@
  
 
 </head>
-
-<body>
-    <header><h1></h1>
-
-        <nav>
-        </nav>
-
-    </header><h1>Chapter 3: Hello, little turtles!</h1>
+<h1>Chapter 3: Hello, little turtles!</h1>
 <p>There are many <em>modules</em> in Python that provide very powerful features that we can use in our own programs. Some of these can send email, or fetch web pages. The one we’ll look at in this chapter allows us to create turtles and get them to draw shapes and patterns.</p>
 <p>The turtles are fun, but the real purpose of the chapter is to teach ourselves a little more Python, and to develop our theme of <em>computational thinking</em>, or <em>thinking like a computer scientist</em>. Most of the Python covered here will be explored in more depth later.</p>
 <h2>3.1. Our first turtle program</h2>
 <p>Let’s write a couple of lines of Python program to create a new turtle and start drawing a rectangle. (We’ll call the variable that refers to our first turtle <code>alex</code>, but we can choose another name if we follow the naming rules from the previous chapter).</p>
-<pre><code class="language-python"> import turtle             # Allows us to use turtles
- wn = turtle.Screen()      # Creates a playground for turtles
- alex = turtle.Turtle()    # Create a turtle, assign to alex
+<pre><code class="language-python">import turtle             # Allows us to use turtles
+wn = turtle.Screen()      # Creates a playground for turtles
+alex = turtle.Turtle()    # Create a turtle, assign to alex
 
- alex.forward(50)          # Tell alex to move forward by 50 units
- alex.left(90)             # Tell alex to turn by 90 degrees
- alex.forward(30)          # Complete the second side of a rectangle
+alex.forward(50)          # Tell alex to move forward by 50 units
+alex.left(90)             # Tell alex to turn by 90 degrees
+alex.forward(30)          # Complete the second side of a rectangle
 
- wn.mainloop()             # Wait for user to close window</code></pre>
+wn.mainloop()             # Wait for user to close window</code></pre>
 <p>When we run this program, a new window pops up:</p>
 <figure>
-<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-3/03-01-turtle-window.png" alt="Turtle Window" /><figcaption aria-hidden="true">Turtle Window</figcaption>
+<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-3/03-01-turtle-window.png" alt="Turtle Window" /><figcaption aria-hidden="true">Turtle Window</figcaption>
 </figure>
 <p>Here are a couple of things we’ll need to understand about this program.</p>
 <p>The first line tells Python to load a module named <code>turtle</code>. That module brings us two new types that we can use: the <code>Turtle</code> type, and the <code>Screen</code> type. The dot notation <code>turtle.Turtle</code> means “<em>The Turtle type that is defined within the turtle module</em>”. (Remember that Python is case sensitive, so the module name, with a lowercase <code>t</code>, is different from the type <code>Turtle</code>.)</p>
@@ -86,45 +79,50 @@ tess.forward(50)
 wn.mainloop()</code></pre>
 <p>When we run this program, this new window pops up, and will remain on the screen until we close it.</p>
 <figure>
-<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-3/03-02-turtle-green.png" alt="tess mainloop" /><figcaption aria-hidden="true">tess mainloop</figcaption>
+<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-3/03-02-turtle-green.png" alt="tess mainloop" /><figcaption aria-hidden="true">tess mainloop</figcaption>
 </figure>
-<p>A&gt; <strong>Extend this program …</strong> A&gt; A&gt; 1. Modify this program so that before it creates the window, it prompts the user to enter the desired background color. It should store the user’s responses in a variable, and modify the color of the window according to the user’s wishes. (<em>Hint: you can find a list of permitted color names at http://www.tcl.tk/man/tcl8.4/TkCmd/colors.htm. It includes some quite unusual ones, like “peach puff” and “HotPink”.</em>) A&gt; A&gt; 2. Do similar changes to allow the user, at runtime, to set tess’ color. A&gt; A&gt; 3. Do the same for the width of <code>tess’</code> pen. <em>Hint: your dialog with the user will return a string, but tess’ <code>pensize</code> method expects its argument to be an int. So you’ll need to convert the string to an int before you pass it to <code>pensize</code>.</em></p>
+<p><strong>Extend this program …</strong></p>
+<ol type="1">
+<li><p>Modify this program so that before it creates the window, it prompts the user to enter the desired background color. It should store the user’s responses in a variable, and modify the color of the window according to the user’s wishes. (<em>Hint: you can find a list of permitted color names at http://www.tcl.tk/man/tcl8.4/TkCmd/colors.htm. It includes some quite unusual ones, like “peach puff” and “HotPink”.</em>)</p></li>
+<li><p>Do similar changes to allow the user, at runtime, to set tess’ color.</p></li>
+<li><p>Do the same for the width of <code>tess’</code> pen. <em>Hint: your dialog with the user will return a string, but tess’ <code>pensize</code> method expects its argument to be an int. So you’ll need to convert the string to an int before you pass it to <code>pensize</code>.</em></p></li>
+</ol>
 <h2>3.2. Instances — a herd of turtles</h2>
 <p>Just like we can have many different integers in a program, we can have many turtles. Each of them is called an <strong>instance</strong>. Each instance has its own attributes and methods — so alex might draw with a thin black pen and be at some position, while <code>tess</code> might be going in her own direction with a fat pink pen.</p>
-<pre><code class="language-python"> import turtle
- wn = turtle.Screen()         # Set up the window and its attributes
- wn.bgcolor(&quot;lightgreen&quot;)
- wn.title(&quot;Tess &amp; Alex&quot;)
+<pre><code class="language-python">import turtle
+wn = turtle.Screen()         # Set up the window and its attributes
+wn.bgcolor(&quot;lightgreen&quot;)
+wn.title(&quot;Tess &amp; Alex&quot;)
 
- tess = turtle.Turtle()       # Create tess and set some attributes
- tess.color(&quot;hotpink&quot;)
- tess.pensize(5)
+tess = turtle.Turtle()       # Create tess and set some attributes
+tess.color(&quot;hotpink&quot;)
+tess.pensize(5)
 
- alex = turtle.Turtle()       # Create alex
+alex = turtle.Turtle()       # Create alex
 
- tess.forward(80)             # Make tess draw equilateral triangle
- tess.left(120)
- tess.forward(80)
- tess.left(120)
- tess.forward(80)
- tess.left(120)               # Complete the triangle
+tess.forward(80)             # Make tess draw equilateral triangle
+tess.left(120)
+tess.forward(80)
+tess.left(120)
+tess.forward(80)
+tess.left(120)               # Complete the triangle
 
- tess.right(180)              # Turn tess around
- tess.forward(80)             # Move her away from the origin
+tess.right(180)              # Turn tess around
+tess.forward(80)             # Move her away from the origin
 
- alex.forward(50)             # Make alex draw a square
- alex.left(90)
- alex.forward(50)
- alex.left(90)
- alex.forward(50)
- alex.left(90)
- alex.forward(50)
- alex.left(90)
+alex.forward(50)             # Make alex draw a square
+alex.left(90)
+alex.forward(50)
+alex.left(90)
+alex.forward(50)
+alex.left(90)
+alex.forward(50)
+alex.left(90)
 
- wn.mainloop()</code></pre>
+wn.mainloop()</code></pre>
 <p>Here is what happens when <code>alex</code> completes his rectangle, and <code>tess</code> completes her triangle:</p>
 <figure>
-<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-3/03-03-tess%26alex.png" alt="Alex and Tess" /><figcaption aria-hidden="true">Alex and Tess</figcaption>
+<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-3/03-03-tess-alex.png" alt="Alex and Tess" /><figcaption aria-hidden="true">Alex and Tess</figcaption>
 </figure>
 <p>Here are some <em>How to think like a computer scientist</em> observations:</p>
 <ul>
@@ -159,7 +157,11 @@ Hi Paris.  Please come to my party on Saturday!</code></pre>
 <h2>3.4. Flow of Execution of the for loop</h2>
 <p>As a program executes, the interpreter always keeps track of which statement is about to be executed. We call this the <strong>control flow</strong>, of the <strong>flow of execution</strong> of the program. When humans execute programs, they often use their finger to point to each statement in turn. So we could think of control flow as “Python’s moving finger”.</p>
 <p>Control flow until now has been strictly top to bottom, one statement at a time. The for loop changes this.</p>
-<p>A&gt; <strong>Flowchart of a for loop</strong> A&gt; A&gt; Control flow is often easy to visualize and understand if we draw a flowchart. This shows the exact steps and logic of how the for statement executes. A&gt; A&gt; <img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-3/03-04-flowchart_for.png" alt="For loop flowchart" /></p>
+<p><strong>Flowchart of a for loop</strong></p>
+<p>Control flow is often easy to visualize and understand if we draw a flowchart. This shows the exact steps and logic of how the for statement executes.</p>
+<figure>
+<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-3/03-04-flowchart_for.png" alt="For loop flowchart" /><figcaption aria-hidden="true">For loop flowchart</figcaption>
+</figure>
 <h2>3.5. The loop simplifies our turtle program</h2>
 <p>To draw a square we’d like to do the same thing four times — move the turtle, and turn. We previously used 8 lines to have alex draw the four sides of a square. This does exactly the same, but using just three lines:</p>
 <pre><code class="language-python">for i in [0,1,2,3]:
@@ -168,11 +170,13 @@ Hi Paris.  Please come to my party on Saturday!</code></pre>
 <p>Some observations:</p>
 <ul>
 <li><p>While “saving some lines of code” might be convenient, it is not the big deal here. What is much more important is that we’ve found a “repeating pattern” of statements, and reorganized our program to repeat the pattern. Finding the chunks and somehow getting our programs arranged around those chunks is a vital skill in computational thinking.</p></li>
-<li><p>The values <code>[0,1,2,3]</code> were provided to make the loop body execute 4 times. We could have used any four values, but these are the conventional ones to use. In fact, they are so popular that Python gives us special built-in range objects:</p>
+<li><p>The values <code>[0,1,2,3]</code> were provided to make the loop body execute 4 times. We could have used any four values, but these are the conventional ones to use. In fact, they are so popular that Python gives us special built-in range objects:</p></li>
+</ul>
 <pre><code class="language-python">for i in range(4):
     # Executes the body with i = 0, then 1, then 2, then 3
 for x in range(10):
-    # Sets x to each of ... [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] </code></pre></li>
+    # Sets x to each of ... [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] </code></pre>
+<ul>
 <li><p>Computer scientists like to count from <code>0</code>!</p></li>
 <li><p><code>range</code> can deliver a sequence of values to the loop variable in the <code>for</code> loop. They start at <code>0</code>, and in these cases do not include the <code>4</code> or the <code>10</code>.</p></li>
 <li><p>Our little trick earlier to make sure that alex did the final turn to complete 360 degrees has paid off: if we had not done that, then we would not have been able to use a loop for the fourth side of the square. It would have become a “special case”, different from the other sides. When possible, we’d much prefer to make our code fit a general pattern, rather than have to create a special case.</p></li>
@@ -205,7 +209,7 @@ alex.pendown()</code></pre>
 <p>Every turtle can have its own shape. The ones available “out of the box” are <code>arrow</code>, <code>blank</code>, <code>circle</code>, <code>classic</code>, <code>square</code>, <code>triangle</code>, <code>turtle</code>.</p>
 <pre><code class="language-python">alex.shape(&quot;turtle&quot;)</code></pre>
 <figure>
-<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-3/03-05-turtle-shape.png" alt="Turtle Shape" /><figcaption aria-hidden="true">Turtle Shape</figcaption>
+<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-3/03-05-turtle-shape.png" alt="Turtle Shape" /><figcaption aria-hidden="true">Turtle Shape</figcaption>
 </figure>
 <p>We can speed up or slow down the turtle’s animation speed. (Animation controls how quickly the turtle turns and moves forward). Speed settings can be set between <code>1</code> (slowest) to <code>10</code> (fastest). But if we set the speed to <code>0</code>, it has a special meaning — turn off animation and go as fast as possible.</p>
 <pre><code class="language-python">alex.speed(10)</code></pre>
@@ -228,7 +232,7 @@ for i in range(30):
 
 wn.mainloop()</code></pre>
 <figure>
-<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-3/03-06-spiral.png" alt="Turtle Spiral" /><figcaption aria-hidden="true">Turtle Spiral</figcaption>
+<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-3/03-06-spiral.png" alt="Turtle Spiral" /><figcaption aria-hidden="true">Turtle Spiral</figcaption>
 </figure>
 <p>Be careful now! How many times was the body of the loop executed? How many turtle images do we see on the screen? All except one of the shapes we see on the screen here are footprints created by stamp. But the program still only has one turtle instance — can you figure out which one here is the real tess? (<em>Hint: if you’re not sure, write a new line of code after the for loop to change tess’ color, or to put her pen down and draw a line, or to change her shape, etc.</em>)</p>
 <h2>3.7. Glossary</h2>
@@ -284,7 +288,8 @@ One of the months of the year is February
 <li><p>A drunk pirate makes a random turn and then takes <code>100</code> steps forward, makes another random turn, takes another <code>100</code> steps, turns another random amount, etc. A social science student records the angle of each turn before the next 100 steps are taken. Her experimental data is <code>[160, -43, 270, -97, -43, 200, -940, 17, -86]</code>. (Positive angles are counter-clockwise.) Use a turtle to draw the path taken by our drunk friend.</p></li>
 <li><p>Enhance your program above to also tell us what the drunk pirate’s heading is after he has finished stumbling around. (Assume he begins at heading <code>0</code>).</p></li>
 <li><p>If you were going to draw a regular polygon with 18 sides, what angle would you need to turn the turtle at each corner?</p></li>
-<li><p>At the interactive prompt, anticipate what each of the following lines will do, and then record what happens. Score yourself, giving yourself one point for each one you anticipate correctly:</p>
+<li><p>At the interactive prompt, anticipate what each of the following lines will do, and then record what happens. Score yourself, giving yourself one point for each one you anticipate correctly:</p></li>
+</ol>
 <pre><code class="language-python">&gt;&gt;&gt; import turtle
 &gt;&gt;&gt; wn = turtle.Screen()
 &gt;&gt;&gt; tess = turtle.Turtle()
@@ -295,22 +300,25 @@ One of the months of the year is February
 &gt;&gt;&gt; tess.left(3600)
 &gt;&gt;&gt; tess.speed(0)
 &gt;&gt;&gt; tess.left(3645)
-&gt;&gt;&gt; tess.forward(-100)</code></pre></li>
-<li><p>Write a program to draw a shape like this:</p>
-<figure>
-<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-3/03-07-star.png" alt="Star" /><figcaption aria-hidden="true">Star</figcaption>
-</figure></li>
+&gt;&gt;&gt; tess.forward(-100)</code></pre>
+<ol start="11" type="1">
+<li>Write a program to draw a shape like this:</li>
 </ol>
+<figure>
+<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-3/03-07-star.png" alt="Star" /><figcaption aria-hidden="true">Star</figcaption>
+</figure>
 <p>Hints:</p>
 <ul>
 <li><p>Try this on a piece of paper, moving and turning your cellphone as if it was a turtle. Watch how many complete rotations your cellphone makes before you complete the star. Since each full rotation is 360 degrees, you can figure out the total number of degrees that your phone was rotated through. If you divide that by 5, because there are five points to the star, you’ll know how many degrees to turn the turtle at each point.</p></li>
 <li><p>You can hide a turtle behind its invisibility cloak if you don’t want it shown. It will still draw its lines if its pen is down. The method is invoked as <code>tess.hideturtle()</code>. To make the turtle visible again, use <code>tess.showturtle()</code>.</p></li>
 </ul>
 <ol start="12" type="1">
-<li><p>Write a program to draw a face of a clock that looks something like this:</p>
+<li>Write a program to draw a face of a clock that looks something like this:</li>
+</ol>
 <figure>
-<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-3/04-08-turtle-clock.png" alt="Clock face" /><figcaption aria-hidden="true">Clock face</figcaption>
-</figure></li>
+<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-3/04-08-turtle-clock.png" alt="Clock face" /><figcaption aria-hidden="true">Clock face</figcaption>
+</figure>
+<ol start="13" type="1">
 <li><p>Create a turtle, and assign it to a variable. When you ask for its type, what do you get?</p></li>
 <li><p>What is the collective noun for turtles? (Hint: they don’t come in <em>herds</em>.)</p></li>
 <li><p>What the collective noun for pythons? Is a python a viper? Is a python venomous?</p></li>
@@ -332,3 +340,4 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-i
 
 </body>
 </html>
+

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>book</title>
+    <title>Chapter 6 | Learn Python the Right Way</title>
     <meta name="description" content="learn python the right way">
 
     <style type="text/css">
@@ -35,14 +35,7 @@
  
 
 </head>
-
-<body>
-    <header><h1></h1>
-
-        <nav>
-        </nav>
-
-    </header><h1>Chapter 6: Fruitful functions</h1>
+<h1>Chapter 6: Fruitful functions</h1>
 <h2>6.1. Return values</h2>
 <p>The built-in functions we have used, such as <code>abs</code>, <code>pow</code>, <code>int</code>, <code>max</code>, and <code>range</code>, have produced results. Calling each of these functions generates a value, which we usually assign to a variable or use as part of an expression.</p>
 <pre><code class="language-python">biggest = max(3, 7, 2, 5)
@@ -84,8 +77,8 @@ None</code></pre>
     for wd in xs:
         if len(wd) == 2:
            return wd
-    return &quot;&quot;
-&gt;&gt;&gt; find_first_2_letter_word([&quot;This&quot;,  &quot;is&quot;, &quot;a&quot;, &quot;dead&quot;, &quot;parrot&quot;])
+    return &quot;&quot;</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; find_first_2_letter_word([&quot;This&quot;,  &quot;is&quot;, &quot;a&quot;, &quot;dead&quot;, &quot;parrot&quot;])
 &#39;is&#39;
 &gt;&gt;&gt; find_first_2_letter_word([&quot;I&quot;,  &quot;like&quot;,  &quot;cheese&quot;])
 &#39;&#39;</code></pre>
@@ -95,7 +88,7 @@ None</code></pre>
 <p>To deal with increasingly complex programs, we are going to suggest a technique called <strong>incremental development</strong>. The goal of incremental development is to avoid long debugging sessions by adding and testing only a small amount of code at a time.</p>
 <p>As an example, suppose we want to find the distance between two points, given by the coordinates <code>(x1, y1)</code> and <code>(x2, y2)</code>. By the Pythagorean theorem, the distance is:</p>
 <figure>
-<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-6/06-01-distance_formula.png" alt="Distance formula" /><figcaption aria-hidden="true">Distance formula</figcaption>
+<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-6/06-01-distance_formula.png" alt="Distance formula" /><figcaption aria-hidden="true">Distance formula</figcaption>
 </figure>
 <p>The first step is to consider what a <code>distance</code> function should look like in Python. In other words, what are the inputs (parameters) and what is the output (return value)?</p>
 <p>In this case, the two points are the inputs, which we can represent using four parameters. The return value is the distance, which is a floating-point value.</p>
@@ -340,7 +333,10 @@ test(to_secs(2.433,0,0) == 8758)</code></pre></li>
 test(minutes_in(9010) == 30)
 test(seconds_in(9010) == 10)</code></pre></li>
 </ol>
-<p>A&gt; <strong>It won’t always be obvious what is wanted …</strong> A&gt; A&gt; In the third case above, the requirement seems quite ambiguous and fuzzy. But the test clarifies what we actually need to do. A&gt; A&gt; Unit tests often have this secondary benefit of clarifying the specifications. If you write your own test suites, consider it part of the problem-solving process as you ask questions about what you really expect to happen, and whether you’ve considered all the possible cases. A&gt; A&gt; Since our book is titled <em>How to Think Like</em> … you might enjoy reading at least one reference about thinking, and about fun ideas like <em>fluid intelligence</em>, a key ingredient in problem solving. See, for example, http://psychology.about.com/od/cognitivepsychology/a/fluid-crystal.htm. Learning Computer Science requires a good mix of both fluid and crystallized kinds of intelligence.</p>
+<p><strong>It won’t always be obvious what is wanted …</strong></p>
+<p>In the third case above, the requirement seems quite ambiguous and fuzzy. But the test clarifies what we actually need to do.</p>
+<p>Unit tests often have this secondary benefit of clarifying the specifications. If you write your own test suites, consider it part of the problem-solving process as you ask questions about what you really expect to happen, and whether you’ve considered all the possible cases.</p>
+<p>Given our emphasis on <em>thinking like a computer scientist</em>, you might enjoy reading at least one reference about thinking, and about fun ideas like <em>fluid intelligence</em>, a key ingredient in problem solving. See, for example, http://psychology.about.com/od/cognitivepsychology/a/fluid-crystal.htm. Learning Computer Science requires a good mix of both fluid and crystallized kinds of intelligence.</p>
 <ol start="10" type="1">
 <li><p>Which of these tests fail? Explain why.</p>
 <pre><code class="language-python">test(3 % 4 == 0)
@@ -422,3 +418,4 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-i
 
 </body>
 </html>
+

@@ -109,7 +109,7 @@ SyntaxError: can&#39;t assign to literal</code></pre>
 <p>A&gt; <strong>Tip:</strong> A&gt; <em>When reading or writing code, say to yourself “n is assigned 17” or “n gets the value 17”. Don’t say “n equals 17”.</em></p>
 <p>A common way to represent variables on paper is to write the name with an arrow pointing to the variable’s value. This kind of figure is called a <strong>state snapshot</strong> because it shows what state each of the variables is in at a particular instant in time. (Think of it as the variable’s state of mind). This diagram shows the result of executing the assignment statements:</p>
 <figure>
-<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-2/02-01-state.png" alt="State Snapshot" /><figcaption aria-hidden="true">State Snapshot</figcaption>
+<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-2/02-01-state.png" alt="State Snapshot" /><figcaption aria-hidden="true">State Snapshot</figcaption>
 </figure>
 <p>If you ask the interpreter to evaluate a variable, it will produce the value that is currently linked to the variable:</p>
 <pre><code class="language-python">&gt;&gt;&gt; message
@@ -310,7 +310,7 @@ print(fruit + baked_good)</code></pre>
 <pre><code class="language-python">n = input(&quot;Please enter your name: &quot;)</code></pre>
 <p>A sample run of this script in Repl.it would populate your input question in the console to the left like this:</p>
 <figure>
-<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-2/02-02-input-prompt.png" alt="Input Prompt" /><figcaption aria-hidden="true">Input Prompt</figcaption>
+<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-2/02-02-input-prompt.png" alt="Input Prompt" /><figcaption aria-hidden="true">Input Prompt</figcaption>
 </figure>
 <p>The user of the program can enter the name and press enter, and when this happens the text that has been entered is returned from the input function, and in this case assigned to the variable n.</p>
 <p>Even if you asked the user to enter their age, you would get back a string like <code>"17"</code>. It would be your job, as the programmer, to convert that string into a int or a float, using the <code>int</code> or <code>float</code> converter functions we saw earlier.</p>
@@ -319,7 +319,7 @@ print(fruit + baked_good)</code></pre>
 <p>One of the most useful features of programming languages is their ability to take small building blocks and <strong>compose</strong> them into larger chunks.</p>
 <p>For example, we know how to get the user to enter some input, we know how to convert the string we get into a float, we know how to write a complex expression, and we know how to print values. Let’s put these together in a small four-step program that asks the user to input a value for the radius of a circle, and then computes the area of the circle from the formula</p>
 <figure>
-<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-2/02-03-circle_area.png" alt="Area of a circle" /><figcaption aria-hidden="true">Area of a circle</figcaption>
+<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-2/02-03-circle_area.png" alt="Area of a circle" /><figcaption aria-hidden="true">Area of a circle</figcaption>
 </figure>
 <p>Firstly, we’ll do the four steps one at a time:</p>
 <pre><code class="language-python">response = input(&quot;What is your radius? &quot;)
@@ -408,7 +408,7 @@ print(&quot;Hrs=&quot;, hours, &quot;  mins=&quot;, minutes,
 <p>Assign a value to bruce so that <code>bruce + 4</code> evaluates to <code>10</code>.</p></li>
 <li><p>The formula for computing the final amount if one is earning compound interest is given on Wikipedia as</p>
 <figure>
-<img src="https://i.ritzastatic.com/ThinkCS-images/Chapter-2/02-04-compoundInterest.png" alt="Compounded Interest Formula" /><figcaption aria-hidden="true">Compounded Interest Formula</figcaption>
+<img src="https://i.ritzastatic.com/learn-python-the-right-way/Chapter-2/02-04-compoundInterest.png" alt="Compounded Interest Formula" /><figcaption aria-hidden="true">Compounded Interest Formula</figcaption>
 </figure>
 <p>Write a Python program that assigns the principal amount of $10000 to variable <code>P</code>, assign to n the value <code>12</code>, and assign to <code>r</code> the interest rate of 8%. Then have the program prompt the user for the number of years <code>t</code> that the money will be compounded for. Calculate and print the final amount after <code>t</code> years.</p></li>
 <li><p>Evaluate the following numerical expressions in your head, then use the Python interpreter to check your results:</p>
