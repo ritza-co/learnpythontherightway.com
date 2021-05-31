@@ -104,6 +104,21 @@ print(&quot;There are {0} words in the vocab, starting with\n {1} &quot;
 test(text_to_words(&#39;&quot;Well, I never!&quot;, said Alice.&#39;) == 
                              [&quot;well&quot;, &quot;i&quot;, &quot;never&quot;, &quot;said&quot;, &quot;alice&quot;])</code></pre>
 <p>There is a powerful <code>translate</code> method available for strings. The idea is that one sets up desired substitutions — for every character, we can give a corresponding replacement character. The <code>translate</code> method will apply these replacements throughout the whole string. So here we go:</p>
+<pre><code class="language-python">def text_to_words(the_text):
+    &quot;&quot;&quot; return a list of words with all punctuation removed,
+        and all in lowercase.
+    &quot;&quot;&quot;
+
+    my_substitutions = the_text.maketrans(
+      # If you find any of these
+      &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\&quot;#$%&amp;()*+,-./:;&lt;=&gt;?@[]^_`{|}~&#39;\\&quot;,
+      # Replace them by these
+      &quot;abcdefghijklmnopqrstuvwxyz                                          &quot;)
+
+    # Translate the text now.
+    cleaned_text = the_text.translate(my_substitutions)
+    wds = cleaned_text.split()
+    return wds</code></pre>
 <p>The translation turns all uppercase characters into lowercase, and all punctuation characters and digits into spaces. Then, of course, <code>split</code> will get rid of the spaces as it breaks the text into a list of words. The tests pass.</p>
 <p>Now we’re ready to read in our book:</p>
 <pre><code class="language-python">def get_words_in_book(filename):
