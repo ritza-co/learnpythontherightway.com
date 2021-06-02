@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>book</title>
-    <meta name="description" content="learn python the right way">
+    <title>Chapter 2 | Learn Python the Right Way</title>
+    <meta name="description" content="Learn about Variables, expressions and statements in Chapter 2 of Learn Python the Right Way">
 
     <style type="text/css">
         figure {
@@ -35,14 +35,7 @@
  
 
 </head>
-
-<body>
-    <header><h1></h1>
-
-        <nav>
-        </nav>
-
-    </header><h1>Chapter 2: Variables, expressions and statements</h1>
+<h1>Chapter 2: Variables, expressions and statements</h1>
 <h2>2.1. Values and data types</h2>
 <p>A <strong>value</strong> is one of the fundamental things — like a letter or a number — that a program manipulates. The values we have seen so far are <code>4</code> (the result when we added <code>2 + 2</code>), and <code>"Hello, World!"</code>.</p>
 <p>These values are classified into different <strong>classes</strong>, or <strong>data types</strong>: <code>4</code> is an <em>integer</em>, and <code>"Hello, World!"</code> is a <em>string</em>, so-called because it contains a string of letters. You (and the interpreter) can identify strings because they are enclosed in quotation marks.</p>
@@ -106,7 +99,7 @@ lines.
 <pre><code class="language-python">&gt;&gt;&gt; 17 = n
 File &quot;&lt;interactive input&gt;&quot;, line 1
 SyntaxError: can&#39;t assign to literal</code></pre>
-<p>A&gt; <strong>Tip:</strong> A&gt; <em>When reading or writing code, say to yourself “n is assigned 17” or “n gets the value 17”. Don’t say “n equals 17”.</em></p>
+<p><strong>Tip:</strong> <em>When reading or writing code, say to yourself “n is assigned 17” or “n gets the value 17”. Don’t say “n equals 17”.</em></p>
 <p>A common way to represent variables on paper is to write the name with an arrow pointing to the variable’s value. This kind of figure is called a <strong>state snapshot</strong> because it shows what state each of the variables is in at a particular instant in time. (Think of it as the variable’s state of mind). This diagram shows the result of executing the assignment statements:</p>
 <figure>
 <img src="Chapter-2/02-01-state.png" alt="State Snapshot" /><figcaption aria-hidden="true">State Snapshot</figcaption>
@@ -200,7 +193,9 @@ SyntaxError: invalid syntax</code></pre>
 </table>
 <p>You might want to keep this list handy. If the interpreter complains about one of your variable names and you don’t know why, see if it is on this list.</p>
 <p>Programmers generally choose names for their variables that are meaningful to the human readers of the program — they help the programmer document, or remember, what the variable is used for.</p>
-<p>A&gt; <strong><em>Caution</em></strong> A&gt; A&gt; <em>Beginners sometimes confuse “meaningful to the human readers” with “meaningful to the computer”. So they’ll wrongly think that because they’ve called some variable <code>average</code> or <code>pi</code>, it will somehow magically calculate an average, or magically know that the variable <code>pi</code> should have a value like <code>3.14159</code>. No! The computer doesn’t understand what you intend the variable to mean.</em> A&gt; A&gt; <em>So you’ll find some instructors who deliberately don’t choose meaningful names when they teach beginners — not because we don’t think it is a good habit, but because we’re trying to reinforce the message that you — the programmer — must write the program code to calculate the average, and you must write an assignment statement to give the variable <code>pi</code> the value you want it to have.</em></p>
+<p><strong><em>Caution</em></strong></p>
+<p><em>Beginners sometimes confuse “meaningful to the human readers” with “meaningful to the computer”. So they’ll wrongly think that because they’ve called some variable <code>average</code> or <code>pi</code>, it will somehow magically calculate an average, or magically know that the variable <code>pi</code> should have a value like <code>3.14159</code>. No! The computer doesn’t understand what you intend the variable to mean.</em></p>
+<p><em>So you’ll find some instructors who deliberately don’t choose meaningful names when they teach beginners — not because we don’t think it is a good habit, but because we’re trying to reinforce the message that you — the programmer — must write the program code to calculate the average, and you must write an assignment statement to give the variable <code>pi</code> the value you want it to have.</em></p>
 <h2>2.4. Statements</h2>
 <p>A <strong>statement</strong> is an instruction that the Python interpreter can execute. We have only seen the assignment statement so far. Some other kinds of statements that we’ll see shortly are <code>while</code> statements, <code>for</code> statements, <code>if</code> statements, and <code>import</code> statements. (There are other kinds too!)</p>
 <p>When you type a statement on the command line, Python executes it. Statements don’t produce any result.</p>
@@ -308,7 +303,7 @@ print(fruit + baked_good)</code></pre>
 <h2>2.10. Input</h2>
 <p>There is a built-in function in Python for getting input from the user:</p>
 <pre><code class="language-python">n = input(&quot;Please enter your name: &quot;)</code></pre>
-<p>A sample run of this script in Repl.it would populate your input question in the console to the left like this:</p>
+<p>A sample run of this script in Replit would populate your input question in the console to the left like this:</p>
 <figure>
 <img src="Chapter-2/02-02-input-prompt.png" alt="Input Prompt" /><figcaption aria-hidden="true">Input Prompt</figcaption>
 </figure>
@@ -397,7 +392,7 @@ print(&quot;Hrs=&quot;, hours, &quot;  mins=&quot;, minutes,
 <p><strong>variable</strong></p>
 <p>A name that refers to a value.</p>
 <p><strong>variable name</strong></p>
-<p>A name given to a variable. Variable names in Python consist of a sequence of letters (a..z, A..Z, and _) and digits (0..9) that begins with a letter. In best programming practice, variable names should be chosen so that they describe their use in the program, making the program <em>self documenting</em>.</p>
+<p>A name given to a variable. Variable names in Python consist of a sequence of letters (<code>a..z</code>, <code>A..Z</code>, and <code>_</code>) and digits (0..9) that begins with a letter. In best programming practice, variable names should be chosen so that they describe their use in the program, making the program <em>self documenting</em>.</p>
 <h2>2.14. Exercises</h2>
 <ol type="1">
 <li><p>Take the sentence: All work and no play makes Jack a dull boy. Store each word in a separate variable, then print out the sentence on one line using print.</p></li>
@@ -440,3 +435,4 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-i
 
 </body>
 </html>
+

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>book</title>
-    <meta name="description" content="learn python the right way">
+    <title>Chapter 24 | Learn Python the Right Way</title>
+    <meta name="description" content="Learn about Inheritance in Chapter 24 of Learn Python the Right Way">
 
     <style type="text/css">
         figure {
@@ -35,14 +35,7 @@
  
 
 </head>
-
-<body>
-    <header><h1></h1>
-
-        <nav>
-        </nav>
-
-    </header><h1>Chapter 24: Inheritance</h1>
+<h1>Chapter 24: Inheritance</h1>
 <h2>24.1. Inheritance</h2>
 <p>The language feature most often associated with object-oriented programming is <strong>inheritance</strong>. Inheritance is the ability to define a new class that is a modified version of an existing class.</p>
 <p>The primary advantage of this feature is that you can add new methods to a class without modifying the existing class. It is called inheritance because the new class inherits all of the methods of the existing class. Extending this metaphor, the existing class is sometimes called the <strong>parent</strong> class. The new class may be called the <strong>child</strong> class or sometimes subclass.</p>
@@ -107,7 +100,7 @@ Hand frank contains
             s += &quot; is empty\n&quot;
         else:
             s += &quot; contains\n&quot;
-        return s + Deck.str(self)</code></pre>
+        return s + Deck.__str__(self)</code></pre>
 <p>Initially, <code>s</code> is a string that identifies the hand. If the hand is empty, the program appends the words <code>is empty</code> and returns <code>s</code>.</p>
 <p>Otherwise, the program appends the word <code>contains</code> and the string representation of the <code>Deck</code>, computed by invoking the <code>__str__</code> method in the <code>Deck</code> class on <code>self</code>.</p>
 <p>It may seem odd to send <code>self</code>, which refers to the current <code>Hand</code>, to a <code>Deck</code> method, until you remember that a <code>Hand</code> is a kind of <code>Deck</code>. <code>Hand</code> objects can do everything <code>Deck</code> objects can, so it is legal to send a <code>Hand</code> to a <code>Deck</code> method.</p>
@@ -351,3 +344,4 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-i
 
 </body>
 </html>
+

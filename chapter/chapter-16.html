@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>book</title>
-    <meta name="description" content="learn python the right way">
+    <title>Chapter 16 | Learn Python the Right Way</title>
+    <meta name="description" content="Learn about Classes and Objects --- Digging a little deeper in Chapter 16 of Learn Python the Right Way">
 
     <style type="text/css">
         figure {
@@ -35,15 +35,7 @@
  
 
 </head>
-
-<body>
-    <header><h1></h1>
-
-        <nav>
-        </nav>
-
-    </header><h1>Chapter 16: Classes and Objects — Digging a little deeper</h1>
-<pre><code class="language-python">.. index:: rectangle</code></pre>
+<h1>Chapter 16: Classes and Objects — Digging a little deeper</h1>
 <h2>16.1. Rectangles</h2>
 <p>Let’s say that we want a class to represent a rectangle which is located somewhere in the XY plane. The question is, what information do we have to provide in order to specify such a rectangle? To keep things simple, assume that the rectangle is oriented either vertically or horizontally, never at an angle.</p>
 <p>There are a few possibilities: we could specify the center of the rectangle (two coordinates) and its size (width and height); or we could specify one of the corners and the size; or we could specify two opposing corners. A conventional choice is to specify the upper-left corner of the rectangle, and the size.</p>
@@ -98,8 +90,6 @@ box.height += 100</code></pre>
 &gt;&gt;&gt; r.move(-10, 10)
 print(r)
 ((0, 15), 125, 40)</code></pre>
-<pre><code class="language-python">.. index:: equality, equality; deep, equality; shallow, shallow equality, deep
-equality</code></pre>
 <h2>16.3. Sameness</h2>
 <p>The meaning of the word “same” seems perfectly clear until we give it some thought, and then we realize there is more to it than we initially expected.</p>
 <p>For example, if we say, “Alice and Bob have the same car”, we mean that her car and his are the same make and model, but that they are two different cars. If we say, “Alice and Bob have the same mother”, we mean that her mother and his are the same person.</p>
@@ -139,7 +129,6 @@ print(&quot;== on lists returns&quot;,  a == b)
 <pre><code class="language-python">== on Points returns False
 == on lists returns True  </code></pre>
 <p>So we conclude that even though the two lists (or tuples, etc.) are distinct objects with different memory addresses, for lists the <code>==</code> operator tests for deep equality, while in the case of points it makes a shallow test.</p>
-<pre><code class="language-python">.. index:: copy, copy; deep, copy; shallow</code></pre>
 <h2>16.4. Copying</h2>
 <p>Aliasing can make a program difficult to read because changes made in one place might have unexpected effects in another place. It is hard to keep track of all the variables that might refer to a given object.</p>
 <p>Copying an object is often an alternative to aliasing. The <code>copy</code> module contains a function called <code>copy</code> that can duplicate any object:</p>
@@ -216,3 +205,4 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-i
 
 </body>
 </html>
+

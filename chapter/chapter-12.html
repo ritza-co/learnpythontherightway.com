@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>book</title>
-    <meta name="description" content="learn python the right way">
+    <title>Chapter 12 | Learn Python the Right Way</title>
+    <meta name="description" content="Learn about Modules in Chapter 12 of Learn Python the Right Way">
 
     <style type="text/css">
         figure {
@@ -35,17 +35,9 @@
  
 
 </head>
-
-<body>
-    <header><h1></h1>
-
-        <nav>
-        </nav>
-
-    </header><h1>Chapter 12: Modules</h1>
+<h1>Chapter 12: Modules</h1>
 <p>A <strong>module</strong> is a file containing Python definitions and statements intended for use in other Python programs. There are many Python modules that come with Python as part of the <strong>standard library</strong>. We have seen at least two of these already, the <code>turtle</code> module and the <code>string</code> module.</p>
 <p>We have also shown you how to access help. The help system contains a listing of all the standard modules that are available with Python. Play with help!</p>
-<pre><code class="language-python">.. index:: random numbers, shuffle, promise</code></pre>
 <h2>12.1. Random numbers</h2>
 <p>We often want to use random numbers in programs, here are a few typical uses:</p>
 <ul>
@@ -60,7 +52,7 @@ of building a dam,</li>
 <pre><code class="language-python">import random
 
 # Create a black box object that generates random numbers
-rng = random.Random()    
+rng = random.Random()
 
 dice_throw = rng.randrange(1,7)   # Return an int, one of 1,2,3,4,5,6
 delay_in_seconds = rng.random() * 5.0</code></pre>
@@ -70,9 +62,8 @@ delay_in_seconds = rng.random() * 5.0</code></pre>
 <p>The <code>random</code> method returns a floating point number in the interval [0.0, 1.0) — the square bracket means “closed interval on the left” and the round parenthesis means “open interval on the right”. In other words, 0.0 is possible, but all returned numbers will be strictly less than 1.0. It is usual to <em>scale</em> the results after calling this method, to get them into an interval suitable for your application. In the case shown here, we’ve converted the result of the method call to a number in the interval [0.0, 5.0). Once more, these are uniformly distributed numbers — numbers close to 0 are just as likely to occur as numbers close to 0.5, or numbers close to 1.0.</p>
 <p>This example shows how to shuffle a list. (<code>shuffle</code> cannot work directly with a lazy promise, so notice that we had to convert the range object using the <code>list</code> type converter first.)</p>
 <pre><code class="language-python">cards = list(range(52))  # Generate ints [0 .. 51] 
-                         #    representing a pack of cards.
+                         # representing a pack of cards.
 rng.shuffle(cards)       # Shuffle the pack</code></pre>
-<pre><code class="language-python">.. index:: deterministic algorithm, algorithm; deterministic, unit tests</code></pre>
 <h3>12.1.1. Repeatability and Testing</h3>
 <p>Random number generators are based on a <strong>deterministic</strong> algorithm — repeatable and predictable. So they’re called <strong>pseudo-random</strong> generators — they are not genuinely random. They start with a <em>seed</em> value. Each time you ask for another random number, you’ll get one based on the current seed attribute, and the state of the seed (which is one of the attributes of the generator) will be updated.</p>
 <p>For debugging and for writing unit tests, it is convenient to have repeatability — programs that do the same thing every time they are run. We can arrange this by forcing the random number generator to be initialized with a known seed every time. (Often this is only wanted during testing — playing a game of cards where the shuffled deck was always in the same order as last time you played would get boring very rapidly!)</p>
@@ -174,7 +165,6 @@ their_sum = 49999995000000 (time taken = 0.9897 seconds)</code></pre>
 <p>Like almost all other programming languages, angles are expressed in <em>radians</em> rather than degrees. There are two functions <code>radians</code> and <code>degrees</code> to convert between these two popular ways of measuring angles.</p>
 <p>Notice another difference between this module and our use of <code>random</code> and <code>turtle</code>: in <code>random</code> and <code>turtle</code> we create objects and we call methods on the object. This is because objects have <em>state</em> — a turtle has a color, a position, a heading, etc., and every random number generator has a seed value that determines its next result.</p>
 <p>Mathematical functions are “pure” and don’t have any state — calculating the square root of 2.0 doesn’t depend on any kind of state or history about what happened in the past. So the functions are not methods of an object — they are simply functions that are grouped together in a module called <code>math</code>.</p>
-<pre><code class="language-python">.. index:: import statement, statement; import</code></pre>
 <h2>12.4. Creating your own modules</h2>
 <p>All we need to do to create our own modules is to save our script as a file with a <code>.py</code> extension. Suppose, for example, this script is saved as a file named <code>seqtools.py</code>:</p>
 <pre><code class="language-python">def remove_at(pos, seq):
@@ -186,7 +176,6 @@ their_sum = 49999995000000 (time taken = 0.9897 seconds)</code></pre>
 &#39;A sting!&#39;</code></pre>
 <p>We do not include the <code>.py</code> file extension when importing. Python expects the file names of Python modules to end in <code>.py</code>, so the file extension is not included in the <strong>import statement</strong>.</p>
 <p>The use of modules makes it possible to break up very large programs into manageable sized parts, and to keep related parts together.</p>
-<pre><code class="language-python">.. index:: namespace</code></pre>
 <h2>12.5. Namespaces</h2>
 <p>A <strong>namespace</strong> is a collection of identifiers that belong to a module, or to a function, (and as we will see soon, in classes too). Generally, we like a namespace to hold “related” things, e.g. all the math functions, or all the typical things we’d do with random numbers.</p>
 <p>Each module has its own namespace, so we can use the same identifier name in multiple modules without causing an identification problem.</p>
@@ -241,7 +230,6 @@ printing n after calling g: 11</code></pre>
 <p>Files and directories organize <em>where</em> things are stored in our computer. On the other hand, namespaces and modules are a programming concept: they help us organize how we want to group related functions and attributes. They are not about “where” to store things, and should not have to coincide with the file and directory structures.</p>
 <p>So in Python, if you rename the file <code>math.py</code>, its module name also changes, your <code>import</code> statements would need to change, and your code that refers to functions or attributes inside that namespace would also need to change.</p>
 <p>In other languages this is not necessarily the case. So don’t blur the concepts, just because Python blurs them!</p>
-<pre><code class="language-python">.. index:: scope, scope; global, scope; local, scope; builtin, builtin scope, global scope, local scope</code></pre>
 <h2>12.6. Scope and lookup rules</h2>
 <p>The <strong>scope</strong> of an identifier is the region of program code in which the identifier can be accessed, or used.</p>
 <p>There are three important scopes in Python:</p>
@@ -269,12 +257,10 @@ print(f(5), n, m)</code></pre>
 <p>This prints 17 10 3. The reason is that the two variables <code>m</code> and <code>n</code> in lines 1 and 2 are outside the function in the global namespace. Inside the function, new variables called <code>n</code> and <code>m</code> are created <em>just for the duration of the execution of f</em>. These are created in the local namespace of function <code>f</code>. Within the body of <code>f</code>, the scope lookup rules determine that we use the local variables <code>m</code> and <code>n</code>. By contrast, after we’ve returned from <code>f</code>, the <code>n</code> and <code>m</code> arguments to the <code>print</code> function refer to the original variables on lines 1 and 2, and these have not been changed in any way by executing function <code>f</code>.</p>
 <p>Notice too that the <code>def</code> puts name <code>f</code> into the global namespace here. So it can be called on line 7.</p>
 <p>What is the scope of the variable <code>n</code> on line 1? Its scope — the region in which it is visible — is lines 1, 2, 6, 7. It is hidden from view in lines 3, 4, 5 because of the local variable <code>n</code>.</p>
-<pre><code class="language-python">.. index:: attribute, dot operator</code></pre>
 <h2>12.7. Attributes and the dot operator</h2>
 <p>Variables defined inside a module are called <strong>attributes</strong> of the module. We’ve seen that objects have attributes too: for example, most objects have a <code>__doc__</code> attribute, some functions have a <code>__annotations__</code> attribute. Attributes are accessed using the <strong>dot operator</strong> (<code>.</code>). The <code>question</code> attribute of <code>module1</code> and <code>module2</code> is accessed using <code>module1.question</code> and <code>module2.question</code>.</p>
 <p>Modules contain functions as well as attributes, and the dot operator is used to access them in the same way. <code>seqtools.remove_at</code> refers to the <code>remove_at</code> function in the <code>seqtools</code> module.</p>
 <p>When we use a dotted name, we often refer to it as a <strong>fully qualified name</strong>, because we’re saying exactly which <code>question</code> attribute we mean.</p>
-<pre><code class="language-python">.. index:: import statement</code></pre>
 <h2>12.8. Three <code>import</code> statement variants</h2>
 <p>Here are three different ways to import names into the current namespace, and to use them:</p>
 <pre><code class="language-python">import math
@@ -304,82 +290,27 @@ x = math.sqrt(10)      # This gives an error</code></pre>
 <p>Near the end of Chapter 6 (Fruitful functions) we introduced unit testing, and our own <code>test</code> function, and you’ve had to copy this into each module for which you wrote tests. Now we can put that definition into a module of its own, say <code>unit_tester.py</code>, and simply use one line in each new script instead:</p>
 <pre><code class="language-python">from unit_tester import test</code></pre>
 <h2>12.10. Glossary</h2>
-<pre><code class="language-python">attribute  
-    A variable defined inside a module (or class or instance -- as we will
-    see later). Module attributes are accessed by using the **dot operator**
-    (`.`).
-
-dot operator  
-    The dot operator (`.`) permits access to attributes and functions of a
-    module (or attributes and methods of a class or instance -- as we have
-    seen elsewhere).
-
-fully qualified name  
-    A name that is prefixed by some namespace identifier and the dot
-    operator, or by an instance object, e.g. `math.sqrt` or
-    `tess.forward(10)`.
-
-import statement  
-    A statement which makes the objects contained in a module available for
-    use within another module. There are two forms for the import statement.
-    Using hypothetical modules named `mymod1` and `mymod2` each containing
-    functions `f1` and `f2`, and variables `v1` and `v2`, examples of these
-    two forms include:
-
-    ```python
-    import mymod1 
-    from mymod2 import f1, f2, v1, v2 
-    ```
-
-    The second form brings the imported objects into the namespace of the
-    importing module, while the first form preserves a separate namespace
-    for the imported module, requiring `mymod1.v1` to access the `v1`
-    variable from that module.
-
-method  
-    Function-like attribute of an object. Methods are *invoked* (called) on
-    an object using the dot operator. For example:
-
-    ```python
-    &gt;&gt;&gt; s = &quot;this is a string.&quot;
-    &gt;&gt;&gt; s.upper()
-    &#39;THIS IS A STRING.&#39;
-    &gt;&gt;&gt;
-    ```
-
-    We say that the method, `upper` is invoked on the string, `s`. `s` is
-    implicitely the first argument to `upper`.
-
-module  
-    A file containing Python definitions and statements intended for use in
-    other Python programs. The contents of a module are made available to
-    the other program by using the `import` statement.
-
-namespace  
-    A syntactic container providing a context for names so that the same
-    name can reside in different namespaces without ambiguity. In Python,
-    modules, classes, functions and methods all form namespaces.
-
-naming collision  
-    A situation in which two or more names in a given namespace cannot be
-    unambiguously resolved. Using
-
-    ```python
-    import string
-    ```
-
-    instead of
-
-    ```python
-    from string import *
-    ```
-
-    prevents naming collisions.
-
-    standard library A library is a collection of software used as tools in
-    the development of other software. The standard library of a programming
-    language is the set of such tools that are distributed with the core
-    programming language. Python comes with an extensive standard library.</code></pre>
+<p><strong>attribute</strong> A variable defined inside a module (or class or instance – as we will see later). Module attributes are accessed by using the <strong>dot operator</strong> (<code>.</code>).</p>
+<p><strong>dot operator</strong> The dot operator (<code>.</code>) permits access to attributes and functions of a module (or attributes and methods of a class or instance – as we have seen elsewhere).</p>
+<p><strong>fully qualified name</strong> A name that is prefixed by some namespace identifier and the dot operator, or by an instance object, e.g. <code>math.sqrt</code> or <code>tess.forward(10)</code>.</p>
+<p><strong>import statement</strong> A statement which makes the objects contained in a module available for use within another module. There are two forms for the import statement. Using hypothetical modules named <code>mymod1</code> and <code>mymod2</code> each containing functions <code>f1</code> and <code>f2</code>, and variables <code>v1</code> and <code>v2</code>, examples of these two forms include:</p>
+<pre><code class="language-python">import mymod1 
+from mymod2 import f1, f2, v1, v2 </code></pre>
+<p>The second form brings the imported objects into the namespace of the importing module, while the first form preserves a separate namespace for the imported module, requiring <code>mymod1.v1</code> to access the <code>v1</code> variable from that module.</p>
+<p><strong>method</strong> Function-like attribute of an object. Methods are <em>invoked</em> (called) on an object using the dot operator. For example:</p>
+<pre><code class="language-python">&gt;&gt;&gt; s = &quot;this is a string.&quot;
+&gt;&gt;&gt; s.upper()
+&#39;THIS IS A STRING.&#39;
+&gt;&gt;&gt;</code></pre>
+<p>We say that the method, <code>upper</code> is invoked on the string, <code>s</code>. <code>s</code> is implicitely the first argument to <code>upper</code>.</p>
+<p><strong>module</strong> A file containing Python definitions and statements intended for use in other Python programs. The contents of a module are made available to the other program by using the <code>import</code> statement.</p>
+<p><strong>namespace</strong> A syntactic container providing a context for names so that the same name can reside in different namespaces without ambiguity. In Python, modules, classes, functions and methods all form namespaces.</p>
+<p><strong>naming collision</strong> A situation in which two or more names in a given namespace cannot be unambiguously resolved. Using</p>
+<pre><code class="language-python">import string</code></pre>
+<p>instead of</p>
+<pre><code class="language-python">from string import *</code></pre>
+<p>prevents naming collisions.</p>
+<p><strong>standard library</strong> A library is a collection of software used as tools in the development of other software. The standard library of a programming language is the set of such tools that are distributed with the core programming language. Python comes with an extensive standard library.</p>
 <h2>12.11. Exercises</h2>
 <ol type="1">
 <li><p>Open help for the <code>calendar</code> module.</p>
@@ -496,3 +427,4 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-i
 
 </body>
 </html>
+

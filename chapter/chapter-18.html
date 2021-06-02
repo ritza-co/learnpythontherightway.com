@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>book</title>
-    <meta name="description" content="learn python the right way">
+    <title>Chapter 18 | Learn Python the Right Way</title>
+    <meta name="description" content="Learn about Recursion in Chapter 18 of Learn Python the Right Way">
 
     <style type="text/css">
         figure {
@@ -35,14 +35,7 @@
  
 
 </head>
-
-<body>
-    <header><h1></h1>
-
-        <nav>
-        </nav>
-
-    </header><h1>Chapter 18: Recursion</h1>
+<h1>Chapter 18: Recursion</h1>
 <p><strong>Recursion</strong> means “defining something in terms of itself” usually at some smaller scale, perhaps multiple times, to achieve your objective. For example, we might say “A human being is someone whose mother is a human being”, or “a directory is a structure that holds files and (smaller) directories”, or “a family tree starts with a couple who have children, each with their own family sub-trees”.</p>
 <p>Programming languages generally support <strong>recursion</strong>, which means that, in order to solve a problem,functions can <em>call themselves</em> to solve smaller subproblems.</p>
 <h2>18.1. Drawing Fractals</h2>
@@ -109,7 +102,6 @@ def koch_3(t, size):
        t.left(angle)</code></pre>
 <p>This trick of “unrolling” the recursion gives us an operational view of what happens. You can trace the program into <code>koch_3</code>, and from there, into <code>koch_2</code>, and then into <code>koch_1</code>, etc., all the way down the different layers of the recursion.</p>
 <p>This might be a useful hint to build your understanding. The mental goal is, however, to be able to do the abstraction!</p>
-<pre><code class="language-python">.. index:: single: data structure single: data structure; recursive single: recursive definition single: definition; recursive single: recursive data structure</code></pre>
 <h2>18.2. Recursive data structures</h2>
 <p>All of the Python data types we have seen can be grouped inside lists and tuples in a variety of ways. Lists and tuples can also be nested, providing many possibilities for organizing data. The organization of data for the purpose of making it easier to use is called a <strong>data structure</strong>.</p>
 <p>It’s election time and we are helping to compute the votes as they come in. Votes arriving from individual wards, precincts, municipalities, counties, and states are sometimes reported as a sum total of votes and sometimes as a list of subtotals of votes. After considering how best to store the tallies, we decide to use a <em>nested number list</em>, which we define as follows:</p>
@@ -129,8 +121,6 @@ Traceback (most recent call last):
 TypeError: unsupported operand type(s) for +: &#39;int&#39; and &#39;list&#39;
 &gt;&gt;&gt; </code></pre>
 <p>The problem is that the third element of this list, <code>[11, 13]</code>, is itself a list, so it cannot just be added to <code>1</code>, <code>2</code>, and <code>8</code>.</p>
-<pre><code class="language-python">.. index:: recursion, recursive call, base case, infinite recursion, recursion;
-infinite</code></pre>
 <h2>18.3. Processing recursive number lists</h2>
 <p>To sum all the numbers in our recursive nested number list we need to traverse the list, visiting each of the elements within its nested structure, adding any numeric elements to our sum, and <em>recursively repeating the summing process</em> with any elements which are themselves sub-lists.</p>
 <p>Thanks to recursion, the Python code needed to sum the values of a nested number list is surprisingly short:</p>
@@ -181,7 +171,6 @@ recursion_depth(0)</code></pre>
 <p>After watching the messages flash by, you will be presented with the end of a long traceback that ends with a message like the following:</p>
 <pre><code>RuntimeError: maximum recursion depth exceeded ...</code></pre>
 <p>We would certainly never want something like this to happen to a user of one of our programs, so in the next chapter we’ll see how errors, any kinds of errors, are handled in Python.</p>
-<pre><code>.. index:: fibonacci numbers</code></pre>
 <h2>18.4. Case study: Fibonacci numbers</h2>
 <p>The famous <strong>Fibonacci sequence</strong> 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 134, … was devised by Fibonacci (1170-1250), who used this to model the breeding of (pairs) of rabbits. If, in generation 7 you had 21 pairs in total, of which 13 were adults, then next generation the adults will all have bred new children, and the previous children will have grown up to become adults. So in generation 8 you’ll have 13+21=34, of which 21 are adults.</p>
 <p>This <em>model</em> to explain rabbit breeding made the simplifying assumption that rabbits never died. Scientists often make (unrealistic) simplifying assumptions and restrictions to make some headway with the problem.</p>
@@ -348,8 +337,7 @@ recursive definition
 <h2>18.8. Exercises</h2>
 <ol type="1">
 <li><p>Modify the Koch fractal program so that it draws a Koch snowflake, like this:</p>
-<p><img src="Chapter-18/koch_snowflake.png" /></p>
-<p>.. index:: fractal; Cesaro torn square</p></li>
+<p><img src="Chapter-18/koch_snowflake.png" /></p></li>
 <li><ol type="1">
 <li><p>Draw a Cesaro torn line fractal, of the order given by the user. We show four different lines of orders 0,1,2,3. In this example, the angle of the tear is 10 degrees.</p>
 <p><img src="Chapter-18/cesaro_torn_line.png" /></p></li>
@@ -414,3 +402,4 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-i
 
 </body>
 </html>
+

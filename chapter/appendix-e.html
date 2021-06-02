@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>book</title>
-    <meta name="description" content="learn python the right way">
+    <title>Appendix E | Learn Python the Right Way</title>
+    <meta name="description" content="Learn about Some Tips, Tricks, and Common Errors in Appendix E of Learn Python the Right Way">
 
     <style type="text/css">
         figure {
@@ -35,16 +35,8 @@
  
 
 </head>
-
-<body>
-    <header><h1></h1>
-
-        <nav>
-        </nav>
-
-    </header><h1>Appendix E: Some Tips, Tricks, and Common Errors</h1>
+<h1>Appendix E: Some Tips, Tricks, and Common Errors</h1>
 <p>These are small summaries of ideas, tips, and commonly seen errors that might be helpful to those beginning Python.</p>
-<pre><code>.. index:: function tips, None, return</code></pre>
 <h2>E.1. Functions</h2>
 <p>Functions help us with our mental chunking: they allow us to group together statements for a high-level purpose, e.g. a function to sort a list of items, a function to make the turtle draw a spiral, or a function to compute the mean and standard deviation of some measurements.</p>
 <p>There are two kinds of functions: fruitful, or value-returning functions, which <em>calculate and return a value</em>, and we use them because we’re primarily interested in the value they’ll return. Void (non-fruitful) functions are used because they <em>perform actions</em> that we want done — e.g. make a turtle draw a rectangle, or print the first thousand prime numbers. They always return <code>None</code> — a special dummy value.</p>
@@ -59,7 +51,6 @@
 <p>Tip: Try to relate Python functions to ideas we already know</p>
 <p>In math, we’re familiar with functions like <code>f(x) = 3x + 5</code>. We already understand that when we call the function <code>f(3)</code> we make some association between the parameter x and the argument 3. Try to draw parallels to argument passing in Python.</p>
 <p>Quiz: Is the function <code>f(z) = 3z + 5</code> the same as function <code>f</code> above?</p>
-<pre><code>.. index:: control flow</code></pre>
 <h2>E.2. Problems with logic and flow of control</h2>
 <p>We often want to know if some condition holds for any item in a list, e.g. “does the list have any odd numbers?” This is a common mistake:</p>
 <pre><code class="language-python">def any_odd(xs):  # Buggy version 
@@ -108,7 +99,6 @@
 <li>How would we adapt this to make another function which returns <code>True</code> if <em>all</em> the numbers are odd? Can you still use a short-circuit style?</li>
 <li>How would we adapt it to return <code>True</code> if at least three of the numbers are odd? Short-circuit the traversal when the third odd number is found — don’t traverse the whole list unless we have to.</li>
 </ul>
-<pre><code>.. index:: variables local</code></pre>
 <h2>E.3. Local variables</h2>
 <p>Functions are called, or activated, and while they’re busy they create their own stack frame which holds local variables. A local variable is one that belongs to the current activation. As soon as the function returns (whether from an explicit return statement or because Python reached the last statement), the stack frame and its local variables are all destroyed. The important consequence of this is that a function cannot use its own variables to remember any kind of state between different activations. It cannot count how many times it has been called, or remember to switch colors between red and blue UNLESS it makes use of variables that are global. Global variables will survive even after our function has exited, so they are the correct way to maintain information between calls.</p>
 <pre><code class="language-python">sz = 2  
@@ -123,7 +113,6 @@ def h2():
 <p>Use a Python visualizer like the one at http://pythontutor.com/ to build a strong understanding of function calls, stack frames, local variables, and function returns.</p>
 <p>Tip: Assignment in a function creates a local variable</p>
 <p>Any assignment to a variable within a function means Python will make a local variable, unless we override with <code>global</code>.</p>
-<pre><code>.. index:: event, handler</code></pre>
 <h2>E.4. Event handler functions</h2>
 <p>Our chapter on event handling showed three different kinds of events that we could handle. They each have their own subtle points that can trip us up.</p>
 <ul>
@@ -133,7 +122,6 @@ def h2():
 <li>A keypress event handler has to be bound to the key it responds to. There is a messy extra step when using keypresses: we have to remember to issue a <code>wn.listen()</code> before our program will receive any keypresses. But if the user presses the key 10 times, the handler will be called ten times.</li>
 <li>Using a timer to create a future-dated event only causes one call to the handler. If we want repeated periodic handler activations, then from within the handler we call <code>wn.ontimer(....)</code> to set up the next event.</li>
 </ul>
-<pre><code>.. index:: string</code></pre>
 <h2>E.5. String handling</h2>
 <p>There are only four <em>really</em> important operations on strings, and we’ll be able to do just about anything. There are many more nice-to-have methods (we’ll call them sugar coating) that can make life easier, but if we can work with the basic four operations smoothly, we’ll have a great grounding.</p>
 <ul>
@@ -212,3 +200,4 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-i
 
 </body>
 </html>
+

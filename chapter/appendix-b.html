@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>book</title>
-    <meta name="description" content="learn python the right way">
+    <title>Appendix B | Learn Python the Right Way</title>
+    <meta name="description" content="Learn about An odds-and-ends Workbook in Appendix B of Learn Python the Right Way">
 
     <style type="text/css">
         figure {
@@ -35,14 +35,7 @@
  
 
 </head>
-
-<body>
-    <header><h1></h1>
-
-        <nav>
-        </nav>
-
-    </header><h1>Appendix B: An odds-and-ends Workbook</h1>
+<h1>Appendix B: An odds-and-ends Workbook</h1>
 <p><em>This workbook / cookbook of recipes is still very much under construction.</em></p>
 <h2>B.1. The Five Strands of Proficiency</h2>
 <p>This was an important study commissioned by the President in the USA. It looked at what was needed for students to become proficient in maths.</p>
@@ -61,7 +54,6 @@
 </ol></li>
 </ol>
 <p>Check out http://mason.gmu.edu/~jsuh4/teaching/strands.htm, or Kilpatrick’s book at http://www.nap.edu/openbook.php?isbn=0309069955</p>
-<pre><code>.. index:: email sending</code></pre>
 <h2>B.2. Sending Email</h2>
 <p>Sometimes it is fun to do powerful things with Python — remember that part of the “productive disposition” we saw under the five threads of proficiency included <em>efficacy</em> — the sense of being able to accomplish something useful. Here is a Python example of how you can send email to someone.</p>
 <pre><code class="language-python">import smtplib, email.mime.text
@@ -93,7 +85,6 @@ else:
 
 svr.quit()                                   # Close the connection</code></pre>
 <p>In the context of the course, notice how we use the two objects in this program: we create a message object on line 9, and set some attributes at lines 16-18. We then create a connection object at line 21, and ask it to send our message.</p>
-<pre><code>.. index:: web server in Python</code></pre>
 <h2>B.3. Write your own Web Server</h2>
 <p>Python is gaining in popularity as a tool for writing web applications. Although one will probably use Python to process requests behind a web server like Apache, there are powerful libraries which allow you to write your own stand-alone web server in a couple of lines. This simpler approach means that you can have a test web server running on your own desktop machine in a couple of minutes, without having to install any extra software.</p>
 <p>In this cookbook example we use the <code>wsgi</code> (“wizz-gee”) protocol: a modern way of connecting web servers to code that runs to provide the services. See http://en.wikipedia.org/wiki/Web_Server_Gateway_Interface for more on <code>wsgi</code>.</p>
@@ -150,7 +141,6 @@ def gettime(env, resp):
 def classlist(env, resp): 
     return  # Will be written in the next section!</code></pre>
 <p>Notice how <code>gettime</code> returns an (admittedly simple) html document which is built on the fly by using <code>format</code> to substitute content into a predefined template.</p>
-<pre><code>.. index:: database</code></pre>
 <h2>B.4. Using a Database</h2>
 <p>Python has a library for using the popular and lightweight <strong>sqlite</strong> database. Learn more about this self-contained, embeddable, zero-configuration SQL database engine at http://www.sqlite.org.</p>
 <p>Firstly, we have a script that creates a new database, creates a table, and stores some rows of test data into the table: (Copy and paste this code into your Python system.)</p>
@@ -216,3 +206,4 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-i
 
 </body>
 </html>
+

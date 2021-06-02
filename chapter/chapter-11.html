@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>book</title>
-    <meta name="description" content="learn python the right way">
+    <title>Chapter 11 | Learn Python the Right Way</title>
+    <meta name="description" content="Learn about Lists in Chapter 11 of Learn Python the Right Way">
 
     <style type="text/css">
         figure {
@@ -35,16 +35,8 @@
  
 
 </head>
-
-<body>
-    <header><h1></h1>
-
-        <nav>
-        </nav>
-
-    </header><h1>Chapter 11: Lists</h1>
+<h1>Chapter 11: Lists</h1>
 <p>A <strong>list</strong> is an ordered collection of values. The values that make up a list are called its <strong>elements</strong>, or its <strong>items</strong>. We will use the term element or item to mean the same thing. Lists are similar to strings, which are ordered collections of characters, except that the elements of a list can be of any type. Lists and strings — and other collections that maintain the order of their items — are called <strong>sequences</strong>.</p>
-<pre><code class="language-python">nested list, list; nested</code></pre>
 <h2>11.1. List values</h2>
 <p>There are several ways to create a new list; the simplest is to enclose the elements in square brackets (<code>[</code> and <code>]</code>):</p>
 <pre><code class="language-python">ps = [10, 20, 30, 40]
@@ -59,7 +51,6 @@ qs = [&quot;spam&quot;, &quot;bungee&quot;, &quot;swallow&quot;]</code></pre>
 &gt;&gt;&gt; an_empty_list = []
 &gt;&gt;&gt; print(vocabulary, numbers, an_empty_list)
 [&quot;apple&quot;, &quot;cheese&quot;, &quot;dog&quot;] [17, 123] []</code></pre>
-<pre><code class="language-python">.. index:: list index, index, list traversal</code></pre>
 <h2>11.2. Accessing elements</h2>
 <p>The syntax for accessing the elements of a list is the same as the syntax for accessing the characters of a string — the index operator: <code>[]</code> (not to be confused with an empty list). The expression inside the brackets specifies the index. Remember that the indices start at 0:</p>
 <pre><code class="language-python">&gt;&gt;&gt; numbers[0]
@@ -134,7 +125,6 @@ print(&quot;The number of students taking CompSci is&quot;, counter)</code></pre
 &gt;&gt;&gt; [1, 2, 3] * 3
 [1, 2, 3, 1, 2, 3, 1, 2, 3]</code></pre>
 <p>The first example repeats <code>[0]</code> four times. The second example repeats the list <code>[1, 2, 3]</code> three times.</p>
-<pre><code class="language-python">.. index:: slice, sublist</code></pre>
 <h2>11.6. List slices</h2>
 <p>The slice operations we saw previously with strings let us work with sublists:</p>
 <pre><code class="language-python">&gt;&gt;&gt; a_list = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;]
@@ -146,7 +136,6 @@ print(&quot;The number of students taking CompSci is&quot;, counter)</code></pre
 [&#39;d&#39;, &#39;e&#39;, &#39;f&#39;]
 &gt;&gt;&gt; a_list[:]
 [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;]</code></pre>
-<pre><code class="language-python">.. index:: mutable, item assignment, immutable</code></pre>
 <h2>11.7. Lists are mutable</h2>
 <p>Unlike strings, lists are <strong>mutable</strong>, which means we can change their elements. Using the index operator on the left side of an assignment, we can update one of the elements:</p>
 <pre><code class="language-python">&gt;&gt;&gt; fruit = [&quot;banana&quot;, &quot;apple&quot;, &quot;quince&quot;]
@@ -183,7 +172,6 @@ TypeError: &#39;str&#39; object does not support item assignment</code></pre>
 &gt;&gt;&gt; a_list[4:4] = [&quot;e&quot;]
 &gt;&gt;&gt; a_list
 [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;]</code></pre>
-<pre><code class="language-python">.. index:: del statement, statement; del</code></pre>
 <h2>11.8. List deletion</h2>
 <p>Using slices to delete list elements can be error-prone. Python provides an alternative that is more readable. The <code>del</code> statement removes an element from a list:</p>
 <pre><code class="language-python">&gt;&gt;&gt; a = [&quot;one&quot;, &quot;two&quot;, &quot;three&quot;]
@@ -197,7 +185,6 @@ TypeError: &#39;str&#39; object does not support item assignment</code></pre>
 &gt;&gt;&gt; a_list
 [&#39;a&#39;, &#39;f&#39;]</code></pre>
 <p>As usual, the sublist selected by slice contains all the elements up to, but not including, the second index.</p>
-<pre><code class="language-python">.. index:: is operator, objects and values</code></pre>
 <h2>11.9. Objects and references</h2>
 <p>After we execute these assignment statements</p>
 <pre><code class="language-python">a = &quot;banana&quot;
@@ -221,7 +208,6 @@ False   </code></pre>
 <p>The state snapshot here looks like this:</p>
 <p><img src="Chapter-11/mult_references2.png" /></p>
 <p><code>a</code> and <code>b</code> have the same value but do not refer to the same object.</p>
-<pre><code>.. index:: aliases</code></pre>
 <h2>11.10. Aliasing</h2>
 <p>Since variables refer to objects, if we assign one variable to another, both variables refer to the same object:</p>
 <pre><code class="language-python">&gt;&gt;&gt; a = [1, 2, 3]
@@ -235,7 +221,6 @@ True</code></pre>
 &gt;&gt;&gt; a
 [5, 2, 3]</code></pre>
 <p>Although this behavior can be useful, it is sometimes unexpected or undesirable. In general, it is safer to avoid aliasing when you are working with mutable objects (i.e. lists at this point in our textbook, but we’ll meet more mutable objects as we cover classes and objects, dictionaries and sets). Of course, for immutable objects (i.e. strings, tuples), there’s no problem — it is just not possible to change something and get a surprise when you access an alias name. That’s why Python is free to alias strings (and any other immutable kinds of data) when it sees an opportunity to economize.</p>
-<pre><code>.. index:: clone</code></pre>
 <h2>11.11. Cloning lists</h2>
 <p>If we want to modify a list and also keep a copy of the original, we need to be able to make a copy of the list itself, not just the reference. This process is sometimes called <strong>cloning</strong>, to avoid the ambiguity of the word copy.</p>
 <p>The easiest way to clone a list is to use the slice operator:</p>
@@ -249,7 +234,6 @@ True</code></pre>
 <pre><code class="language-python">&gt;&gt;&gt; b[0] = 5
 &gt;&gt;&gt; a
 [1, 2, 3]</code></pre>
-<pre><code>.. index:: for loop, enumerate</code></pre>
 <h2>11.12. Lists and <code>for</code> loops</h2>
 <p>The <code>for</code> loop also works with lists, as we’ve already seen. The generalized syntax of a <code>for</code> loop is:</p>
 <pre><code class="language-python">for VARIABLE in LIST:
@@ -285,7 +269,6 @@ for (i, val) in enumerate(xs):
 1 apple
 2 pear
 3 lemon</code></pre>
-<pre><code>.. index:: parameter</code></pre>
 <h2>11.13. List parameters</h2>
 <p>Passing a list as an argument actually passes a reference to the list, not a copy or clone of the list. So parameter passing creates an alias for you: the caller has one variable referencing the list, and the called function has an alias, but there is only one underlying list object. For example, the function below takes a list as an argument and multiplies each element in the list by 2:</p>
 <pre><code class="language-python">def double_stuff(a_list):
@@ -304,7 +287,6 @@ print(things)</code></pre>
 <p>If a function modifies the items of a list parameter, the caller sees the change.</p>
 <p>Use the Python visualizer!</p>
 <p>We’ve already mentioned the Python visualizer at http://pythontutor.com. It is a very useful tool for building a good understanding of references, aliases, assignments, and passing arguments to functions. Pay special attention to cases where you clone a list or have two separate lists, and cases where there is only one underlying list, but more than one variable is aliased to reference the list.</p>
-<pre><code class="language-python">.. index:: list; append</code></pre>
 <h2>11.14. List methods</h2>
 <p>The dot operator can also be used to access built-in methods of list objects. We’ll start with the most useful method for adding something onto the end of an existing list:</p>
 <pre><code class="language-python">&gt;&gt;&gt; mylist = []
@@ -335,7 +317,6 @@ print(things)</code></pre>
 &gt;&gt;&gt; mylist
 [3, 5, 5, 5, 9, 11, 12, 27]</code></pre>
 <p>Experiment and play with the list methods shown here, and read their documentation until you feel confident that you understand how they work.</p>
-<pre><code class="language-python">.. index:: side effect, modifier</code></pre>
 <h2>11.15. Pure functions and modifiers</h2>
 <p>Functions which take lists as arguments and change them during execution are called <strong>modifiers</strong> and the changes they make are called <strong>side effects</strong>.</p>
 <p>A <strong>pure function</strong> does not produce side effects. It communicates with the calling program only through parameters, which it does not modify, and a return value. Here is <code>double_stuff</code> written as a pure function:</p>
@@ -379,7 +360,6 @@ return the result</code></pre>
         if is_prime(i):
            result.append(i)
     return result</code></pre>
-<pre><code class="language-python">.. index:: strings and lists, split, join</code></pre>
 <h2>11.17. Strings and lists</h2>
 <p>Two of the most useful methods on strings involve conversion to and from lists of substrings. The <code>split</code> method (which we’ve already seen) breaks a string into a list of words. By default, any number of whitespace characters is considered a word boundary:</p>
 <pre><code class="language-python">&gt;&gt;&gt; song = &quot;The rain in Spain...&quot;
@@ -400,7 +380,6 @@ return the result</code></pre>
 &#39;The --- rain --- in --- Spain...&#39;
 &gt;&gt;&gt; &quot;&quot;.join(wds)
 &#39;TheraininSpain...&#39;</code></pre>
-<pre><code>.. index:: promise, range function</code></pre>
 <h2>11.18. <code>list</code> and <code>range</code></h2>
 <p>Python has a built-in type conversion function called <code>list</code> that tries to turn whatever you give it into a list.</p>
 <pre><code class="language-python">&gt;&gt;&gt; xs = list(&quot;Crunchy Frog&quot;)
@@ -428,7 +407,6 @@ test(f(1000000000) == 105)</code></pre>
 range(0, 10)
 &gt;&gt;&gt; list(range(10))     # Call in the promise, to produce a list.
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code></pre>
-<pre><code class="language-python">.. index:: nested list, list; nested</code></pre>
 <h2>11.19. Nested lists</h2>
 <p>A nested list is a list that appears as an element in another list. In this list, the element with index 3 is a nested list:</p>
 <pre><code class="language-python">&gt;&gt;&gt; nested = [&quot;hello&quot;, 2.0, 5, [10, 20]]</code></pre>
@@ -443,7 +421,6 @@ range(0, 10)
 <pre><code class="language-python">&gt;&gt;&gt; nested[3][1]
 20</code></pre>
 <p>Bracket operators evaluate from left to right, so this expression gets the 3’th element of <code>nested</code> and extracts the 1’th element from it.</p>
-<pre><code class="language-python">.. index:: matrix</code></pre>
 <h2>11.20. Matrices</h2>
 <p>Nested lists are often used to represent matrices. For example, the matrix:</p>
 <p><img src="Chapter-11/matrix2.png" /></p>
@@ -457,126 +434,84 @@ range(0, 10)
 6</code></pre>
 <p>The first index selects the row, and the second index selects the column. Although this way of representing matrices is common, it is not the only possibility. A small variation is to use a list of columns instead of a list of rows. Later we will see a more radical alternative using a dictionary.</p>
 <h2>11.21. Glossary</h2>
-<pre><code class="language-python">aliases  
-    Multiple variables that contain references to the same object.
-
-clone  
-    To create a new object that has the same value as an existing object.
-    Copying a reference to an object creates an alias but doesn&#39;t clone the
-    object.
-
-delimiter  
-    A character or string used to indicate where a string should be split.
-
-element  
-    One of the values in a list (or other sequence). The bracket operator
-    selects elements of a list. Also called *item*.
-
-immutable data value  
-    A data value which cannot be modified. Assignments to elements or slices
-    (sub-parts) of immutable values cause a runtime error.
-
-index  
-    An integer value that indicates the position of an item in a list.
-    Indexes start from 0.
-
-item  
-    See *element*.
-
-list  
-    A collection of values, each in a fixed position within the list. Like
-    other types `str`, `int`, `float`, etc. there is also a `list`
-    type-converter function that tries to turn whatever argument you give it
-    into a list.
-
-list traversal  
-    The sequential accessing of each element in a list.
-
-modifier  
-    A function which changes its arguments inside the function body. Only
-    mutable types can be changed by modifiers.
-
-mutable data value  
-    A data value which can be modified. The types of all mutable values are
-    compound types. Lists and dictionaries are mutable; strings and tuples
-    are not.
-
-nested list  
-    A list that is an element of another list.
-
-object  
-    A thing to which a variable can refer.
-
-pattern  
-    A sequence of statements, or a style of coding something that has
-    general applicability in a number of different situations. Part of
-    becoming a mature Computer Scientist is to learn and establish the
-    patterns and algorithms that form your toolkit. Patterns often
-    correspond to your &quot;mental chunking&quot;.
-
-promise  
-    An object that promises to do some work or deliver some values if
-    they&#39;re eventually needed, but it lazily puts off doing the work
-    immediately. Calling `range` produces a promise.
-
-pure function  
-    A function which has no side effects. Pure functions only make changes
-    to the calling program through their return values.
-
-sequence  
-    Any of the data types that consist of an ordered collection of elements,
-    with each element identified by an index.
-
-side effect  
-    A change in the state of a program made by calling a function. Side
-    effects can only be produced by modifiers.
-
-step size  
-    The interval between successive elements of a linear sequence. The third
-    (and optional argument) to the `range` function is called the step size.
-    If not specified, it defaults to 1.
-</code></pre>
+<p><strong>aliases</strong> Multiple variables that contain references to the same object.</p>
+<p><strong>clone</strong> To create a new object that has the same value as an existing object. Copying a reference to an object creates an alias but doesn’t clone the object.</p>
+<p><strong>delimiter</strong> A character or string used to indicate where a string should be split.</p>
+<p><strong>element</strong> One of the values in a list (or other sequence). The bracket operator selects elements of a list. Also called <em>item</em>.</p>
+<p><strong>immutable data value</strong> A data value which cannot be modified. Assignments to elements or slices (sub-parts) of immutable values cause a runtime error.</p>
+<p><strong>index</strong> An integer value that indicates the position of an item in a list. Indexes start from 0.</p>
+<p><strong>item</strong> See <em>element</em>.</p>
+<p><strong>list</strong> A collection of values, each in a fixed position within the list. Like other types <code>str</code>, <code>int</code>, <code>float</code>, etc. there is also a <code>list</code> type-converter function that tries to turn whatever argument you give it into a list.</p>
+<p><strong>list traversal</strong> The sequential accessing of each element in a list.</p>
+<p><strong>modifier</strong> A function which changes its arguments inside the function body. Only mutable types can be changed by modifiers.</p>
+<p><strong>mutable data value</strong> A data value which can be modified. The types of all mutable values are compound types. Lists and dictionaries are mutable; strings and tuples are not.</p>
+<p><strong>nested list</strong> A list that is an element of another list.</p>
+<p><strong>object</strong> A thing to which a variable can refer.</p>
+<p><strong>pattern</strong> A sequence of statements, or a style of coding something that has general applicability in a number of different situations. Part of becoming a mature Computer Scientist is to learn and establish the patterns and algorithms that form your toolkit. Patterns often correspond to your “mental chunking”.</p>
+<p><strong>promise</strong> An object that promises to do some work or deliver some values if they’re eventually needed, but it lazily puts off doing the work immediately. Calling <code>range</code> produces a promise.</p>
+<p><strong>pure function</strong> A function which has no side effects. Pure functions only make changes to the calling program through their return values.</p>
+<p><strong>sequence</strong> Any of the data types that consist of an ordered collection of elements, with each element identified by an index.</p>
+<p><strong>side effect</strong> A change in the state of a program made by calling a function. Side effects can only be produced by modifiers.</p>
+<p><strong>step size</strong> The interval between successive elements of a linear sequence. The third (and optional argument) to the <code>range</code> function is called the step size. If not specified, it defaults to 1.</p>
 <h2>11.22. Exercises</h2>
 <ol type="1">
-<li><p>What is the Python interpreter’s response to the following?</p>
+<li>What is the Python interpreter’s response to the following?</li>
+</ol>
 <pre><code class="language-python">&gt;&gt;&gt; list(range(10, 0, -2))</code></pre>
-<p>The three arguments to the <em>range</em> function are <em>start</em>, <em>stop</em>, and <em>step</em>, respectively. In this example, <code>start</code> is greater than <code>stop</code>. What happens if <code>start &lt; stop</code> and <code>step &lt; 0</code>? Write a rule for the relationships among <code>start</code>, <code>stop</code>, and <code>step</code>.</p></li>
-<li><p>Consider this fragment of code:</p>
+<pre><code>The three arguments to the *range* function are *start*, *stop*, and *step*, respectively. In this example, `start` is greater than `stop`. What happens if `start &lt; stop` and `step &lt; 0`? Write a rule
+for the relationships among `start`, `stop`, and `step`.</code></pre>
+<ol start="2" type="1">
+<li>Consider this fragment of code:</li>
+</ol>
 <pre><code class="language-python">import turtle
 
 tess = turtle.Turtle()
 alex = tess
 alex.color(&quot;hotpink&quot;)</code></pre>
-<p>Does this fragment create one or two turtle instances? Does setting the color of <code>alex</code> also change the color of <code>tess</code>? Explain in detail.</p></li>
-<li><p>Draw a state snapshot for <code>a</code> and <code>b</code> before and after the third line of the following Python code is<br />
-executed:</p>
+<pre><code>Does this fragment create one or two turtle instances? Does setting the color of `alex` also change the color of `tess`? Explain in detail.</code></pre>
+<ol start="3" type="1">
+<li>Draw a state snapshot for <code>a</code> and <code>b</code> before and after the third line of the following Python code is<br />
+executed:</li>
+</ol>
 <pre><code class="language-python">a = [1, 2, 3]
 b = a[:]
-b[0] = 5</code></pre></li>
-<li><p>What will be the output of the following program?</p>
+b[0] = 5</code></pre>
+<ol start="4" type="1">
+<li>What will be the output of the following program?</li>
+</ol>
 <pre><code class="language-python">this = [&quot;I&quot;, &quot;am&quot;, &quot;not&quot;, &quot;a&quot;, &quot;crook&quot;]
 that = [&quot;I&quot;, &quot;am&quot;, &quot;not&quot;, &quot;a&quot;, &quot;crook&quot;]
 print(&quot;Test 1: {0}&quot;.format(this is that))
 that = this
 print(&quot;Test 2: {0}&quot;.format(this is that))</code></pre>
-<p>Provide a <em>detailed</em> explanation of the results.</p></li>
+<p>Provide a <em>detailed</em> explanation of the results.</p>
+<ol start="5" type="1">
 <li><p>Lists can be used to represent mathematical <em>vectors</em>. In this exercise and several that follow you will write functions to perform standard operations on vectors. Create a script named <code>vectors.py</code> and write Python code to pass the tests in each case.</p>
-<p>Write a function <code>add_vectors(u, v)</code> that takes two lists of numbers of the same length, and returns a new list containing the sums of the corresponding elements of each:</p>
+<p>Write a function <code>add_vectors(u, v)</code> that takes two lists of numbers of the same length, and returns a new list containing the sums of the corresponding elements of each:</p></li>
+</ol>
 <pre><code class="language-python">test(add_vectors([1, 1], [1, 1]) == [2, 2])
 test(add_vectors([1, 2], [1, 4]) == [2, 6])
-test(add_vectors([1, 2, 1], [1, 4, 3]) == [2, 6, 4])</code></pre></li>
-<li><p>Write a function <code>scalar_mult(s, v)</code> that takes a number, <code>s</code>, and a list, <code>v</code> and returns the <a href="http://en.wikipedia.org/wiki/Scalar_multiple">scalar multiple</a> of <code>v</code> by <code>s</code>. :</p>
+test(add_vectors([1, 2, 1], [1, 4, 3]) == [2, 6, 4])</code></pre>
+<ol start="6" type="1">
+<li>Write a function <code>scalar_mult(s, v)</code> that takes a number, <code>s</code>, and a list, <code>v</code> and returns the <a href="http://en.wikipedia.org/wiki/Scalar_multiple">scalar multiple</a> of <code>v</code> by <code>s</code>:</li>
+</ol>
 <pre><code class="language-python">test(scalar_mult(5, [1, 2]) == [5, 10])
 test(scalar_mult(3, [1, 0, -1]) == [3, 0, -3])
-test(scalar_mult(7, [3, 0, 5, 11, 2]) == [21, 0, 35, 77, 14])</code></pre></li>
-<li><p>Write a function <code>dot_product(u, v)</code> that takes two lists of numbers of the same length, and returns the sum of the products of the corresponding elements of each (the <a href="http://en.wikipedia.org/wiki/Dot_product">dot_product</a>).</p>
+test(scalar_mult(7, [3, 0, 5, 11, 2]) == [21, 0, 35, 77, 14])</code></pre>
+<ol start="7" type="1">
+<li>Write a function <code>dot_product(u, v)</code> that takes two lists of numbers of the same length, and returns the sum of the products of the corresponding elements of each (the <a href="http://en.wikipedia.org/wiki/Dot_product">dot_product</a>).</li>
+</ol>
 <pre><code class="language-python">test(dot_product([1, 1], [1, 1]) ==  2)
 test(dot_product([1, 2], [1, 4]) ==  9)
-test(dot_product([1, 2, 1], [1, 4, 3]) == 12)</code></pre></li>
-<li><p><em>Extra challenge for the mathematically inclined</em>: Write a function <code>cross_product(u, v)</code> that takes two lists of numbers of length 3 and returns their <a href="http://en.wikipedia.org/wiki/Cross_product">cross product</a>. You should write your own tests.</p></li>
-<li><p>Describe the relationship between <code>" ".join(song.split())</code> and <code>song</code> in the fragment of code below. Are they the same for all strings assigned to <code>song</code>? When would they be different?</p>
-<pre><code class="language-python">song = &quot;The rain in Spain...&quot;</code></pre></li>
-<li><p>Write a function <code>replace(s, old, new)</code> that replaces all occurrences of <code>old</code> with <code>new</code> in a string <code>s</code>:</p>
+test(dot_product([1, 2, 1], [1, 4, 3]) == 12)</code></pre>
+<ol start="8" type="1">
+<li><p><strong>Extra challenge for the mathematically inclined</strong>: Write a function <code>cross_product(u, v)</code> that takes two lists of numbers of length 3 and returns their <a href="http://en.wikipedia.org/wiki/Cross_product">cross product</a>. You should write your own tests.</p></li>
+<li><p>Describe the relationship between <code>" ".join(song.split())</code> and <code>song</code> in the fragment of code below. Are they the same for all strings assigned to <code>song</code>? When would they be different?</p></li>
+</ol>
+<pre><code class="language-python">song = &quot;The rain in Spain...&quot;</code></pre>
+<ol start="10" type="1">
+<li>Write a function <code>replace(s, old, new)</code> that replaces all occurrences of <code>old</code> with <code>new</code> in a string <code>s</code>:</li>
+</ol>
 <pre><code class="language-python">test(replace(&quot;Mississippi&quot;, &quot;i&quot;, &quot;I&quot;) == &quot;MIssIssIppI&quot;)
 
 s = &quot;I love spom! Spom is my favorite food. Spom, spom, yum!&quot;
@@ -585,8 +520,10 @@ test(replace(s, &quot;om&quot;, &quot;am&quot;) ==
 
 test(replace(s, &quot;o&quot;, &quot;a&quot;) ==
     &quot;I lave spam! Spam is my favarite faad. Spam, spam, yum!&quot;)</code></pre>
-<p><em>Hint</em>: use the <code>split</code> and <code>join</code> methods.</p></li>
-<li><p>Suppose you want to swap around the values in two variables. You decide to factor this out into a reusable function, and write this code:</p>
+<p><strong>Hint</strong>: use the <code>split</code> and <code>join</code> methods.</p>
+<ol start="11" type="1">
+<li>Suppose you want to swap around the values in two variables. You decide to factor this out into a reusable function, and write this code:</li>
+</ol>
 <pre><code class="language-python">def swap(x, y):      # Incorrect version
     print(&quot;before swap statement: x:&quot;, x, &quot;y:&quot;, y)
     (x, y) = (y, x)
@@ -597,8 +534,7 @@ b = [2,3,4]
 print(&quot;before swap function call: a:&quot;, a, &quot;b:&quot;, b)
 swap(a, b)
 print(&quot;after swap function call: a:&quot;, a, &quot;b:&quot;, b)</code></pre>
-<p>Run this program and describe the results. Oops! So it didn’t do what you intended! Explain why not. Using a Python visualizer like the one at http://pythontutor.com may help you build a good conceptual model of what is going on. What will be the values of <code>a</code> and <code>b</code> after the call to <code>swap</code>?</p></li>
-</ol>
+<p>Run this program and describe the results. Oops! So it didn’t do what you intended! Explain why not. Using a Python visualizer like the one at http://pythontutor.com may help you build a good conceptual model of what is going on. What will be the values of <code>a</code> and <code>b</code> after the call to <code>swap</code>?</p>
 <script type="text/javascript">
 /* PrismJS 1.23.0
 https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+css-extras+python&plugins=line-numbers+inline-color */
@@ -616,3 +552,4 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-i
 
 </body>
 </html>
+

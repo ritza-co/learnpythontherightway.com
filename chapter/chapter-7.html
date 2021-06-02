@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chapter 7 | Learn Python the Right Way</title>
-    <meta name="description" content="learn python the right way">
+    <meta name="description" content="Learn about Iteration in Chapter 7 of Learn Python the Right Way">
 
     <style type="text/css">
         figure {
@@ -239,7 +239,7 @@ test(sum_to(1000) == 500500)</code></pre>
 1</code></pre>
 <h2>7.9. Help and meta-notation</h2>
 <p>Python comes with extensive documentation for all its built-in functions, and its libraries. Different systems have different ways of accessing this help. In PyScripter, click on the Help menu item, and select Python Manuals. Then search for help on the built-in function <code>range</code>. You’ll get something like this:</p>
-<p><img src="Chapter-7/07-01-help_range.png?cache=bust" /></p>
+<p><img src="Chapter-7/07-01-help_range.png" /></p>
 <p>Notice the square brackets in the description of the arguments. These are examples of <strong>meta-notation</strong> — notation that describes Python syntax, but is not part of it. The square brackets in this documentation mean that the argument is optional — the programmer can omit it. So what this first line of help tells us is that <code>range</code> must always have a <code>stop</code> argument, but it may have an optional <code>start</code> argument (which must be followed by a comma if it is present), and it can also have an optional <code>step</code> argument, preceded by a comma if it is present.</p>
 <p>The examples from help show that <code>range</code> can have either 1, 2 or 3 arguments. The list can start at any starting value, and go up or down in increments other than 1. The documentation here also says that the arguments must be integers.</p>
 <p>Other meta-notation you’ll frequently encounter is the use of bold and italics. The bold means that these are tokens — keywords or symbols — typed into your Python code exactly as they are, whereas the italic terms stand for “something of this type”. So the syntax description</p>
@@ -634,17 +634,17 @@ test(is_prime(19911121))</code></pre></li>
 <li>Not all shapes like the one above can be drawn without lifting your pen, or going over an edge more than once. Which of these can be drawn?</li>
 </ol>
 <p><img src="Chapter-7/07-07-tess_more_houses.png" /></p>
-<p>Now read Wikipedia’s article(http://en.wikipedia.org/wiki/Eulerian_path) about Eulerian paths. Learn how to tell immediately by inspection whether it is possible to find a solution or not. If the path is possible, you’ll also know where to put your pen to start drawing, and where you should end up!</p>
+<p>Now read Wikipedia’s article (http://en.wikipedia.org/wiki/Eulerian_path) about Eulerian paths. Learn how to tell immediately by inspection whether it is possible to find a solution or not. If the path is possible, you’ll also know where to put your pen to start drawing, and where you should end up!</p>
 <ol start="14" type="1">
-<li><p>What will num_digits(0) return? Modify it to return 1 for this case. Why does a call to num_digits(-24) result in an infinite loop? (hint: -1//10 evaluates to -1) Modify num_digits so that it works correctly with any integer value. Add these tests:</p>
+<li><p>What will <code>num_digits(0)</code> return? Modify it to return 1 for this case. Why does a call to <code>num_digits(-24)</code> result in an infinite loop? (hint: -1//10 evaluates to -1) Modify <code>num_digits</code> so that it works correctly with any integer value. Add these tests:</p>
 <pre><code class="language-python">test(num_digits(0) == 1)
 test(num_digits(-12345) == 5)</code></pre></li>
-<li><p>Write a function num_even_digits(n) that counts the number of even digits in n. These tests should pass:</p>
+<li><p>Write a function <code>num_even_digits(n)</code> that counts the number of even digits in n. These tests should pass:</p>
 <pre><code class="language-python">test(num_even_digits(123456) == 3)
 test(num_even_digits(2468) == 4)
 test(num_even_digits(1357) == 0)
 test(num_even_digits(0) == 1)</code></pre></li>
-<li><p>Write a function sum_of_squares(xs) that computes the sum of the squares of the numbers in the list xs. For example, sum_of_squares([2, 3, 4]) should return 4+9+16 which is 29:</p>
+<li><p>Write a function <code>sum_of_squares(xs)</code> that computes the sum of the squares of the numbers in the list xs. For example, <code>sum_of_squares([2, 3, 4])</code> should return 4+9+16 which is 29:</p>
 <pre><code class="language-python">test(sum_of_squares([2, 3, 4]) == 29)
 test(sum_of_squares([ ]) == 0)
 test(sum_of_squares([2, -3, 4]) == 29)</code></pre></li>

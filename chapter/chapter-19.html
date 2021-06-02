@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>book</title>
-    <meta name="description" content="learn python the right way">
+    <title>Chapter 19 | Learn Python the Right Way</title>
+    <meta name="description" content="Learn about Exceptions in Chapter 19 of Learn Python the Right Way">
 
     <style type="text/css">
         figure {
@@ -35,14 +35,7 @@
  
 
 </head>
-
-<body>
-    <header><h1></h1>
-
-        <nav>
-        </nav>
-
-    </header><h1>Chapter 19: Exceptions</h1>
+<h1>Chapter 19: Exceptions</h1>
 <h2>19.1. Catching exceptions</h2>
 <p>Whenever a runtime error occurs, it creates an <strong>exception</strong> object. The program stops running at this point and Python prints out the traceback, which ends with a message describing the exception that occurred.</p>
 <p>For example, dividing by zero creates an exception:</p>
@@ -85,9 +78,7 @@ except:
 <p>A template to test if a file exists, without using exceptions</p>
 <p>The function we’ve just shown is not one we’d recommend. It opens and closes the file, which is semantically different from asking “does it exist?”. How? Firstly, it might update some timestamps on the file. Secondly, it might tell us that there is no such file if some other program already happens to have the file open, or if our permission settings don’t allow us to open the file.</p>
 <p>Python provides a module called <code>os.path</code> within the <code>os</code> module. It provides a number of useful functions to work with paths, files and directories, so you should check out the help.</p>
-<pre><code class="language-python">:linenos:
-
-import os
+<pre><code class="language-python">import os
 
 # This is the preferred way to check if a file exists.
 if os.path.isfile(&quot;c:/temp/testdata.txt&quot;):</code></pre>
@@ -121,7 +112,6 @@ ValueError: -2 is not a valid age</code></pre>
 
 recursion_depth(0)</code></pre>
 <p>Run this version and observe the results.</p>
-<pre><code class="language-python">.. index:: try ... except ... finally</code></pre>
 <h2>19.4. The <code>finally</code> clause of the <code>try</code> statement</h2>
 <p>A common programming pattern is to grab a resource of some kind — e.g. we create a window for turtles to draw on, or we dial up a connection to our internet service provider, or we may open a file for writing. Then we perform some computation which may raise an exception, or may work without any problems.</p>
 <p>Whatever happens, we want to “clean up” the resources we grabbed — e.g. close the window, disconnect our dial-up connection, or close the file. The <code>finally</code> clause of the <code>try</code> statement is the way to do just this. Consider this (somewhat contrived) example:</p>
@@ -181,3 +171,4 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-i
 
 </body>
 </html>
+

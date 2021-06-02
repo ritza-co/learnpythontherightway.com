@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>book</title>
-    <meta name="description" content="learn python the right way">
+    <title>Chapter 20 | Learn Python the Right Way</title>
+    <meta name="description" content="Learn about Dictionaries in Chapter 20 of Learn Python the Right Way">
 
     <style type="text/css">
         figure {
@@ -35,14 +35,7 @@
  
 
 </head>
-
-<body>
-    <header><h1></h1>
-
-        <nav>
-        </nav>
-
-    </header><h1>Chapter 20: Dictionaries</h1>
+<h1>Chapter 20: Dictionaries</h1>
 <p>All of the compound data types we have studied in detail so far — strings, lists, and tuples — are sequence types, which use integers as indices to access the values they contain within them.</p>
 <p><strong>Dictionaries</strong> are yet another kind of compound type. They are Python’s built-in <strong>mapping type</strong>. They map <strong>keys</strong>, which can be any immutable type, to values, which can be any type (heterogeneous), just like the elements of a list or tuple. In other languages, they are called associative arrays since they associate a key with a value.</p>
 <p>As an example, we will create a dictionary to translate English words into Spanish. For this dictionary, the keys are strings.</p>
@@ -73,7 +66,6 @@ Another way to create a dictionary is to provide a list of key:value pairs using
 &#39;dos&#39;</code></pre>
 <p>The key <code>"two"</code> yields the value <code>"dos"</code>.</p>
 <p>Lists, tuples, and strings have been called <em>sequences</em>, because their items occur in order. The dictionary is the first compound type that we’ve seen that is not a sequence, so we can’t index or slice a dictionary.</p>
-<pre><code class="language-python">.. index:: del statement, statement; del</code></pre>
 <h2>20.1. Dictionary operations</h2>
 <p>The <code>del</code> statement removes a key:value pair from a dictionary. For example, the following dictionary contains the names of various fruits and the number of each fruit in stock:</p>
 <pre><code class="language-python">&gt;&gt;&gt; inventory = {&quot;apples&quot;: 430, &quot;bananas&quot;: 312, &quot;oranges&quot;: 525, &quot;pears&quot;: 217}
@@ -135,7 +127,6 @@ False</code></pre>
 Traceback (most recent call last):
   ...
 KeyError: &#39;dog&#39;</code></pre>
-<pre><code class="language-python">.. index:: aliases</code></pre>
 <h2>20.3. Aliasing and copying</h2>
 <p>As in the case of lists, because dictionaries are mutable, we need to be aware of aliasing. Whenever two variables refer to the same object, changes to one affect the other.</p>
 <p>If we want to modify a dictionary and keep a copy of the original, use the <code>copy</code> method. For example, <code>opposites</code> is a dictionary that contains pairs of opposites:</p>
@@ -150,7 +141,6 @@ KeyError: &#39;dog&#39;</code></pre>
 <pre><code class="language-python">&gt;&gt;&gt; copy[&quot;right&quot;] = &quot;privilege&quot;
 &gt;&gt;&gt; opposites[&quot;right&quot;]
 &#39;left&#39;</code></pre>
-<pre><code>.. index:: matrix</code></pre>
 <h2>20.4. Sparse matrices</h2>
 <p>We previously used a list of lists to represent a matrix. That is a good choice for a matrix with mostly nonzero values, but consider a <a href="http://en.wikipedia.org/wiki/Sparse_matrix">sparse matrix</a> like this one:</p>
 <p><img src="Chapter-20/sparse.png" /></p>
@@ -177,7 +167,6 @@ KeyError: (1, 3)</code></pre>
 <pre><code class="language-python">&gt;&gt;&gt; matrix.get((1, 3), 0)
 0</code></pre>
 <p><code>get</code> definitely improves the semantics of accessing a sparse matrix. Shame about the syntax.</p>
-<pre><code>.. index:: memo</code></pre>
 <h2>20.5. Memoization</h2>
 <p>If you played around with the <code>fibo</code> function from the chapter on recursion, you might have noticed that the bigger the argument you provide, the longer the function takes to run. Furthermore, the run time increases very quickly. On one of our machines, <code>fib(20)</code> finishes instantly, <code>fib(30)</code> takes about a second, and <code>fib(40)</code> takes roughly forever.</p>
 <p>To understand why, consider this <strong>call graph</strong> for <code>fib</code> with <code>n = 4</code>:</p>
@@ -317,3 +306,4 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-i
 
 </body>
 </html>
+

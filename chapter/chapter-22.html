@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>book</title>
-    <meta name="description" content="learn python the right way">
+    <title>Chapter 22 | Learn Python the Right Way</title>
+    <meta name="description" content="Learn about Even more OOP in Chapter 22 of Learn Python the Right Way">
 
     <style type="text/css">
         figure {
@@ -35,14 +35,7 @@
  
 
 </head>
-
-<body>
-    <header><h1></h1>
-
-        <nav>
-        </nav>
-
-    </header><h1>Chapter 22: Even more OOP</h1>
+<h1>Chapter 22: Even more OOP</h1>
 <h2>22.1. MyTime</h2>
 <p>As another example of a user-defined type, we’ll define a class called <code>MyTime</code> that records the time of day. We’ll provide an <code>__init__</code> method to ensure that every instance is created with appropriate attributes and initialization. The class definition looks like this:</p>
 <pre><code class="language-python">class MyTime:
@@ -57,7 +50,6 @@
 <p>The state diagram for the object looks like this:</p>
 <p><img src="Chapter-22/time.png" /></p>
 <p>We’ll leave it as an exercise for the readers to add a <code>__str__</code> method so that MyTime objects can print themselves decently.</p>
-<pre><code>.. index:: function; pure</code></pre>
 <h2>22.2. Pure functions</h2>
 <p>In the next few sections, we’ll write two versions of a function called <code>add_time</code>, which calculates the sum of two <code>MyTime</code> objects. They will demonstrate two kinds of functions: pure functions and modifiers.</p>
 <p>The following is a rough version of <code>add_time</code>:</p>
@@ -94,7 +86,6 @@
     sum_t = MyTime(h, m, s)
     return sum_t</code></pre>
 <p>This function is starting to get bigger, and still doesn’t work for all possible cases. Later we will suggest an alternative approach that yields better code.</p>
-<pre><code>.. index:: modifier</code></pre>
 <h2>22.3. Modifiers</h2>
 <p>There are times when it is useful for a function to modify one or more of the objects it gets as parameters. Usually, the caller keeps a reference to the objects it passes, so any changes the function makes are visible to the caller. Functions that work this way are called <strong>modifiers</strong>.</p>
 <p><code>increment</code>, which adds a given number of seconds to a <code>MyTime</code> object, would be written most naturally as a modifier. A rough draft of the function looks like this:</p>
@@ -181,7 +172,6 @@ secs = leftoversecs % 60  </code></pre>
     secs = t1.to_seconds() + t2.to_seconds()
     return MyTime(0, 0, secs)</code></pre>
 <p>This version is much shorter than the original, and it is much easier to demonstrate or reason that it is correct.</p>
-<pre><code>.. index:: generalization</code></pre>
 <h2>22.6. Generalization</h2>
 <p>In some ways, converting from base 60 to base 10 and back is harder than just dealing with times. Base conversion is more abstract; our intuition for dealing with times is better.</p>
 <p>But if we have the insight to treat times as base 60 numbers and make the investment of writing the conversions, we get a program that is shorter, easier to read and debug, and more reliable.</p>
@@ -382,3 +372,4 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-i
 
 </body>
 </html>
+

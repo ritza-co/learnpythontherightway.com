@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>book</title>
-    <meta name="description" content="learn python the right way">
+    <title>Chapter 17 | Learn Python the Right Way</title>
+    <meta name="description" content="Learn about PyGame in Chapter 17 of Learn Python the Right Way">
 
     <style type="text/css">
         figure {
@@ -35,14 +35,7 @@
  
 
 </head>
-
-<body>
-    <header><h1></h1>
-
-        <nav>
-        </nav>
-
-    </header><h1>Chapter 17: PyGame</h1>
+<h1>Chapter 17: PyGame</h1>
 <p>PyGame is a package that is not part of the standard Python distribution, so if you do not already have it installed (i.e. <code>import pygame</code> fails), download and install a suitable version from http://pygame.org/download.shtml. These notes are based on PyGame 1.9.1, the most recent version at the time of writing.</p>
 <p>PyGame comes with a substantial set of tutorials, examples, and help, so there is ample opportunity to stretch yourself on the code. You may need to look around a bit to find these resources, though: if you’ve installed PyGame on a Windows machine, for example, they’ll end up in a folder like C:\Python31\Lib\site-packages\pygame\ where you will find directories for <em>docs</em> and <em>examples</em>.</p>
 <h2>17.1. The game loop</h2>
@@ -55,7 +48,6 @@
 <li>it draws the current state of the game into a (non-visible) surface,</li>
 <li>it puts the just-drawn surface on display.</li>
 </ul>
-
 <pre><code class="language-python">import pygame
 
 def main():
@@ -90,8 +82,6 @@ def main():
     pygame.quit()     # Once we leave the loop, close the window.
 
 main()</code></pre>
-
-
 <p>This program pops up a window which stays there until we close it:</p>
 <p><img src="Chapter-17/pygame_screenshot01.png" /></p>
 <p>PyGame does all its drawing onto rectangular <em>surfaces</em>. After initializing PyGame at line 5, we create a window holding our main surface. The main loop of the game extends from line 15 to 30, with the following key bits of logic:</p>
@@ -635,3 +625,4 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-i
 
 </body>
 </html>
+
