@@ -114,7 +114,7 @@ p.y = 6</code></pre>
 &gt;&gt;&gt; r = Point()       # r represents the origin (0, 0)
 &gt;&gt;&gt; print(p.x, q.y, r.x)
 4 3 0 </code></pre>
-<p>Technically speaking …</p>
+<p><strong>Technically speaking …</strong></p>
 <p>If we are really fussy, we would argue that the <code>__init__</code> method’s docstring is inaccurate. <code>__init__</code> doesn’t <em>create</em> the object (i.e. set aside memory for it), — it just initializes the object to its factory-default settings after its creation.</p>
 <p>But tools like PyScripter understand that instantiation — creation and initialization — happen together, and they choose to display the <em>initializer’s</em> docstring as the tooltip to guide the programmer that calls the class constructor.</p>
 <p>So we’re writing the docstring so that it makes the most sense when it pops up to help the programmer who is using our <code>Point</code> class:</p>
@@ -234,75 +234,41 @@ p.y = 6</code></pre>
 <p>Objects are most useful when we also need to keep some state that is updated from time to time. Consider a turtle object. Its state consists of things like its position, its heading, its color, and its shape. A method like <code>left(90)</code> updates the turtle’s heading, <code>forward</code> changes its position, and so on.</p>
 <p>For a bank account object, a main component of the state would be the current balance, and perhaps a log of all transactions. The methods would allow us to query the current balance, deposit new funds, or make a payment. Making a payment would include an amount, and a description, so that this could be added to the transaction log. We’d also want a method to show the transaction log.</p>
 <h2>15.11. Glossary</h2>
-<pre><code>attribute  
-    One of the named data items that makes up an instance.
-
-class  
-    A user-defined compound type. A class can also be thought of as a
-    template for the objects that are instances of it. (The iPhone is a
-    class. By December 2010, estimates are that 50 million instances had
-    been sold!)
-
-constructor  
-    Every class has a &quot;factory&quot;, called by the same name as the class, for
-    making new instances. If the class has an *initializer method*, this
-    method is used to get the attributes (i.e. the state) of the new object
-    properly set up.
-
-initializer method  
-    A special method in Python (called `__init__`) that is invoked
-    automatically to set a newly created object&#39;s attributes to their
-    initial (factory-default) state.
-
-instance  
-    An object whose type is of some class. Instance and object are used
-    interchangeably.
-
-instantiate  
-    To create an instance of a class, and to run its initializer.
-
-method  
-    A function that is defined inside a class definition and is invoked on
-    instances of that class.
-
-object  
-    A compound data type that is often used to model a thing or concept in
-    the real world. It bundles together the data and the operations that are
-    relevant for that kind of data. Instance and object are used
-    interchangeably.
-
-object-oriented programming  
-    A powerful style of programming in which data and the operations that
-    manipulate it are organized into objects.
-
-object-oriented language  
-    A language that provides features, such as user-defined classes and
-    inheritance, that facilitate object-oriented programming.
-</code></pre>
+<p><strong>attribute</strong> One of the named data items that makes up an instance.</p>
+<p><strong>class</strong> A user-defined compound type. A class can also be thought of as a template for the objects that are instances of it. (The iPhone is a class. By December 2010, estimates are that 50 million instances had been sold!)</p>
+<p><strong>constructor</strong> Every class has a “factory”, called by the same name as the class, for making new instances. If the class has an <em>initializer method</em>, this method is used to get the attributes (i.e. the state) of the new object properly set up.</p>
+<p><strong>initializer method</strong> A special method in Python (called <code>__init__</code>) that is invoked automatically to set a newly created object’s attributes to their initial (factory-default) state.</p>
+<p><strong>instance</strong> An object whose type is of some class. Instance and object are used interchangeably.</p>
+<p><strong>instantiate</strong> To create an instance of a class, and to run its initializer.</p>
+<p><strong>method</strong> A function that is defined inside a class definition and is invoked on instances of that class.</p>
+<p><strong>object</strong> A compound data type that is often used to model a thing or concept in the real world. It bundles together the data and the operations that are relevant for that kind of data. Instance and object are used interchangeably.</p>
+<p><strong>object-oriented programming</strong> A powerful style of programming in which data and the operations that manipulate it are organized into objects.</p>
+<p><strong>object-oriented language</strong> A language that provides features, such as user-defined classes and inheritance, that facilitate object-oriented programming.</p>
 <h2>15.12. Exercises</h2>
 <ol type="1">
 <li><p>Rewrite the <code>distance</code> function from the chapter titled <em>Fruitful functions</em> so that it takes two <code>Point</code>s as parameters instead of four numbers.</p></li>
 <li><p>Add a method <code>reflect_x</code> to <code>Point</code> which returns a new <code>Point</code>, one which is the reflection of the point about the x-axis. For example, <code>Point(3, 5).reflect_x()</code> is (3, -5)</p></li>
-<li><p>Add a method <code>slope_from_origin</code> which returns the slope of the line joining the origin to the point. For example, :</p>
-<pre><code>```python
-&gt;&gt;&gt; Point(4, 10).slope_from_origin()
-2.5 
-```    </code></pre>
-<p>What cases will cause this method to fail?</p></li>
-<li><p>The equation of a straight line is “y = ax + b”, (or perhaps “y = mx + c”). The coefficients a and b completely describe the line. Write a method in the <code>Point</code> class so that if a point instance is given another point, it will compute the equation of the straight ine joining the two points. It must return the two coefficients as a tuple of two values. For example, :</p>
-<pre><code>```python
-&gt;&gt;&gt; print(Point(4, 11).get_line_to(Point(6, 15))) 
-&gt;&gt;&gt; (2, 3)
-```</code></pre>
-<p>This tells us that the equation of the line joining the two points is “y = 2x + 3”. When will this method fail?</p></li>
+<li><p>Add a method <code>slope_from_origin</code> which returns the slope of the line joining the origin to the point. For example:</p></li>
+</ol>
+<pre><code class="language-python">&gt;&gt;&gt; Point(4, 10).slope_from_origin()
+2.5 </code></pre>
+<p>What cases will cause this method to fail?</p>
+<ol start="4" type="1">
+<li>The equation of a straight line is “y = ax + b”, (or perhaps “y = mx + c”). The coefficients a and b completely describe the line. Write a method in the <code>Point</code> class so that if a point instance is given another point, it will compute the equation of the straight ine joining the two points. It must return the two coefficients as a tuple of two values. For example, :</li>
+</ol>
+<pre><code class="language-python">&gt;&gt;&gt; print(Point(4, 11).get_line_to(Point(6, 15))) 
+&gt;&gt;&gt; (2, 3)</code></pre>
+<p>This tells us that the equation of the line joining the two points is “y = 2x + 3”. When will this method fail?</p>
+<ol start="5" type="1">
 <li><p>Given four points that fall on the circumference of a circle, find the midpoint of the circle. When will this function fail?</p>
 <p><em>Hint:</em> You <em>must</em> know how to solve the geometry problem <em>before</em> you think of going anywhere near programming. You cannot program a solution to a problem if you don’t understand what you want the computer to do!</p></li>
-<li><p>Create a new class, SMS_store. The class will instantiate SMS_store objects, similar to an inbox or outbox on a cellphone:</p>
-<pre><code>my_inbox = SMS_store()</code></pre>
+<li><p>Create a new class, SMS_store. The class will instantiate SMS_store objects, similar to an inbox or outbox on a cellphone:</p></li>
+</ol>
+<pre><code class="language-python">my_inbox = SMS_store()</code></pre>
 <p>This store can hold multiple SMS messages (i.e. its internal state will just be a list of messages). Each message will be represented as a tuple:</p>
-<pre><code>(has_been_viewed, from_number, time_arrived, text_of_SMS) </code></pre>
+<pre><code class="language-python">(has_been_viewed, from_number, time_arrived, text_of_SMS) </code></pre>
 <p>The inbox object should provide these methods:</p>
-<pre><code>my_inbox.add_new_arrival(from_number, time_arrived, text_of_SMS)    
+<pre><code class="language-python">my_inbox.add_new_arrival(from_number, time_arrived, text_of_SMS)    
   # Makes new SMS tuple, inserts it after other messages 
   # in the store. When creating this message, its 
   # has_been_viewed status is set False.
@@ -320,8 +286,7 @@ my_inbox.get_message(i)
 
 my_inbox.delete(i)     # Delete the message at index i
 my_inbox.clear()       # Delete all messages from inbox</code></pre>
-<p>Write the class, create a message store object, write tests for these methods, and implement the methods.</p></li>
-</ol>
+<p>Write the class, create a message store object, write tests for these methods, and implement the methods.</p>
 <script type="text/javascript">
 /* PrismJS 1.23.0
 https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+css-extras+python&plugins=line-numbers+inline-color */
