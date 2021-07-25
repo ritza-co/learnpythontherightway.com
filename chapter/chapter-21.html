@@ -193,24 +193,10 @@ print(&quot;Loaded {0} filenames for querying.&quot;.format(len(dict))) </code><
 <p>In the earliest chapters of the book we talked about composability: the ability to join together or <em>compose</em> different fragments of code and functionality to build more powerful constructs.</p>
 <p>This case study has shown an excellent example of this. Our JSON serializer and deserializer can link with our file mechanisms. The gzip compressor / decompressor can also present itself to our program as as if it was just a specialized stream of data, as one might get from reading a file. The end result is a very elegant composition of powerful tools. Instead of requiring separate steps for serializing the dictionary to a string, compressing the string, writing the resulting bytes to a file, etc., the composability has let us do it all very easily!</p>
 <h2>21.5. Glossary</h2>
-<pre><code>deserialization  
-    Reconstruction an in-memory object from some external text
-    representation
-
-gzip  
-    A lossless compression technique that reduces the storage size of data.
-    (Lossless means you can recover the original data exactly.)
-
-JSON  
-    JavaScript Object Notation is a format for serializing and transporting
-    objects, often used between web servers and web browsers that run
-    JavasScript. Python contains a `json` module to provide this capability.
-
-serialization  
-    Turning an object into a string (or bytes) so that it can be sent over
-    the internet, or saved in a file. The recipient can reconstruct a new
-    object from the data.
-</code></pre>
+<p><strong>deserialization</strong> Reconstruction an in-memory object from some external text representation</p>
+<p><strong>gzip</strong> A lossless compression technique that reduces the storage size of data. (Lossless means you can recover the original data exactly.)</p>
+<p><strong>JSON</strong> JavaScript Object Notation is a format for serializing and transporting objects, often used between web servers and web browsers that run JavasScript. Python contains a <code>json</code> module to provide this capability.</p>
+<p><strong>serialization</strong> Turning an object into a string (or bytes) so that it can be sent over the internet, or saved in a file. The recipient can reconstruct a new object from the data.</p>
 <script type="text/javascript">
 /* PrismJS 1.23.0
 https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+css-extras+python&plugins=line-numbers+inline-color */

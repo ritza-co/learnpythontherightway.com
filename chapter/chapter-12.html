@@ -376,8 +376,9 @@ test(myreplace(&quot; &quot;, &quot;**&quot;,
                  &quot;Words**will**now**be**separated**by**stars.&quot;)</code></pre>
 <p>Your solution should pass the tests.</p></li>
 <li><p>Create a module named <code>wordtools.py</code> with our test scaffolding in place.</p>
-<p>Now add functions to these tests pass:</p>
-<pre><code>test(cleanword(&quot;what?&quot;) == &quot;what&quot;)
+<p>Now add functions to these tests pass:</p></li>
+</ol>
+<pre><code class="language-python">test(cleanword(&quot;what?&quot;) == &quot;what&quot;)
 test(cleanword(&quot;&#39;now!&#39;&quot;) == &quot;now&quot;)
 test(cleanword(&quot;?+=&#39;w-o-r-d!,@$()&#39;&quot;) ==  &quot;word&quot;)
 
@@ -387,29 +388,23 @@ test(has_dashdash(&quot;spoke--&quot;))
 test(has_dashdash(&quot;distance--but&quot;))
 test(not has_dashdash(&quot;-yo-yo-&quot;))
 
-test(extract_words(&quot;Now is the time!  &#39;Now&#39;, is the time? Yes, now.&quot;) ==
-      [&#39;now&#39;,&#39;is&#39;,&#39;the&#39;,&#39;time&#39;,&#39;now&#39;,&#39;is&#39;,&#39;the&#39;,&#39;time&#39;,&#39;yes&#39;,&#39;now&#39;])
-test(extract_words(&quot;she tried to curtsey as she spoke--fancy&quot;) ==
-      [&#39;she&#39;,&#39;tried&#39;,&#39;to&#39;,&#39;curtsey&#39;,&#39;as&#39;,&#39;she&#39;,&#39;spoke&#39;,&#39;fancy&#39;])
+test(extract_words(&quot;Now is the time!  &#39;Now&#39;, is the time? Yes, now.&quot;) == [&#39;now&#39;,&#39;is&#39;,&#39;the&#39;,&#39;time&#39;,&#39;now&#39;,&#39;is&#39;,&#39;the&#39;,&#39;time&#39;,&#39;yes&#39;,&#39;now&#39;])
+test(extract_words(&quot;she tried to curtsey as she spoke--fancy&quot;) == [&#39;she&#39;,&#39;tried&#39;,&#39;to&#39;,&#39;curtsey&#39;,&#39;as&#39;,&#39;she&#39;,&#39;spoke&#39;,&#39;fancy&#39;])
 
 test(wordcount(&quot;now&quot;, [&quot;now&quot;,&quot;is&quot;,&quot;time&quot;,&quot;is&quot;,&quot;now&quot;,&quot;is&quot;,&quot;is&quot;]) == 2)
 test(wordcount(&quot;is&quot;, [&quot;now&quot;,&quot;is&quot;,&quot;time&quot;,&quot;is&quot;,&quot;now&quot;,&quot;the&quot;,&quot;is&quot;]) == 3)
 test(wordcount(&quot;time&quot;, [&quot;now&quot;,&quot;is&quot;,&quot;time&quot;,&quot;is&quot;,&quot;now&quot;,&quot;is&quot;,&quot;is&quot;]) == 1)
 test(wordcount(&quot;frog&quot;, [&quot;now&quot;,&quot;is&quot;,&quot;time&quot;,&quot;is&quot;,&quot;now&quot;,&quot;is&quot;,&quot;is&quot;]) == 0)
-
-test(wordset([&quot;now&quot;, &quot;is&quot;, &quot;time&quot;, &quot;is&quot;, &quot;now&quot;, &quot;is&quot;, &quot;is&quot;]) ==
-      [&quot;is&quot;, &quot;now&quot;, &quot;time&quot;])
-test(wordset([&quot;I&quot;, &quot;a&quot;, &quot;a&quot;, &quot;is&quot;, &quot;a&quot;, &quot;is&quot;, &quot;I&quot;, &quot;am&quot;]) ==
-      [&quot;I&quot;, &quot;a&quot;, &quot;am&quot;, &quot;is&quot;])
-test(wordset([&quot;or&quot;, &quot;a&quot;, &quot;am&quot;, &quot;is&quot;, &quot;are&quot;, &quot;be&quot;, &quot;but&quot;, &quot;am&quot;]) ==
-      [&quot;a&quot;, &quot;am&quot;, &quot;are&quot;, &quot;be&quot;, &quot;but&quot;, &quot;is&quot;, &quot;or&quot;])
+    
+test(wordset([&quot;now&quot;, &quot;is&quot;, &quot;time&quot;, &quot;is&quot;, &quot;now&quot;, &quot;is&quot;, &quot;is&quot;]) == [&quot;is&quot;, &quot;now&quot;, &quot;time&quot;])
+test(wordset([&quot;I&quot;, &quot;a&quot;, &quot;a&quot;, &quot;is&quot;, &quot;a&quot;, &quot;is&quot;, &quot;I&quot;, &quot;am&quot;]) == [&quot;I&quot;, &quot;a&quot;, &quot;am&quot;, &quot;is&quot;])
+test(wordset([&quot;or&quot;, &quot;a&quot;, &quot;am&quot;, &quot;is&quot;, &quot;are&quot;, &quot;be&quot;, &quot;but&quot;, &quot;am&quot;]) == [&quot;a&quot;, &quot;am&quot;, &quot;are&quot;, &quot;be&quot;, &quot;but&quot;, &quot;is&quot;, &quot;or&quot;])
 
 test(longestword([&quot;a&quot;, &quot;apple&quot;, &quot;pear&quot;, &quot;grape&quot;]) == 5)
 test(longestword([&quot;a&quot;, &quot;am&quot;, &quot;I&quot;, &quot;be&quot;]) == 2)
 test(longestword([&quot;this&quot;,&quot;supercalifragilisticexpialidocious&quot;]) == 34)
 test(longestword([ ]) == 0)</code></pre>
-<p>Save this module so you can use the tools it contains in future programs.</p></li>
-</ol>
+<p>Save this module so you can use the tools it contains in future programs.</p>
 <script type="text/javascript">
 /* PrismJS 1.23.0
 https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+css-extras+python&plugins=line-numbers+inline-color */
