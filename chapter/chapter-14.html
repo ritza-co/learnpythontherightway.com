@@ -152,9 +152,9 @@ print(&quot;There are {0} words in the book, the first 100 are\n{1}&quot;.
 <p>We wait a considerable time now, something like a minute, before Python finally works its way through this, and prints a list of 3398 words in the book that are not in the vocabulary. Mmm… This is not particularly scaleable. For a vocabulary that is twenty times larger (you’ll often find school dictionaries with 300 000 words, for example), and longer books, this is going to be slow. So let us make some timing measurements while we think about how we can improve this in the next section.</p>
 <pre><code class="language-python">import time
 
-t0 = time.clock()
+t0 = time.process_time()
 missing_words = find_unknown_words(bigger_vocab, book_words) 
-t1 = time.clock()
+t1 = time.process_time()
 print(&quot;There are {0} unknown words.&quot;.format(len(missing_words)))
 print(&quot;That took {0:.4f} seconds.&quot;.format(t1-t0))</code></pre>
 <p>We get the results and some timing that we can refer back to later:</p>
@@ -197,9 +197,9 @@ for (i, v) in enumerate(xs):
             ub = mid_index        # Use lower half of ROI next time</code></pre>
 <p>The region of interest is represented by two variables, a lower bound <code>lb</code> and an upper bound <code>ub</code>. It is important to be precise about what values these indexes have. We’ll make <code>lb</code> hold the index of the first item in the ROI, and make <code>ub</code> hold the index just <em>beyond</em> the last item of interest. So these semantics are similar to a Python slice semantics: the region of interest is exactly the slice <code>xs[lb:ub]</code>. (The algorithm never actually takes any array slices!)</p>
 <p>With this code in place, our tests pass. Great. Now if we substitute a call to this search algorithm instead of calling the <code>search_linear</code> in <code>find_unknown_words</code>, can we improve our performance? Let’s do that, and again run this test:</p>
-<pre><code class="language-python">t0 = time.clock()
+<pre><code class="language-python">t0 = time.process_time()
 missing_words = find_unknown_words(bigger_vocab, book_words) 
-t1 = time.clock()
+t1 = time.process_time()
 print(&quot;There are {0} unknown words.&quot;.format(len(missing_words)))
 print(&quot;That took {0:.4f} seconds.&quot;.format(t1-t0))</code></pre>
 <p>What a spectacular difference! More than 200 times faster!</p>

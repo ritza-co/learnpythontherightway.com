@@ -118,8 +118,8 @@ print(xs)</code></pre>
 <p>Even this function has its pitfalls. Can you spot what is going to happen in this case?</p>
 <pre><code class="language-python">xs = make_random_ints_no_dups(10, 1, 6)</code></pre>
 <h2>12.2. The <code>time</code> module</h2>
-<p>As we start to work with more sophisticated algorithms and bigger programs, a natural concern is <em>“is our code efficient?”</em> One way to experiment is to time how long various operations take. The <code>time</code> module has a function called <code>clock</code> that is recommended for this purpose. Whenever <code>clock</code> is called, it returns a floating point number representing how many seconds have elapsed since your program started running.</p>
-<p>The way to use it is to call <code>clock</code> and assign the result to a variable, say <code>t0</code>, just before you start executing the code you want to measure. Then after execution, call <code>clock</code> again, (this time we’ll save the result in variable <code>t1</code>). The difference <code>t1-t0</code> is the time elapsed, and is a measure of how fast your program is running.</p>
+<p>As we start to work with more sophisticated algorithms and bigger programs, a natural concern is <em>“is our code efficient?”</em> One way to experiment is to time how long various operations take. The <code>time</code> module has a function called <code>process_time</code> that is recommended for this purpose. Whenever <code>process_time</code> is called, it returns a floating point number representing how many seconds have elapsed since your program started running.</p>
+<p>The way to use it is to call <code>process_time</code> assign the result to a variable, say <code>t0</code>, just before you start executing the code you want to measure. Then after execution, call <code>process_time</code> again, (this time we’ll save the result in variable <code>t1</code>). The difference <code>t1-t0</code> is the time elapsed, and is a measure of how fast your program is running.</p>
 <p>Let’s try a small example. Python has a built-in <code>sum</code> function that can sum the elements in a list. We can also write our own. How do we think they would compare for speed? We’ll try to do the summation of a list [0, 1, 2 …] in both cases, and compare the results:</p>
 <pre><code class="language-python">import time
 
@@ -132,15 +132,15 @@ def do_my_sum(xs):
 sz = 10000000        # Lets have 10 million elements in the list
 testdata = range(sz)
 
-t0 = time.clock()
+t0 = time.process_time()
 my_result = do_my_sum(testdata)
-t1 = time.clock()
+t1 = time.process_time()
 print(&quot;my_result    = {0} (time taken = {1:.4f} seconds)&quot;
         .format(my_result, t1-t0))
 
-t2 = time.clock()
+t2 = time.process_time()
 their_result = sum(testdata)
-t3 = time.clock()
+t3 = time.process_time()
 print(&quot;their_result = {0} (time taken = {1:.4f} seconds)&quot;
         .format(their_result, t3-t2))</code></pre>
 <p>On a reasonably modest laptop, we get these results:</p>

@@ -100,7 +100,7 @@ main()</code></pre>
 <p>So in the setup section, before we enter the game loop, we’d load the image, like this:</p>
 <pre><code class="language-python">ball = pygame.image.load(&quot;ball.png&quot;)</code></pre>
 <p>and after line 28 in the program above, we’d add this code to display our image at position (100,120):</p>
-<pre><code class="language-python">main_surface.blit(ball, (100, 120))</code></pre>
+<pre><code class="language-python">main_surface.blit(ball, (50, 70))</code></pre>
 <p>To display text, we need do do three things. Before we enter the game loop, we instantiate a <code>font</code> object:</p>
 <pre><code class="language-python"># Instantiate 16 point Courier font to draw text.
 my_font = pygame.font.SysFont(&quot;Courier&quot;, 16) </code></pre>
@@ -108,6 +108,7 @@ my_font = pygame.font.SysFont(&quot;Courier&quot;, 16) </code></pre>
 <pre><code class="language-python">the_text = my_font.render(&quot;Hello, world!&quot;, True, (0,0,0))
 main_surface.blit(the_text, (10, 10))</code></pre>
 <p>We’ll demonstrate these two new features by counting the frames — the iterations of the game loop — and keeping some timing information. On each frame, we’ll display the frame count, and the frame rate. We will only update the frame rate after every 500 frames, when we’ll look at the timing interval and can do the calculations.</p>
+<p>First download an image of a beach ball. You can find one at https://learnpythontherightway.com/_downloads/ball.png. Upload it to your repl by using the “Upload file” menu. Now you can run the following code.</p>
 <pre><code class="language-python">import pygame     
 import time
 
@@ -125,7 +126,7 @@ def main():
 
     frame_count = 0
     frame_rate = 0
-    t0 = time.clock()
+    t0 = time.process_time()
 
     while True:
 
@@ -137,7 +138,7 @@ def main():
         # Do other bits of logic for the game here
         frame_count += 1
         if frame_count % 500 == 0:
-            t1 = time.clock()
+            t1 = time.process_time()
             frame_rate = 500 / (t1-t0)
             t0 = t1
 
@@ -148,7 +149,7 @@ def main():
         main_surface.fill((255,0,0), (300, 100, 150, 90))
 
         # Copy our image to the surface, at this (x,y) posn
-        main_surface.blit(ball, (100, 120))
+        main_surface.blit(ball, (50, 70))
 
         # Make a new surface with an image of the text
         the_text = my_font.render(&quot;Frame = {0},  rate = {1:.2f} fps&quot;
@@ -199,9 +200,8 @@ for row in range(n):           # Draw each row of the board.
 <pre><code class="language-python">for (col, row) in enumerate(the_board):
     # draw a queen at col, row...</code></pre>
 <p>In this chapter we already have a beach ball image, so we’ll use that for our queens. In the setup code before our game loop, we load the ball image (as we did before), and in the body of the loop, we add the line:</p>
-<pre><code class="language-python">surface.blit(ball, (col * sq_sz, row * sq_sz))
-
-.. image:: illustrations/pygame_screenshot04.png</code></pre>
+<pre><code class="language-python">surface.blit(ball, (col * sq_sz, row * sq_sz))</code></pre>
+<p><img src="Chapter-17/pygame_screenshot04.png" /></p>
 <p>We’re getting there, but those queens need to be centred in their squares! Our problem arises from the fact that both the ball and the rectangle have their upper left corner as their reference points. If we’re going to centre this ball in the square, we need to give it an extra offset in both the x and y direction. (Since the ball is round and the square is square, the offset in the two directions will be the same, so we’ll just compute a single offset value, and use it in both directions.)</p>
 <p>The offset we need is half the (size of the square less the size of the ball). So we’ll precompute this in the game’s setup section, after we’ve loaded the ball and determined the square size:</p>
 <pre><code class="language-python">ball_offset = (sq_sz - ball.get_width()) // 2</code></pre>
@@ -264,7 +264,7 @@ if __name__ == &quot;__main__&quot;:
     draw_board([9, 6, 0, 3, 10, 7, 2, 4, 12, 8, 11, 5, 1])  # 13 x 13
     draw_board([11, 4, 8, 12, 2, 7, 3, 15, 0, 14, 10, 6, 13, 1, 5, 9])</code></pre>
 <p>There is one more thing worth reviewing here. The conditional statement on line 50 tests whether the name of the currently executing program is <code>__main__</code>. This allows us to distinguish whether this module is being run as a main program, or whether it has been imported elsewhere, and used as a module. If we run this module in Python, the test cases in lines 51-54 will be executed. However, if we import this module into another program (i.e. our N queens solver from earlier) the condition at line 50 will be false, and the statements on lines 51-54 won’t run.</p>
-<p>In the section <code>eightqueensmainprog</code> our main program looked like this:</p>
+<p>In Chapter 14, (14.9. Eight Queens puzzle, part 2) our main program looked like this:</p>
 <pre><code class="language-python">def main():
 
     bd = list(range(8))     # Generate the initial permutation
@@ -280,7 +280,7 @@ if __name__ == &quot;__main__&quot;:
 
 main()</code></pre>
 <p>Now we just need two changes. At the top of that program, we import the module that we’ve been working on here (assume we called it <code>draw_queens</code>). (You’ll have to ensure that the two modules are saved in the same folder.) Then after line 10 here we add a call to draw the solution that we’ve just discovered:</p>
-<pre><code>draw_queens.draw_board(bd)</code></pre>
+<pre><code class="language-python">draw_queens.draw_board(bd)</code></pre>
 <p>And that gives a very satisfying combination of program that can search for solutions to the N queens problem, and when it finds each, it pops up the board showing the solution.</p>
 <h2>17.4. Sprites</h2>
 <p>A sprite is an object that can move about in a game, and has internal behaviour and state of its own. For example, a spaceship would be a sprite, the player would be a sprite, and bullets and bombs would all be sprites.</p>
@@ -556,50 +556,15 @@ all_sprites.append(duke2)</code></pre>
 <h2>17.8. Reflections</h2>
 <p>Object oriented programming is a good organizational tool for software. In the examples in this chapter, we’ve started to use (and hopefully appreciate) these benefits. Here we had N queens each with its own state, falling to its own floor level, bouncing, getting kicked, etc. We might have managed without the organizational power of objects — perhaps we could have kept lists of velocities for each queen, and lists of target positions, and so on — our code would likely have been much more complicated, ugly, and a lot poorer!</p>
 <h2>17.9. Glossary</h2>
-<pre><code>animation rate  
-    The rate at which we play back successive patches to create the illusion
-    of movement. In the sample we considered in this chapter, we played
-    Duke&#39;s 10 patches over the duration of one second. Not the same as the
-    frame rate.
-
-baked animation  
-    An animation that is designed to look good at a predetermined fixed
-    frame rate. This reduces the amount of computation that needs to be done
-    when the game is running. High-end commercial games usually bake their
-    animations.
-
-blit  
-    A verb used in computer graphics, meaning to make a fast copy of an
-    image or pixels from a sub-rectangle of one image or surface to another
-    surface or image.
-
-frame rate  
-    The rate at which the game loop executes and updates the display.
-
-game loop  
-    A loop that drives the logic of a game. It will usually poll for events,
-    then update each of the objects in the game, then get everything drawn,
-    and then put the newly drawn frame on display.
-
-pixel  
-    A single picture element, or dot, from which images are made.
-
-poll  
-    To ask whether something like a keypress or mouse movement has happened.
-    Game loops usually poll to discover what events have occurred. This is
-    different from event-driven programs like the ones seen in the chapter
-    titled &quot;Events&quot;. In those cases, the button click or keypress event
-    triggers the call of a handler function in your program, but this
-    happens behind your back.
-
-sprite  
-    An active agent or element in a game, with its own state, position and
-    behaviour.
-
-surface  
-    This is PyGame&#39;s term for what the Turtle module calls a *canvas*. A
-    surface is a rectangle of pixels used for displaying shapes and images.
-</code></pre>
+<p><strong>animation rate</strong> The rate at which we play back successive patches to create the illusion of movement. In the sample we considered in this chapter, we played Duke’s 10 patches over the duration of one second. Not the same as the frame rate.</p>
+<p><strong>baked animation</strong> An animation that is designed to look good at a predetermined fixed frame rate. This reduces the amount of computation that needs to be done when the game is running. High-end commercial games usually bake their animations.</p>
+<p><strong>blit</strong> A verb used in computer graphics, meaning to make a fast copy of an image or pixels from a sub-rectangle of one image or surface to another surface or image.</p>
+<p><strong>frame rate</strong> The rate at which the game loop executes and updates the display.</p>
+<p><strong>game loop</strong> A loop that drives the logic of a game. It will usually poll for events, then update each of the objects in the game, then get everything drawn, and then put the newly drawn frame on display.</p>
+<p><strong>pixel</strong> A single picture element, or dot, from which images are made.</p>
+<p><strong>poll</strong> To ask whether something like a keypress or mouse movement has happened. Game loops usually poll to discover what events have occurred. This is different from event-driven programs like the ones seen in the chapter titled “Events”. In those cases, the button click or keypress event triggers the call of a handler function in your program, but this happens behind your back.</p>
+<p><strong>sprite</strong> An active agent or element in a game, with its own state, position and behaviour.</p>
+<p><strong>surface</strong> This is PyGame’s term for what the Turtle module calls a <em>canvas</em>. A surface is a rectangle of pixels used for displaying shapes and images.</p>
 <h2>17.10. Exercises</h2>
 <ol type="1">
 <li>Have fun with Python, and with PyGame.</li>

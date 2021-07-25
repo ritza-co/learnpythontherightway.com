@@ -75,7 +75,7 @@ except:
         return False </code></pre>
 <p>.. The try statement in this function was already introduced previously (the same code), so I thought it would be appropriate to add an else clause here.</p>
 <p>pw: HI Victor - I looked at the else: and went against it! It is just a horrible language feature in my view. Not only do we complicate things by overload the keyword else (here, in the if, and in the for loop), but it adds no new expressive power over just doing the “didn’t get an exception” inline. And the allowable combinations are hard to explain. You can omit the except clause if you have a finally clause. But you cannot have the else if you omit except, … and so on. Too much risk for too little return, in my view.</p>
-<p>A template to test if a file exists, without using exceptions</p>
+<p><strong>A template to test if a file exists, without using exceptions</strong></p>
 <p>The function we’ve just shown is not one we’d recommend. It opens and closes the file, which is semantically different from asking “does it exist?”. How? Firstly, it might update some timestamps on the file. Secondly, it might tell us that there is no such file if some other program already happens to have the file open, or if our permission settings don’t allow us to open the file.</p>
 <p>Python provides a module called <code>os.path</code> within the <code>os</code> module. It provides a number of useful functions to work with paths, files and directories, so you should check out the help.</p>
 <pre><code class="language-python">import os
